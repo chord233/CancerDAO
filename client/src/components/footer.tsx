@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Twitter, MessageCircle, Send, FileText } from "lucide-react";
+import { X, MessageCircle, Send, FileText } from "lucide-react";
 
 export function Footer() {
   return (
@@ -23,7 +23,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="text-purple-400 hover:text-purple-300 transition-colors"
               >
-                <Twitter className="h-5 w-5" />
+                <X className="h-5 w-5" />
               </a>
               <a 
                 href="https://discord.gg/cancerdao" 
