@@ -29,7 +29,7 @@ export function Footer() {
                 href="https://discord.gg/cancerdao" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-purple-400 transition-colors"
+                className="text-purple-400 hover:text-purple-300 transition-colors"
               >
                 <MessageCircle className="h-5 w-5" />
               </a>
@@ -37,7 +37,7 @@ export function Footer() {
                 href="https://t.me/cancerdao" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-purple-400 transition-colors"
+                className="text-purple-400 hover:text-purple-300 transition-colors"
               >
                 <Send className="h-5 w-5" />
               </a>
@@ -45,7 +45,7 @@ export function Footer() {
                 href="https://medium.com/@cancerdao" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-purple-400 transition-colors"
+                className="text-purple-400 hover:text-purple-300 transition-colors"
               >
                 <FileText className="h-5 w-5" />
               </a>
