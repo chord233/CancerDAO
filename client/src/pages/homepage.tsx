@@ -177,9 +177,9 @@ export default function Homepage() {
                 <p className="text-center font-semibold text-gray-900">AI 平台</p>
                 <p className="text-sm text-gray-600 text-center max-w-32">智能分析与预测</p>
               </div>
-              
+
               <ArrowRight className="h-8 w-8 text-purple-500 transform lg:rotate-0 rotate-90" />
-              
+
               <div className="flex flex-col items-center">
                 <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-3 pulse-glow">
                   <Shield className="h-12 w-12 text-white" />
@@ -187,9 +187,9 @@ export default function Homepage() {
                 <p className="text-center font-semibold text-gray-900">区块链 Medical ID</p>
                 <p className="text-sm text-gray-600 text-center max-w-32">数据安全与主权</p>
               </div>
-              
+
               <ArrowRight className="h-8 w-8 text-purple-500 transform lg:rotate-0 rotate-90" />
-              
+
               <div className="flex flex-col items-center">
                 <div className="w-24 h-24 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center mb-3 pulse-glow">
                   <Database className="h-12 w-12 text-white" />
@@ -197,9 +197,9 @@ export default function Homepage() {
                 <p className="text-center font-semibold text-gray-900">去中心化数据库</p>
                 <p className="text-sm text-gray-600 text-center max-w-32">共享与协作</p>
               </div>
-              
+
               <ArrowRight className="h-8 w-8 text-purple-500 transform lg:rotate-0 rotate-90" />
-              
+
               <div className="flex flex-col items-center">
                 <div className="w-24 h-24 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mb-3 pulse-glow">
                   <Cpu className="h-12 w-12 text-white" />
@@ -503,9 +503,14 @@ export default function Homepage() {
               <Button className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 py-3">
                 加入 Discord 社区
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600 px-8 py-3">
-                关注我们的 Twitter
-              </Button>
+              <Button 
+              
+              className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white"
+              onClick={() => window.open('https://twitter.com/cancerdao', '_blank')}
+            >
+              
+              关注我们的 Twitter
+            </Button>
             </div>
           </div>
         </div>
