@@ -5,28 +5,37 @@
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(222.2, 84%, 4.9%);
-  --muted: hsl(210, 40%, 98%);
+  --muted: hsl(272, 100%, 96%);
   --muted-foreground: hsl(215.4, 16.3%, 46.9%);
   --popover: hsl(0, 0%, 100%);
   --popover-foreground: hsl(222.2, 84%, 4.9%);
   --card: hsl(0, 0%, 100%);
   --card-foreground: hsl(222.2, 84%, 4.9%);
-  --border: hsl(214.3, 31.8%, 91.4%);
-  --input: hsl(214.3, 31.8%, 91.4%);
-  --primary: hsl(221.2, 83.2%, 53.3%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(210, 40%, 98%);
-  --secondary-foreground: hsl(222.2, 84%, 4.9%);
-  --accent: hsl(210, 40%, 98%);
-  --accent-foreground: hsl(222.2, 84%, 4.9%);
-  --destructive: hsl(0, 84.2%, 60.2%);
-  --destructive-foreground: hsl(60, 9.1%, 97.8%);
-  --ring: hsl(222.2, 84%, 4.9%);
-  --radius: 0.5rem;
-  --brand-50: hsl(214, 100%, 97%);
-  --brand-500: hsl(221.2, 83.2%, 53.3%);
-  --brand-600: hsl(221.2, 83.2%, 43.3%);
-  --brand-700: hsl(221.2, 83.2%, 33.3%);
+  --border: hsl(272, 100%, 91%);
+  --input: hsl(272, 100%, 96%);
+  --primary: hsl(272, 100%, 79%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(272, 100%, 96%);
+  --secondary-foreground: hsl(272, 100%, 39%);
+  --accent: hsl(52, 100%, 48%);
+  --accent-foreground: hsl(0, 0%, 0%);
+  --destructive: hsl(11, 95%, 58%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --ring: hsl(272, 100%, 79%);
+  --radius: 0.75rem;
+  
+  /* CancerDAO Brand Colors */
+  --brand-primary: #e7d1ff;     /* Light purple */
+  --brand-secondary: #c9a4ff;   /* Medium purple */
+  --brand-accent: #fad000;      /* Yellow */
+  --brand-danger: #fc593d;      /* Red/orange */
+  --brand-purple: #c9a4ff;      /* Purple variant */
+  
+  /* Additional theme variations */
+  --brand-primary-dark: #d4b8ff;
+  --brand-secondary-dark: #b085ff;
+  --brand-accent-dark: #e6c000;
+  --brand-danger-dark: #e04728;
 }
 
 .dark {
@@ -67,27 +76,71 @@
 }
 
 @layer components {
-  .pipeline-stage {
-    @apply bg-slate-50 p-4 rounded-lg min-h-[200px];
+  .hero-section {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
   }
   
-  .deal-card {
-    @apply bg-white p-3 rounded-lg border border-slate-200 cursor-move hover:shadow-md transition-shadow;
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      rgba(231, 209, 255, 0.9) 0%,
+      rgba(201, 164, 255, 0.9) 50%,
+      rgba(250, 208, 0, 0.1) 100%
+    );
   }
   
-  .deal-card:hover {
-    @apply border-slate-300;
+  .feature-card {
+    @apply bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-purple-200 hover:shadow-xl transition-all duration-300 hover:scale-105;
   }
   
-  .metric-card {
-    @apply bg-white p-6 rounded-xl shadow-sm border border-slate-200;
+  .nav-item {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-purple-100 hover:text-purple-700;
   }
   
-  .sidebar-nav-item {
-    @apply flex items-center space-x-3 px-4 py-3 text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors;
+  .nav-item.active {
+    @apply bg-purple-200 text-purple-800;
   }
   
-  .sidebar-nav-item.active {
-    @apply text-blue-600 bg-blue-50 font-medium;
+  .btn-primary {
+    background: linear-gradient(135deg, var(--brand-secondary) 0%, var(--brand-purple) 100%);
+    @apply text-white font-semibold py-3 px-6 rounded-xl hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-xl hover:scale-105 transition-all duration-200 shadow-lg;
+  }
+  
+  .section-bg {
+    background: linear-gradient(
+      180deg,
+      rgba(231, 209, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.8) 100%
+    );
+  }
+  
+  .problem-card {
+    @apply bg-white/90 backdrop-blur-sm p-6 rounded-xl border-l-4 border-red-400 shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  .solution-card {
+    @apply bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-purple-200 hover:border-purple-300 shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  .floating-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes pulseGlow {
+    0% { box-shadow: 0 0 20px rgba(201, 164, 255, 0.3); }
+    100% { box-shadow: 0 0 40px rgba(201, 164, 255, 0.6); }
   }
 }
