@@ -21,7 +21,7 @@ export function Footer() {
                 href="https://twitter.com/cancerdao" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-purple-400 transition-colors"
+                className="text-purple-400 hover:text-purple-300 transition-colors"
               >
                 <Twitter className="h-5 w-5" />
               </a>
