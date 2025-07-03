@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoImage from "@assets/透明底_1751544807451.png";
 
 const navigation = [
   { name: "关于我们", href: "/about" },
@@ -23,24 +24,12 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/">
-            <div className="flex items-center space-x-3 cursor-pointer">
+            <div className="flex items-center cursor-pointer">
               <img 
-                src="/src/assets/logo.png" 
+                src={logoImage} 
                 alt="CancerDAO" 
                 className="h-10 w-auto"
-                onError={(e) => {
-                  // Fallback to text logo if image fails to load
-                  e.currentTarget.style.display = 'none';
-                  const textLogo = e.currentTarget.nextElementSibling as HTMLElement;
-                  if (textLogo) textLogo.style.display = 'block';
-                }}
               />
-              <div 
-                className="hidden text-2xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent"
-                style={{ display: 'none' }}
-              >
-                CancerDAO
-              </div>
             </div>
           </Link>
 
