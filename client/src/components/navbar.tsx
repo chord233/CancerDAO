@@ -3,19 +3,22 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const navigation = [
-  { name: "关于我们", href: "/about" },
-  { name: "解决方案", href: "/solution" },
-  { name: "面向个人", href: "/for-individuals" },
-  { name: "面向伙伴", href: "/for-partners" },
-  { name: "社区", href: "/community" },
-  { name: "资源中心", href: "/resources" },
-];
+import { useLanguage } from "@/contexts/language-context";
+import { LanguageSwitcher } from "@/components/language-switcher";
 
 export function Navbar() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const navigation = [
+    { name: t('nav.about'), href: "/about" },
+    { name: t('nav.solution'), href: "/solution" },
+    { name: t('nav.individuals'), href: "/for-individuals" },
+    { name: t('nav.partners'), href: "/for-partners" },
+    { name: t('nav.community'), href: "/community" },
+    { name: t('nav.resources'), href: "/resources" },
+  ];
 
   return (
     <nav className="bg-white/90 backdrop-blur-md border-b border-purple-100 sticky top-0 z-50">
@@ -60,11 +63,12 @@ export function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitcher />
             <Button 
               className="btn-primary"
               onClick={() => document.getElementById('join-community')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              加入社区
+              {t('nav.join')}
             </Button>
           </div>
 
@@ -99,7 +103,10 @@ export function Navbar() {
                   </span>
                 </Link>
               ))}
-              <div className="pt-4">
+              <div className="pt-4 space-y-3">
+                <div className="flex justify-center">
+                  <LanguageSwitcher />
+                </div>
                 <Button 
                   className="btn-primary w-full"
                   onClick={() => {
@@ -107,7 +114,7 @@ export function Navbar() {
                     setIsOpen(false);
                   }}
                 >
-                  加入社区
+                  {t('nav.join')}
                 </Button>
               </div>
             </div>

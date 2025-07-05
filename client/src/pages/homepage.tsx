@@ -20,11 +20,13 @@ import {
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/language-context";
 // Logo will be loaded dynamically
 
 export default function Homepage() {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const subscribeMutation = useMutation({
     mutationFn: (email: string) =>
@@ -65,17 +67,16 @@ export default function Homepage() {
               </div>
             </div>
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-              与公众共建，
               <span className="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
-                革新癌症防治
+                {t('hero.title')}
               </span>
             </h1>
             <p className="text-xl lg:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto">
-              通过AI、区块链和社区力量，赋予每个人管理健康、共享价值、共创未来的能力
+              {t('hero.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button className="btn-primary text-lg px-8 py-4">
-                了解我们的解决方案
+                {t('hero.cta1')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
@@ -86,7 +87,7 @@ export default function Homepage() {
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
               >
-                加入我们的社区
+                {t('hero.cta2')}
               </Button>
             </div>
           </div>
@@ -98,10 +99,10 @@ export default function Homepage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              我们面临的挑战
+              {t('problem.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              癌症正成为人类健康的重大威胁，而现有的预防和治疗体系存在诸多局限
+              {t('problem.subtitle')}
             </p>
           </div>
 
