@@ -29,33 +29,33 @@ export function Footer() {
               与公众共建一个无癌世界。通过AI、区块链和社区力量，革新癌症的预防与治疗。
             </p>
             <div className="flex space-x-4">
-              <a 
-                href="https://twitter.com/cancerdao" 
-                target="_blank" 
+              <a
+                href="https://twitter.com/CancerDAOxyz"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-purple-400 hover:text-purple-300 transition-colors"
               >
                 <TwitterXIcon className="h-5 w-5" />
               </a>
-              <a 
-                href="https://discord.gg/cancerdao" 
-                target="_blank" 
+              <a
+                href="https://discord.gg/cancerdao"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-purple-400 hover:text-purple-300 transition-colors"
               >
                 <MessageCircle className="h-5 w-5" />
               </a>
-              <a 
-                href="https://t.me/cancerdao" 
-                target="_blank" 
+              <a
+                href="https://t.me/cancerdao"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-purple-400 hover:text-purple-300 transition-colors"
               >
                 <Send className="h-5 w-5" />
               </a>
-              <a 
-                href="https://medium.com/@cancerdao" 
-                target="_blank" 
+              <a
+                href="https://medium.com/@cancerdao"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-purple-400 hover:text-purple-300 transition-colors"
               >
@@ -111,7 +111,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a 
+                <a
                   href="mailto:contact@cancerdao.org"
                   className="text-gray-300 hover:text-purple-400 transition-colors text-sm"
                 >
