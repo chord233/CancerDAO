@@ -16,7 +16,16 @@ import {
   Mail,
   Lock,
   Cpu,
+  Calendar,
+  MapPin,
 } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -557,6 +566,110 @@ export default function Homepage() {
                 <p className="text-gray-600">{t('community.ai.label')}</p>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Activities Carousel */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+              {t('community.activities.title')}
+            </h3>
+            <Carousel className="w-full max-w-5xl mx-auto">
+              <CarouselContent>
+                <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                  <Card className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
+                    <CardContent className="p-0">
+                      <div className="flex items-center mb-4">
+                        <Calendar className="h-6 w-6 text-purple-600 mr-2" />
+                        <span className="text-sm text-purple-600 font-semibold">
+                          {t('community.activities.upcoming')}
+                        </span>
+                      </div>
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">
+                        {t('community.activities.event1.title')}
+                      </h4>
+                      <p className="text-gray-600 text-sm mb-3">
+                        {t('community.activities.event1.description')}
+                      </p>
+                      <div className="flex items-center text-sm text-gray-500">
+                        <MapPin className="h-4 w-4 mr-1" />
+                        {t('community.activities.event1.location')}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+                
+                <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                  <Card className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
+                    <CardContent className="p-0">
+                      <div className="flex items-center mb-4">
+                        <Calendar className="h-6 w-6 text-blue-600 mr-2" />
+                        <span className="text-sm text-blue-600 font-semibold">
+                          {t('community.activities.ongoing')}
+                        </span>
+                      </div>
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">
+                        {t('community.activities.event2.title')}
+                      </h4>
+                      <p className="text-gray-600 text-sm mb-3">
+                        {t('community.activities.event2.description')}
+                      </p>
+                      <div className="flex items-center text-sm text-gray-500">
+                        <MapPin className="h-4 w-4 mr-1" />
+                        {t('community.activities.event2.location')}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+                
+                <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                  <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 border-green-200">
+                    <CardContent className="p-0">
+                      <div className="flex items-center mb-4">
+                        <Calendar className="h-6 w-6 text-green-600 mr-2" />
+                        <span className="text-sm text-green-600 font-semibold">
+                          {t('community.activities.completed')}
+                        </span>
+                      </div>
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">
+                        {t('community.activities.event3.title')}
+                      </h4>
+                      <p className="text-gray-600 text-sm mb-3">
+                        {t('community.activities.event3.description')}
+                      </p>
+                      <div className="flex items-center text-sm text-gray-500">
+                        <MapPin className="h-4 w-4 mr-1" />
+                        {t('community.activities.event3.location')}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+                
+                <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                  <Card className="p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 border-yellow-200">
+                    <CardContent className="p-0">
+                      <div className="flex items-center mb-4">
+                        <Calendar className="h-6 w-6 text-yellow-600 mr-2" />
+                        <span className="text-sm text-yellow-600 font-semibold">
+                          {t('community.activities.upcoming')}
+                        </span>
+                      </div>
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">
+                        {t('community.activities.event4.title')}
+                      </h4>
+                      <p className="text-gray-600 text-sm mb-3">
+                        {t('community.activities.event4.description')}
+                      </p>
+                      <div className="flex items-center text-sm text-gray-500">
+                        <MapPin className="h-4 w-4 mr-1" />
+                        {t('community.activities.event4.location')}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
 
           <div

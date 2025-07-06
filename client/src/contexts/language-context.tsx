@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 type Language = 'zh' | 'en';
@@ -22,13 +21,13 @@ const translations = {
     'nav.community': '社区',
     'nav.resources': '资源中心',
     'nav.join': '加入社区',
-    
+
     // 首页
     'hero.title': '与公众共建，革新癌症防治',
     'hero.subtitle': '通过AI、区块链和社区力量，赋予每个人管理健康、共享价值、共创未来的能力',
     'hero.cta1': '了解我们的解决方案',
     'hero.cta2': '加入我们的社区',
-    
+
     // 问题部分
     'problem.title': '我们面临的挑战',
     'problem.subtitle': '癌症正成为人类健康的重大威胁，而现有的预防和治疗体系存在诸多局限',
@@ -46,7 +45,7 @@ const translations = {
     'problem.innovation.point1': '数据碎片化、孤立，缺乏标准化和共享',
     'problem.innovation.point2': '限制了 AI 驱动创新的发展',
     'problem.innovation.point3': '获取公众和患者的成本高昂',
-    
+
     // 解决方案部分
     'solution.title': '我们的解决方案',
     'solution.subtitle': '通过三大核心支柱，构建一个全面的癌症防治生态系统',
@@ -68,7 +67,7 @@ const translations = {
     'solution.community.pillar.title': '社区驱动',
     'solution.community.pillar.description': '说明社区在生态系统中的核心作用，如何通过集体力量、数据贡献和协作促进创新，为所有参与者创造价值。',
     'solution.community.pillar.button': '了解更多社区驱动',
-    
+
     // 产品预览
     'product.title': '核心产品预览 - CancerDAO PILL',
     'product.subtitle': '您的个人健康管理助手，让健康数据为您所用',
@@ -81,14 +80,14 @@ const translations = {
     'product.feature2.title': '您的专属健康时间轴',
     'product.feature2.description': 'CancerDAO PILL 为您构建一个全面的个人健康时间轴，整合您的每一次检查、每一次用药和日常健康数据。您可以清晰追踪健康历程，管理个人数据，并随时回顾，为健康决策提供可靠依据。',
     'product.learn.more': '了解更多',
-    
+
     // 订阅
     'subscribe.title': '订阅更新',
     'subscribe.subtitle': '第一时间获取 CancerDAO PILL 的最新进展和发布信息',
     'subscribe.placeholder': '输入您的邮箱地址',
     'subscribe.button': '订阅',
     'subscribe.subscribing': '订阅中...',
-    
+
     // 数据主权
     'data.sovereignty.title': '数据主权与信任：您的数据，您做主',
     'data.sovereignty.subtitle': '通过区块链技术和加密算法，确保您的健康数据安全、隐私且为您所有',
@@ -104,7 +103,7 @@ const translations = {
     'data.fhe.point1': '数据始终保持加密状态',
     'data.fhe.point2': '支持加密状态下的AI计算',
     'data.fhe.point3': '医疗数据零泄露风险',
-    
+
     // 社区力量
     'community.power.title': 'You\'re not ALONE',
     'community.power.subtitle': '加入我们的全球社区，与志同道合的人一起为无癌世界而努力',
@@ -117,16 +116,32 @@ const translations = {
     'community.ai.title': 'AI 模型',
     'community.ai.count': '95%',
     'community.ai.label': '准确率',
+    'community.activities.title': '社区活动',
+    'community.activities.upcoming': '即将开始',
+    'community.activities.ongoing': '进行中',
+    'community.activities.completed': '已完成',
+    'community.activities.event1.title': 'AI医疗创新峰会',
+    'community.activities.event1.description': '汇聚全球AI医疗专家，探讨癌症预防新技术',
+    'community.activities.event1.location': '线上会议',
+    'community.activities.event2.title': '区块链健康数据研讨会',
+    'community.activities.event2.description': '讨论去中心化健康数据管理的最佳实践',
+    'community.activities.event2.location': '新加坡',
+    'community.activities.event3.title': '社区开发者马拉松',
+    'community.activities.event3.description': '48小时开发挑战，构建创新健康应用',
+    'community.activities.event3.location': '全球在线',
+    'community.activities.event4.title': '患者支持网络启动',
+    'community.activities.event4.description': '为癌症患者建立全球支持和资源共享网络',
+    'community.activities.event4.location': '多城市同步',
     'community.join.title': '准备好加入我们了吗？',
-    'community.join.subtitle': '与全球的研究者、患者、医疗专业人士一起，为创造一个无癌世界贡献力量',
-    'community.join.discord': '加入 Discord 社区',
-    'community.join.twitter': '关注我们的 Twitter',
-    
+    'community.join.subtitle': '与全球癌症防治专家、研究人员和支持者一起，构建更美好的未来。',
+    'community.join.discord': '加入Discord社区',
+    'community.join.twitter': '关注我们的Twitter',
+
     // 合作伙伴
     'partners.title': '我们的合作伙伴',
     'partners.subtitle': '欢迎各类组织加入，共同推动创新',
     'partners.item': '合作伙伴',
-    
+
     // 团队
     'team.title': '我们的团队',
     'team.subtitle': '由来自顶尖机构的专家组成的跨学科团队',
@@ -139,7 +154,7 @@ const translations = {
     'team.oncology': '肿瘤学',
     'team.ml': '机器学习',
     'team.learn.more': '了解完整团队',
-    
+
     // Toast消息
     'toast.subscribe.success.title': '订阅成功',
     'toast.subscribe.success.description': '感谢您的关注！我们会及时通知您最新进展。',
@@ -155,13 +170,13 @@ const translations = {
     'nav.community': 'Community',
     'nav.resources': 'Resources',
     'nav.join': 'Join Community',
-    
+
     // 首页
     'hero.title': 'Building with the Public, Revolutionizing Cancer Prevention',
     'hero.subtitle': 'Empowering everyone to manage health, share value, and create the future through AI, blockchain, and community power',
     'hero.cta1': 'Learn Our Solutions',
     'hero.cta2': 'Join Our Community',
-    
+
     // 问题部分
     'problem.title': 'Challenges We Face',
     'problem.subtitle': 'Cancer is becoming a major threat to human health, while existing prevention and treatment systems have many limitations',
@@ -179,7 +194,7 @@ const translations = {
     'problem.innovation.point1': 'Data is fragmented, siloed, lacking standardization and sharing',
     'problem.innovation.point2': 'Limits AI-driven innovation development',
     'problem.innovation.point3': 'High costs to reach public and patients',
-    
+
     // 解决方案部分
     'solution.title': 'Our Solution',
     'solution.subtitle': 'Building a comprehensive cancer prevention ecosystem through three core pillars',
@@ -201,7 +216,7 @@ const translations = {
     'solution.community.pillar.title': 'Community Driven',
     'solution.community.pillar.description': 'Explaining the core role of community in the ecosystem, how collective power, data contribution, and collaboration drive innovation and create value for all participants.',
     'solution.community.pillar.button': 'Learn More about Community Driven',
-    
+
     // 产品预览
     'product.title': 'Core Product Preview - CancerDAO PILL',
     'product.subtitle': 'Your personal health management assistant, making health data work for you',
@@ -214,14 +229,14 @@ const translations = {
     'product.feature2.title': 'Your Personal Health Timeline',
     'product.feature2.description': 'CancerDAO PILL builds a comprehensive personal health timeline, integrating every examination, medication, and daily health data. You can clearly track your health journey, manage personal data, and review at any time to provide reliable basis for health decisions.',
     'product.learn.more': 'Learn More',
-    
+
     // 订阅
     'subscribe.title': 'Subscribe for Updates',
     'subscribe.subtitle': 'Get the latest progress and release information of CancerDAO PILL first',
     'subscribe.placeholder': 'Enter your email address',
     'subscribe.button': 'Subscribe',
     'subscribe.subscribing': 'Subscribing...',
-    
+
     // 数据主权
     'data.sovereignty.title': 'Data Sovereignty & Trust: Your Data, Your Control',
     'data.sovereignty.subtitle': 'Through blockchain technology and encryption algorithms, ensure your health data is secure, private, and owned by you',
@@ -237,7 +252,7 @@ const translations = {
     'data.fhe.point1': 'Data remains encrypted at all times',
     'data.fhe.point2': 'Supports AI computation in encrypted state',
     'data.fhe.point3': 'Zero risk of medical data leakage',
-    
+
     // 社区力量
     'community.power.title': 'You\'re not ALONE',
     'community.power.subtitle': 'Join our global community and work together with like-minded people for a cancer-free world',
@@ -250,16 +265,32 @@ const translations = {
     'community.ai.title': 'AI Model',
     'community.ai.count': '95%',
     'community.ai.label': 'Accuracy',
+    'community.activities.title': 'Community Activities',
+    'community.activities.upcoming': 'Upcoming',
+    'community.activities.ongoing': 'Ongoing',
+    'community.activities.completed': 'Completed',
+    'community.activities.event1.title': 'AI Medical Innovation Summit',
+    'community.activities.event1.description': 'Bringing together global AI medical experts to discuss new cancer prevention technologies',
+    'community.activities.event1.location': 'Online Meeting',
+    'community.activities.event2.title': 'Blockchain Health Data Workshop',
+    'community.activities.event2.description': 'Discussing best practices for decentralized health data management',
+    'community.activities.event2.location': 'Singapore',
+    'community.activities.event3.title': 'Community Developer Hackathon',
+    'community.activities.event3.description': '48-hour development challenge to build innovative health applications',
+    'community.activities.event3.location': 'Global Online',
+    'community.activities.event4.title': 'Patient Support Network Launch',
+    'community.activities.event4.description': 'Building a global support and resource sharing network for cancer patients',
+    'community.activities.event4.location': 'Multi-city Sync',
     'community.join.title': 'Ready to Join Us?',
-    'community.join.subtitle': 'Work together with researchers, patients, and medical professionals worldwide to contribute to creating a cancer-free world',
+    'community.join.subtitle': 'Connect with global cancer prevention experts, researchers, and supporters to build a better future.',
     'community.join.discord': 'Join Discord Community',
     'community.join.twitter': 'Follow Our Twitter',
-    
+
     // 合作伙伴
     'partners.title': 'Our Partners',
     'partners.subtitle': 'Welcome all types of organizations to join and promote innovation together',
     'partners.item': 'Partner',
-    
+
     // 团队
     'team.title': 'Our Team',
     'team.subtitle': 'An interdisciplinary team of experts from top institutions',
@@ -272,7 +303,7 @@ const translations = {
     'team.oncology': 'Oncology',
     'team.ml': 'Machine Learning',
     'team.learn.more': 'Learn About Complete Team',
-    
+
     // Toast消息
     'toast.subscribe.success.title': 'Subscription Successful',
     'toast.subscribe.success.description': 'Thank you for your attention! We will notify you of the latest progress in time.',
