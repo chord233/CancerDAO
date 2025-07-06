@@ -1,0 +1,66 @@
+{/* Team Preview */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              {t("team.title")}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {t("team.subtitle")}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                name: "Prof. Michael Yang, PhD",
+                role: t("Co-founder, SAB Director"),
+                expertise: t("team.ai.bio"),
+              },
+              {
+                name: "Dr. Bob Wang",
+                role: t("team.cto"),
+                expertise: t("team.blockchain.crypto"),
+              },
+              {
+                name: "Dr. Carol Li",
+                role: t("team.cmo"),
+                expertise: t("team.oncology"),
+              },
+              {
+                name: "Dr. David Zhang",
+                role: t("team.scientist"),
+                expertise: t("team.ml"),
+              },
+            ].map((member, index) => (
+              <Card
+                key={index}
+                className="p-6 text-center hover:shadow-lg transition-all duration-300"
+              >
+                <CardContent className="p-0">
+                  <div className="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <span className="text-white text-2xl font-bold">
+                      {member.name.split(" ")[1][0]}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">
+                    {member.name}
+                  </h3>
+                  <p className="text-purple-600 font-semibold mb-2">
+                    {member.role}
+                  </p>
+                  <p className="text-sm text-gray-600">{member.expertise}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button className="btn-primary">
+              {t("team.learn.more")}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
