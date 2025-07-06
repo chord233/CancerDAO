@@ -525,49 +525,6 @@ export default function Homepage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-            <Card className="p-6 text-center">
-              <CardContent className="p-0">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {t('community.global.title')}
-                </h3>
-                <p className="text-3xl font-bold text-purple-600 mb-2">
-                  {t('community.global.count')}
-                </p>
-                <p className="text-gray-600">{t('community.global.label')}</p>
-              </CardContent>
-            </Card>
-
-            <Card className="p-6 text-center">
-              <CardContent className="p-0">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Database className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {t('community.data.title')}
-                </h3>
-                <p className="text-3xl font-bold text-blue-600 mb-2">{t('community.data.count')}</p>
-                <p className="text-gray-600">{t('community.data.label')}</p>
-              </CardContent>
-            </Card>
-
-            <Card className="p-6 text-center">
-              <CardContent className="p-0">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Brain className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {t('community.ai.title')}
-                </h3>
-                <p className="text-3xl font-bold text-green-600 mb-2">{t('community.ai.count')}</p>
-                <p className="text-gray-600">{t('community.ai.label')}</p>
-              </CardContent>
-            </Card>
-          </div>
-
           {/* Activities Carousel */}
           <div className="mb-12">
             <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
@@ -670,6 +627,49 @@ export default function Homepage() {
               <CarouselPrevious />
               <CarouselNext />
             </Carousel>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {t('community.global.title')}
+                </h3>
+                <p className="text-3xl font-bold text-purple-600 mb-2">
+                  {t('community.global.count')}
+                </p>
+                <p className="text-gray-600">{t('community.global.label')}</p>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Database className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {t('community.data.title')}
+                </h3>
+                <p className="text-3xl font-bold text-blue-600 mb-2">{t('community.data.count')}</p>
+                <p className="text-gray-600">{t('community.data.label')}</p>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Brain className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {t('community.ai.title')}
+                </h3>
+                <p className="text-3xl font-bold text-green-600 mb-2">{t('community.ai.count')}</p>
+                <p className="text-gray-600">{t('community.ai.label')}</p>
+              </CardContent>
+            </Card>
           </div>
 
           <div
