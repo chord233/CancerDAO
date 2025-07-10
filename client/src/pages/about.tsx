@@ -1,7 +1,15 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/language-context";
+import { apiRequest } from "@/lib/queryClient";
 import { 
   Linkedin, 
   Twitter, 
@@ -12,11 +20,89 @@ import {
   Heart, 
   Shield, 
   Zap,
-  ExternalLink
+  ExternalLink,
+  Send,
+  Phone
 } from "lucide-react";
 
 export default function About() {
   const { t } = useLanguage();
+  const { toast } = useToast();
+  
+  // Contact form state
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+    organization: '',
+    phone: '',
+    privacyAgreed: false
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const handleInputChange = (field: string, value: string) => {
+    setContactForm(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+  
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!contactForm.privacyAgreed) {
+      toast({
+        title: "错误",
+        description: "您必须同意隐私政策才能提交表单",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      const formData = {
+        ...contactForm,
+        privacyAgreed: contactForm.privacyAgreed ? 1 : 0
+      };
+      
+      await apiRequest("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      toast({
+        title: "成功",
+        description: "信息已发送，感谢您的联系！"
+      });
+      
+      // Reset form
+      setContactForm({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+        organization: '',
+        phone: '',
+        privacyAgreed: false
+      });
+      
+    } catch (error) {
+      toast({
+        title: "提交失败",
+        description: "请稍后再试",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const teamMembers = [
     {
@@ -246,6 +332,214 @@ export default function About() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-black mb-4">
+              联系我们
+            </h2>
+            <p className="text-lg text-black max-w-3xl mx-auto">
+              请填写以下表单，我们的团队将在第一时间与您联系。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <Card className="p-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="text-black">
+                      您的姓名 <span className="text-red-500">*</span>
+                    </Label>
+                    <Input
+                      id="name"
+                      type="text"
+                      value={contactForm.name}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      required
+                      placeholder="请输入您的姓名"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-black">
+                      您的邮箱 <span className="text-red-500">*</span>
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={contactForm.email}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      required
+                      placeholder="请输入您的邮箱"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="subject" className="text-black">
+                    主题 <span className="text-red-500">*</span>
+                  </Label>
+                  <Select value={contactForm.subject} onValueChange={(value) => handleInputChange('subject', value)}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="请选择主题" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="一般咨询">一般咨询</SelectItem>
+                      <SelectItem value="技术支持">技术支持</SelectItem>
+                      <SelectItem value="合作咨询">合作咨询</SelectItem>
+                      <SelectItem value="媒体/PR">媒体/PR</SelectItem>
+                      <SelectItem value="其他">其他</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="organization" className="text-black">
+                      机构/公司名称
+                    </Label>
+                    <Input
+                      id="organization"
+                      type="text"
+                      value={contactForm.organization}
+                      onChange={(e) => handleInputChange('organization', e.target.value)}
+                      placeholder="请输入机构或公司名称"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="phone" className="text-black">
+                      联系电话
+                    </Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      value={contactForm.phone}
+                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      placeholder="请输入联系电话"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-black">
+                    您的留言 <span className="text-red-500">*</span>
+                  </Label>
+                  <Textarea
+                    id="message"
+                    value={contactForm.message}
+                    onChange={(e) => handleInputChange('message', e.target.value)}
+                    required
+                    placeholder="请输入您的留言"
+                    rows={6}
+                  />
+                </div>
+
+                <div className="flex items-center space-x-2">
+                  <Checkbox 
+                    id="privacy"
+                    checked={contactForm.privacyAgreed}
+                    onCheckedChange={(checked) => 
+                      setContactForm(prev => ({ ...prev, privacyAgreed: checked as boolean }))
+                    }
+                  />
+                  <Label htmlFor="privacy" className="text-sm text-black">
+                    我同意 CancerDAO 根据隐私政策处理我的个人信息并与我联系。<span className="text-red-500">*</span>
+                  </Label>
+                </div>
+
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full"
+                  style={{ backgroundColor: '#fad000' }}
+                >
+                  {isSubmitting ? '提交中...' : '提交信息'}
+                  <Send className="ml-2 h-4 w-4" />
+                </Button>
+              </form>
+            </Card>
+
+            {/* Contact Information */}
+            <div className="space-y-8">
+              <Card className="p-8">
+                <h3 className="text-xl font-bold text-black mb-6">
+                  或通过以下方式联系我们
+                </h3>
+                
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#e7d1ff' }}>
+                      <Mail className="h-6 w-6 text-black" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-black">官方邮箱</h4>
+                      <a 
+                        href="mailto:contact@cancerdao.org" 
+                        className="text-black hover:underline"
+                      >
+                        contact@cancerdao.org
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#c9a4ff' }}>
+                      <MapPin className="h-6 w-6 text-black" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-black">办公地址</h4>
+                      <p className="text-black">
+                        香港九龙塘达之路<br />
+                        香港城市大学<br />
+                        香港特别行政区
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-8">
+                <h3 className="text-xl font-bold text-black mb-6">
+                  社交媒体
+                </h3>
+                
+                <div className="flex space-x-4">
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="flex-1"
+                    onClick={() => window.open('http://discord.gg/zKwyqxjeun', '_blank')}
+                  >
+                    Discord
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="flex-1"
+                    onClick={() => window.open('https://twitter.com/cancerdao', '_blank')}
+                  >
+                    Twitter
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+              </Card>
+
+              <div className="rounded-2xl p-6" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)' }}>
+                <h3 className="text-lg font-bold text-black mb-2">
+                  响应时间
+                </h3>
+                <p className="text-black">
+                  我们通常在 24 小时内回复您的咨询。紧急事务请直接发送邮件至官方邮箱。
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

@@ -14,6 +14,9 @@ export const contactMessages = pgTable("contact_messages", {
   email: text("email").notNull(),
   subject: text("subject").notNull(),
   message: text("message").notNull(),
+  organization: text("organization"),
+  phone: text("phone"),
+  privacyAgreed: integer("privacy_agreed").notNull(), // 1 for true, 0 for false
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
@@ -25,6 +28,8 @@ export const insertSubscriberSchema = createInsertSchema(subscribers).omit({
 export const insertContactMessageSchema = createInsertSchema(contactMessages).omit({
   id: true,
   createdAt: true,
+}).extend({
+  privacyAgreed: z.number().min(1, "您必须同意隐私政策才能提交"), // Must be 1 for true
 });
 
 export type Subscriber = typeof subscribers.$inferSelect;
