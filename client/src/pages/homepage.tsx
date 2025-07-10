@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Brain,
   Shield,
@@ -12,7 +13,20 @@ import {
   Smartphone,
   ArrowRight,
   Mail,
+  Linkedin,
+  Twitter as TwitterIcon,
 } from "lucide-react";
+
+// Custom X (Twitter) Icon
+const TwitterXIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    className="w-4 h-4"
+    fill="currentColor"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -393,37 +407,56 @@ export default function Homepage() {
             {[
               {
                 name: "Prof. Michael Yang, PhD",
-                role: t("team.member.michael.role"), 
+                titleKey: "about.team.title.michael",
+                roleKey: "about.team.role.michael",
               },
               {
                 name: "Prof. YoSean Wang, PhD",
-                role: t("team.member.yosean.role"),
+                titleKey: "about.team.title.yosean",
+                roleKey: "about.team.role.yosean",
               },
               {
                 name: "Zhiwei Bao, PhD",
-                role: t("team.member.zhiwei.role"), 
+                titleKey: "about.team.title.zhiwei",
+                roleKey: "about.team.role.zhiwei",
               },
               {
                 name: "Aspire Cao",
-                role: t("team.member.aspire.role"),
+                titleKey: "about.team.title.aspire",
               },
             ].map((member, index) => (
               <Card
                 key={index}
-                className="p-6 text-center hover:shadow-lg transition-all duration-300"
+                className="p-6 hover:shadow-lg transition-all duration-300"
               >
                 <CardContent className="p-0">
-                  <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                    <span className="text-black text-2xl font-bold">
-                      {member.name.split(" ")[1][0]}
-                    </span>
+                  <div className="text-center mb-6">
+                    <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-black" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                      {member.name.split(' ')[0][0]}{member.name.split(' ')[1] ? member.name.split(' ')[1][0] : ''}
+                    </div>
+                    <h3 className="text-lg font-bold text-black mb-1">
+                      {member.name}
+                    </h3>
+                    <Badge className="mb-2 text-black" style={{ backgroundColor: '#e7d1ff' }}>
+                      {t(member.titleKey)}
+                    </Badge>
+                    {member.roleKey && (
+                      <div className="text-sm font-semibold text-black mb-3">
+                        {t(member.roleKey).split('\n').map((line, i) => (
+                          <p key={i} className="mb-1">{line}</p>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                  <h3 className="text-lg font-bold text-black mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="font-semibold mb-2" style={{ color: '#c9a4ff' }}>
-                    {member.role}
-                  </p>
+
+                  <div className="flex justify-center gap-2 pt-4 border-t" style={{ borderColor: '#e7d1ff' }}>
+                    <Button variant="outline" size="sm" className="p-2">
+                      <Linkedin className="h-4 w-4" />
+                    </Button>
+                    <Button variant="outline" size="sm" className="p-2">
+                      <TwitterXIcon className="h-4 w-4" />
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
