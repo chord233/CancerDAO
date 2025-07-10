@@ -31,7 +31,7 @@ export default function Resources() {
     {
       id: 1,
       title: "AI在癌症早期检测中的突破性进展",
-      author: "Prof. YoSean Wang",
+      author: "XXX",
       date: "2024-01-15",
       category: "技术深度",
       excerpt: "探索人工智能如何革命性地改进癌症早期检测的准确性和效率，为患者提供更好的治疗机会。",
@@ -42,7 +42,7 @@ export default function Resources() {
     {
       id: 2,
       title: "区块链在医疗数据隐私保护中的应用",
-      author: "Zhiwei Bao",
+      author: "XXX",
       date: "2024-01-10",
       category: "项目进展",
       excerpt: "了解CancerDAO如何利用区块链技术确保患者数据的安全性和隐私保护，实现真正的数据主权。",
@@ -53,7 +53,7 @@ export default function Resources() {
     {
       id: 3,
       title: "社区驱动的癌症研究新模式",
-      author: "Jennifer Cheng Lo",
+      author: "XXX",
       date: "2024-01-05",
       category: "团队见解",
       excerpt: "探讨如何通过社区参与和集体智慧加速癌症研究的进展，建立患者中心的创新生态系统。",
