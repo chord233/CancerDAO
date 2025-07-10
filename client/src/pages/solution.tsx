@@ -210,21 +210,20 @@ export default function Solution() {
                     </Badge>
                   </div>
                 </div>
-                <p className="text-black mb-6 leading-relaxed">
-                  {t("data.fhe.description")}
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("data.fhe.point1")}
+                <div className="space-y-6 mb-6">
+                  <div>
+                    <img 
+                      src="/attached_assets/image_1752155881747.png" 
+                      alt="Principle of Fully Homomorphic Encryption"
+                      className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
+                    />
                   </div>
-                  <div className="flex items-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("data.fhe.point2")}
-                  </div>
-                  <div className="flex items-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("data.fhe.point3")}
+                  <div>
+                    <img 
+                      src="/attached_assets/image_1752155889489.png" 
+                      alt="FHE Data Processing Workflow"
+                      className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
+                    />
                   </div>
                 </div>
               </CardContent>
