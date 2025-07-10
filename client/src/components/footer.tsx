@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { MessageCircle, Send, FileText } from "lucide-react";
+import { LanguageSwitcher } from "./language-switcher";
+import { useLanguage } from "../contexts/language-context";
 
 // Custom Twitter X Icon Component
 const TwitterXIcon = ({ className = "h-5 w-5" }: { className?: string }) => (
@@ -14,6 +16,8 @@ const TwitterXIcon = ({ className = "h-5 w-5" }: { className?: string }) => (
 );
 
 export function Footer() {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -26,7 +30,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-gray-300 text-sm mb-6 max-w-md">
-              与公众共建一个无癌世界。通过AI、区块链和社区力量，革新癌症的预防与治疗。
+              {t("footer.description")}
             </p>
             <div className="flex space-x-4">
               <a
@@ -66,47 +70,47 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">快速链接</h3>
+            <h3 className="text-white font-semibold mb-4">{t("footer.quickLinks")}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/about">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
-                    关于我们
+                    {t("nav.about")}
                   </span>
                 </Link>
               </li>
               <li>
                 <Link to="/solution">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
-                    解决方案
+                    {t("nav.solution")}
                   </span>
                 </Link>
               </li>
               <li>
                 <Link to="/for-individuals">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
-                    面向个人
+                    {t("nav.individuals")}
                   </span>
                 </Link>
               </li>
               <li>
                 <Link to="/community">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
-                    社区
+                    {t("nav.community")}
                   </span>
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Resources and Language Switcher */}
           <div>
-            <h3 className="text-white font-semibold mb-4">资源</h3>
-            <ul className="space-y-2">
+            <h3 className="text-white font-semibold mb-4">{t("footer.resources")}</h3>
+            <ul className="space-y-2 mb-6">
               <li>
                 <Link to="/resources">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
-                    白皮书
+                    {t("footer.whitepaper")}
                   </span>
                 </Link>
               </li>
@@ -115,34 +119,40 @@ export function Footer() {
                   href="mailto:contact@cancerdao.org"
                   className="text-gray-300 hover:text-purple-400 transition-colors text-sm"
                 >
-                  联系我们
+                  {t("footer.contactUs")}
                 </a>
               </li>
               <li>
                 <Link to="/privacy">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
-                    隐私政策
+                    {t("footer.privacy")}
                   </span>
                 </Link>
               </li>
               <li>
                 <Link to="/terms">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
-                    服务条款
+                    {t("footer.terms")}
                   </span>
                 </Link>
               </li>
             </ul>
+            
+            {/* Language Switcher */}
+            <div className="mt-4">
+              <h4 className="text-gray-300 font-medium mb-2 text-sm">{t("footer.language")}</h4>
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2025 CancerDAO. All rights reserved.
+              {t("footer.copyright")}
             </p>
             <p className="text-gray-400 text-sm mt-2 md:mt-0">
-              Everyone deserves a life without cancer
+              {t("footer.tagline")}
             </p>
           </div>
         </div>

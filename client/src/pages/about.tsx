@@ -116,8 +116,8 @@ export default function About() {
   const teamMembers = [
     {
       name: "Prof. Michael Yang, PhD",
-      title: "Co-founder, SAB Director",
-      role: "Senior VP (Innovation & Enterprise)\nCity University of Hong Kong\nHK Tech 300 Director\nDeSAI Lab Co-founder",
+      titleKey: "about.team.title.michael",
+      roleKey: "about.team.role.michael",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -125,8 +125,8 @@ export default function About() {
     },
     {
       name: "Prof. YoSean Wang, PhD", 
-      title: "Co-founder, President",
-      role: "Harvard Biomedical Science PhD\nResearch Assistant Professor\nCity University of Hong Kong\nDeSAI Lab Co-founder, Director",
+      titleKey: "about.team.title.yosean",
+      roleKey: "about.team.role.yosean",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -134,8 +134,8 @@ export default function About() {
     },
     {
       name: "Zhiwei Bao, PhD",
-      title: "Co-founder, CTO", 
-      role: "Zhejiang University\nAI4Health PhD\nBioLinkX Founder",
+      titleKey: "about.team.title.zhiwei",
+      roleKey: "about.team.role.zhiwei",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -143,7 +143,7 @@ export default function About() {
     },
     {
       name: "Aspire Cao",
-      title: "Business Lead",
+      titleKey: "about.team.title.aspire",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -151,7 +151,7 @@ export default function About() {
     },
     {
       name: "Jennifer Cheng Lo",
-      title: "Marketing Lead",
+      titleKey: "about.team.title.jennifer",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -159,7 +159,7 @@ export default function About() {
     },
     {
       name: "Jonathan Hakim",
-      title: "Ecosystem Lead",
+      titleKey: "about.team.title.jonathan",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -167,7 +167,7 @@ export default function About() {
     },
     {
       name: "Daqi Lee",
-      title: "Community Lead",
+      titleKey: "about.team.title.daqi",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -244,11 +244,11 @@ export default function About() {
                       {member.name}
                     </h3>
                     <Badge className="mb-2 text-black" style={{ backgroundColor: '#e7d1ff' }}>
-                      {member.title}
+                      {t(member.titleKey)}
                     </Badge>
-                    {member.role && (
+                    {member.roleKey && (
                       <div className="text-sm font-semibold text-black mb-3">
-                        {member.role.split('\n').map((line, i) => (
+                        {t(member.roleKey).split('\n').map((line, i) => (
                           <p key={i} className="mb-1">{line}</p>
                         ))}
                       </div>

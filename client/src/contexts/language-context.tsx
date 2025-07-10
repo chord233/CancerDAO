@@ -191,6 +191,20 @@ const translations = {
     "team.member.jonathan.role": "生态系统负责人",
     "team.member.daqi.role": "社区负责人",
     "team.learn.more": "了解更多",
+    
+    // About页面团队成员职位翻译
+    "about.team.title.michael": "联合创始人、科学顾问委员会主任",
+    "about.team.title.yosean": "联合创始人、总裁",
+    "about.team.title.zhiwei": "联合创始人、首席技术官",
+    "about.team.title.aspire": "商务主管",
+    "about.team.title.jennifer": "市场主管",
+    "about.team.title.jonathan": "生态主管",
+    "about.team.title.daqi": "社区主管",
+    
+    // About页面团队成员角色详细信息翻译
+    "about.team.role.michael": "高级副总裁（创新与企业）\n香港城市大学\nHK Tech 300 主任\nDeSAI Lab 联合创始人",
+    "about.team.role.yosean": "哈佛生物医学科学博士\n研究助理教授\n香港城市大学\nDeSAI Lab 联合创始人、主任",
+    "about.team.role.zhiwei": "浙江大学\nAI4Health 博士\nBioLinkX 创始人",
 
     // About页面
     "about.title": "关于我们",
@@ -205,6 +219,29 @@ const translations = {
     "about.team.title": "我们的团队",
     "about.team.subtitle": "认识推动我们使命向前发展的远见者和专家。",
     "about.team.achievements": "成就",
+    "about.team.title.michael": "联合创始人、科学顾问委员会主任",
+    "about.team.title.yosean": "联合创始人、总裁",
+    "about.team.title.zhiwei": "联合创始人、首席技术官",
+    "about.team.title.aspire": "商务主管",
+    "about.team.title.jennifer": "市场主管",
+    "about.team.title.jonathan": "生态主管",
+    "about.team.title.daqi": "社区主管",
+    "about.team.role.michael": "高级副总裁（创新与企业）\n香港城市大学\nHK Tech 300 主任\nDeSAI Lab 联合创始人",
+    "about.team.role.yosean": "哈佛生物医学科学博士\n研究助理教授\n香港城市大学\nDeSAI Lab 联合创始人、主任",
+    "about.team.role.zhiwei": "浙江大学\nAI4Health 博士\nBioLinkX 创始人",
+    
+    // Footer页脚翻译
+    "footer.description": "与公众共建一个无癌世界。通过AI、区块链和社区力量，革新癌症的预防与治疗。",
+    "footer.quickLinks": "快速链接",
+    "footer.resources": "资源",
+    "footer.whitepaper": "白皮书",
+    "footer.contactUs": "联系我们",
+    "footer.privacy": "隐私政策",
+    "footer.terms": "服务条款",
+    "footer.language": "语言",
+    "footer.copyright": "© 2025 CancerDAO. 保留所有权利.",
+    "footer.tagline": "每个人都值得拥有没有癌症的生活",
+    
     "about.cta.title": "加入我们的使命",
     "about.cta.description": "无论您是研究员、开发者、患者，还是仅仅是相信我们事业的人，在我们的社区中都有您的位置。",
     "about.cta.join": "加入我们的社区",
@@ -726,6 +763,33 @@ const translations = {
     "about.team.title": "Our Team",
     "about.team.subtitle": "Meet the visionaries and experts driving our mission forward.",
     "about.team.achievements": "Achievements",
+    
+    // About页面团队成员职位翻译（英文）
+    "about.team.title.michael": "Co-founder, SAB Director",
+    "about.team.title.yosean": "Co-founder, President",
+    "about.team.title.zhiwei": "Co-founder, CTO",
+    "about.team.title.aspire": "Business Lead",
+    "about.team.title.jennifer": "Marketing Lead",
+    "about.team.title.jonathan": "Ecosystem Lead",
+    "about.team.title.daqi": "Community Lead",
+    
+    // About页面团队成员角色详细信息翻译（英文）
+    "about.team.role.michael": "Senior VP (Innovation & Enterprise)\nCity University of Hong Kong\nHK Tech 300 Director\nDeSAI Lab Co-founder",
+    "about.team.role.yosean": "Harvard Biomedical Science PhD\nResearch Assistant Professor\nCity University of Hong Kong\nDeSAI Lab Co-founder, Director",
+    "about.team.role.zhiwei": "Zhejiang University\nAI4Health PhD\nBioLinkX Founder",
+    
+    // Footer页脚翻译（英文）
+    "footer.description": "Building a cancer-free world with the public. Revolutionizing cancer prevention and treatment through AI, blockchain, and community power.",
+    "footer.quickLinks": "Quick Links",
+    "footer.resources": "Resources",
+    "footer.whitepaper": "Whitepaper",
+    "footer.contactUs": "Contact Us",
+    "footer.privacy": "Privacy Policy",
+    "footer.terms": "Terms of Service",
+    "footer.language": "Language",
+    "footer.copyright": "© 2025 CancerDAO. All rights reserved.",
+    "footer.tagline": "Everyone deserves a life without cancer",
+    
     "about.cta.title": "Join Our Mission",
     "about.cta.description": "Whether you are a researcher, developer, patient, or simply someone who believes in our cause, there is a place for you in our community.",
     "about.cta.join": "Join Our Community",
