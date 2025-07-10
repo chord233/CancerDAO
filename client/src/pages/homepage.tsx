@@ -18,7 +18,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/language-context";
 import { Link } from "react-router-dom"; // 导入 useNavigate
-import backgroundImage from "@assets/1500x500_1752151454932.jfif";
+// Logo will be loaded dynamically
 
 export default function Homepage() {
   const [email, setEmail] = useState("");
@@ -56,24 +56,20 @@ export default function Homepage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section 
-        className="hero-section relative overflow-hidden py-20 lg:py-32 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${backgroundImage})`,
-          minHeight: '500px'
-        }}
-      >
+      <section className="hero-section relative overflow-hidden py-20 lg:py-32 bg-gradient-to-b from-[#B58AFF] via-[#c9a4ff] to-white">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="mb-8 flex justify-center">
-              <div className="text-5xl font-bold text-white drop-shadow-lg floating-animation">
+              <div className="text-5xl font-bold bg-gradient-to-r from-yellow-bright to-orange-red bg-clip-text text-transparent floating-animation">
                 CancerDAO
               </div>
             </div>
-            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-              {t("hero.title")}
+            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+              <span className="bg-gradient-to-r from-yellow-bright to-orange-red bg-clip-text text-transparent">
+                {t("hero.title")}
+              </span>
             </h1>
-            <p className="text-xl lg:text-2xl mb-8 max-w-4xl mx-auto text-white/90 drop-shadow-md">
+            <p className="text-xl lg:text-2xl mb-8 max-w-4xl mx-auto text-[#5B3F8A]">
               {t("hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
