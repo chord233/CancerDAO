@@ -94,6 +94,13 @@ export function Footer() {
                   </span>
                 </Link>
               </li>
+              <li>
+                <Link to="/resources">
+                  <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
+                    {t("nav.resources")}
+                  </span>
+                </Link>
+              </li>
             </ul>
           </div>
 
