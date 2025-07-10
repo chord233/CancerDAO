@@ -118,9 +118,6 @@ export default function About() {
       name: "Prof. Michael Yang, PhD",
       title: "Co-founder, SAB Director",
       role: "Senior VP (Innovation & Enterprise)",
-      organization: "City University of Hong Kong",
-      details: ["HK Tech 300 Director", "DeSAI Lab Co-founder"],
-      achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -130,9 +127,6 @@ export default function About() {
       name: "Prof. YoSean Wang, PhD", 
       title: "Co-founder, President",
       role: "Harvard Biomedical Science PhD",
-      organization: "Research Assistant Professor",
-      details: ["City University of Hong Kong", "DeSAI Lab Co-founder, Director"],
-      achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -142,9 +136,6 @@ export default function About() {
       name: "Zhiwei Bao, PhD",
       title: "Co-founder, CTO", 
       role: "Zhejiang University",
-      organization: "AI4Health PhD",
-      details: ["BioLinkX Founder"],
-      achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -154,9 +145,6 @@ export default function About() {
       name: "Aspire Cao",
       title: "Business Lead",
       role: "Business Development",
-      organization: "CancerDAO",
-      details: [],
-      achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -166,9 +154,6 @@ export default function About() {
       name: "Jennifer Cheng Lo",
       title: "Marketing Lead",
       role: "Brand & Communications",
-      organization: "CancerDAO",
-      details: [],
-      achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -178,9 +163,6 @@ export default function About() {
       name: "Jonathan Hakim",
       title: "Ecosystem Lead",
       role: "Partnership Development",
-      organization: "CancerDAO",
-      details: [],
-      achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -190,9 +172,6 @@ export default function About() {
       name: "Daqi Lee",
       title: "Community Lead",
       role: "Community Management",
-      organization: "CancerDAO",
-      details: [],
-      achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -271,39 +250,10 @@ export default function About() {
                     <Badge className="mb-2 text-black" style={{ backgroundColor: '#e7d1ff' }}>
                       {member.title}
                     </Badge>
-                    <p className="text-sm font-semibold text-black mb-1">
+                    <p className="text-sm font-semibold text-black mb-3">
                       {member.role}
                     </p>
-                    <p className="text-sm text-black mb-3">
-                      {member.organization}
-                    </p>
                   </div>
-                  
-                  {member.details && member.details.length > 0 && (
-                    <div className="mb-4">
-                      <div className="space-y-1">
-                        {member.details.map((detail, i) => (
-                          <p key={i} className="text-sm text-black">
-                            {detail}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {member.achievements.length > 0 && (
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-black mb-2 text-sm">{t('about.team.achievements')}:</h4>
-                      <div className="space-y-1">
-                        {member.achievements.map((achievement, i) => (
-                          <div key={i} className="flex items-center text-sm text-black">
-                            <Award className="h-3 w-3 mr-2 flex-shrink-0" style={{ color: '#fad000' }} />
-                            <span>{achievement}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
 
                   <div className="flex justify-center gap-2 pt-4 border-t" style={{ borderColor: '#e7d1ff' }}>
                     <Button variant="outline" size="sm" className="p-2">
