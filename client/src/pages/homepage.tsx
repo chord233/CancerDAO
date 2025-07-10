@@ -69,9 +69,7 @@ export default function Homepage() {
                 {t("hero.title")}
               </span>
             </h1>
-            <p className="text-xl lg:text-2xl mb-8 max-w-4xl mx-auto text-[#5B3F8A]">
-              {t("hero.subtitle")}
-            </p>
+            
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               {/* 第一个按钮 (主要按钮)*/}
               <Button
