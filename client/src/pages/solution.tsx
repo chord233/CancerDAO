@@ -47,61 +47,7 @@ export default function Solution() {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8">
-            <div className="flex flex-col items-center">
-              <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mb-3 pulse-glow">
-                <Brain className="h-12 w-12 text-white" />
-              </div>
-              <p className="text-center font-semibold text-gray-900">
-                {t("solution.ai.title")}
-              </p>
-              <p className="text-sm text-gray-600 text-center max-w-32">
-                {t("solution.ai.description")}
-              </p>
-            </div>
-
-            <ArrowRight className="h-8 w-8 text-purple-500 transform lg:rotate-0 rotate-90" />
-
-            <div className="flex flex-col items-center">
-              <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-3 pulse-glow">
-                <Shield className="h-12 w-12 text-white" />
-              </div>
-              <p className="text-center font-semibold text-gray-900">
-                {t("solution.blockchain.title")}
-              </p>
-              <p className="text-sm text-gray-600 text-center max-w-32">
-                {t("solution.blockchain.description")}
-              </p>
-            </div>
-
-            <ArrowRight className="h-8 w-8 text-purple-500 transform lg:rotate-0 rotate-90" />
-
-            <div className="flex flex-col items-center">
-              <div className="w-24 h-24 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center mb-3 pulse-glow">
-                <Database className="h-12 w-12 text-white" />
-              </div>
-              <p className="text-center font-semibold text-gray-900">
-                {t("solution.decentralized.title")}
-              </p>
-              <p className="text-sm text-gray-600 text-center max-w-32">
-                {t("solution.decentralized.description")}
-              </p>
-            </div>
-
-            <ArrowRight className="h-8 w-8 text-purple-500 transform lg:rotate-0 rotate-90" />
-
-            <div className="flex flex-col items-center">
-              <div className="w-24 h-24 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mb-3 pulse-glow">
-                <Cpu className="h-12 w-12 text-white" />
-              </div>
-              <p className="text-center font-semibold text-gray-900">
-                {t("solution.therapy.title")}
-              </p>
-              <p className="text-sm text-gray-600 text-center max-w-32">
-                {t("solution.therapy.description")}
-              </p>
-            </div>
-          </div>
+          
         </section>
 
         {/* Three Pillars - Detailed */}
