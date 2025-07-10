@@ -488,19 +488,7 @@ export default function About() {
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#c9a4ff' }}>
-                      <MapPin className="h-6 w-6 text-black" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-black">办公地址</h4>
-                      <p className="text-black">
-                        香港九龙塘达之路<br />
-                        香港城市大学<br />
-                        香港特别行政区
-                      </p>
-                    </div>
-                  </div>
+                  
                 </div>
               </Card>
 
