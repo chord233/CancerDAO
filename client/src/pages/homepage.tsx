@@ -111,10 +111,10 @@ export default function Homepage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
               {t("problem.title")}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-black max-w-3xl mx-auto">
               {t("problem.subtitle")}
             </p>
           </div>
@@ -122,16 +122,16 @@ export default function Homepage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="problem-card">
               <div className="flex items-center mb-4">
-                <AlertTriangle className="h-8 w-8 text-red-500 mr-3" />
-                <h3 className="text-xl font-semibold text-gray-900">
+                <AlertTriangle className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                <h3 className="text-xl font-semibold text-black">
                   {t("problem.global.title")}
                 </h3>
               </div>
               <div className="space-y-3">
-                <p className="text-gray-700">
+                <p className="text-black">
                   <strong>{t("problem.global.description")}</strong>
                 </p>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-black space-y-1">
                   <li>• {t("problem.global.point1")}</li>
                   <li>• {t("problem.global.point2")}</li>
                 </ul>
@@ -140,16 +140,16 @@ export default function Homepage() {
 
             <div className="problem-card">
               <div className="flex items-center mb-4">
-                <Users className="h-8 w-8 text-red-500 mr-3" />
-                <h3 className="text-xl font-semibold text-gray-900">
+                <Users className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                <h3 className="text-xl font-semibold text-black">
                   {t("problem.knowledge.title")}
                 </h3>
               </div>
               <div className="space-y-3">
-                <p className="text-gray-700">
+                <p className="text-black">
                   <strong>{t("problem.knowledge.description")}</strong>
                 </p>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-black space-y-1">
                   <li>• {t("problem.knowledge.point1")}</li>
                   <li>• {t("problem.knowledge.point2")}</li>
                   <li>• {t("problem.knowledge.point3")}</li>
@@ -159,16 +159,16 @@ export default function Homepage() {
 
             <div className="problem-card">
               <div className="flex items-center mb-4">
-                <TrendingUp className="h-8 w-8 text-red-500 mr-3" />
-                <h3 className="text-xl font-semibold text-gray-900">
+                <TrendingUp className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                <h3 className="text-xl font-semibold text-black">
                   {t("problem.innovation.title")}
                 </h3>
               </div>
               <div className="space-y-3">
-                <p className="text-gray-700">
+                <p className="text-black">
                   <strong>{t("problem.innovation.description")}</strong>
                 </p>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-black space-y-1">
                   <li>• {t("problem.innovation.point1")}</li>
                   <li>• {t("problem.innovation.point2")}</li>
                 </ul>
@@ -184,10 +184,10 @@ export default function Homepage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
               {t("product.title")}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-black max-w-3xl mx-auto">
               {t("product.subtitle")}
             </p>
           </div>
@@ -196,24 +196,24 @@ export default function Homepage() {
             <div className="space-y-8">
               <div>
                 <div className="flex items-center mb-4">
-                  <Brain className="h-8 w-8 text-purple-600 mr-3" />
-                  <h3 className="text-2xl font-bold text-gray-900">
+                  <Brain className="h-8 w-8 mr-3" style={{ color: '#c9a4ff' }} />
+                  <h3 className="text-2xl font-bold text-black">
                     {t("product.feature1.title")}
                   </h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-black leading-relaxed">
                   {t("product.feature1.description")}
                 </p>
               </div>
 
               <div>
                 <div className="flex items-center mb-4">
-                  <Smartphone className="h-8 w-8 text-blue-600 mr-3" />
-                  <h3 className="text-2xl font-bold text-gray-900">
+                  <Smartphone className="h-8 w-8 mr-3" style={{ color: '#c9a4ff' }} />
+                  <h3 className="text-2xl font-bold text-black">
                     {t("product.feature2.title")}
                   </h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-black leading-relaxed">
                   {t("product.feature2.description")}
                 </p>
               </div>
@@ -227,36 +227,36 @@ export default function Homepage() {
             </div>
 
             <div className="relative">
-              <div className="w-80 h-96 mx-auto bg-gradient-to-br from-gray-900 to-gray-700 rounded-3xl p-2 shadow-2xl">
+              <div className="w-80 h-96 mx-auto rounded-3xl p-2 shadow-2xl" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
                 <div className="w-full h-full bg-white rounded-2xl overflow-hidden">
-                  <div className="bg-gradient-to-r from-purple-500 to-purple-700 h-20 flex items-center justify-center">
-                    <div className="text-white font-bold text-lg">
+                  <div className="h-20 flex items-center justify-center" style={{ background: 'linear-gradient(90deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                    <div className="text-black font-bold text-lg">
                       CancerDAO PILL
                     </div>
                   </div>
                   <div className="p-6 space-y-4">
-                    <div className="bg-purple-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-purple-900 mb-2">
+                    <div className="p-4 rounded-lg" style={{ backgroundColor: '#e7d1ff' }}>
+                      <h4 className="font-semibold text-black mb-2">
                         {t("product.ai.analysis")}
                       </h4>
-                      <div className="w-full bg-purple-200 h-2 rounded-full">
-                        <div className="bg-purple-600 h-2 rounded-full w-3/4"></div>
+                      <div className="w-full h-2 rounded-full" style={{ backgroundColor: '#c9a4ff' }}>
+                        <div className="h-2 rounded-full w-3/4" style={{ backgroundColor: '#fad000' }}></div>
                       </div>
                     </div>
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-blue-900 mb-2">
+                    <div className="p-4 rounded-lg" style={{ backgroundColor: '#e7d1ff' }}>
+                      <h4 className="font-semibold text-black mb-2">
                         {t("product.timeline")}
                       </h4>
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                          <div className="text-sm text-gray-600">
+                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#fad000' }}></div>
+                          <div className="text-sm text-black">
                             {t("product.timeline.item1")}
                           </div>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <div className="text-sm text-gray-600">
+                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#fc593d' }}></div>
+                          <div className="text-sm text-black">
                             {t("product.timeline.item2")}
                           </div>
                         </div>
@@ -269,11 +269,11 @@ export default function Homepage() {
           </div>
 
           {/* Newsletter Subscription */}
-          <div className="mt-16 bg-gradient-to-r from-purple-100 to-blue-100 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <div className="mt-16 rounded-2xl p-8 text-center" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)' }}>
+            <h3 className="text-2xl font-bold text-black mb-4">
               {t("subscribe.title")}
             </h3>
-            <p className="text-gray-600 mb-6">{t("subscribe.subtitle")}</p>
+            <p className="text-black mb-6">{t("subscribe.subtitle")}</p>
             <form
               onSubmit={handleSubscribe}
               className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
@@ -307,10 +307,10 @@ export default function Homepage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
               {t("community.power.title")}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-black max-w-3xl mx-auto">
               {t("community.power.subtitle")}
             </p>
           </div>
@@ -318,63 +318,65 @@ export default function Homepage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             <Card className="p-6 text-center">
               <CardContent className="p-0">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-white" />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                  <Users className="h-8 w-8 text-black" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-black mb-2">
                   {t("community.global.title")}
                 </h3>
-                <p className="text-3xl font-bold text-purple-600 mb-2">
+                <p className="text-3xl font-bold mb-2" style={{ color: '#c9a4ff' }}>
                   {t("community.global.count")}
                 </p>
-                <p className="text-gray-600">{t("community.global.label")}</p>
+                <p className="text-black">{t("community.global.label")}</p>
               </CardContent>
             </Card>
 
             <Card className="p-6 text-center">
               <CardContent className="p-0">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Database className="h-8 w-8 text-white" />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                  <Database className="h-8 w-8 text-black" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-black mb-2">
                   {t("community.data.title")}
                 </h3>
-                <p className="text-3xl font-bold text-blue-600 mb-2">
+                <p className="text-3xl font-bold mb-2" style={{ color: '#c9a4ff' }}>
                   {t("community.data.count")}
                 </p>
-                <p className="text-gray-600">{t("community.data.label")}</p>
+                <p className="text-black">{t("community.data.label")}</p>
               </CardContent>
             </Card>
 
             <Card className="p-6 text-center">
               <CardContent className="p-0">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Brain className="h-8 w-8 text-white" />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                  <Brain className="h-8 w-8 text-black" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-black mb-2">
                   {t("community.ai.title")}
                 </h3>
-                <p className="text-3xl font-bold text-green-600 mb-2">
+                <p className="text-3xl font-bold mb-2" style={{ color: '#c9a4ff' }}>
                   {t("community.ai.count")}
                 </p>
-                <p className="text-gray-600">{t("community.ai.label")}</p>
+                <p className="text-black">{t("community.ai.label")}</p>
               </CardContent>
             </Card>
           </div>
 
           <div
             id="join-community"
-            className="bg-gradient-to-r from-purple-600 to-purple-800 rounded-2xl p-8 text-center text-white"
+            className="rounded-2xl p-8 text-center"
+            style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}
           >
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="text-2xl font-bold mb-4 text-black">
               {t("community.join.title")}
             </h3>
-            <p className="text-purple-100 mb-6 max-w-2xl mx-auto">
+            <p className="mb-6 max-w-2xl mx-auto text-black">
               {t("community.join.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 py-3"
+                className="font-semibold px-8 py-3 text-black"
+                style={{ backgroundColor: '#fad000' }}
                 onClick={() =>
                   window.open("http://discord.gg/zKwyqxjeun", "_blank")
                 }
@@ -382,7 +384,8 @@ export default function Homepage() {
                 {t("community.join.discord")}
               </Button>
               <Button
-                className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 py-3"
+                className="font-semibold px-8 py-3 text-black"
+                style={{ backgroundColor: '#fad000' }}
                 onClick={() =>
                   window.open("https://twitter.com/CancerDAOxyz", "_blank")
                 }
@@ -400,10 +403,10 @@ export default function Homepage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
               {t("team.title")}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-black max-w-3xl mx-auto">
               {t("team.subtitle")}
             </p>
           </div>
@@ -432,15 +435,15 @@ export default function Homepage() {
                 className="p-6 text-center hover:shadow-lg transition-all duration-300"
               >
                 <CardContent className="p-0">
-                  <div className="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-white text-2xl font-bold">
+                  <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                    <span className="text-black text-2xl font-bold">
                       {member.name.split(" ")[1][0]}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-1">
+                  <h3 className="text-lg font-bold text-black mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-purple-600 font-semibold mb-2">
+                  <p className="font-semibold mb-2" style={{ color: '#c9a4ff' }}>
                     {member.role}
                   </p>
                 </CardContent>

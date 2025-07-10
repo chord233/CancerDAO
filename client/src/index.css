@@ -4,24 +4,24 @@
 
 :root {
   --background: hsl(0, 0%, 100%);
-  --foreground: hsl(222.2, 84%, 4.9%);
-  --muted: hsl(272, 100%, 96%);
-  --muted-foreground: hsl(215.4, 16.3%, 46.9%);
+  --foreground: hsl(0, 0%, 0%);
+  --muted: #e7d1ff;
+  --muted-foreground: hsl(0, 0%, 0%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(222.2, 84%, 4.9%);
+  --popover-foreground: hsl(0, 0%, 0%);
   --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(222.2, 84%, 4.9%);
-  --border: hsl(272, 100%, 91%);
-  --input: hsl(272, 100%, 96%);
-  --primary: hsl(272, 100%, 79%);
-  --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(272, 100%, 96%);
-  --secondary-foreground: hsl(272, 100%, 39%);
-  --accent: hsl(52, 100%, 48%);
+  --card-foreground: hsl(0, 0%, 0%);
+  --border: #e7d1ff;
+  --input: #e7d1ff;
+  --primary: #c9a4ff;
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: #e7d1ff;
+  --secondary-foreground: hsl(0, 0%, 0%);
+  --accent: #fad000;
   --accent-foreground: hsl(0, 0%, 0%);
-  --destructive: hsl(11, 95%, 58%);
+  --destructive: #fc593d;
   --destructive-foreground: hsl(0, 0%, 100%);
-  --ring: hsl(272, 100%, 79%);
+  --ring: #c9a4ff;
   --radius: 0.75rem;
   
   /* CancerDAO Brand Colors */
@@ -91,24 +91,32 @@
   }
   
   .feature-card {
-    @apply bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-purple-200 hover:shadow-xl transition-all duration-300 hover:scale-105;
+    @apply bg-white/80 backdrop-blur-sm p-8 rounded-2xl hover:shadow-xl transition-all duration-300 hover:scale-105;
+    border: 1px solid var(--brand-primary);
   }
   
   .nav-item {
-    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-purple-100 hover:text-purple-700;
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 text-black;
+  }
+  
+  .nav-item:hover {
+    background-color: var(--brand-primary);
+    color: black;
   }
   
   .nav-item.active {
-    @apply bg-purple-200 text-purple-800;
+    background-color: var(--brand-secondary);
+    color: black;
   }
   
   .btn-primary {
-    background: linear-gradient(135deg, var(--brand-secondary) 0%, var(--brand-purple) 100%);
-    @apply text-white font-semibold py-3 px-6 rounded-xl hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl;
+    background: var(--brand-secondary);
+    @apply text-black font-semibold py-3 px-6 rounded-xl hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl;
   }
   
   .btn-secondary {
-    @apply bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-xl hover:scale-105 transition-all duration-200 shadow-lg;
+    background: var(--brand-accent);
+    @apply text-black font-semibold py-3 px-6 rounded-xl hover:scale-105 transition-all duration-200 shadow-lg;
   }
   
   .section-bg {
@@ -120,11 +128,17 @@
   }
   
   .problem-card {
-    @apply bg-white/90 backdrop-blur-sm p-6 rounded-xl border-l-4 border-red-400 shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+    border-left: 4px solid var(--brand-danger);
   }
   
   .solution-card {
-    @apply bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-purple-200 hover:border-purple-300 shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300;
+    border: 1px solid var(--brand-primary);
+  }
+  
+  .solution-card:hover {
+    border-color: var(--brand-secondary);
   }
   
   .floating-animation {
