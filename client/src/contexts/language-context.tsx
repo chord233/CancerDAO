@@ -375,7 +375,24 @@ const translations = {
     "partners.contactForm.validationErrorTitle": "表单校验错误",
     "partners.contactForm.validationErrorMessage": "请填写所有必填字段。",
     "partners.contactForm.invalidEmail": "请输入有效的业务邮箱地址。",
-    "partners.contactForm.agreePrivacyPolicy": "请勾选同意隐私政策。"
+    "partners.contactForm.agreePrivacyPolicy": "请勾选同意隐私政策。",
+    
+    // Solution页面CTA
+    "solution.cta.title": "准备好开始您的健康之旅了吗？",
+    "solution.cta.subtitle": "加入我们的全球社区，与志同道合的人一起为无癌症世界而努力。",
+    "solution.cta.learn.more": "了解更多",
+    
+    // Solution页面三大支柱
+    "solution.pillars.title": "三大支柱：构建完整的癌症防治生态系统",
+    "solution.ai.pillar.point1": "个性化健康评估与预测",
+    "solution.ai.pillar.point2": "智能治疗方案推荐",
+    "solution.ai.pillar.point3": "持续健康监测与管理",
+    "solution.blockchain.pillar.point1": "数据所有权完全归用户",
+    "solution.blockchain.pillar.point2": "隐私保护与透明追踪",
+    "solution.blockchain.pillar.point3": "激励机制与价值分享",
+    "solution.community.pillar.point1": "全球专家与患者互助网络",
+    "solution.community.pillar.point2": "开放治疗数据共享",
+    "solution.community.pillar.point3": "社区治理与决策参与"
   },
   en: {
     // 导航栏
@@ -504,6 +521,23 @@ const translations = {
     "data.fhe.point1": "Data Always Remains Encrypted",
     "data.fhe.point2": "Supports AI Computation on Encrypted Data",
     "data.fhe.point3": "Zero Risk of Medical Data Leakage",
+    
+    // Solution页面CTA
+    "solution.cta.title": "Ready to Start Your Health Journey?",
+    "solution.cta.subtitle": "Join our global community and work with like-minded people for a cancer-free world.",
+    "solution.cta.learn.more": "Learn More",
+    
+    // Solution页面三大支柱
+    "solution.pillars.title": "Three Pillars: Building a Complete Cancer Prevention and Treatment Ecosystem",
+    "solution.ai.pillar.point1": "Personalized Health Assessment & Prediction",
+    "solution.ai.pillar.point2": "Intelligent Treatment Recommendations",
+    "solution.ai.pillar.point3": "Continuous Health Monitoring & Management",
+    "solution.blockchain.pillar.point1": "Data Ownership Fully Belongs to Users",
+    "solution.blockchain.pillar.point2": "Privacy Protection & Transparent Tracking",
+    "solution.blockchain.pillar.point3": "Incentive Mechanisms & Value Sharing",
+    "solution.community.pillar.point1": "Global Expert & Patient Mutual Support Network",
+    "solution.community.pillar.point2": "Open Treatment Data Sharing",
+    "solution.community.pillar.point3": "Community Governance & Decision Participation",
 
     // 社区力量
     "community.power.title": "You're not ALONE",
