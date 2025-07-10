@@ -81,9 +81,7 @@ export default function Homepage() {
                  font-semibold transform transition-all duration-300 ease-in-out
                  hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-red focus:ring-offset-2"
                 onClick={() =>
-                  document
-                    .getElementById("solution-section")
-                    ?.scrollIntoView({ behavior: "smooth" })
+                  window.location.href = "/solution"
                 }
               >
                 {t("hero.cta1")}
@@ -180,73 +178,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* Solution Overview - Simplified */}
-      <section className="py-20 section-bg" id="solution-section">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              {t("solution.title")}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t("solution.subtitle")}
-            </p>
-          </div>
 
-          {/* Simplified Three Pillars */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="solution-card">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform">
-                  <Brain className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">
-                  {t("solution.ai.pillar.title")}
-                </h3>
-              </div>
-              <p className="text-gray-600 text-center mb-6">
-                {t("solution.ai.pillar.description")}
-              </p>
-            </div>
-
-            <div className="solution-card">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform">
-                  <Shield className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">
-                  {t("solution.blockchain.pillar.title")}
-                </h3>
-              </div>
-              <p className="text-gray-600 text-center mb-6">
-                {t("solution.blockchain.pillar.description")}
-              </p>
-            </div>
-
-            <div className="solution-card">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform">
-                  <Users className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">
-                  {t("solution.community.pillar.title")}
-                </h3>
-              </div>
-              <p className="text-gray-600 text-center mb-6">
-                {t("solution.community.pillar.description")}
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Link to="/solution">
-              <Button className="btn-primary">
-                {t("solution.learn.more")}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* Product Preview - Simplified */}
       <section className="py-20 bg-white">
