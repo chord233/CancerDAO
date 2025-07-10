@@ -119,7 +119,8 @@ export default function About() {
       title: "Co-founder, SAB Director",
       role: "Senior VP (Innovation & Enterprise)",
       organization: "City University of Hong Kong",
-      achievements: ["HK Tech 300 Director", "DeSAI Lab Co-founder"],
+      details: ["HK Tech 300 Director", "DeSAI Lab Co-founder"],
+      achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -128,9 +129,10 @@ export default function About() {
     {
       name: "Prof. YoSean Wang, PhD", 
       title: "Co-founder, President",
-      role: "Research Assistant Professor",
-      organization: "City University of Hong Kong",
-      achievements: ["Harvard Biomedical Science PhD", "DeSAI Lab Co-founder, Director"],
+      role: "Harvard Biomedical Science PhD",
+      organization: "Research Assistant Professor",
+      details: ["City University of Hong Kong", "DeSAI Lab Co-founder, Director"],
+      achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -139,9 +141,10 @@ export default function About() {
     {
       name: "Zhiwei Bao, PhD",
       title: "Co-founder, CTO", 
-      role: "AI4Health PhD",
-      organization: "Zhejiang University",
-      achievements: ["BioLinkX Founder"],
+      role: "Zhejiang University",
+      organization: "AI4Health PhD",
+      details: ["BioLinkX Founder"],
+      achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -152,6 +155,7 @@ export default function About() {
       title: "Business Lead",
       role: "Business Development",
       organization: "CancerDAO",
+      details: [],
       achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
@@ -163,6 +167,7 @@ export default function About() {
       title: "Marketing Lead",
       role: "Brand & Communications",
       organization: "CancerDAO",
+      details: [],
       achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
@@ -174,6 +179,7 @@ export default function About() {
       title: "Ecosystem Lead",
       role: "Partnership Development",
       organization: "CancerDAO",
+      details: [],
       achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
@@ -185,6 +191,7 @@ export default function About() {
       title: "Community Lead",
       role: "Community Management",
       organization: "CancerDAO",
+      details: [],
       achievements: [],
       image: "/api/placeholder/200/200",
       linkedin: "#",
@@ -272,6 +279,18 @@ export default function About() {
                     </p>
                   </div>
                   
+                  {member.details && member.details.length > 0 && (
+                    <div className="mb-4">
+                      <div className="space-y-1">
+                        {member.details.map((detail, i) => (
+                          <p key={i} className="text-sm text-black">
+                            {detail}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   {member.achievements.length > 0 && (
                     <div className="mb-4">
                       <h4 className="font-semibold text-black mb-2 text-sm">{t('about.team.achievements')}:</h4>
