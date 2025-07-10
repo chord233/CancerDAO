@@ -219,16 +219,6 @@ const translations = {
     "about.team.title": "我们的团队",
     "about.team.subtitle": "认识推动我们使命向前发展的远见者和专家。",
     "about.team.achievements": "成就",
-    "about.team.title.michael": "联合创始人、科学顾问委员会主任",
-    "about.team.title.yosean": "联合创始人、总裁",
-    "about.team.title.zhiwei": "联合创始人、首席技术官",
-    "about.team.title.aspire": "商务主管",
-    "about.team.title.jennifer": "市场主管",
-    "about.team.title.jonathan": "生态主管",
-    "about.team.title.daqi": "社区主管",
-    "about.team.role.michael": "高级副总裁（创新与企业）\n香港城市大学\nHK Tech 300 主任\nDeSAI Lab 联合创始人",
-    "about.team.role.yosean": "哈佛生物医学科学博士\n研究助理教授\n香港城市大学\nDeSAI Lab 联合创始人、主任",
-    "about.team.role.zhiwei": "浙江大学\nAI4Health 博士\nBioLinkX 创始人",
     
     // Footer页脚翻译
     "footer.description": "与公众共建一个无癌世界。通过AI、区块链和社区力量，革新癌症的预防与治疗。",

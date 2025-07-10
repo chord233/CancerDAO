@@ -274,8 +274,6 @@ export default function Homepage() {
         </div>
       </section>
 
-      
-
       {/* Community Statistics */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
