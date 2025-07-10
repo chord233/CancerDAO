@@ -251,7 +251,7 @@ const translations = {
     
     // About页面联系表单
     "about.contact.title": "联系我们",
-    "about.contact.form.description": "请填写以下表单，我们的团队将在第一时间与您联系。",
+    "about.contact.form.description": "若有疑问，请填写以下表单，我们的团队将在第一时间与您联系。",
     "about.contact.name": "您的姓名",
     "about.contact.email": "邮箱地址",
     "about.contact.subject": "主题",
@@ -585,12 +585,6 @@ const translations = {
     "community.global.title": "Global Community",
     "community.global.count": "2,000+",
     "community.global.label": "Active Members",
-    "community.data.title": "Data Contribution",
-    "community.data.count": "500+",
-    "community.data.label": "Health Records",
-    "community.ai.title": "AI Models",
-    "community.ai.count": "95%",
-    "community.ai.label": "Accuracy Rate",
 
     // Community Statistics Section - Updated values
     "community.title": "Our Global Impact",
