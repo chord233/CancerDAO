@@ -1,18 +1,19 @@
-# RetailPro Sales Dashboard
+# CancerDAO Platform
 
 ## Overview
 
-RetailPro Sales Dashboard is a full-stack web application built for managing sales pipelines, tracking deals, and analyzing revenue performance. The application features a modern React frontend with a Node.js/Express backend, utilizing PostgreSQL for data persistence and providing comprehensive sales analytics and reporting capabilities.
+CancerDAO Platform is a full-stack web application built for cancer prevention and treatment, featuring a modern React frontend with a Node.js/Express backend. The platform provides bilingual support (Chinese/English) and includes comprehensive information about AI-powered cancer prevention, blockchain-based medical data management, and community-driven healthcare solutions.
 
 ## System Architecture
 
 ### Full-Stack Architecture
 - **Frontend**: React 18 with TypeScript, using Vite for build tooling
 - **Backend**: Node.js with Express.js REST API
-- **Database**: PostgreSQL with Drizzle ORM
+- **Database**: In-memory storage for development (expandable to PostgreSQL)
 - **UI Framework**: Tailwind CSS with shadcn/ui components
 - **State Management**: TanStack Query for server state management
-- **Routing**: Wouter for client-side routing
+- **Routing**: React Router for client-side routing
+- **Internationalization**: Custom language context for Chinese/English support
 
 ### Development Environment
 - **Build Tool**: Vite with React plugin
@@ -38,10 +39,9 @@ RetailPro Sales Dashboard is a full-stack web application built for managing sal
 - **Session Management**: PostgreSQL session store with connect-pg-simple
 
 ### Database Schema
-- **Deals Table**: Core entity storing deal information (company, contact, amount, stage, probability)
-- **Activities Table**: Audit trail for deal changes and system events
-- **Backups Table**: Metadata for backup operations and restore points
-- **Relationships**: Foreign key relationships between deals and activities
+- **Subscribers Table**: Email subscribers for newsletter updates
+- **Contact Messages Table**: Messages from contact forms and partnership inquiries
+- **Storage Interface**: Flexible storage system supporting both in-memory and PostgreSQL backends
 
 ## Data Flow
 
@@ -107,3 +107,4 @@ Preferred communication style: Simple, everyday language.
 
 Changelog:
 - July 03, 2025. Initial setup
+- July 10, 2025. Developed CancerDAO platform with bilingual support, simplified homepage design, comprehensive solution page, and architecture diagram integration
