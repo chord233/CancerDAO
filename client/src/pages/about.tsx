@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -38,6 +39,7 @@ const TwitterXIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
 export default function About() {
   const { t } = useLanguage();
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   // 确保页面加载时滚动到顶部
   useEffect(() => {
@@ -493,7 +495,10 @@ export default function About() {
               className="font-semibold px-8 py-3 text-black"
               style={{ backgroundColor: '#fad000' }}
               onClick={() => {
-                window.location.href = '/#join-community';
+                navigate('/');
+                setTimeout(() => {
+                  document.getElementById('join-community')?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
               }}
             >
               {t('about.cta.join') || 'Join Our Community'}
