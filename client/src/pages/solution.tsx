@@ -180,7 +180,7 @@ export default function Solution() {
                     className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
                   />
                 </div>
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="flex items-center text-sm text-black">
                     <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
                     {t("data.nft.point1")}
@@ -226,7 +226,7 @@ export default function Solution() {
                     />
                   </div>
                 </div>
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="flex items-center text-sm text-black">
                     <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
                     {t("data.fhe.point1")}
