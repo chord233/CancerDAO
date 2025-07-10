@@ -159,7 +159,7 @@ export default function Solution() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="space-y-12">
             <Card className="p-8 bg-white/80 backdrop-blur-sm" style={{ border: '1px solid #e7d1ff' }}>
               <CardContent className="p-0">
                 <div className="flex items-center mb-6">
