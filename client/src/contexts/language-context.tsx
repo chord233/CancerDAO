@@ -191,6 +191,23 @@ const translations = {
     "team.member.daqi.role": "社区负责人",
     "team.learn.more": "了解更多",
 
+    // About页面
+    "about.title": "关于我们",
+    "about.hero.description": "我们是由科学家、技术专家和远见者组成的全球社区，团结于一个使命：创造一个癌症不再是死刑的世界。通过AI、区块链技术和集体智慧的力量，我们正在革新癌症的预防、检测和治疗方式。",
+    "about.hero.tagline": "共同努力，我们正在通过科学构建希望。",
+    "about.mission.title": "我们的使命",
+    "about.mission.subtitle": "通过创新、协作和不懈决心改变癌症护理。",
+    "about.vision.title": "我们的愿景",
+    "about.vision.description": "我们设想一个每个人都能获得个性化、AI驱动的癌症预防和治疗的未来。一个医疗数据安全、透明并服务于更大利益的世界。在这个世界里，突破性发现通过全球合作得到加速，没有人独自面对癌症。",
+    "about.values.title": "我们的核心价值观",
+    "about.values.subtitle": "这些原则指导着我们所做的一切和我们做出的每一个决定。",
+    "about.team.title": "我们的团队",
+    "about.team.subtitle": "认识推动我们使命向前发展的远见者和专家。",
+    "about.cta.title": "加入我们的使命",
+    "about.cta.description": "无论您是研究员、开发者、患者，还是仅仅是相信我们事业的人，在我们的社区中都有您的位置。",
+    "about.cta.join": "加入我们的社区",
+    "about.cta.learn": "了解更多",
+
     // Toast消息
     "toast.subscribe.success.title": "订阅成功",
     "toast.subscribe.success.description":
@@ -594,7 +611,24 @@ const translations = {
     "partners.contactForm.validationErrorTitle": "Form Validation Error",
     "partners.contactForm.validationErrorMessage": "Please fill in all required fields.",
     "partners.contactForm.invalidEmail": "Please enter a valid business email address.",
-    "partners.contactForm.agreePrivacyPolicy": "Please check the privacy policy consent box."
+    "partners.contactForm.agreePrivacyPolicy": "Please check the privacy policy consent box.",
+
+    // About页面
+    "about.title": "About CancerDAO",
+    "about.hero.description": "We are a global community of scientists, technologists, and visionaries united by one mission: to create a world where cancer is no longer a death sentence. Through the power of AI, blockchain technology, and collective intelligence, we are revolutionizing how we prevent, detect, and treat cancer.",
+    "about.hero.tagline": "Together, we are building hope through science.",
+    "about.mission.title": "Our Mission",
+    "about.mission.subtitle": "Transforming cancer care through innovation, collaboration, and unwavering determination.",
+    "about.vision.title": "Our Vision",
+    "about.vision.description": "We envision a future where every individual has access to personalized, AI-powered cancer prevention and treatment. A world where medical data is secure, transparent, and serves the greater good. Where breakthrough discoveries are accelerated through global collaboration, and where no one faces cancer alone.",
+    "about.values.title": "Our Core Values",
+    "about.values.subtitle": "These principles guide everything we do and every decision we make.",
+    "about.team.title": "Our Team",
+    "about.team.subtitle": "Meet the visionaries and experts driving our mission forward.",
+    "about.cta.title": "Join Our Mission",
+    "about.cta.description": "Whether you are a researcher, developer, patient, or simply someone who believes in our cause, there is a place for you in our community.",
+    "about.cta.join": "Join Our Community",
+    "about.cta.learn": "Learn More"
 
   },
 };
