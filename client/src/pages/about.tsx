@@ -280,9 +280,6 @@ export default function About() {
                     <Button variant="outline" size="sm" className="p-2">
                       <Twitter className="h-4 w-4" />
                     </Button>
-                    <Button variant="outline" size="sm" className="p-2">
-                      <Mail className="h-4 w-4" />
-                    </Button>
                   </div>
                 </CardContent>
               </Card>
