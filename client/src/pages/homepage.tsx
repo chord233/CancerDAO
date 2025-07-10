@@ -533,7 +533,7 @@ export default function Homepage() {
       </section>
 
       {/* Partners & Ecosystem Section */}
-      <section className="py-20" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)' }}>
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
@@ -544,41 +544,69 @@ export default function Homepage() {
             </p>
           </div>
 
-          {/* Partner Logos Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
-            {[
-              { name: "VitaDAO", logo: "V", website: "https://vitadao.com" },
-              { name: "Longevity Science Foundation", logo: "LSF", website: "#" },
-              { name: "Crypto Research Institute", logo: "CRI", website: "#" },
-              { name: "BioTech Alliance", logo: "BTA", website: "#" },
-              { name: "Health Innovation Hub", logo: "HIH", website: "#" },
-              { name: "Future Medicine Labs", logo: "FML", website: "#" },
-              { name: "Digital Health Collective", logo: "DHC", website: "#" },
-              { name: "Cancer Research Network", logo: "CRN", website: "#" }
-            ].map((partner, index) => (
-              <div 
-                key={index} 
-                className="group cursor-pointer"
-                onClick={() => partner.website !== "#" && window.open(partner.website, "_blank")}
-              >
-                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-8 hover:bg-white transition-all duration-300 hover:shadow-lg flex flex-col items-center justify-center h-32">
-                  <div 
-                    className="w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold text-black mb-2 group-hover:scale-110 transition-transform duration-300"
-                    style={{ backgroundColor: '#c9a4ff' }}
-                  >
-                    {partner.logo}
-                  </div>
-                  <div className="text-sm font-medium text-black text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {partner.name}
+          {/* Partner Logos Carousel */}
+          <div className="relative overflow-hidden mb-12">
+            <div className="flex animate-scroll whitespace-nowrap">
+              {/* First set of partners */}
+              {[
+                { name: "Alpha Medical Group", logo: "AM", website: "#" },
+                { name: "Beta Research Institute", logo: "BR", website: "#" },
+                { name: "Gamma Health Tech", logo: "GH", website: "#" },
+                { name: "Delta Innovation Lab", logo: "DI", website: "#" },
+                { name: "Epsilon BioSciences", logo: "EB", website: "#" },
+                { name: "Zeta Digital Health", logo: "ZD", website: "#" }
+              ].map((partner, index) => (
+                <div 
+                  key={index} 
+                  className="inline-block mx-4 group cursor-pointer"
+                  onClick={() => partner.website !== "#" && window.open(partner.website, "_blank")}
+                >
+                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center h-32 w-40">
+                    <div 
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-black mb-2 group-hover:scale-110 transition-transform duration-300"
+                      style={{ backgroundColor: '#e7d1ff' }}
+                    >
+                      {partner.logo}
+                    </div>
+                    <div className="text-xs font-medium text-black text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {partner.name}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+              {/* Duplicate set for seamless scroll */}
+              {[
+                { name: "Alpha Medical Group", logo: "AM", website: "#" },
+                { name: "Beta Research Institute", logo: "BR", website: "#" },
+                { name: "Gamma Health Tech", logo: "GH", website: "#" },
+                { name: "Delta Innovation Lab", logo: "DI", website: "#" },
+                { name: "Epsilon BioSciences", logo: "EB", website: "#" },
+                { name: "Zeta Digital Health", logo: "ZD", website: "#" }
+              ].map((partner, index) => (
+                <div 
+                  key={`duplicate-${index}`} 
+                  className="inline-block mx-4 group cursor-pointer"
+                  onClick={() => partner.website !== "#" && window.open(partner.website, "_blank")}
+                >
+                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center h-32 w-40">
+                    <div 
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-black mb-2 group-hover:scale-110 transition-transform duration-300"
+                      style={{ backgroundColor: '#e7d1ff' }}
+                    >
+                      {partner.logo}
+                    </div>
+                    <div className="text-xs font-medium text-black text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {partner.name}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Call to Action */}
           <div className="text-center">
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
+            <div className="rounded-2xl p-8 max-w-2xl mx-auto border border-gray-200">
               <h3 className="text-xl font-bold text-black mb-4">
                 成为我们的合作伙伴
               </h3>
