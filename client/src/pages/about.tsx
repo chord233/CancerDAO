@@ -339,10 +339,10 @@ export default function About() {
         <section className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-black mb-4">
-              联系我们
+  {t('about.contact.title')}
             </h2>
             <p className="text-lg text-black max-w-3xl mx-auto">
-              请填写以下表单，我们的团队将在第一时间与您联系。
+{t('about.contact.form.description')}
             </p>
           </div>
 
@@ -353,7 +353,7 @@ export default function About() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-black">
-                      您的姓名 <span className="text-red-500">*</span>
+  {t('about.contact.name')} <span className="text-red-500">*</span>
                     </Label>
                     <Input
                       id="name"
@@ -469,7 +469,7 @@ export default function About() {
             <div className="space-y-8">
               <Card className="p-8">
                 <h3 className="text-xl font-bold text-black mb-6">
-                  或通过以下方式联系我们
+{t('about.contact.other.title')}
                 </h3>
                 
                 <div className="space-y-6">
@@ -478,7 +478,7 @@ export default function About() {
                       <Mail className="h-6 w-6 text-black" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-black">官方邮箱</h4>
+<h4 className="font-semibold text-black">{t('about.contact.official.email')}</h4>
                       <a 
                         href="mailto:contact@cancerdao.org" 
                         className="text-black hover:underline"
@@ -494,7 +494,7 @@ export default function About() {
 
               <Card className="p-8">
                 <h3 className="text-xl font-bold text-black mb-6">
-                  社交媒体
+{t('about.contact.social.media')}
                 </h3>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -530,10 +530,10 @@ export default function About() {
 
               <div className="rounded-2xl p-6" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)' }}>
                 <h3 className="text-lg font-bold text-black mb-2">
-                  响应时间
+{t('about.contact.response.time')}
                 </h3>
                 <p className="text-black">
-                  我们通常在 24 小时内回复您的咨询。紧急事务请直接发送邮件至官方邮箱。
+{t('about.contact.response.desc')}
                 </p>
               </div>
             </div>
