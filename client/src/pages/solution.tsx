@@ -159,7 +159,7 @@ export default function Solution() {
             </p>
           </div>
 
-          <div className="space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <Card className="p-8 bg-white/80 backdrop-blur-sm" style={{ border: '1px solid #e7d1ff' }}>
               <CardContent className="p-0">
                 <div className="flex items-center mb-6">
@@ -224,6 +224,20 @@ export default function Solution() {
                       alt="FHE Data Processing Workflow"
                       className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
                     />
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center text-sm text-black">
+                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
+                    {t("data.fhe.point1")}
+                  </div>
+                  <div className="flex items-center text-sm text-black">
+                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
+                    {t("data.fhe.point2")}
+                  </div>
+                  <div className="flex items-center text-sm text-black">
+                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
+                    {t("data.fhe.point3")}
                   </div>
                 </div>
               </CardContent>
