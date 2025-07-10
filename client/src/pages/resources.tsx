@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -22,6 +23,7 @@ import {
 
 export default function Resources() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
 
   // 博客文章数据
@@ -407,6 +409,18 @@ export default function Resources() {
             <Button 
               className="font-semibold px-8 py-3 text-black"
               style={{ backgroundColor: '#fad000' }}
+              onClick={() => {
+                navigate('/about');
+                setTimeout(() => {
+                  const contactSection = document.querySelector('section:has(h2:contains("联系我们"))');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    // 如果选择器不工作，使用更通用的方法
+                    window.scrollTo({ top: document.body.scrollHeight * 0.6, behavior: 'smooth' });
+                  }
+                }, 100);
+              }}
             >
               联系我们
             </Button>
