@@ -531,6 +531,72 @@ export default function Homepage() {
           </div>
         </div>
       </section>
+
+      {/* Partners & Ecosystem Section */}
+      <section className="py-20" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
+              我们的合作伙伴
+            </h2>
+            <p className="text-xl text-black max-w-3xl mx-auto">
+              欢迎各类组织加入，共同推动创新
+            </p>
+          </div>
+
+          {/* Partner Logos Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
+            {[
+              { name: "VitaDAO", logo: "V", website: "https://vitadao.com" },
+              { name: "Longevity Science Foundation", logo: "LSF", website: "#" },
+              { name: "Crypto Research Institute", logo: "CRI", website: "#" },
+              { name: "BioTech Alliance", logo: "BTA", website: "#" },
+              { name: "Health Innovation Hub", logo: "HIH", website: "#" },
+              { name: "Future Medicine Labs", logo: "FML", website: "#" },
+              { name: "Digital Health Collective", logo: "DHC", website: "#" },
+              { name: "Cancer Research Network", logo: "CRN", website: "#" }
+            ].map((partner, index) => (
+              <div 
+                key={index} 
+                className="group cursor-pointer"
+                onClick={() => partner.website !== "#" && window.open(partner.website, "_blank")}
+              >
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-8 hover:bg-white transition-all duration-300 hover:shadow-lg flex flex-col items-center justify-center h-32">
+                  <div 
+                    className="w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold text-black mb-2 group-hover:scale-110 transition-transform duration-300"
+                    style={{ backgroundColor: '#c9a4ff' }}
+                  >
+                    {partner.logo}
+                  </div>
+                  <div className="text-sm font-medium text-black text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {partner.name}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
+              <h3 className="text-xl font-bold text-black mb-4">
+                成为我们的合作伙伴
+              </h3>
+              <p className="text-black mb-6">
+                我们正在寻找志同道合的机构和组织，共同构建去中心化的癌症预防与治疗生态系统
+              </p>
+              <Button 
+                className="font-semibold px-8 py-3 text-black"
+                style={{ backgroundColor: '#fad000' }}
+                onClick={() => navigate('/for-partners')}
+              >
+                了解合作机会
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
