@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -37,6 +37,11 @@ const TwitterXIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
 export default function About() {
   const { t } = useLanguage();
   const { toast } = useToast();
+
+  // 确保页面加载时滚动到顶部
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   
   // Contact form state
   const [contactForm, setContactForm] = useState({

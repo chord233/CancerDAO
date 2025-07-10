@@ -31,13 +31,14 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/language-context";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import backgroundImage from "@assets/1500x500_1752159520914.jfif";
 
 export default function Homepage() {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   const subscribeMutation = useMutation({
     mutationFn: (email: string) =>
@@ -463,12 +464,19 @@ export default function Homepage() {
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/about#top">
-              <Button className="btn-primary">
-                {t("team.learn.more")}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <Button 
+              className="btn-primary"
+              onClick={() => {
+                navigate('/about');
+                // 确保页面滚动到顶部
+                setTimeout(() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 50);
+              }}
+            >
+              {t("team.learn.more")}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
         </div>
       </section>
