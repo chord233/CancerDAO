@@ -12,7 +12,6 @@ import { useLanguage } from "@/contexts/language-context";
 import { apiRequest } from "@/lib/queryClient";
 import { 
   Linkedin, 
-  Twitter, 
   Mail, 
   MapPin, 
   Award, 
@@ -22,6 +21,18 @@ import {
   Send,
   Phone
 } from "lucide-react";
+
+// Custom Twitter X Icon Component
+const TwitterXIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    className={className}
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 export default function About() {
   const { t } = useLanguage();
@@ -130,7 +141,7 @@ export default function About() {
       title: "Co-founder, CTO", 
       role: "AI4Health PhD",
       organization: "Zhejiang University",
-      achievements: ["BioLinkX Founder", "AI4Health Specialist"],
+      achievements: ["BioLinkX Founder"],
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -280,7 +291,7 @@ export default function About() {
                       <Linkedin className="h-4 w-4" />
                     </Button>
                     <Button variant="outline" size="sm" className="p-2">
-                      <Twitter className="h-4 w-4" />
+                      <TwitterXIcon className="h-4 w-4" />
                     </Button>
                   </div>
                 </CardContent>

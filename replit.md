@@ -114,3 +114,4 @@ Changelog:
 - July 10, 2025. Updated Community page with comprehensive community support section featuring emotional support values, real patient stories, and clear community joining pathways according to PRD requirements
 - July 10, 2025. Updated all social media links across the entire platform - replaced old Telegram link with new group URL (https://web.telegram.org/a/#-1002393239074_1), maintained Discord and Twitter links, and ensured consistent three-button social media layout across all pages
 - July 10, 2025. Modified About page team member profiles - removed achievements for Aspire Cao, Jennifer Cheng Lo, Jonathan Hakim, and Daqi Lee, updated role descriptions, and implemented conditional rendering to hide achievements section when empty
+- July 10, 2025. Updated About page team member social media icons - replaced Twitter icon with custom X icon to match footer design, ensuring consistent branding across the platform
