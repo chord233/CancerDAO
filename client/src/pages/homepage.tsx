@@ -392,6 +392,15 @@ export default function Homepage() {
               >
                 {t("community.join.twitter")}
               </Button>
+              <Button
+                className="font-semibold px-8 py-3 text-black"
+                style={{ backgroundColor: '#fad000' }}
+                onClick={() =>
+                  window.open("https://t.me/cancerdao", "_blank")
+                }
+              >
+                {t("community.join.telegram")}
+              </Button>
             </div>
           </div>
         </div>

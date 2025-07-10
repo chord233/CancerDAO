@@ -165,6 +165,7 @@ const translations = {
       "与全球癌症防治专家、研究人员和支持者一起，构建更美好的未来。",
     "community.join.discord": "加入Discord社区",
     "community.join.twitter": "关注我们的Twitter",
+    "community.join.telegram": "加入Telegram群组",
 
     // 合作伙伴
     "partners.title": "我们的合作伙伴",
@@ -478,6 +479,7 @@ const translations = {
       "Work with global cancer prevention experts, researchers, and supporters to build a better future.",
     "community.join.discord": "Join Discord Community",
     "community.join.twitter": "Follow us on Twitter",
+    "community.join.telegram": "Join Telegram Group",
 
     // 合作伙伴
     "partners.title": "Our Partners",

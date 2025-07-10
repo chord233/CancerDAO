@@ -294,6 +294,16 @@ export default function Community() {
                 访问Discord社区
                 <ExternalLink className="ml-2 h-5 w-5" />
               </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                className="font-semibold px-8 py-4 text-lg text-black"
+                style={{ borderColor: '#c9a4ff' }}
+                onClick={() => window.open('https://t.me/cancerdao', '_blank')}
+              >
+                加入Telegram群组
+                <ExternalLink className="ml-2 h-5 w-5" />
+              </Button>
             </div>
             
             <div className="mt-6 text-sm text-black">

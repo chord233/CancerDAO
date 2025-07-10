@@ -497,7 +497,7 @@ export default function About() {
                   社交媒体
                 </h3>
                 
-                <div className="flex space-x-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <Button 
                     variant="outline" 
                     size="lg"
@@ -514,6 +514,15 @@ export default function About() {
                     onClick={() => window.open('https://twitter.com/cancerdao', '_blank')}
                   >
                     Twitter
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="flex-1"
+                    onClick={() => window.open('https://t.me/cancerdao', '_blank')}
+                  >
+                    Telegram
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
