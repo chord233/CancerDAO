@@ -86,13 +86,7 @@ export function Footer() {
                   </span>
                 </Link>
               </li>
-              <li>
-                <Link to="/for-individuals">
-                  <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
-                    {t("nav.individuals")}
-                  </span>
-                </Link>
-              </li>
+              
               <li>
                 <Link to="/community">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
