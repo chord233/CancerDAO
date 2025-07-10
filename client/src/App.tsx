@@ -13,20 +13,31 @@ import Resources from "@/pages/resources";
 import NotFound from "@/pages/not-found";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
+// 滚动到顶部的组件
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function AppRouter() {
   return (
     <BrowserRouter>
       <LanguageProvider>
-        <TooltipProvider> {/* 如果 TooltipProvider 和 Toaster 需要在路由上下文内，可以放在这里 */}
+        <TooltipProvider>
           <Toaster />
+          <ScrollToTop />
           <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-yellow-50">
             <Navbar />
             <main className="min-h-screen">
-              {/* 将 Switch 替换为 React Router v6 的 Routes */}
               <Routes>
-                {/* Route 组件现在使用 element prop，并且传入 JSX 元素 */}
                 <Route path="/" element={<Homepage />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/solution" element={<Solution />} />
@@ -34,7 +45,6 @@ function AppRouter() {
                 <Route path="/for-partners" element={<ForPartners />} />
                 <Route path="/community" element={<Community />} />
                 <Route path="/resources" element={<Resources />} />
-                {/* 对于 404 页面，使用 path="*" 捕获所有未匹配的路径 */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
