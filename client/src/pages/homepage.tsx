@@ -463,7 +463,7 @@ export default function Homepage() {
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/about">
+            <Link to="/about#top">
               <Button className="btn-primary">
                 {t("team.learn.more")}
                 <ArrowRight className="ml-2 h-5 w-5" />

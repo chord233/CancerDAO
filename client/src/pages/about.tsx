@@ -178,7 +178,7 @@ export default function About() {
   
 
   return (
-    <div className="min-h-screen py-20">
+    <div id="top" className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Hero Section */}
