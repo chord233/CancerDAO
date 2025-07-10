@@ -394,7 +394,7 @@ export default function Homepage() {
                 className="font-semibold px-8 py-3 text-black"
                 style={{ backgroundColor: '#fad000' }}
                 onClick={() =>
-                  window.open("https://t.me/cancerdao", "_blank")
+                  window.open("https://web.telegram.org/a/#-1002393239074_1", "_blank")
                 }
               >
                 {t("community.join.telegram")}

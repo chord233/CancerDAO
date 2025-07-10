@@ -250,17 +250,22 @@ export default function Solution() {
               {t("community.join.discord")}
             </Button>
             <Button
-              variant="outline"
-              className="font-semibold px-8 py-3 text-black hover:text-black"
-              style={{ borderColor: '#fc593d', color: 'black' }}
+              className="font-semibold px-8 py-3 text-black"
+              style={{ backgroundColor: '#fad000' }}
               onClick={() =>
-                document
-                  .getElementById("join-community")
-                  ?.scrollIntoView({ behavior: "smooth" })
+                window.open("https://twitter.com/CancerDAOxyz", "_blank")
               }
             >
-              {t("solution.cta.learn.more")}
-              <ArrowRight className="ml-2 h-4 w-4" />
+              {t("community.join.twitter")}
+            </Button>
+            <Button
+              className="font-semibold px-8 py-3 text-black"
+              style={{ backgroundColor: '#fad000' }}
+              onClick={() =>
+                window.open("https://web.telegram.org/a/#-1002393239074_1", "_blank")
+              }
+            >
+              {t("community.join.telegram")}
             </Button>
           </div>
         </div>

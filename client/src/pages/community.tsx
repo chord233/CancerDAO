@@ -298,8 +298,18 @@ export default function Community() {
                 size="lg"
                 variant="outline"
                 className="font-semibold px-8 py-4 text-lg text-black"
+                style={{ borderColor: '#fc593d' }}
+                onClick={() => window.open('https://twitter.com/CancerDAOxyz', '_blank')}
+              >
+                关注Twitter
+                <ExternalLink className="ml-2 h-5 w-5" />
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                className="font-semibold px-8 py-4 text-lg text-black"
                 style={{ borderColor: '#c9a4ff' }}
-                onClick={() => window.open('https://t.me/cancerdao', '_blank')}
+                onClick={() => window.open('https://web.telegram.org/a/#-1002393239074_1', '_blank')}
               >
                 加入Telegram群组
                 <ExternalLink className="ml-2 h-5 w-5" />

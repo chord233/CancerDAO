@@ -38,7 +38,7 @@ export function Footer() {
                 <TwitterXIcon className="h-5 w-5" />
               </a>
               <a
-                href="https://discord.gg/cancerdao"
+                href="http://discord.gg/zKwyqxjeun"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-purple-400 hover:text-purple-300 transition-colors"
@@ -46,7 +46,7 @@ export function Footer() {
                 <MessageCircle className="h-5 w-5" />
               </a>
               <a
-                href="https://t.me/cancerdao"
+                href="https://web.telegram.org/a/#-1002393239074_1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-purple-400 hover:text-purple-300 transition-colors"

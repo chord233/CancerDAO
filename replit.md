@@ -112,3 +112,4 @@ Changelog:
 - July 10, 2025. Created comprehensive About page with emotional mission statement, detailed team member profiles, and core values showcase
 - July 10, 2025. Implemented comprehensive Resources center with three main modules: Blog/Articles, Educational Content (Insights), and FAQ with search functionality
 - July 10, 2025. Updated Community page with comprehensive community support section featuring emotional support values, real patient stories, and clear community joining pathways according to PRD requirements
+- July 10, 2025. Updated all social media links across the entire platform - replaced old Telegram link with new group URL (https://web.telegram.org/a/#-1002393239074_1), maintained Discord and Twitter links, and ensured consistent three-button social media layout across all pages

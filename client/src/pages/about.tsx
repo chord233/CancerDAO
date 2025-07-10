@@ -511,7 +511,7 @@ export default function About() {
                     variant="outline" 
                     size="lg"
                     className="flex-1"
-                    onClick={() => window.open('https://twitter.com/cancerdao', '_blank')}
+                    onClick={() => window.open('https://twitter.com/CancerDAOxyz', '_blank')}
                   >
                     Twitter
                     <ExternalLink className="ml-2 h-4 w-4" />
@@ -520,7 +520,7 @@ export default function About() {
                     variant="outline" 
                     size="lg"
                     className="flex-1"
-                    onClick={() => window.open('https://t.me/cancerdao', '_blank')}
+                    onClick={() => window.open('https://web.telegram.org/a/#-1002393239074_1', '_blank')}
                   >
                     Telegram
                     <ExternalLink className="ml-2 h-4 w-4" />
