@@ -173,9 +173,13 @@ export default function Solution() {
                     </Badge>
                   </div>
                 </div>
-                <p className="text-black mb-6 leading-relaxed">
-                  {t("data.nft.description")}
-                </p>
+                <div className="mb-6">
+                  <img 
+                    src="/attached_assets/image_1752155657182.png" 
+                    alt="CancerDAO Data Architecture Diagram"
+                    className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
+                  />
+                </div>
                 <div className="space-y-3">
                   <div className="flex items-center text-sm text-black">
                     <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
