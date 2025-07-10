@@ -24,6 +24,7 @@ export default function Homepage() {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
   const { t } = useLanguage();
+  // const navigate = useNavigate(); // 初始化 useNavigate
 
   const subscribeMutation = useMutation({
     mutationFn: (email: string) =>
@@ -81,6 +82,7 @@ export default function Homepage() {
             </h1>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              {/* 第一个按钮 (主要按钮)*/}
               <Button
                 className="btn-secondary text-lg px-8 py-4
                  border-2 border-orange-red text-orange-red bg-transparent 
@@ -94,6 +96,7 @@ export default function Homepage() {
                 {t("hero.cta1")}
                 <ArrowRight className="ml-3 h-6 w-6" />
               </Button>
+              {/* 第二个按钮 (次要按钮)*/}
               <Button
                 className="btn-secondary text-lg px-8 py-4
                  border-2 border-purple-medium text-purple-medium bg-transparent
@@ -137,58 +140,57 @@ export default function Homepage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="problem-card">
-                <div className="flex items-center mb-4">
-                  <AlertTriangle className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                  <h3 className="text-xl font-semibold text-black">
-                    {t("problem.global.title")}
-                  </h3>
-                </div>
-                <div className="space-y-3">
-                  <p className="text-black">
-                    <strong>{t("problem.global.description")}</strong>
-                  </p>
-                  <ul className="text-sm text-black space-y-1">
-                    <li>• {t("problem.global.point1")}</li>
-                    <li>• {t("problem.global.point2")}</li>
-                  </ul>
-                </div>
+              <div className="flex items-center mb-4">
+                <AlertTriangle className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                <h3 className="text-xl font-semibold text-black">
+                  {t("problem.global.title")}
+                </h3>
               </div>
-
-              <div className="problem-card">
-                <div className="flex items-center mb-4">
-                  <Users className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                  <h3 className="text-xl font-semibold text-black">
-                    {t("problem.knowledge.title")}
-                  </h3>
-                </div>
-                <div className="space-y-3">
-                  <p className="text-black">
-                    <strong>{t("problem.knowledge.description")}</strong>
-                  </p>
-                  <ul className="text-sm text-black space-y-1">
-                    <li>• {t("problem.knowledge.point1")}</li>
-                    <li>• {t("problem.knowledge.point2")}</li>
-                    <li>• {t("problem.knowledge.point3")}</li>
-                  </ul>
-                </div>
+              <div className="space-y-3">
+                <p className="text-black">
+                  <strong>{t("problem.global.description")}</strong>
+                </p>
+                <ul className="text-sm text-black space-y-1">
+                  <li>• {t("problem.global.point1")}</li>
+                  <li>• {t("problem.global.point2")}</li>
+                </ul>
               </div>
+            </div>
 
-              <div className="problem-card">
-                <div className="flex items-center mb-4">
-                  <TrendingUp className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                  <h3 className="text-xl font-semibold text-black">
-                    {t("problem.innovation.title")}
-                  </h3>
-                </div>
-                <div className="space-y-3">
-                  <p className="text-black">
-                    <strong>{t("problem.innovation.description")}</strong>
-                  </p>
-                  <ul className="text-sm text-black space-y-1">
-                    <li>• {t("problem.innovation.point1")}</li>
-                    <li>• {t("problem.innovation.point2")}</li>
-                  </ul>
-                </div>
+            <div className="problem-card">
+              <div className="flex items-center mb-4">
+                <Users className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                <h3 className="text-xl font-semibold text-black">
+                  {t("problem.knowledge.title")}
+                </h3>
+              </div>
+              <div className="space-y-3">
+                <p className="text-black">
+                  <strong>{t("problem.knowledge.description")}</strong>
+                </p>
+                <ul className="text-sm text-black space-y-1">
+                  <li>• {t("problem.knowledge.point1")}</li>
+                  <li>• {t("problem.knowledge.point2")}</li>
+                  <li>• {t("problem.knowledge.point3")}</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="problem-card">
+              <div className="flex items-center mb-4">
+                <TrendingUp className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                <h3 className="text-xl font-semibold text-black">
+                  {t("problem.innovation.title")}
+                </h3>
+              </div>
+              <div className="space-y-3">
+                <p className="text-black">
+                  <strong>{t("problem.innovation.description")}</strong>
+                </p>
+                <ul className="text-sm text-black space-y-1">
+                  <li>• {t("problem.innovation.point1")}</li>
+                  <li>• {t("problem.innovation.point2")}</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -254,95 +256,102 @@ export default function Homepage() {
                       <h4 className="font-semibold text-black mb-2">
                         {t("product.ai.analysis")}
                       </h4>
-                      <p className="text-sm text-black">
-                        {t("product.ai.description")}
-                      </p>
+                      <div className="w-full h-2 rounded-full" style={{ backgroundColor: '#c9a4ff' }}>
+                        <div className="h-2 rounded-full w-3/4" style={{ backgroundColor: '#fad000' }}></div>
+                      </div>
                     </div>
                     <div className="p-4 rounded-lg" style={{ backgroundColor: '#e7d1ff' }}>
                       <h4 className="font-semibold text-black mb-2">
-                        {t("product.blockchain.security")}
+                        {t("product.timeline")}
                       </h4>
-                      <p className="text-sm text-black">
-                        {t("product.blockchain.description")}
-                      </p>
+                      <div className="space-y-2">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#fad000' }}></div>
+                          <div className="text-sm text-black">
+                            {t("product.timeline.item1")}
+                          </div>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#fc593d' }}></div>
+                          <div className="text-sm text-black">
+                            {t("product.timeline.item2")}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Features Section */}
-      <section className="py-20" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
-              {t("features.title")}
-            </h2>
-            <p className="text-xl text-black max-w-3xl mx-auto">
-              {t("features.subtitle")}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="feature-card">
-              <CardContent className="p-8 text-center">
-                <Brain className="h-12 w-12 mx-auto mb-4" style={{ color: '#c9a4ff' }} />
-                <h3 className="text-xl font-bold text-black mb-4">
-                  {t("features.ai.title")}
-                </h3>
-                <p className="text-black leading-relaxed">
-                  {t("features.ai.description")}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="feature-card">
-              <CardContent className="p-8 text-center">
-                <Shield className="h-12 w-12 mx-auto mb-4" style={{ color: '#c9a4ff' }} />
-                <h3 className="text-xl font-bold text-black mb-4">
-                  {t("features.blockchain.title")}
-                </h3>
-                <p className="text-black leading-relaxed">
-                  {t("features.blockchain.description")}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="feature-card">
-              <CardContent className="p-8 text-center">
-                <Users className="h-12 w-12 mx-auto mb-4" style={{ color: '#c9a4ff' }} />
-                <h3 className="text-xl font-bold text-black mb-4">
-                  {t("features.community.title")}
-                </h3>
-                <p className="text-black leading-relaxed">
-                  {t("features.community.description")}
-                </p>
-              </CardContent>
-            </Card>
+          {/* Newsletter Subscription */}
+          <div className="mt-16 rounded-2xl p-8 text-center" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)' }}>
+            <h3 className="text-2xl font-bold text-black mb-4">
+              {t("subscribe.title")}
+            </h3>
+            <p className="text-black mb-6">{t("subscribe.subtitle")}</p>
+            <form
+              onSubmit={handleSubscribe}
+              className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+            >
+              <Input
+                type="email"
+                placeholder={t("subscribe.placeholder")}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1"
+                required
+              />
+              <Button
+                type="submit"
+                disabled={subscribeMutation.isPending}
+                className="btn-primary"
+              >
+                {subscribeMutation.isPending
+                  ? t("subscribe.subscribing")
+                  : t("subscribe.button")}
+                <Mail className="ml-2 h-4 w-4" />
+              </Button>
+            </form>
           </div>
         </div>
       </section>
 
-      {/* Community Statistics */}
+
+
+      {/* Community - Simplified */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
-              {t("community.title")}
+              {t("community.power.title")}
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              {t("community.subtitle")}
+              {t("community.power.subtitle")}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <Card className="text-center p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <Card className="p-6 text-center">
               <CardContent className="p-0">
-                <div className="mb-4">
-                  <Database className="h-8 w-8 mx-auto" style={{ color: '#c9a4ff' }} />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                  <Users className="h-8 w-8 text-black" />
+                </div>
+                <h3 className="text-xl font-bold text-black mb-2">
+                  {t("community.global.title")}
+                </h3>
+                <p className="text-3xl font-bold mb-2" style={{ color: '#c9a4ff' }}>
+                  {t("community.global.count")}
+                </p>
+                <p className="text-black">{t("community.global.label")}</p>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                  <Database className="h-8 w-8 text-black" />
                 </div>
                 <h3 className="text-xl font-bold text-black mb-2">
                   {t("community.data.title")}
@@ -354,25 +363,10 @@ export default function Homepage() {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-8">
+            <Card className="p-6 text-center">
               <CardContent className="p-0">
-                <div className="mb-4">
-                  <Users className="h-8 w-8 mx-auto" style={{ color: '#c9a4ff' }} />
-                </div>
-                <h3 className="text-xl font-bold text-black mb-2">
-                  {t("community.members.title")}
-                </h3>
-                <p className="text-3xl font-bold mb-2" style={{ color: '#c9a4ff' }}>
-                  {t("community.members.count")}
-                </p>
-                <p className="text-black">{t("community.members.label")}</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center p-8">
-              <CardContent className="p-0">
-                <div className="mb-4">
-                  <Brain className="h-8 w-8 mx-auto" style={{ color: '#c9a4ff' }} />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                  <Brain className="h-8 w-8 text-black" />
                 </div>
                 <h3 className="text-xl font-bold text-black mb-2">
                   {t("community.ai.title")}
@@ -428,6 +422,8 @@ export default function Homepage() {
           </div>
         </div>
       </section>
+
+
 
       {/* Team Preview - Simplified */}
       <section className="py-20 bg-white">

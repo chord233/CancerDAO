@@ -98,64 +98,75 @@
   .nav-item {
     @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 text-black;
   }
-  
-  .nav-item:hover {
-    background-color: var(--brand-primary);
-    color: black;
-  }
-  
-  .nav-item.active {
-    background-color: var(--brand-secondary);
-    color: black;
-  }
-  
-  .btn-primary {
-    background: var(--brand-secondary);
-    @apply text-black font-semibold py-3 px-6 rounded-xl hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl;
-  }
-  
-  .btn-secondary {
-    background: var(--brand-accent);
-    @apply text-black font-semibold py-3 px-6 rounded-xl hover:scale-105 transition-all duration-200 shadow-lg;
-  }
-  
-  .section-bg {
-    background: linear-gradient(
-      180deg,
-      rgba(231, 209, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0.8) 100%
-    );
-  }
-  
-  .problem-card {
-    @apply bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
-    border-left: 4px solid var(--brand-danger);
-  }
-  
-  .solution-card {
-    @apply bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300;
-    border: 1px solid var(--brand-primary);
-  }
-  
-  .solution-card:hover {
-    border-color: var(--brand-secondary);
-  }
-  
-  .floating-animation {
-    animation: float 3s ease-in-out infinite;
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
-  
-  .pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite alternate;
-  }
-  
-  @keyframes pulseGlow {
-    0% { box-shadow: 0 0 20px rgba(201, 164, 255, 0.3); }
-    100% { box-shadow: 0 0 40px rgba(201, 164, 255, 0.6); }
-  }
+}
+
+/* Floating animation */
+.floating-animation {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Card hover animation */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%);
+  color: black;
+  border: none;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #b58aff 0%, #c9a4ff 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 164, 255, 0.3);
+}
+
+/* Problem cards */
+.problem-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.problem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced background image overlay effects */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Smooth section transitions with gradient blending */
+.section-transition {
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.3) 20%, 
+    rgba(255, 255, 255, 0.7) 60%, 
+    rgba(255, 255, 255, 1) 100%
+  );
+  height: 100px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 3;
 }
