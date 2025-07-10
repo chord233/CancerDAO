@@ -161,8 +161,8 @@ export default function Solution() {
 
           <div className="space-y-12">
             <Card className="p-8 bg-white/80 backdrop-blur-sm" style={{ border: '1px solid #e7d1ff' }}>
-              <CardContent className="p-0">
-                <div className="flex items-center mb-6">
+              <CardContent className="p-0 text-center">
+                <div className="flex items-center justify-center mb-6">
                   <Shield className="h-12 w-12 mr-4" style={{ color: '#c9a4ff' }} />
                   <div>
                     <h3 className="text-2xl font-bold text-black">
@@ -181,15 +181,15 @@ export default function Solution() {
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="flex items-center text-sm text-black">
+                  <div className="flex items-center justify-center text-sm text-black">
                     <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
                     {t("data.nft.point1")}
                   </div>
-                  <div className="flex items-center text-sm text-black">
+                  <div className="flex items-center justify-center text-sm text-black">
                     <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
                     {t("data.nft.point2")}
                   </div>
-                  <div className="flex items-center text-sm text-black">
+                  <div className="flex items-center justify-center text-sm text-black">
                     <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
                     {t("data.nft.point3")}
                   </div>
@@ -198,8 +198,8 @@ export default function Solution() {
             </Card>
 
             <Card className="p-8 bg-white/80 backdrop-blur-sm" style={{ border: '1px solid #e7d1ff' }}>
-              <CardContent className="p-0">
-                <div className="flex items-center mb-6">
+              <CardContent className="p-0 text-center">
+                <div className="flex items-center justify-center mb-6">
                   <Lock className="h-12 w-12 mr-4" style={{ color: '#c9a4ff' }} />
                   <div>
                     <h3 className="text-2xl font-bold text-black">
@@ -227,15 +227,15 @@ export default function Solution() {
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="flex items-center text-sm text-black">
+                  <div className="flex items-center justify-center text-sm text-black">
                     <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
                     {t("data.fhe.point1")}
                   </div>
-                  <div className="flex items-center text-sm text-black">
+                  <div className="flex items-center justify-center text-sm text-black">
                     <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
                     {t("data.fhe.point2")}
                   </div>
-                  <div className="flex items-center text-sm text-black">
+                  <div className="flex items-center justify-center text-sm text-black">
                     <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
                     {t("data.fhe.point3")}
                   </div>
