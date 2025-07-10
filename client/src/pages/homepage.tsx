@@ -274,57 +274,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
-              {t("features.title")}
-            </h2>
-            <p className="text-xl text-black max-w-3xl mx-auto">
-              {t("features.subtitle")}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="feature-card">
-              <CardContent className="p-8 text-center">
-                <Brain className="h-12 w-12 mx-auto mb-4" style={{ color: '#c9a4ff' }} />
-                <h3 className="text-xl font-bold text-black mb-4">
-                  {t("features.ai.title")}
-                </h3>
-                <p className="text-black leading-relaxed">
-                  {t("features.ai.description")}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="feature-card">
-              <CardContent className="p-8 text-center">
-                <Shield className="h-12 w-12 mx-auto mb-4" style={{ color: '#c9a4ff' }} />
-                <h3 className="text-xl font-bold text-black mb-4">
-                  {t("features.blockchain.title")}
-                </h3>
-                <p className="text-black leading-relaxed">
-                  {t("features.blockchain.description")}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="feature-card">
-              <CardContent className="p-8 text-center">
-                <Users className="h-12 w-12 mx-auto mb-4" style={{ color: '#c9a4ff' }} />
-                <h3 className="text-xl font-bold text-black mb-4">
-                  {t("features.community.title")}
-                </h3>
-                <p className="text-black leading-relaxed">
-                  {t("features.community.description")}
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Community Statistics */}
       <section className="py-20 bg-white">
