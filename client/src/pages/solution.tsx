@@ -12,6 +12,7 @@ import {
   Cpu,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
+import architectureDiagram from "@assets/image_1752147829900.png";
 
 export default function Solution() {
   const { t } = useLanguage();
@@ -34,6 +35,18 @@ export default function Solution() {
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
             {t("solution.core.title")}
           </h2>
+          
+          {/* CancerDAO Architecture Diagram */}
+          <div className="mb-16 flex justify-center">
+            <div className="max-w-4xl w-full">
+              <img 
+                src={architectureDiagram} 
+                alt="CancerDAO Architecture Diagram" 
+                className="w-full h-auto rounded-2xl shadow-lg border border-purple-200"
+              />
+            </div>
+          </div>
+
           <div className="flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8">
             <div className="flex flex-col items-center">
               <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mb-3 pulse-glow">
