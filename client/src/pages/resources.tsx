@@ -423,7 +423,12 @@ export default function Resources() {
               variant="outline"
               className="font-semibold px-8 py-3 text-black"
               style={{ borderColor: '#fc593d' }}
-              onClick={() => window.open('http://discord.gg/zKwyqxjeun', '_blank')}
+              onClick={() => {
+                navigate('/');
+                setTimeout(() => {
+                  document.getElementById('join-community')?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+              }}
             >
               加入社区讨论
             </Button>
