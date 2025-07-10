@@ -16,9 +16,7 @@ import {
   Mail, 
   MapPin, 
   Award, 
-  Users, 
   Heart, 
-  Shield, 
   Zap,
   ExternalLink,
   Send,
@@ -184,20 +182,7 @@ export default function About() {
     }
   ];
 
-  const coreValues = [
-    {
-      title: "Deep Science",
-      description: "We ground our solutions in rigorous scientific research and cutting-edge technology, ensuring every innovation is backed by solid evidence and expertise."
-    },
-    {
-      title: "Community Driven", 
-      description: "Our strength lies in the collective power of our global community. Every voice matters, every contribution counts in our mission to defeat cancer."
-    },
-    {
-      title: "Open Source",
-      description: "Transparency and collaboration are at our core. We believe in open science and shared knowledge to accelerate breakthrough discoveries."
-    }
-  ];
+  
 
   return (
     <div className="min-h-screen py-20">
@@ -241,37 +226,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* Core Values */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-black mb-4">
-              {t('about.values.title') || 'Our Core Values'}
-            </h2>
-            <p className="text-xl text-black max-w-3xl mx-auto">
-              {t('about.values.subtitle') || 'These principles guide everything we do and every decision we make.'}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {coreValues.map((value, index) => (
-              <Card key={index} className="p-8 text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-0">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                    {index === 0 && <Award className="h-8 w-8 text-black" />}
-                    {index === 1 && <Users className="h-8 w-8 text-black" />}
-                    {index === 2 && <Shield className="h-8 w-8 text-black" />}
-                  </div>
-                  <h3 className="text-xl font-bold text-black mb-4">
-                    {value.title}
-                  </h3>
-                  <p className="text-black leading-relaxed">
-                    {value.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
+        
 
         {/* Team Section */}
         <section className="mb-20">
