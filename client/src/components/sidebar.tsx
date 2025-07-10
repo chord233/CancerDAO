@@ -1,4 +1,4 @@
-import { Link, useLocation } from "wouter";
+import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { ChartLine, Home, Filter, TrendingUp, FileText, Shield } from "lucide-react";
 
@@ -11,7 +11,7 @@ const navigation = [
 ];
 
 export function Sidebar() {
-  const [location] = useLocation();
+  const location = useLocation();
 
   return (
     <div className="w-64 bg-white shadow-lg border-r border-slate-200 hidden lg:block">
@@ -30,10 +30,10 @@ export function Sidebar() {
       <nav className="p-4">
         <ul className="space-y-2">
           {navigation.map((item) => {
-            const isActive = location === item.href;
+            const isActive = location.pathname === item.href;
             return (
               <li key={item.name}>
-                <Link href={item.href}>
+                <Link to={item.href}>
                   <a
                     className={cn(
                       "sidebar-nav-item",

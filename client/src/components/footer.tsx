@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 import { MessageCircle, Send, FileText } from "lucide-react";
 
 // Custom Twitter X Icon Component
@@ -69,28 +69,28 @@ export function Footer() {
             <h3 className="text-white font-semibold mb-4">快速链接</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about">
+                <Link to="/about">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
                     关于我们
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/solution">
+                <Link to="/solution">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
                     解决方案
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/for-individuals">
+                <Link to="/for-individuals">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
                     面向个人
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/community">
+                <Link to="/community">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
                     社区
                   </span>
@@ -104,7 +104,7 @@ export function Footer() {
             <h3 className="text-white font-semibold mb-4">资源</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/resources">
+                <Link to="/resources">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
                     白皮书
                   </span>
@@ -119,14 +119,14 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <Link href="/privacy">
+                <Link to="/privacy">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
                     隐私政策
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/terms">
+                <Link to="/terms">
                   <span className="text-gray-300 hover:text-purple-400 transition-colors text-sm">
                     服务条款
                   </span>

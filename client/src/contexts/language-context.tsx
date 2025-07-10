@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from "react";
 
-type Language = 'zh' | 'en';
+type Language = "zh" | "en";
 
 interface LanguageContextType {
   language: Language;
@@ -8,323 +8,608 @@ interface LanguageContextType {
   t: (key: string) => string;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined,
+);
 
 // 翻译字典
 const translations = {
   zh: {
     // 导航栏
-    'nav.about': '关于我们',
-    'nav.solution': '解决方案',
-    'nav.individuals': '面向个人',
-    'nav.partners': '面向伙伴',
-    'nav.community': '社区',
-    'nav.resources': '资源中心',
-    'nav.join': '加入社区',
+    "nav.about": "关于我们",
+    "nav.solution": "解决方案",
+    "nav.individuals": "面向个人",
+    "nav.partners": "面向伙伴",
+    "nav.community": "社区",
+    "nav.resources": "资源中心",
+    "nav.join": "加入社区",
 
     // 首页
-    'hero.title': '与公众共建，革新癌症防治',
-    'hero.subtitle': '通过AI、区块链和社区力量，赋予每个人管理健康、共享价值、共创未来的能力',
-    'hero.cta1': '了解我们的解决方案',
-    'hero.cta2': '加入我们的社区',
+    "hero.title": "与公众共建，革新癌症防治",
+    "hero.subtitle":
+      "CancerDAO 是一个由公众驱动、融合人工智能（AI）与区块链技术的个人自主癌症防治平台，致力于为个人和社会提供可及、可信、精准的癌症预防与治疗服务。",
+    "hero.cta1": "了解我们的解决方案",
+    "hero.cta2": "加入我们的社区",
 
     // 问题部分
-    'problem.title': '我们面临的挑战',
-    'problem.subtitle': '癌症正成为人类健康的重大威胁，而现有的预防和治疗体系存在诸多局限',
-    'problem.global.title': '全球性挑战',
-    'problem.global.description': '癌症发病率上升，尤其在年轻群体中',
-    'problem.global.point1': '大约有 20% 的人将罹患癌症，其中约 10% 会因此离世',
-    'problem.global.point2': '早发性癌症（50岁以下）的发病率在 1990 年至 2019 年间增加了 79.1%',
-    'problem.knowledge.title': '知识和支持不足',
-    'problem.knowledge.description': '公众在癌症预防和治疗方面知识和支持不足',
-    'problem.knowledge.point1': '健康管理及相关数据的知识和工具有限',
-    'problem.knowledge.point2': '难以获得创新的癌症预防和治疗方法',
-    'problem.knowledge.point3': '公众和患者通常被视为"顾客"，限制了积极参与创新',
-    'problem.innovation.title': '创新缓慢且成本高昂',
-    'problem.innovation.description': '机构和企业创新缓慢且成本高昂',
-    'problem.innovation.point1': '数据碎片化、孤立，缺乏标准化和共享',
-    'problem.innovation.point2': '限制了 AI 驱动创新的发展',
-    'problem.innovation.point3': '获取公众和患者的成本高昂',
+    "problem.title": "我们面临的挑战",
+    "problem.subtitle":
+      "癌症正成为人类健康的重大威胁，而现有的预防和治疗体系存在诸多局限",
+    "problem.global.title": "全球性挑战",
+    "problem.global.description": "癌症发病率上升，尤其在年轻群体中",
+    "problem.global.point1": "大约有 20% 的人将罹患癌症，其中约 10% 会因此离世",
+    "problem.global.point2":
+      "早发性癌症（50岁以下）的发病率在 1990 年至 2019 年间增加了 79.1%",
+    "problem.knowledge.title": "知识和支持不足",
+    "problem.knowledge.description": "公众在癌症预防和治疗方面知识和支持不足",
+    "problem.knowledge.point1": "健康管理及相关数据的知识和工具有限",
+    "problem.knowledge.point2": "难以获得创新的癌症预防和治疗方法",
+    "problem.knowledge.point3":
+      '公众和患者通常被视为"顾客"，限制了积极参与创新',
+    "problem.innovation.title": "创新缓慢且成本高昂",
+    "problem.innovation.description": "机构和企业创新缓慢且成本高昂",
+    "problem.innovation.point1":
+      "数据碎片化、孤立，缺乏标准化和共享，限制了 AI 驱动创新的发展",
+    "problem.innovation.point2": "获取公众和患者的成本高昂",
 
     // 解决方案部分
-    'solution.title': '我们的解决方案',
-    'solution.subtitle': '通过三大核心支柱，构建一个全面的癌症防治生态系统',
-    'solution.core.title': '核心价值循环',
-    'solution.ai.title': 'AI 平台',
-    'solution.ai.description': '智能分析与预测',
-    'solution.blockchain.title': '区块链 Medical ID',
-    'solution.blockchain.description': '数据安全与主权',
-    'solution.decentralized.title': '去中心化数据库',
-    'solution.decentralized.description': '共享与协作',
-    'solution.therapy.title': 'AI 驱动疗法',
-    'solution.therapy.description': '精准治疗方案',
-    'solution.ai.pillar.title': 'AI 赋能',
-    'solution.ai.pillar.description': '介绍 AI 在健康领域的应用，如个性化分析、风险预测和疗法优化等，强调其如何提升效率和精准度。',
-    'solution.ai.pillar.button': '了解更多 AI 赋能',
-    'solution.blockchain.pillar.title': '区块链保障',
-    'solution.blockchain.pillar.description': '阐述区块链技术如何确保用户数据安全、隐私和数据主权，以及如何建立透明、可信的数据共享机制。',
-    'solution.blockchain.pillar.button': '了解更多区块链保障',
-    'solution.community.pillar.title': '社区驱动',
-    'solution.community.pillar.description': '说明社区在生态系统中的核心作用，如何通过集体力量、数据贡献和协作促进创新，为所有参与者创造价值。',
-    'solution.community.pillar.button': '了解更多社区驱动',
+    "solution.title": "我们的解决方案",
+    "solution.subtitle": "通过三大核心支柱，构建一个全面的癌症防治生态系统",
+    "solution.core.title": "核心价值循环",
+    "solution.ai.title": "AI 平台",
+    "solution.ai.description": "智能分析与预测",
+    "solution.blockchain.title": "区块链 Medical ID",
+    "solution.blockchain.description": "数据安全与主权",
+    "solution.decentralized.title": "去中心化数据库",
+    "solution.decentralized.description": "共享与协作",
+    "solution.therapy.title": "AI 驱动疗法",
+    "solution.therapy.description": "精准治疗方案",
+    "solution.ai.pillar.title": "AI 赋能",
+    "solution.ai.pillar.description":
+      "通过AI算法对用户的基因组、临床、生活方式等多维数据进行整合分析，CancerDAO 为健康人群提供个性化风险评估与预防建议，为癌症患者提供治疗辅助与康复管理。",
+    "solution.ai.pillar.button": "了解更多 AI 赋能",
+    "solution.blockchain.pillar.title": "区块链保障",
+    "solution.blockchain.pillar.description":
+      "CancerDAO 构建了一个由用户自主控制的数据基础设施，基于区块链和隐私计算技术，实现数据可控、可追溯、可激励地共享，推动科研与新药开发。",
+    "solution.blockchain.pillar.button": "了解更多区块链保障",
+    "solution.community.pillar.title": "社区驱动",
+    "solution.community.pillar.description":
+      "CancerDAO 鼓励公众通过贡献数据、参与社区治理与科普活动获得奖励，真正实现“以患者为中心”的公共健康创新生态。",
+    "solution.community.pillar.button": "了解更多社区驱动",
 
     // 产品预览
-    'product.title': '核心产品预览 - CancerDAO PILL',
-    'product.subtitle': '您的个人健康管理助手，让健康数据为您所用',
-    'product.ai.analysis': 'AI 病历解读',
-    'product.timeline': '健康时间轴',
-    'product.timeline.item1': '体检报告 - 2024/12',
-    'product.timeline.item2': '血液检查 - 2024/11',
-    'product.feature1.title': 'AI 驱动的病历智能解读',
-    'product.feature1.description': '上传您的医学影像和文本报告，CancerDAO PILL 利用先进的 AI 技术，为您快速提取关键信息，解读复杂的医学术语，并提供个性化的风险洞察和健康建议，助您更透彻地理解自身健康状况。',
-    'product.feature2.title': '您的专属健康时间轴',
-    'product.feature2.description': 'CancerDAO PILL 为您构建一个全面的个人健康时间轴，整合您的每一次检查、每一次用药和日常健康数据。您可以清晰追踪健康历程，管理个人数据，并随时回顾，为健康决策提供可靠依据。',
-    'product.learn.more': '了解更多',
+    "product.title": "核心产品预览 - CancerDAO PILL",
+    "product.subtitle": "探索 CancerDAO PILL，您个性化的抗癌伴侣。",
+    "product.ai.analysis": "AI 病历解读",
+    "product.ai.interpretation.title": "AI 驱动的病历智能解读",
+    "product.ai.interpretation.description":
+      "上传您的医学影像和文本报告，CancerDAO PILL 利用先进的 AI 技术，为您快速提取关键信息，解读复杂的医学术语，并提供个性化的风险洞察和健康建议，助您更透彻地理解自身健康状况。",
+    "product.timeline": "健康时间轴",
+    "product.timeline.item1": "2023年3月：首次体检",
+    "product.timeline.item2": "2023年6月：开始基因检测",
+    "product.timeline.feature.title": "您的专属健康时间轴",
+    "product.timeline.feature.description":
+      "CancerDAO PILL 为您构建一个全面的个人健康时间轴，整合您的每一次检查、每一次用药和日常健康数据。您可以清晰追踪健康历程，管理个人数据，并随时回顾，为健康决策提供可靠依据。",
+
+    "product.feature1.title": "AI 驱动的病历智能解读",
+    "product.feature1.description":
+      "上传您的医学影像和文本报告，CancerDAO PILL 利用先进的 AI 技术，为您快速提取关键信息，解读复杂的医学术语，并提供个性化的风险洞察和健康建议，助您更透彻地理解自身健康状况。",
+    "product.feature2.title": "您的专属健康时间轴",
+    "product.feature2.description":
+      "CancerDAO PILL 为您构建一个全面的个人健康时间轴，整合您的每一次检查、每一次用药和日常健康数据。您可以清晰追踪健康历程，管理个人数据，并随时回顾，为健康决策提供可靠依据。",
+
+    "product.learn.more": "了解更多",
 
     // 订阅
-    'subscribe.title': '订阅更新',
-    'subscribe.subtitle': '第一时间获取 CancerDAO PILL 的最新进展和发布信息',
-    'subscribe.placeholder': '输入您的邮箱地址',
-    'subscribe.button': '订阅',
-    'subscribe.subscribing': '订阅中...',
+    "subscribe.title": "订阅更新",
+    "subscribe.subtitle": "第一时间获取 CancerDAO PILL 的最新进展和发布信息",
+    "subscribe.placeholder": "输入您的邮箱地址",
+    "subscribe.button": "订阅",
+    "subscribe.subscribing": "订阅中...",
 
     // 数据主权
-    'data.sovereignty.title': '数据主权与信任：您的数据，您做主',
-    'data.sovereignty.subtitle': '通过区块链技术和加密算法，确保您的健康数据安全、隐私且为您所有',
-    'data.nft.title': 'Data NFT：赋予您数据所有权',
-    'data.nft.badge': '区块链技术',
-    'data.nft.description': '介绍 Data NFT 的概念，解释它如何将您的健康数据转化为数字资产，并记录在区块链上，确保其唯一性、所有权和可追溯性。强调数据提供者如何通过 Data NFT 控制数据访问和受益。',
-    'data.nft.point1': '数据唯一性与所有权确认',
-    'data.nft.point2': '区块链记录，永久可追溯',
-    'data.nft.point3': '您控制数据访问权限',
-    'data.fhe.title': '全同态加密 (FHE)：加密计算，隐私无忧',
-    'data.fhe.badge': '隐私保护',
-    'data.fhe.description': '介绍 FHE 的概念及其重要性——允许在不解密数据的情况下进行计算。强调这如何彻底保护用户的生物及医疗数据隐私，即使在数据被用于AI分析或研究时也无法被泄露。',
-    'data.fhe.point1': '数据始终保持加密状态',
-    'data.fhe.point2': '支持加密状态下的AI计算',
-    'data.fhe.point3': '医疗数据零泄露风险',
+    "data.sovereignty.title": "数据主权与信任：您的数据，您做主",
+    "data.sovereignty.subtitle":
+      "通过区块链技术和加密算法，确保您的健康数据安全、隐私且为您所有",
+    "data.nft.title": "Data NFT：赋予您数据所有权",
+    "data.nft.badge": "区块链技术",
+    "data.nft.description":
+      "Data NFT 是一种独特的数字代币，它将您的个人健康数据转化为真正属于您的数字资产。数据提供者提供加密的健康数据，这些数据随后被记录在区块链上并进行通证化，生成独特的Data NFT。这些Data NFT代表了数据的唯一性、所有权和可追溯性，并可以在市场中进行交易。通过这种方式，数据提供者能够控制谁可以访问他们的数据，并通过数据使用费和产品版税的形式获得收益，甚至从平台奖励中受益。",
+    "data.nft.point1": "数据唯一性与所有权确认",
+    "data.nft.point2": "区块链记录，永久可追溯",
+    "data.nft.point3": "您控制数据访问权限",
+    "data.fhe.title": "全同态加密 (FHE)：加密计算，隐私无忧",
+    "data.fhe.badge": "隐私保护",
+    "data.fhe.description":
+      "全同态加密 (FHE) 是一项突破性技术，它允许在不解密数据的情况下直接对加密数据执行计算。这意味着，即使您的生物和医疗数据处于加密状态，人工智能模型或研究人员仍然可以对其进行分析和处理，而数据本身的原始形式始终是保密的，不会被泄露。FHE 彻底消除了数据在使用过程中的隐私风险，确保了您的敏感健康信息在被用于生成洞察或开发新疗法时，其隐私性得到最高级别的保护。",
+    "data.fhe.point1": "数据始终保持加密状态",
+    "data.fhe.point2": "支持加密状态下的AI计算",
+    "data.fhe.point3": "医疗数据零泄露风险",
 
     // 社区力量
-    'community.power.title': 'You\'re not ALONE',
-    'community.power.subtitle': '加入我们的全球社区，与志同道合的人一起为无癌世界而努力',
-    'community.global.title': '全球社区',
-    'community.global.count': '10,000+',
-    'community.global.label': '活跃成员',
-    'community.data.title': '数据贡献',
-    'community.data.count': '50,000+',
-    'community.data.label': '健康记录',
-    'community.ai.title': 'AI 模型',
-    'community.ai.count': '95%',
-    'community.ai.label': '准确率',
-    'community.activities.title': '社区活动',
-    'community.activities.upcoming': '即将开始',
-    'community.activities.ongoing': '进行中',
-    'community.activities.completed': '已完成',
-    'community.activities.event1.title': 'AI医疗创新峰会',
-    'community.activities.event1.description': '汇聚全球AI医疗专家，探讨癌症预防新技术',
-    'community.activities.event1.location': '线上会议',
-    'community.activities.event2.title': '区块链健康数据研讨会',
-    'community.activities.event2.description': '讨论去中心化健康数据管理的最佳实践',
-    'community.activities.event2.location': '新加坡',
-    'community.activities.event3.title': '社区开发者马拉松',
-    'community.activities.event3.description': '48小时开发挑战，构建创新健康应用',
-    'community.activities.event3.location': '全球在线',
-    'community.activities.event4.title': '患者支持网络启动',
-    'community.activities.event4.description': '为癌症患者建立全球支持和资源共享网络',
-    'community.activities.event4.location': '多城市同步',
-    'community.join.title': '准备好加入我们了吗？',
-    'community.join.subtitle': '与全球癌症防治专家、研究人员和支持者一起，构建更美好的未来。',
-    'community.join.discord': '加入Discord社区',
-    'community.join.twitter': '关注我们的Twitter',
+    "community.power.title": "You're not ALONE",
+    "community.power.subtitle":
+      "加入我们的全球社区，与志同道合的人一起为无癌世界而努力",
+    "community.global.title": "全球社区",
+    "community.global.count": "2,000+",
+    "community.global.label": "活跃成员",
+    "community.data.title": "数据贡献",
+    "community.data.count": "500+",
+    "community.data.label": "健康记录",
+    "community.ai.title": "AI 模型",
+    "community.ai.count": "95%",
+    "community.ai.label": "准确率",
+    "community.activities.title": "社区活动",
+    "community.activities.upcoming": "即将开始",
+    "community.activities.ongoing": "进行中",
+    "community.activities.completed": "已完成",
+    "community.activities.event1.title": "AI医疗创新峰会",
+    "community.activities.event1.description":
+      "汇聚全球AI医疗专家，探讨癌症预防新技术",
+    "community.activities.event1.location": "线上会议",
+    "community.activities.event2.title": "区块链健康数据研讨会",
+    "community.activities.event2.description":
+      "讨论去中心化健康数据管理的最佳实践",
+    "community.activities.event2.location": "新加坡",
+    "community.activities.event3.title": "社区开发者马拉松",
+    "community.activities.event3.description":
+      "48小时开发挑战，构建创新健康应用",
+    "community.activities.event3.location": "全球在线",
+    "community.activities.event4.title": "患者支持网络启动",
+    "community.activities.event4.description":
+      "为癌症患者建立全球支持和资源共享网络",
+    "community.activities.event4.location": "多城市同步",
+    "community.join.title": "准备好加入我们了吗？",
+    "community.join.subtitle":
+      "与全球癌症防治专家、研究人员和支持者一起，构建更美好的未来。",
+    "community.join.discord": "加入Discord社区",
+    "community.join.twitter": "关注我们的Twitter",
 
     // 合作伙伴
-    'partners.title': '我们的合作伙伴',
-    'partners.subtitle': '欢迎各类组织加入，共同推动创新',
-    'partners.item': '合作伙伴',
+    "partners.title": "我们的合作伙伴",
+    "partners.subtitle": "欢迎各类组织加入，共同推动创新",
+    "partners.item": "合作伙伴",
 
     // 团队
-    'team.title': '我们的团队',
-    'team.subtitle': '由来自顶尖机构的专家组成的跨学科团队',
-    'team.founder': '创始人 & CEO',
-    'team.cto': '首席技术官',
-    'team.cmo': '首席医疗官',
-    'team.scientist': '首席科学家',
-    'team.ai.bio': 'AI & 生物信息学',
-    'team.blockchain.crypto': '区块链 & 加密',
-    'team.oncology': '肿瘤学',
-    'team.ml': '机器学习',
-    'team.learn.more': '了解完整团队',
+    "team.title": "我们的团队",
+    "team.subtitle": "一支来自顶尖机构的跨学科专家团队",
+    "team.member.michael.role": "联合创始人，科学顾问委员会主任",
+    "team.member.michael.expertise1": "香港城市大学创新与企业高级副校长",
+    "team.member.michael.expertise2": "HK Tech 300 主任",
+    "team.member.michael.expertise3": "DeSAI 实验室联合创始人",
+    "team.member.yosean.role": "联合创始人，总裁",
+    "team.member.yosean.expertise1": "哈佛大学生物医学科学博士",
+    "team.member.yosean.expertise2": "香港城市大学研究助理教授",
+    "team.member.yosean.expertise3": "DeSAI 实验室联合创始人、主任",
+    "team.member.zhiwei.role": "联合创始人，首席技术官",
+    "team.member.zhiwei.expertise1": "浙江大学人工智能健康博士",
+    "team.member.zhiwei.expertise2": "BioLinkX 创始人",
+    "team.member.aspire.role": "业务负责人",
+    "team.member.jennifer.role": "市场负责人",
+    "team.member.jonathan.role": "生态系统负责人",
+    "team.member.daqi.role": "社区负责人",
+    "team.learn.more": "了解更多",
 
     // Toast消息
-    'toast.subscribe.success.title': '订阅成功',
-    'toast.subscribe.success.description': '感谢您的关注！我们会及时通知您最新进展。',
-    'toast.subscribe.error.title': '订阅失败',
-    'toast.subscribe.error.description': '请稍后重试',
+    "toast.subscribe.success.title": "订阅成功",
+    "toast.subscribe.success.description":
+      "感谢您的关注！我们会及时通知您最新进展。",
+    "toast.subscribe.error.title": "订阅失败",
+    "toast.subscribe.error.description": "请稍后重试",
+
+    //for-individuals.tsx
+    "forIndividuals.intro.title": "掌控你的健康，加入一个支持你的社区。",
+      "forIndividuals.intro.subtitle": "CancerDAO PILL 是您的个性化健康伴侣，赋能您主动管理健康，并在互助社区中获得力量。",
+
+      "forIndividuals.productFeatures.mainTitle": "CancerDAO PILL 产品核心功能",
+
+      "forIndividuals.aiMedicalButler.title": "AI 病历管家：一键解读，告别繁琐",
+      "forIndividuals.aiMedicalButler.description": "告别复杂的医学报告和堆积如山的纸质病历。CancerDAO PILL 的 AI 病历管家能够智能识别并解读您上传的各类关键诊疗文书（如检验报告、影像报告、出院小结等），即时提取关键信息，生成清晰易懂的结构化病历数据，助您轻松掌握健康数据。",
+
+      "forIndividuals.personalHealthTimeline.title": "个人健康时间轴：清晰回顾，纵览健康轨迹",
+      "forIndividuals.personalHealthTimeline.description": "CancerDAO PILL 为您精心构建专属的个人健康时间轴。无论是历次就诊记录、药物使用详情，还是各项身体检查指标，都能在这里清晰呈现。助您全面回顾诊疗历程，洞察健康趋势，为未来的健康管理提供精准依据。",
+
+      "forIndividuals.riskAssessment.title": "风险评估与个性化预防：了解风险，主动健康",
+      "forIndividuals.riskAssessment.description": "基于您的健康数据和先进的 AI 模型，CancerDAO PILL 能为您提供定制化的健康风险评估。更重要的是，它将根据您的个体情况，生成个性化的预防建议和健康管理方案，帮助您降低风险，实现主动健康。",
+
+      "forIndividuals.dataWallet.title": "数据钱包与授权：您的数据，您做主",
+      "forIndividuals.dataWallet.description": "CancerDAO PILL 提供强大的数据钱包功能，让您真正掌控自己的健康数据。您可以清晰查看每一份数据的归属，并决定是否将匿名化数据授权给研究机构或 AI 模型进行计算。您的数据主权，由您牢牢掌握。",
+      "forIndividuals.emphasis.easyToUse": "易于使用",
+      "forIndividuals.emphasis.securePrivate": "安全私密",
+
+      "forIndividuals.downloadSubscribe.title": "立即体验或获取最新动态",
+      "forIndividuals.downloadSubscribe.appStore": "App Store 下载",
+      "forIndividuals.downloadSubscribe.googlePlay": "Google Play 下载",
+      "forIndividuals.downloadSubscribe.or": "或",
+      "forIndividuals.downloadSubscribe.agreeTerms": "我同意 CancerDAO 根据隐私政策接收产品更新和营销信息。",
+
+      "forIndividuals.communitySupport.mainTitle": "社区支持：您从不孤单，我们与您同行",
+      "forIndividuals.communitySupport.description1": "共同的经历和感受，让患者和家属找到归属感，减轻孤独和焦虑。",
+      "forIndividuals.communitySupport.description2": "成员之间分享诊疗经验、护理知识、资源信息，形成一个实时更新的知识库。",
+      "forIndividuals.communitySupport.description3": "社区不仅有用户分享，未来也可能引入专业人士答疑，结合个人经验提供多维度帮助。",
+
+      "forIndividuals.communityStories.sectionTitle": "倾听他们的声音：社区互助真实故事",
+      "forIndividuals.communityStories.story1.title": "小A的故事：从迷茫到坚定",
+      "forIndividuals.communityStories.story1.summary": "当小A被诊断出疾病时，感到前所未有的迷茫和无助。在CancerDAO社区，她找到了同样经历的伙伴，他们的鼓励和经验分享让她重拾信心，勇敢面对治疗。社区的医疗资源推荐也帮她找到了最适合的医生和方案。",
+      "forIndividuals.communityStories.story2.title": "张妈妈：社区让我不再孤单",
+      "forIndividuals.communityStories.story2.summary": "张妈妈的家人患病后，她日夜操劳，身心俱疲。是社区里其他患者家属的理解与支持，让她意识到自己并不孤单。他们在日常护理、情绪疏导和资源获取上互相帮助，让张妈妈感受到了家的温暖。",
+      "forIndividuals.communityStories.story3.title": "老李的康复之路：AI与社区的力量",
+      "forIndividuals.communityStories.story3.summary": "老李在康复期面临诸多挑战，CancerDAO PILL 的个性化健康时间轴帮他精确记录和管理数据，社区成员的康复经验分享也给了他宝贵建议。AI与社区的双重支持，让老李的康复之路更加顺畅和有希望。",
+      "forIndividuals.communityStories.readMore": "阅读全文",
+
+      "forIndividuals.joinCommunity.callToAction": "别再独自面对，加入 CancerDAO 社区，与我们共同抗击癌症，拥抱健康！",
+      "forIndividuals.joinCommunity.subtitle": "与全球癌症防治专家、研究人员和支持者一起，构建更美好的未来。",
+      "forIndividuals.joinCommunity.button": "立即加入社区",
+
+    //for-partners.tsx
+    "forPartners.intro.title": "携手共建下一代癌症防治生态系统。",
+
+    "forPartners.dataResearch.title": "数据与研究合作",
+    "forPartners.dataResearch.subtitle": "面向药企和科研机构。我们提供独特且高质量的数据，赋能您的研究和新药开发。",
+    "forPartners.dataResearch.ourDataAdvantages": "我们的数据优势",
+    "forPartners.dataResearch.advantage1": "患者直报、多维度数据",
+    "forPartners.dataResearch.advantage2": "经AI结构化、纵向追踪",
+    "forPartners.dataResearch.advantage3": "清晰的用户授权，保障数据合规",
+    "forPartners.dataResearch.advantage4": "持续更新与扩展",
+    "forPartners.dataResearch.cooperationModels": "合作模式",
+    "forPartners.dataResearch.model1": "获取脱敏数据集用于研究",
+    "forPartners.dataResearch.model2": "使用我们的平台进行数据分析和洞察",
+    "forPartners.dataResearch.model3": "AI精准匹配临床试验受试者",
+    "forPartners.dataResearch.dataQualityCompliance": "数据质量与合规",
+    "forPartners.dataResearch.complianceDescription": "我们严格遵守高标准的数据清洗、验证流程，并全面符合 HIPAA, GDPR, 《个人信息保护法》等全球隐私和数据保护法规，确保数据使用的透明和安全。",
+
+    "forPartners.ecosystemPartnership.title": "生态合作",
+    "forPartners.ecosystemPartnership.subtitle": "面向更广泛的合作伙伴，如基因测序公司、保险公司、健康管理机构等，共同打造一体化健康服务。",
+    "forPartners.ecosystemPartnership.apiIntegration.title": "API 集成",
+    "forPartners.ecosystemPartnership.apiIntegration.description": "提供强大的API接口，将我们的核心服务（如患者画像模块、风险评估）无缝集成到您的现有应用或平台中，提升您的服务能力和用户体验。",
+    "forPartners.ecosystemPartnership.serviceIntegration.title": "服务整合",
+    "forPartners.ecosystemPartnership.serviceIntegration.description": "欢迎优质的医疗、健康服务商入驻 CancerDAO 生态系统。通过资源共享和互利合作，共同为用户提供更全面、更高质量的服务。",
+    "forPartners.ecosystemPartnership.jointMarketing.title": "联合营销与品牌合作",
+    "forPartners.ecosystemPartnership.jointMarketing.description": "与我们共同开展市场推广活动，扩大品牌影响力，触达更广泛的用户群体，实现共赢。",
+
+    "partners.contactForm.title": "联系我们，开启合作",
+    "partners.contactForm.fullName": "您的姓名",
+    "partners.contactForm.organizationName": "机构/公司名称",
+    "partners.contactForm.titleField": "职位",
+    "partners.contactForm.businessEmail": "业务邮箱",
+    "partners.contactForm.phoneNumber": "联系电话",
+    "partners.contactForm.partnershipInterestType": "合作意向类型",
+    "partners.contactForm.selectTypePlaceholder": "请选择合作类型",
+    "partners.contactForm.typeDataResearch": "数据与研究合作",
+    "partners.contactForm.typeEcosystemIntegration": "生态产品整合",
+    "partners.contactForm.typeTechAPI": "技术/API 合作",
+    "partners.contactForm.typeJointMarketing": "联合营销",
+    "partners.contactForm.typeOther": "其他",
+    "partners.contactForm.yourMessageNeeds": "您的需求/留言",
+    "partners.contactForm.companyWebsite": "贵公司网址",
+    "partners.contactForm.submitButton": "提交申请",
+    "partners.contactForm.submitting": "提交中...",
+    "partners.contactForm.privacyConsent": "我同意 CancerDAO 处理我的个人信息，并根据隐私政策与我联系。",
+    "partners.contactForm.submitSuccessTitle": "提交成功",
+    "partners.contactForm.submitSuccessDescription": "感谢您的关注！我们会尽快与您联系。",
+    "partners.contactForm.submitErrorTitle": "提交失败",
+    "partners.contactForm.submitErrorDescription": "请稍后重试。",
+    "partners.contactForm.validationErrorTitle": "表单校验错误",
+    "partners.contactForm.validationErrorMessage": "请填写所有必填字段。",
+    "partners.contactForm.invalidEmail": "请输入有效的业务邮箱地址。",
+    "partners.contactForm.agreePrivacyPolicy": "请勾选同意隐私政策。"
   },
   en: {
     // 导航栏
-    'nav.about': 'About Us',
-    'nav.solution': 'Solution',
-    'nav.individuals': 'For Individuals',
-    'nav.partners': 'For Partners',
-    'nav.community': 'Community',
-    'nav.resources': 'Resources',
-    'nav.join': 'Join Community',
+    "nav.about": "About Us",
+    "nav.solution": "Solution",
+    "nav.individuals": "For Individuals",
+    "nav.partners": "For Partners",
+    "nav.community": "Community",
+    "nav.resources": "Resources",
+    "nav.join": "Join Community",
 
     // 首页
-    'hero.title': 'Building with the Public, Revolutionizing Cancer Prevention',
-    'hero.subtitle': 'Empowering everyone to manage health, share value, and create the future through AI, blockchain, and community power',
-    'hero.cta1': 'Learn Our Solutions',
-    'hero.cta2': 'Join Our Community',
+    "hero.title":
+      "Revolutionize Cancer Prevention and Care, with the Public",
+    "hero.subtitle":
+      "CancerDAO is a public-driven, AI and blockchain-powered personal autonomous cancer prevention and treatment platform, dedicated to providing accessible, trustworthy, and precise cancer prevention and treatment services for individuals and society.",
+    "hero.cta1": "Learn Our Solution",
+    "hero.cta2": "Join Our Community",
 
     // 问题部分
-    'problem.title': 'Challenges We Face',
-    'problem.subtitle': 'Cancer is becoming a major threat to human health, while existing prevention and treatment systems have many limitations',
-    'problem.global.title': 'Global Challenge',
-    'problem.global.description': 'Rising cancer rates, especially among young people',
-    'problem.global.point1': 'About 20% of people will develop cancer, with about 10% dying from it',
-    'problem.global.point2': 'Early-onset cancer (under 50) incidence increased by 79.1% from 1990 to 2019',
-    'problem.knowledge.title': 'Insufficient Knowledge and Support',
-    'problem.knowledge.description': 'Public lacks knowledge and support in cancer prevention and treatment',
-    'problem.knowledge.point1': 'Limited knowledge and tools for health management and related data',
-    'problem.knowledge.point2': 'Difficulty accessing innovative cancer prevention and treatment methods',
-    'problem.knowledge.point3': 'Public and patients often viewed as "customers", limiting active participation in innovation',
-    'problem.innovation.title': 'Slow and Costly Innovation',
-    'problem.innovation.description': 'Institutional and corporate innovation is slow and expensive',
-    'problem.innovation.point1': 'Data is fragmented, siloed, lacking standardization and sharing',
-    'problem.innovation.point2': 'Limits AI-driven innovation development',
-    'problem.innovation.point3': 'High costs to reach public and patients',
+    "problem.title": "The Challenges We Face",
+    "problem.subtitle":
+      "Cancer is becoming a major threat to human health, and existing prevention and treatment systems have many limitations.",
+    "problem.global.title": "Global Challenges",
+    "problem.global.description":
+      "Rising cancer incidence, especially among younger populations",
+    "problem.global.point1":
+      "Approximately 20% of people will develop cancer, and about 10% will die from it.",
+    "problem.global.point2":
+      "The incidence of early-onset cancer (under 50) increased by 79.1% between 1990 and 2019.",
+    "problem.knowledge.title": "Insufficient Knowledge and Support",
+    "problem.knowledge.description":
+      "The public lacks sufficient knowledge and support in cancer prevention and treatment.",
+    "problem.knowledge.point1":
+      "Limited knowledge and tools for health management and related data.",
+    "problem.knowledge.point2":
+      "Difficulty in accessing innovative cancer prevention and treatment methods.",
+    "problem.knowledge.point3":
+      "The public and patients are often seen as 'customers,' limiting active participation in innovation.",
+    "problem.innovation.title": "Slow and Costly Innovation",
+    "problem.innovation.description":
+      "Institutional and corporate innovation is slow and expensive.",
+    "problem.innovation.point1":
+      "Fragmented and isolated data, lack of standardization and sharing, limiting the development of AI-driven innovation.",
+    "problem.innovation.point2":
+      "High costs of acquiring public and patient data.",
 
     // 解决方案部分
-    'solution.title': 'Our Solution',
-    'solution.subtitle': 'Building a comprehensive cancer prevention ecosystem through three core pillars',
-    'solution.core.title': 'Core Value Loop',
-    'solution.ai.title': 'AI Platform',
-    'solution.ai.description': 'Intelligent Analysis & Prediction',
-    'solution.blockchain.title': 'Blockchain Medical ID',
-    'solution.blockchain.description': 'Data Security & Sovereignty',
-    'solution.decentralized.title': 'Decentralized Database',
-    'solution.decentralized.description': 'Sharing & Collaboration',
-    'solution.therapy.title': 'AI-Driven Therapy',
-    'solution.therapy.description': 'Precision Treatment Plans',
-    'solution.ai.pillar.title': 'AI Empowerment',
-    'solution.ai.pillar.description': 'Introducing AI applications in healthcare, such as personalized analysis, risk prediction, and therapy optimization, emphasizing how it improves efficiency and precision.',
-    'solution.ai.pillar.button': 'Learn More about AI Empowerment',
-    'solution.blockchain.pillar.title': 'Blockchain Security',
-    'solution.blockchain.pillar.description': 'Explaining how blockchain technology ensures user data security, privacy, and data sovereignty, and how to establish transparent and trustworthy data sharing mechanisms.',
-    'solution.blockchain.pillar.button': 'Learn More about Blockchain Security',
-    'solution.community.pillar.title': 'Community Driven',
-    'solution.community.pillar.description': 'Explaining the core role of community in the ecosystem, how collective power, data contribution, and collaboration drive innovation and create value for all participants.',
-    'solution.community.pillar.button': 'Learn More about Community Driven',
+    "solution.title": "Our Solution",
+    "solution.subtitle":
+      "Building a comprehensive cancer prevention and treatment ecosystem through three core pillars.",
+    "solution.core.title": "Core Value Cycle",
+    "solution.ai.title": "AI Platform",
+    "solution.ai.description": "Intelligent Analysis & Prediction",
+    "solution.blockchain.title": "Blockchain Medical ID",
+    "solution.blockchain.description": "Data Security & Sovereignty",
+    "solution.decentralized.title": "Decentralized Database",
+    "solution.decentralized.description": "Sharing & Collaboration",
+    "solution.therapy.title": "AI-Driven Therapies",
+    "solution.therapy.description": "Precision Treatment Plans",
+    "solution.ai.pillar.title": "AI Empowerment",
+    "solution.ai.pillar.description":
+      "Through AI algorithms, CancerDAO integrates and analyzes multi-dimensional user data (genomic, clinical, lifestyle, etc.), providing personalized risk assessments and prevention advice for healthy individuals, and treatment assistance and rehabilitation management for cancer patients.",
+    "solution.ai.pillar.button": "Learn More About AI Empowerment",
+    "solution.blockchain.pillar.title": "Blockchain Assurance",
+    "solution.blockchain.pillar.description":
+      "CancerDAO builds a user-controlled data infrastructure, based on blockchain and privacy-preserving computation technologies, to enable controllable, traceable, and incentivized data sharing, promoting scientific research and new drug development.",
+    "solution.blockchain.pillar.button":
+      "Learn More About Blockchain Assurance",
+    "solution.community.pillar.title": "Community-Driven",
+    "solution.community.pillar.description":
+      "CancerDAO encourages the public to earn rewards by contributing data, participating in community governance, and engaging in science popularization activities, truly realizing a 'patient-centric' public health innovation ecosystem.",
+    "solution.community.pillar.button": "Learn More About Community-Driven",
 
     // 产品预览
-    'product.title': 'Core Product Preview - CancerDAO PILL',
-    'product.subtitle': 'Your personal health management assistant, making health data work for you',
-    'product.ai.analysis': 'AI Medical Record Analysis',
-    'product.timeline': 'Health Timeline',
-    'product.timeline.item1': 'Health Checkup - 2024/12',
-    'product.timeline.item2': 'Blood Test - 2024/11',
-    'product.feature1.title': 'AI-Driven Intelligent Medical Record Analysis',
-    'product.feature1.description': 'Upload your medical images and text reports, CancerDAO PILL uses advanced AI technology to quickly extract key information, interpret complex medical terminology, and provide personalized risk insights and health recommendations to help you better understand your health status.',
-    'product.feature2.title': 'Your Personal Health Timeline',
-    'product.feature2.description': 'CancerDAO PILL builds a comprehensive personal health timeline, integrating every examination, medication, and daily health data. You can clearly track your health journey, manage personal data, and review at any time to provide reliable basis for health decisions.',
-    'product.learn.more': 'Learn More',
+    "product.title": "Core Product Preview - CancerDAO PILL",
+    "product.subtitle":
+      "Explore CancerDAO PILL, your personalized anti-cancer companion.",
+    "product.ai.analysis": "AI Medical Record Interpretation",
+    "product.ai.interpretation.title":
+      "AI-Driven Smart Medical Record Interpretation",
+    "product.ai.interpretation.description":
+      "Upload your medical images and text reports. CancerDAO PILL utilizes advanced AI technology to quickly extract key information, interpret complex medical terms, and provide personalized risk insights and health advice, helping you gain a more thorough understanding of your health status.",
+    "product.timeline": "Health Timeline",
+    "product.timeline.item1": "March 2023: First Physical Examination",
+    "product.timeline.item2": "June 2023: Started Genetic Testing",
+    "product.timeline.feature.title": "Your Exclusive Health Timeline",
+    "product.timeline.feature.description":
+      "CancerDAO PILL builds a comprehensive personal health timeline for you, integrating every examination, medication, and daily health data. You can clearly track your health journey, manage personal data, and review it at any time, providing a reliable basis for health decisions.",
+
+    "product.feature1.title": "AI-Driven Smart Medical Record Interpretation",
+    "product.feature1.description":
+      "Upload your medical images and text reports. CancerDAO PILL utilizes advanced AI technology to quickly extract key information, interpret complex medical terms, and provide personalized risk insights and health advice, helping you gain a more thorough understanding of your health status.",
+    "product.feature2.title": "Your Exclusive Health Timeline",
+    "product.feature2.description":
+      "CancerDAO PILL builds a comprehensive personal health timeline for you, integrating every examination, medication, and daily health data. You can clearly track your health journey, manage personal data, and review it at any time, providing a reliable basis for health decisions.",
+
+    "product.learn.more": "Learn More",
 
     // 订阅
-    'subscribe.title': 'Subscribe for Updates',
-    'subscribe.subtitle': 'Get the latest progress and release information of CancerDAO PILL first',
-    'subscribe.placeholder': 'Enter your email address',
-    'subscribe.button': 'Subscribe',
-    'subscribe.subscribing': 'Subscribing...',
+    "subscribe.title": "Subscribe for Updates",
+    "subscribe.subtitle":
+      "Get the latest progress and release information of CancerDAO PILL firsthand.",
+    "subscribe.placeholder": "Enter your email address",
+    "subscribe.button": "Subscribe",
+    "subscribe.subscribing": "Subscribing...",
 
     // 数据主权
-    'data.sovereignty.title': 'Data Sovereignty & Trust: Your Data, Your Control',
-    'data.sovereignty.subtitle': 'Through blockchain technology and encryption algorithms, ensure your health data is secure, private, and owned by you',
-    'data.nft.title': 'Data NFT: Granting You Data Ownership',
-    'data.nft.badge': 'Blockchain Technology',
-    'data.nft.description': 'Introducing the concept of Data NFT, explaining how it transforms your health data into digital assets and records them on the blockchain, ensuring uniqueness, ownership, and traceability. Emphasizing how data providers can control data access and benefit through Data NFT.',
-    'data.nft.point1': 'Data uniqueness and ownership confirmation',
-    'data.nft.point2': 'Blockchain records, permanently traceable',
-    'data.nft.point3': 'You control data access permissions',
-    'data.fhe.title': 'Fully Homomorphic Encryption (FHE): Encrypted Computing, Privacy Assured',
-    'data.fhe.badge': 'Privacy Protection',
-    'data.fhe.description': 'Introducing the concept and importance of FHE - allowing computation without decrypting data. Emphasizing how this completely protects users\' biological and medical data privacy, even when data is used for AI analysis or research.',
-    'data.fhe.point1': 'Data remains encrypted at all times',
-    'data.fhe.point2': 'Supports AI computation in encrypted state',
-    'data.fhe.point3': 'Zero risk of medical data leakage',
+    "data.sovereignty.title":
+      "Data Sovereignty & Trust: Your Data, Your Control",
+    "data.sovereignty.subtitle":
+      "Ensuring your health data is secure, private, and owned by you through blockchain technology and encryption algorithms.",
+    "data.nft.title": "Data NFT: Empowering Your Data Ownership",
+    "data.nft.badge": "Blockchain Technology",
+    "data.nft.description":
+      "Data NFT is a unique digital token that transforms your personal health data into a truly owned digital asset. Data providers offer encrypted health data, which is then recorded on the blockchain and tokenized to generate unique Data NFTs. These Data NFTs represent the data's uniqueness, ownership, and traceability, and can be traded in the market. In this way, data providers can control who accesses their data, benefit from data usage fees and product royalties, and even receive platform rewards.",
+    "data.nft.point1": "Data Uniqueness & Ownership Confirmation",
+    "data.nft.point2": "Blockchain Record, Permanently Traceable",
+    "data.nft.point3": "You Control Data Access Permissions",
+    "data.fhe.title":
+      "Fully Homomorphic Encryption (FHE): Encrypted Computation, Worry-Free Privacy",
+    "data.fhe.badge": "Privacy Protection",
+    "data.fhe.description":
+      "Fully Homomorphic Encryption (FHE) is a breakthrough technology that allows computations to be performed directly on encrypted data without decryption. This means that even when your biological and medical data is in an encrypted state, AI models or researchers can still analyze and process it, while the original form of the data remains confidential and will not be disclosed. FHE completely eliminates privacy risks during data usage, ensuring that your sensitive health information receives the highest level of privacy protection when used to generate insights or develop new therapies.",
+    "data.fhe.point1": "Data Always Remains Encrypted",
+    "data.fhe.point2": "Supports AI Computation on Encrypted Data",
+    "data.fhe.point3": "Zero Risk of Medical Data Leakage",
 
     // 社区力量
-    'community.power.title': 'You\'re not ALONE',
-    'community.power.subtitle': 'Join our global community and work together with like-minded people for a cancer-free world',
-    'community.global.title': 'Global Community',
-    'community.global.count': '10,000+',
-    'community.global.label': 'Active Members',
-    'community.data.title': 'Data Contribution',
-    'community.data.count': '50,000+',
-    'community.data.label': 'Health Records',
-    'community.ai.title': 'AI Model',
-    'community.ai.count': '95%',
-    'community.ai.label': 'Accuracy',
-    'community.activities.title': 'Community Activities',
-    'community.activities.upcoming': 'Upcoming',
-    'community.activities.ongoing': 'Ongoing',
-    'community.activities.completed': 'Completed',
-    'community.activities.event1.title': 'AI Medical Innovation Summit',
-    'community.activities.event1.description': 'Bringing together global AI medical experts to discuss new cancer prevention technologies',
-    'community.activities.event1.location': 'Online Meeting',
-    'community.activities.event2.title': 'Blockchain Health Data Workshop',
-    'community.activities.event2.description': 'Discussing best practices for decentralized health data management',
-    'community.activities.event2.location': 'Singapore',
-    'community.activities.event3.title': 'Community Developer Hackathon',
-    'community.activities.event3.description': '48-hour development challenge to build innovative health applications',
-    'community.activities.event3.location': 'Global Online',
-    'community.activities.event4.title': 'Patient Support Network Launch',
-    'community.activities.event4.description': 'Building a global support and resource sharing network for cancer patients',
-    'community.activities.event4.location': 'Multi-city Sync',
-    'community.join.title': 'Ready to Join Us?',
-    'community.join.subtitle': 'Connect with global cancer prevention experts, researchers, and supporters to build a better future.',
-    'community.join.discord': 'Join Discord Community',
-    'community.join.twitter': 'Follow Our Twitter',
+    "community.power.title": "You're not ALONE",
+    "community.power.subtitle":
+      "Join our global community and work with like-minded people for a cancer-free world.",
+    "community.global.title": "Global Community",
+    "community.global.count": "2,000+",
+    "community.global.label": "Active Members",
+    "community.data.title": "Data Contribution",
+    "community.data.count": "500+",
+    "community.data.label": "Health Records",
+    "community.ai.title": "AI Models",
+    "community.ai.count": "95%",
+    "community.ai.label": "Accuracy Rate",
+    "community.activities.title": "Community Activities",
+    "community.activities.upcoming": "Upcoming",
+    "community.activities.ongoing": "Ongoing",
+    "community.activities.completed": "Completed",
+    "community.activities.event1.title": "AI Medical Innovation Summit",
+    "community.activities.event1.description":
+      "Gathering global AI medical experts to discuss new technologies in cancer prevention.",
+    "community.activities.event1.location": "Online Conference",
+    "community.activities.event2.title": "Blockchain Health Data Workshop",
+    "community.activities.event2.description":
+      "Discussing best practices for decentralized health data management.",
+    "community.activities.event2.location": "Singapore",
+    "community.activities.event3.title": "Community Developer Hackathon",
+    "community.activities.event3.description":
+      "48-hour development challenge to build innovative health applications.",
+    "community.activities.event3.location": "Global Online",
+    "community.activities.event4.title": "Patient Support Network Launch",
+    "community.activities.event4.description":
+      "Establishing a global support and resource-sharing network for cancer patients.",
+    "community.activities.event4.location": "Multiple Cities Simultaneously",
+    "community.join.title": "Ready to Join Us?",
+    "community.join.subtitle":
+      "Work with global cancer prevention experts, researchers, and supporters to build a better future.",
+    "community.join.discord": "Join Discord Community",
+    "community.join.twitter": "Follow us on Twitter",
 
     // 合作伙伴
-    'partners.title': 'Our Partners',
-    'partners.subtitle': 'Welcome all types of organizations to join and promote innovation together',
-    'partners.item': 'Partner',
+    "partners.title": "Our Partners",
+    "partners.subtitle":
+      "All types of organizations are welcome to join and jointly promote innovation.",
+    "partners.item": "Partner",
 
     // 团队
-    'team.title': 'Our Team',
-    'team.subtitle': 'An interdisciplinary team of experts from top institutions',
-    'team.founder': 'Founder & CEO',
-    'team.cto': 'Chief Technology Officer',
-    'team.cmo': 'Chief Medical Officer',
-    'team.scientist': 'Chief Scientist',
-    'team.ai.bio': 'AI & Bioinformatics',
-    'team.blockchain.crypto': 'Blockchain & Cryptography',
-    'team.oncology': 'Oncology',
-    'team.ml': 'Machine Learning',
-    'team.learn.more': 'Learn About Complete Team',
+    "team.title": "Our Team",
+    "team.subtitle":
+      "An interdisciplinary team of experts from top institutions",
+    "team.member.michael.role": "Co-founder, SAB Director",
+    "team.member.michael.expertise1":
+      "Senior VP (Innovation & Enterprise) City University of Hong Kong",
+    "team.member.michael.expertise2": "HK Tech 300 Director",
+    "team.member.michael.expertise3": "DeSAI Lab Co-founder",
+    "team.member.yosean.role": "Co-founder, President",
+    "team.member.yosean.expertise1": "Harvard Biomedical Science PhD",
+    "team.member.yosean.expertise2":
+      "Research Assistant Professor City University of Hong Kong",
+    "team.member.yosean.expertise3": "DeSAI Lab Co-founder, Director",
+    "team.member.zhiwei.role": "Co-founder, CTO",
+    "team.member.zhiwei.expertise1": "Zhejiang University AI4Health PhD",
+    "team.member.zhiwei.expertise2": "BioLinkX Founder",
+    "team.member.aspire.role": "Business Lead",
+    "team.member.jennifer.role": "Marketing Lead",
+    "team.member.jonathan.role": "Ecosystem Lead",
+    "team.member.daqi.role": "Community Lead",
+    "team.learn.more": "Learn More",
 
     // Toast消息
-    'toast.subscribe.success.title': 'Subscription Successful',
-    'toast.subscribe.success.description': 'Thank you for your attention! We will notify you of the latest progress in time.',
-    'toast.subscribe.error.title': 'Subscription Failed',
-    'toast.subscribe.error.description': 'Please try again later',
-  }
+    "toast.subscribe.success.title": "Subscription Successful",
+    "toast.subscribe.success.description":
+      "Thank you for your interest! We will keep you updated on the latest progress.",
+    "toast.subscribe.error.title": "Subscription Failed",
+    "toast.subscribe.error.description": "Please try again later.",
+
+    // for-individuals.tsx
+
+      "forIndividuals.intro.title": "Take Control of Your Health, Join a Supportive Community.",
+      "forIndividuals.intro.subtitle": "CancerDAO PILL is your personalized health companion, empowering you to actively manage your health and gain strength within a mutual support community.",
+
+      "forIndividuals.productFeatures.mainTitle": "CancerDAO PILL Core Product Features",
+
+      "forIndividuals.aiMedicalButler.title": "AI Medical Butler: One-Click Interpretation, No More Hassle",
+      "forIndividuals.aiMedicalButler.description": "Say goodbye to complex medical reports and piles of paper medical records. CancerDAO PILL's AI Medical Butler intelligently identifies and interprets various key medical documents you upload (such as lab reports, imaging reports, discharge summaries), instantly extracts critical information, and generates clear, easy-to-understand structured medical record data, helping you effortlessly grasp your health data.",
+
+      "forIndividuals.personalHealthTimeline.title": "Personal Health Timeline: Clear Overview, Track Your Health Journey",
+      "forIndividuals.personalHealthTimeline.description": "CancerDAO PILL meticulously builds your exclusive personal health timeline. Every consultation record, medication detail, and various physical examination indicators can be clearly presented here. It helps you comprehensively review your treatment history, gain insights into health trends, and provide accurate basis for future health management.",
+
+      "forIndividuals.riskAssessment.title": "Risk Assessment & Personalized Prevention: Understand Risks, Proactive Health",
+      "forIndividuals.riskAssessment.description": "Based on your health data and advanced AI models, CancerDAO PILL can provide you with customized health risk assessments. More importantly, it will generate personalized prevention advice and health management plans tailored to your individual situation, helping you reduce risks and achieve proactive health.",
+
+      "forIndividuals.dataWallet.title": "Data Wallet & Authorization: Your Data, Your Control",
+      "forIndividuals.dataWallet.description": "CancerDAO PILL offers robust data wallet functionality, allowing you to truly control your health data. You can clearly view the ownership of each piece of data and decide whether to authorize anonymized data to research institutions or AI models for computation. Your data sovereignty is firmly in your hands.",
+      "forIndividuals.emphasis.easyToUse": "Easy to Use",
+      "forIndividuals.emphasis.securePrivate": "Secure & Private",
+
+      "forIndividuals.downloadSubscribe.title": "Experience Now or Get the Latest Updates",
+      "forIndividuals.downloadSubscribe.appStore": "Download on App Store",
+      "forIndividuals.downloadSubscribe.googlePlay": "Download on Google Play",
+      "forIndividuals.downloadSubscribe.or": "Or",
+      "forIndividuals.downloadSubscribe.agreeTerms": "I agree to receive product updates and marketing information from CancerDAO according to the Privacy Policy.",
+
+      "forIndividuals.communitySupport.mainTitle": "Community Support: You Are Not Alone, We Walk With You",
+      "forIndividuals.communitySupport.description1": "Shared experiences and feelings allow patients and their families to find a sense of belonging, reducing loneliness and anxiety.",
+      "forIndividuals.communitySupport.description2": "Members share treatment experiences, nursing knowledge, and resource information, forming a real-time updated knowledge base.",
+      "forIndividuals.communitySupport.description3": "The community not only features user sharing but may also introduce professionals to answer questions in the future, combining personal experience to provide multi-dimensional help.",
+
+      "forIndividuals.communityStories.sectionTitle": "Hear Their Voices: Real Stories of Community Mutual Aid",
+      "forIndividuals.communityStories.story1.title": "Xiao A's Story: From Confusion to Determination",
+      "forIndividuals.communityStories.story1.summary": "When Xiao A was diagnosed with her illness, she felt an unprecedented sense of confusion and helplessness. In the CancerDAO community, she found companions with similar experiences. Their encouragement and shared experiences helped her regain confidence and bravely face treatment. The community's medical resource recommendations also helped her find the most suitable doctors and solutions.",
+      "forIndividuals.communityStories.story2.title": "Mama Zhang: The Community Made Me No Longer Alone",
+      "forIndividuals.communityStories.story2.summary": "After her family member fell ill, Mama Zhang toiled day and night, physically and mentally exhausted. It was the understanding and support from other patient families in the community that made her realize she was not alone. They helped each other with daily care, emotional counseling, and resource access, making Mama Zhang feel the warmth of a family.",
+      "forIndividuals.communityStories.story3.title": "Old Li's Road to Recovery: The Power of AI and Community",
+      "forIndividuals.communityStories.story3.summary": "Old Li faced many challenges during his recovery. CancerDAO PILL's personalized health timeline helped him accurately record and manage data, and the community members' recovery experience sharing also gave him valuable advice. The dual support of AI and the community made Old Li's recovery journey smoother and more hopeful.",
+      "forIndividuals.communityStories.readMore": "Read Full Story",
+
+      "forIndividuals.joinCommunity.callToAction": "Don't face it alone. Join the CancerDAO community to fight cancer together and embrace health!",
+      "forIndividuals.joinCommunity.subtitle": "Work with global cancer prevention experts, researchers, and supporters to build a better future.",
+      "forIndividuals.joinCommunity.button": "Join Community Now",
+
+    //for-partners.tsx
+    "forPartners.intro.title": "Partner with Us to Build the Next Generation of Cancer Prevention and Treatment Ecosystem.",
+
+    "forPartners.dataResearch.title": "Data & Research Partnership",
+    "forPartners.dataResearch.subtitle": "For pharmaceutical companies and research institutions. We provide unique and high-quality data to empower your research and new drug development.",
+    "forPartners.dataResearch.ourDataAdvantages": "Our Data Advantages",
+    "forPartners.dataResearch.advantage1": "Patient-reported, Multi-dimensional Data",
+    "forPartners.dataResearch.advantage2": "AI-structured, Longitudinal Tracking",
+    "forPartners.dataResearch.advantage3": "Clear User Authorization, Ensuring Data Compliance",
+    "forPartners.dataResearch.advantage4": "Continuous Updates and Expansion",
+    "forPartners.dataResearch.cooperationModels": "Cooperation Models",
+    "forPartners.dataResearch.model1": "Access anonymized datasets for research",
+    "forPartners.dataResearch.model2": "Use our platform for data analysis and insights",
+    "forPartners.dataResearch.model3": "AI-powered precise matching for clinical trial subjects",
+    "forPartners.dataResearch.dataQualityCompliance": "Data Quality and Compliance",
+    "forPartners.dataResearch.complianceDescription": "We strictly adhere to high standards for data cleansing and validation processes, and fully comply with global privacy and data protection regulations such as HIPAA, GDPR, and the PIPL, ensuring transparent and secure data usage.",
+
+    "forPartners.ecosystemPartnership.title": "Ecosystem Partnership",
+    "forPartners.ecosystemPartnership.subtitle": "For a wider range of partners, such as gene sequencing companies, insurance companies, and health management organizations, to jointly build an integrated health service.",
+    "forPartners.ecosystemPartnership.apiIntegration.title": "API Integration",
+    "forPartners.ecosystemPartnership.apiIntegration.description": "We offer powerful API interfaces to seamlessly integrate our core services (such as patient profiling modules, risk assessment) into your existing applications or platforms, enhancing your service capabilities and user experience.",
+    "forPartners.ecosystemPartnership.serviceIntegration.title": "Service Integration",
+    "forPartners.ecosystemPartnership.serviceIntegration.description": "We welcome high-quality medical and health service providers to join the CancerDAO ecosystem. Through resource sharing and mutually beneficial cooperation, we aim to provide users with more comprehensive and higher-quality services.",
+    "forPartners.ecosystemPartnership.jointMarketing.title": "Joint Marketing & Brand Collaboration",
+    "forPartners.ecosystemPartnership.jointMarketing.description": "Collaborate with us on marketing campaigns to expand brand influence, reach a wider user base, and achieve win-win outcomes.",
+
+    "partners.contactForm.title": "Contact Us to Start a Partnership",
+    "partners.contactForm.fullName": "Full Name",
+    "partners.contactForm.organizationName": "Organization/Company Name",
+    "partners.contactForm.titleField": "Title",
+    "partners.contactForm.businessEmail": "Business Email",
+    "partners.contactForm.phoneNumber": "Phone Number",
+    "partners.contactForm.partnershipInterestType": "Partnership Interest Type",
+    "partners.contactForm.selectTypePlaceholder": "Please select a partnership type",
+    "partners.contactForm.typeDataResearch": "Data & Research Collaboration",
+    "partners.contactForm.typeEcosystemIntegration": "Ecosystem Product Integration",
+    "partners.contactForm.typeTechAPI": "Technology/API Collaboration",
+    "partners.contactForm.typeJointMarketing": "Joint Marketing",
+    "partners.contactForm.typeOther": "Other",
+    "partners.contactForm.yourMessageNeeds": "Your Message/Needs",
+    "partners.contactForm.companyWebsite": "Company Website",
+    "partners.contactForm.submitButton": "Submit Application",
+    "partners.contactForm.submitting": "Submitting...",
+    "partners.contactForm.privacyConsent": "I agree that CancerDAO may process my personal information and contact me in accordance with its Privacy Policy.",
+    "partners.contactForm.submitSuccessTitle": "Submission Successful",
+    "partners.contactForm.submitSuccessDescription": "Thank you for your interest! We will contact you shortly.",
+    "partners.contactForm.submitErrorTitle": "Submission Failed",
+    "partners.contactForm.submitErrorDescription": "Please try again later.",
+    "partners.contactForm.validationErrorTitle": "Form Validation Error",
+    "partners.contactForm.validationErrorMessage": "Please fill in all required fields.",
+    "partners.contactForm.invalidEmail": "Please enter a valid business email address.",
+    "partners.contactForm.agreePrivacyPolicy": "Please check the privacy policy consent box."
+
+  },
 };
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>('zh');
+  const [language, setLanguage] = useState<Language>("zh");
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language') as Language;
-    if (savedLanguage && (savedLanguage === 'zh' || savedLanguage === 'en')) {
+    const savedLanguage = localStorage.getItem("language") as Language;
+    if (savedLanguage && (savedLanguage === "zh" || savedLanguage === "en")) {
       setLanguage(savedLanguage);
     }
   }, []);
 
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang);
-    localStorage.setItem('language', lang);
+    localStorage.setItem("language", lang);
   };
 
   const t = (key: string): string => {
@@ -332,7 +617,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
+    <LanguageContext.Provider
+      value={{ language, setLanguage: handleSetLanguage, t }}
+    >
       {children}
     </LanguageContext.Provider>
   );
@@ -341,7 +628,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 export function useLanguage() {
   const context = useContext(LanguageContext);
   if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+    throw new Error("useLanguage must be used within a LanguageProvider");
   }
   return context;
 }

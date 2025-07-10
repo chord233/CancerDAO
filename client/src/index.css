@@ -64,6 +64,7 @@
   --brand-700: hsl(221.2, 83.2%, 33.3%);
 }
 
+
 @layer base {
   * {
     @apply border-border;

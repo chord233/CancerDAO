@@ -61,6 +61,13 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
+        "purple-light": "#e7d1ff", // 浅紫
+        "purple-medium": "#c9a4ff", // 中等紫
+        "purple-dark": "#B58AFF", // 自定义深紫色，用于背景渐变起始，比 medium 更深
+        "yellow-bright": "#fad000", // 亮黄
+        "orange-red": "#fc593d", // 橙红
+        // 可以再加一个用于按钮 hover 的颜色
+        "orange-red-darker": "#E04D30", // 橙红的深色版本
       },
       keyframes: {
         "accordion-down": {
