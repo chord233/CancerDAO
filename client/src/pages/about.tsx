@@ -130,7 +130,7 @@ export default function About() {
       title: "Co-founder, CTO", 
       role: "AI4Health PhD",
       organization: "Zhejiang University",
-      achievements: ["BioLinkX Founder"],
+      achievements: ["BioLinkX Founder", "AI4Health Specialist"],
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -141,7 +141,7 @@ export default function About() {
       title: "Business Lead",
       role: "Strategic Operations",
       organization: "CancerDAO",
-      achievements: [""],
+      achievements: ["Business Development", "Partnership Strategy"],
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -261,7 +261,17 @@ export default function About() {
                     </p>
                   </div>
                   
-                  
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-black mb-2 text-sm">{t('about.team.achievements')}:</h4>
+                    <div className="space-y-1">
+                      {member.achievements.map((achievement, i) => (
+                        <div key={i} className="flex items-center text-sm text-black">
+                          <Award className="h-3 w-3 mr-2 flex-shrink-0" style={{ color: '#fad000' }} />
+                          <span>{achievement}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
 
                   <div className="flex justify-center gap-2 pt-4 border-t" style={{ borderColor: '#e7d1ff' }}>
                     <Button variant="outline" size="sm" className="p-2">
