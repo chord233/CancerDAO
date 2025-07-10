@@ -12,6 +12,7 @@ export function Navbar() {
   const { t } = useLanguage();
 
   const navigation = [
+    { name: t('nav.home'), href: "/" },
     { name: t('nav.about'), href: "/about" },
     { name: t('nav.solution'), href: "/solution" },
     { name: t('nav.individuals'), href: "/for-individuals" },

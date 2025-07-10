@@ -16,6 +16,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 const translations = {
   zh: {
     // 导航栏
+    "nav.home": "首页",
     "nav.about": "关于我们",
     "nav.solution": "解决方案",
     "nav.individuals": "面向个人",
@@ -296,6 +297,7 @@ const translations = {
   },
   en: {
     // 导航栏
+    "nav.home": "Home",
     "nav.about": "About Us",
     "nav.solution": "Solution",
     "nav.individuals": "For Individuals",
