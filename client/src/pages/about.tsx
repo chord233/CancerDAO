@@ -307,7 +307,7 @@ export default function About() {
                   </div>
                   
                   <div className="mb-4">
-                    <h4 className="font-semibold text-black mb-2 text-sm">Achievements:</h4>
+                    <h4 className="font-semibold text-black mb-2 text-sm">{t('about.team.achievements')}:</h4>
                     <div className="space-y-1">
                       {member.achievements.map((achievement, i) => (
                         <div key={i} className="flex items-center text-sm text-black">
@@ -361,13 +361,13 @@ export default function About() {
                       value={contactForm.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       required
-                      placeholder="请输入您的姓名"
+                      placeholder={t('about.contact.placeholder.name')}
                     />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-black">
-                      您的邮箱 <span className="text-red-500">*</span>
+{t('about.contact.email')} <span className="text-red-500">*</span>
                     </Label>
                     <Input
                       id="email"
@@ -375,25 +375,25 @@ export default function About() {
                       value={contactForm.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
                       required
-                      placeholder="请输入您的邮箱"
+                      placeholder={t('about.contact.placeholder.email')}
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="subject" className="text-black">
-                    主题 <span className="text-red-500">*</span>
+{t('about.contact.subject')} <span className="text-red-500">*</span>
                   </Label>
                   <Select value={contactForm.subject} onValueChange={(value) => handleInputChange('subject', value)}>
                     <SelectTrigger>
-                      <SelectValue placeholder="请选择主题" />
+                      <SelectValue placeholder={t('about.contact.placeholder.subject')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="一般咨询">一般咨询</SelectItem>
-                      <SelectItem value="技术支持">技术支持</SelectItem>
-                      <SelectItem value="合作咨询">合作咨询</SelectItem>
-                      <SelectItem value="媒体/PR">媒体/PR</SelectItem>
-                      <SelectItem value="其他">其他</SelectItem>
+                      <SelectItem value={t('about.contact.subject.general')}>{t('about.contact.subject.general')}</SelectItem>
+                      <SelectItem value={t('about.contact.subject.technical')}>{t('about.contact.subject.technical')}</SelectItem>
+                      <SelectItem value={t('about.contact.subject.partnership')}>{t('about.contact.subject.partnership')}</SelectItem>
+                      <SelectItem value={t('about.contact.subject.media')}>{t('about.contact.subject.media')}</SelectItem>
+                      <SelectItem value={t('about.contact.subject.other')}>{t('about.contact.subject.other')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -401,41 +401,41 @@ export default function About() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="organization" className="text-black">
-                      机构/公司名称
+{t('about.contact.organization')}
                     </Label>
                     <Input
                       id="organization"
                       type="text"
                       value={contactForm.organization}
                       onChange={(e) => handleInputChange('organization', e.target.value)}
-                      placeholder="请输入机构或公司名称"
+                      placeholder={t('about.contact.placeholder.organization')}
                     />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="phone" className="text-black">
-                      联系电话
+{t('about.contact.phone')}
                     </Label>
                     <Input
                       id="phone"
                       type="tel"
                       value={contactForm.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      placeholder="请输入联系电话"
+                      placeholder={t('about.contact.placeholder.phone')}
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-black">
-                    您的留言 <span className="text-red-500">*</span>
+{t('about.contact.message')} <span className="text-red-500">*</span>
                   </Label>
                   <Textarea
                     id="message"
                     value={contactForm.message}
                     onChange={(e) => handleInputChange('message', e.target.value)}
                     required
-                    placeholder="请输入您的留言"
+                    placeholder={t('about.contact.placeholder.message')}
                     rows={6}
                   />
                 </div>
@@ -449,7 +449,7 @@ export default function About() {
                     }
                   />
                   <Label htmlFor="privacy" className="text-sm text-black">
-                    我同意 CancerDAO 根据隐私政策处理我的个人信息并与我联系。<span className="text-red-500">*</span>
+{t('about.contact.privacy')}<span className="text-red-500">*</span>
                   </Label>
                 </div>
 
@@ -459,7 +459,7 @@ export default function About() {
                   className="w-full"
                   style={{ backgroundColor: '#fad000' }}
                 >
-                  {isSubmitting ? '提交中...' : '提交信息'}
+{isSubmitting ? t('about.contact.submitting') : t('about.contact.submit')}
                   <Send className="ml-2 h-4 w-4" />
                 </Button>
               </form>
