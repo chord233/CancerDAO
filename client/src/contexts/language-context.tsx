@@ -167,6 +167,18 @@ const translations = {
     "community.join.twitter": "关注我们的Twitter",
     "community.join.telegram": "加入Telegram群组",
 
+    // 社区统计部分
+    "community.title": "我们的全球影响力",
+    "community.subtitle": "与我们共同构建无癌世界，数据见证我们的集体力量",
+    "community.members.title": "社区成员",
+    "community.members.count": "5,000+",
+    "community.members.label": "全球贡献者",
+
+    // 产品展示区块链安全描述
+    "product.ai.description": "智能识别医学影像中的异常模式，提供实时风险评估和个性化建议。",
+    "product.blockchain.security": "区块链安全保障",
+    "product.blockchain.description": "基于区块链技术的医疗数据加密存储，确保您的隐私数据安全可控。",
+
     // 合作伙伴
     "partners.title": "我们的合作伙伴",
     "partners.subtitle": "欢迎各类组织加入，共同推动创新",
@@ -579,6 +591,24 @@ const translations = {
     "community.ai.title": "AI Models",
     "community.ai.count": "95%",
     "community.ai.label": "Accuracy Rate",
+
+    // Community Statistics Section - Updated values
+    "community.title": "Our Global Impact",
+    "community.subtitle": "Join us in building a cancer-free world, with data demonstrating our collective strength",
+    "community.data.title": "Health Data",
+    "community.data.count": "10,000+",
+    "community.data.label": "Anonymized Records",
+    "community.members.title": "Community Members", 
+    "community.members.count": "5,000+",
+    "community.members.label": "Global Contributors",
+    "community.ai.title": "AI Accuracy",
+    "community.ai.count": "95%",
+    "community.ai.label": "Prediction Accuracy",
+
+    // Product blockchain security description
+    "product.ai.description": "Intelligently identify abnormal patterns in medical images, providing real-time risk assessment and personalized recommendations.",
+    "product.blockchain.security": "Blockchain Security",
+    "product.blockchain.description": "Blockchain-based encrypted storage of medical data, ensuring your private data is secure and controllable.",
     "community.activities.title": "Community Activities",
     "community.activities.upcoming": "Upcoming",
     "community.activities.ongoing": "Ongoing",
@@ -599,9 +629,7 @@ const translations = {
     "community.activities.event4.description":
       "Establishing a global support and resource-sharing network for cancer patients.",
     "community.activities.event4.location": "Multiple Cities Simultaneously",
-    "community.join.title": "Ready to Join Us?",
-    "community.join.subtitle":
-      "Work with global cancer prevention experts, researchers, and supporters to build a better future.",
+
     "community.join.discord": "Join Discord Community",
     "community.join.twitter": "Follow us on Twitter",
     "community.join.telegram": "Join Telegram Group",
