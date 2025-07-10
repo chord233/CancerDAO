@@ -410,16 +410,11 @@ export default function Resources() {
               className="font-semibold px-8 py-3 text-black"
               style={{ backgroundColor: '#fad000' }}
               onClick={() => {
-                navigate('/about');
+                navigate('/about#contact');
                 setTimeout(() => {
-                  const contactSection = document.querySelector('section:has(h2:contains("联系我们"))');
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
-                  } else {
-                    // 如果选择器不工作，使用更通用的方法
-                    window.scrollTo({ top: document.body.scrollHeight * 0.6, behavior: 'smooth' });
-                  }
-                }, 100);
+                  // 滚动到页面大约60%的位置，这是联系我们部分的大概位置
+                  window.scrollTo({ top: document.body.scrollHeight * 0.6, behavior: 'smooth' });
+                }, 200);
               }}
             >
               联系我们
