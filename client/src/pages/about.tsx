@@ -19,7 +19,8 @@ import {
   Zap,
   ExternalLink,
   Send,
-  Phone
+  Phone,
+  ArrowRight
 } from "lucide-react";
 
 // Custom Twitter X Icon Component
@@ -491,10 +492,12 @@ export default function About() {
             <Button 
               className="font-semibold px-8 py-3 text-black"
               style={{ backgroundColor: '#fad000' }}
-              onClick={() => window.open('http://discord.gg/zKwyqxjeun', '_blank')}
+              onClick={() => {
+                window.location.href = '/#join-community';
+              }}
             >
               {t('about.cta.join') || 'Join Our Community'}
-              <ExternalLink className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button 
               variant="outline"

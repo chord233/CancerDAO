@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -8,8 +8,22 @@ import { LanguageSwitcher } from "@/components/language-switcher";
 
 export function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useLanguage();
+
+  const handleJoinCommunity = () => {
+    if (location.pathname === '/') {
+      // If on homepage, scroll to join-community section
+      document.getElementById('join-community')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // If on other pages, navigate to homepage and then scroll
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById('join-community')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
 
   const navigation = [
     { name: t('nav.home'), href: "/" },
@@ -65,7 +79,7 @@ export function Navbar() {
             <LanguageSwitcher />
             <Button 
               className="btn-primary"
-              onClick={() => document.getElementById('join-community')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={handleJoinCommunity}
             >
               {t('nav.join')}
             </Button>
@@ -109,7 +123,7 @@ export function Navbar() {
                 <Button 
                   className="btn-primary w-full"
                   onClick={() => {
-                    document.getElementById('join-community')?.scrollIntoView({ behavior: 'smooth' });
+                    handleJoinCommunity();
                     setIsOpen(false);
                   }}
                 >
