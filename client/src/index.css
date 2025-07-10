@@ -96,7 +96,27 @@
   }
   
   .nav-item {
-    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 text-black;
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 text-black hover:bg-purple-50 hover:text-purple-700;
+    position: relative;
+  }
+  
+  .nav-item.active {
+    @apply text-white font-bold;
+    background: linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%);
+    box-shadow: 0 4px 12px rgba(201, 164, 255, 0.3);
+    transform: translateY(-1px);
+  }
+  
+  .nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: #c9a4ff;
+    border-radius: 50%;
   }
 }
 
