@@ -58,14 +58,14 @@ export default function Homepage() {
       <section className="hero-section relative overflow-hidden py-20 lg:py-32 bg-gradient-to-b from-[#B58AFF] via-[#c9a4ff] to-white">
         {/* Background Image Overlay */}
         <div 
-          className="absolute inset-0 z-0 opacity-20 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 z-0 opacity-35 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${backgroundImage})`,
-            filter: 'brightness(1.2) contrast(0.8)',
+            filter: 'brightness(1.1) contrast(0.9)',
           }}
         />
         {/* Gradient Overlay for smooth transition */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-[#c9a4ff]/30 to-white/80" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-[#c9a4ff]/20 to-white/70" />
         
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -117,7 +117,7 @@ export default function Homepage() {
       <section className="py-20 bg-white relative">
         {/* Subtle continuation of background image at top */}
         <div 
-          className="absolute top-0 left-0 right-0 h-32 opacity-10 bg-cover bg-center bg-no-repeat"
+          className="absolute top-0 left-0 right-0 h-40 opacity-15 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${backgroundImage})`,
             maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)',
