@@ -117,7 +117,7 @@ export default function About() {
     {
       name: "Prof. Michael Yang, PhD",
       title: "Co-founder, SAB Director",
-      role: "Senior VP (Innovation & Enterprise)",
+      role: "Senior VP (Innovation & Enterprise)\nCity University of Hong Kong\nHK Tech 300 Director\nDeSAI Lab Co-founder",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -126,7 +126,7 @@ export default function About() {
     {
       name: "Prof. YoSean Wang, PhD", 
       title: "Co-founder, President",
-      role: "Harvard Biomedical Science PhD",
+      role: "Harvard Biomedical Science PhD\nResearch Assistant Professor\nCity University of Hong Kong\nDeSAI Lab Co-founder, Director",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -135,7 +135,7 @@ export default function About() {
     {
       name: "Zhiwei Bao, PhD",
       title: "Co-founder, CTO", 
-      role: "Zhejiang University",
+      role: "Zhejiang University\nAI4Health PhD\nBioLinkX Founder",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -144,7 +144,6 @@ export default function About() {
     {
       name: "Aspire Cao",
       title: "Business Lead",
-      role: "Business Development",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -153,7 +152,6 @@ export default function About() {
     {
       name: "Jennifer Cheng Lo",
       title: "Marketing Lead",
-      role: "Brand & Communications",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -162,7 +160,6 @@ export default function About() {
     {
       name: "Jonathan Hakim",
       title: "Ecosystem Lead",
-      role: "Partnership Development",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -171,7 +168,6 @@ export default function About() {
     {
       name: "Daqi Lee",
       title: "Community Lead",
-      role: "Community Management",
       image: "/api/placeholder/200/200",
       linkedin: "#",
       twitter: "#",
@@ -250,9 +246,13 @@ export default function About() {
                     <Badge className="mb-2 text-black" style={{ backgroundColor: '#e7d1ff' }}>
                       {member.title}
                     </Badge>
-                    <p className="text-sm font-semibold text-black mb-3">
-                      {member.role}
-                    </p>
+                    {member.role && (
+                      <div className="text-sm font-semibold text-black mb-3">
+                        {member.role.split('\n').map((line, i) => (
+                          <p key={i} className="mb-1">{line}</p>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   <div className="flex justify-center gap-2 pt-4 border-t" style={{ borderColor: '#e7d1ff' }}>

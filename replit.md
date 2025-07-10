@@ -117,3 +117,4 @@ Changelog:
 - July 10, 2025. Updated About page team member social media icons - replaced Twitter icon with custom X icon to match footer design, ensuring consistent branding across the platform
 - July 10, 2025. Restructured About page team member profiles - converted first three members (Michael Yang, YoSean Wang, Zhiwei Bao) from achievements format to detailed text format, reorganized their role and organization information for better presentation
 - July 10, 2025. Simplified team member data structure - removed organization, details, and achievements fields from all member profiles for cleaner, more focused presentation
+- July 10, 2025. Enhanced team member role display - added detailed multi-line role information for first three founders (Michael Yang, YoSean Wang, Zhiwei Bao) while removing role field entirely for other team members
