@@ -11,6 +11,13 @@ import {
   CheckCircle,
   Lock,
   Cpu,
+  FileText,
+  Search,
+  Heart,
+  Microscope,
+  MessageCircle,
+  Upload,
+  BarChart3,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
 import architectureDiagram from "@assets/image_1752147829900.png";
@@ -210,96 +217,150 @@ export default function Solution() {
           </div>
         </section>
 
-        {/* Data Sovereignty */}
+        {/* AI 赋能健康部分 */}
         <section className="mb-20 rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)' }}>
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-black mb-4">
-              {t("data.sovereignty.title")}
+              {t("ai.powered.health.title")}
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              {t("data.sovereignty.subtitle")}
+              {t("ai.powered.health.description")}
             </p>
           </div>
 
           <div className="space-y-12">
+            {/* AI 解析流程演示区 */}
             <Card className="p-8 bg-white/80 backdrop-blur-sm" style={{ border: '1px solid #e7d1ff' }}>
               <CardContent className="p-0 text-center">
                 <div className="flex items-center justify-center mb-6">
-                  <Shield className="h-12 w-12 mr-4" style={{ color: '#c9a4ff' }} />
+                  <Cpu className="h-12 w-12 mr-4" style={{ color: '#c9a4ff' }} />
                   <div>
                     <h3 className="text-2xl font-bold text-black">
-                      {t("data.nft.title")}
+                      {t("ai.analysis.process.title")}
                     </h3>
-                    <Badge className="mt-2 text-black" style={{ backgroundColor: '#e7d1ff' }}>
-                      {t("data.nft.badge")}
-                    </Badge>
                   </div>
                 </div>
+                
+                {/* 流程步骤 */}
+                <div className="flex items-center justify-center space-x-8 mb-8">
+                  <div className="flex flex-col items-center">
+                    <div className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: '#e7d1ff' }}>
+                      <Upload className="h-8 w-8" style={{ color: '#c9a4ff' }} />
+                    </div>
+                    <p className="mt-4 text-sm text-black font-semibold">{t("ai.analysis.step1")}</p>
+                  </div>
+                  
+                  <ArrowRight className="h-8 w-8" style={{ color: '#c9a4ff' }} />
+                  
+                  <div className="flex flex-col items-center">
+                    <div className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: '#e7d1ff' }}>
+                      <Brain className="h-8 w-8" style={{ color: '#c9a4ff' }} />
+                    </div>
+                    <p className="mt-4 text-sm text-black font-semibold">{t("ai.analysis.step2")}</p>
+                  </div>
+                  
+                  <ArrowRight className="h-8 w-8" style={{ color: '#c9a4ff' }} />
+                  
+                  <div className="flex flex-col items-center">
+                    <div className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: '#e7d1ff' }}>
+                      <BarChart3 className="h-8 w-8" style={{ color: '#c9a4ff' }} />
+                    </div>
+                    <p className="mt-4 text-sm text-black font-semibold">{t("ai.analysis.step3")}</p>
+                  </div>
+                </div>
+                
+                {/* 架构图 */}
                 <div className="mb-6">
                   <img 
-                    src="/attached_assets/image_1752155657182.png" 
-                    alt="CancerDAO Data Architecture Diagram"
+                    src="/attached_assets/image_1752147829900.png" 
+                    alt="CancerDAO AI Architecture Diagram"
                     className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
                   />
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="flex items-center justify-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("data.nft.point1")}
-                  </div>
-                  <div className="flex items-center justify-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("data.nft.point2")}
-                  </div>
-                  <div className="flex items-center justify-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("data.nft.point3")}
-                  </div>
                 </div>
               </CardContent>
             </Card>
 
+            {/* AI Agent 产品矩阵展示区 */}
             <Card className="p-8 bg-white/80 backdrop-blur-sm" style={{ border: '1px solid #e7d1ff' }}>
-              <CardContent className="p-0 text-center">
-                <div className="flex items-center justify-center mb-6">
-                  <Lock className="h-12 w-12 mr-4" style={{ color: '#c9a4ff' }} />
-                  <div>
-                    <h3 className="text-2xl font-bold text-black">
-                      {t("data.fhe.title")}
-                    </h3>
-                    <Badge className="mt-2 text-black" style={{ backgroundColor: '#e7d1ff' }}>
-                      {t("data.fhe.badge")}
+              <CardContent className="p-0">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold text-black mb-4">
+                    {t("ai.agent.matrix.title")}
+                  </h3>
+                </div>
+                
+                {/* AI Agent 产品网格 */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {/* Report Bot */}
+                  <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#e7d1ff' }}>
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#c9a4ff' }}>
+                      <FileText className="h-6 w-6 text-white" />
+                    </div>
+                    <h4 className="text-lg font-bold text-black mb-2">{t("ai.agent.report.name")}</h4>
+                    <p className="text-sm text-black mb-3">{t("ai.agent.report.description")}</p>
+                    <Badge className="text-black" style={{ backgroundColor: '#fad000' }}>
+                      {t("ai.agent.report.status")}
                     </Badge>
                   </div>
-                </div>
-                <div className="space-y-6 mb-6">
-                  <div>
-                    <img 
-                      src="/attached_assets/image_1752155881747.png" 
-                      alt="Principle of Fully Homomorphic Encryption"
-                      className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
-                    />
+                  
+                  {/* Trial Bot */}
+                  <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#e7d1ff' }}>
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#c9a4ff' }}>
+                      <Search className="h-6 w-6 text-white" />
+                    </div>
+                    <h4 className="text-lg font-bold text-black mb-2">{t("ai.agent.trial.name")}</h4>
+                    <p className="text-sm text-black mb-3">{t("ai.agent.trial.description")}</p>
+                    <Badge className="text-black" style={{ backgroundColor: '#fc593d' }}>
+                      {t("ai.agent.trial.status")}
+                    </Badge>
                   </div>
-                  <div>
-                    <img 
-                      src="/attached_assets/image_1752155889489.png" 
-                      alt="FHE Data Processing Workflow"
-                      className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
-                    />
+                  
+                  {/* Insight Bot */}
+                  <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#e7d1ff' }}>
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#c9a4ff' }}>
+                      <Brain className="h-6 w-6 text-white" />
+                    </div>
+                    <h4 className="text-lg font-bold text-black mb-2">{t("ai.agent.insight.name")}</h4>
+                    <p className="text-sm text-black mb-3">{t("ai.agent.insight.description")}</p>
+                    <Badge className="text-black border border-black" style={{ backgroundColor: 'white' }}>
+                      {t("ai.agent.insight.status")}
+                    </Badge>
                   </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="flex items-center justify-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("data.fhe.point1")}
+                  
+                  {/* Care Bot */}
+                  <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#e7d1ff' }}>
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#c9a4ff' }}>
+                      <Heart className="h-6 w-6 text-white" />
+                    </div>
+                    <h4 className="text-lg font-bold text-black mb-2">{t("ai.agent.care.name")}</h4>
+                    <p className="text-sm text-black mb-3">{t("ai.agent.care.description")}</p>
+                    <Badge className="text-black border border-black" style={{ backgroundColor: 'white' }}>
+                      {t("ai.agent.care.status")}
+                    </Badge>
                   </div>
-                  <div className="flex items-center justify-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("data.fhe.point2")}
+                  
+                  {/* Research Bot */}
+                  <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#e7d1ff' }}>
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#c9a4ff' }}>
+                      <Microscope className="h-6 w-6 text-white" />
+                    </div>
+                    <h4 className="text-lg font-bold text-black mb-2">{t("ai.agent.research.name")}</h4>
+                    <p className="text-sm text-black mb-3">{t("ai.agent.research.description")}</p>
+                    <Badge className="text-black" style={{ backgroundColor: '#fc593d' }}>
+                      {t("ai.agent.research.status")}
+                    </Badge>
                   </div>
-                  <div className="flex items-center justify-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("data.fhe.point3")}
+                  
+                  {/* Support Bot */}
+                  <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#e7d1ff' }}>
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#c9a4ff' }}>
+                      <MessageCircle className="h-6 w-6 text-white" />
+                    </div>
+                    <h4 className="text-lg font-bold text-black mb-2">{t("ai.agent.support.name")}</h4>
+                    <p className="text-sm text-black mb-3">{t("ai.agent.support.description")}</p>
+                    <Badge className="text-black border border-black" style={{ backgroundColor: 'white' }}>
+                      {t("ai.agent.support.status")}
+                    </Badge>
                   </div>
                 </div>
               </CardContent>
