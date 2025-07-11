@@ -71,11 +71,11 @@ const translations = {
     "solution.ai.pillar.button": "了解更多 AI 赋能",
     "solution.blockchain.pillar.title": "区块链保障",
     "solution.blockchain.pillar.description":
-      "CancerDAO 构建了一个由用户自主控制的数据基础设施，基于区块链和隐私计算技术，实现数据可控、可追溯、可激励地共享，推动科研与新药开发。",
+      "CancerDAO 鼓励公众通过贡献数据、参与社区治理与科普活动获得奖励，真正实现'以患者为中心'的公共健康创新生态。",
     "solution.blockchain.pillar.button": "了解更多区块链保障",
     "solution.community.pillar.title": "社区驱动",
     "solution.community.pillar.description":
-      "CancerDAO 鼓励公众通过贡献数据、参与社区治理与科普活动获得奖励，真正实现'以患者为中心'的公共健康创新生态。",
+"CancerDAO 构建了一个由用户自主控制的数据基础设施，基于区块链和隐私计算技术，实现数据可控、可追溯、可激励地共享，推动科研与新药开发。",
     "solution.community.pillar.button": "了解更多社区驱动",
 
     // 产品预览
@@ -426,12 +426,12 @@ const translations = {
     "solution.ai.pillar.point1": "个性化健康评估与预测",
     "solution.ai.pillar.point2": "智能治疗方案推荐",
     "solution.ai.pillar.point3": "持续健康监测与管理",
-    "solution.blockchain.pillar.point1": "数据所有权完全归用户",
-    "solution.blockchain.pillar.point2": "隐私保护与透明追踪",
-    "solution.blockchain.pillar.point3": "激励机制与价值分享",
-    "solution.community.pillar.point1": "全球专家与患者互助网络",
-    "solution.community.pillar.point2": "开放治疗数据共享",
-    "solution.community.pillar.point3": "社区治理与决策参与"
+    "solution.blockchain.pillar.point1": "全球专家与患者互助网络",
+    "solution.blockchain.pillar.point2": "开放治疗数据共享",
+    "solution.blockchain.pillar.point3": "社区治理与决策参与",
+    "solution.community.pillar.point1": "数据所有权完全归用户",
+    "solution.community.pillar.point2": "隐私保护与透明追踪",
+    "solution.community.pillar.point3": "激励机制与价值分享"
   },
   en: {
     // 导航栏
@@ -571,12 +571,12 @@ const translations = {
     "solution.ai.pillar.point1": "Personalized Health Assessment & Prediction",
     "solution.ai.pillar.point2": "Intelligent Treatment Recommendations",
     "solution.ai.pillar.point3": "Continuous Health Monitoring & Management",
-    "solution.blockchain.pillar.point1": "Data Ownership Fully Belongs to Users",
-    "solution.blockchain.pillar.point2": "Privacy Protection & Transparent Tracking",
-    "solution.blockchain.pillar.point3": "Incentive Mechanisms & Value Sharing",
-    "solution.community.pillar.point1": "Global Expert & Patient Mutual Support Network",
-    "solution.community.pillar.point2": "Open Treatment Data Sharing",
-    "solution.community.pillar.point3": "Community Governance & Decision Participation",
+    "solution.blockchain.pillar.point1": "Global Expert & Patient Mutual Support Network",
+    "solution.blockchain.pillar.point2": "Open Treatment Data Sharing",
+    "solution.blockchain.pillar.point3": "Community Governance & Decision Participation",
+    "solution.community.pillar.point1": "Data Ownership Fully Belongs to Users",
+    "solution.community.pillar.point2": "Privacy Protection & Transparent Tracking",
+    "solution.community.pillar.point3": "Incentive Mechanisms & Value Sharing",
 
     // 社区力量
     "community.power.title": "You're not ALONE",
