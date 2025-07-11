@@ -24,6 +24,12 @@ import {
   HelpCircle,
   Stethoscope,
   Edit,
+  UserCheck,
+  TestTube,
+  Vote,
+  PenTool,
+  Coins,
+  RefreshCw,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
 import architectureDiagram from "@assets/image_1752147829900.png";
@@ -378,6 +384,156 @@ export default function Solution() {
                                 {t("ai.agent.support.status")}
                               </Badge>
                               <span className="text-xs text-gray-500">Agent</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  } else if (selectedPillar === 2) {
+                    // 社区驱动生态 - 显示社区参与方式和生态飞轮模型
+                    return (
+                      <div className="pt-6">
+                        <div className="text-center mb-8">
+                          <h3 className="text-2xl font-bold text-black mb-4">
+                            社区驱动生态：共建、共享、共赢的未来
+                          </h3>
+                          <p className="text-lg text-black max-w-3xl mx-auto mb-8">
+                            社区在CancerDAO生态系统中占据核心地位。社区成员不仅仅是用户，更是共建者、贡献者、所有者，共同推动癌症防治事业的发展。
+                          </p>
+                        </div>
+                        
+                        {/* 社区参与方式 */}
+                        <div className="mb-8">
+                          <div className="text-center mb-6">
+                            <h4 className="text-xl font-bold text-black mb-6">
+                              社区参与方式
+                            </h4>
+                          </div>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {/* 数据贡献 */}
+                            <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
+                              <div className="flex items-start mb-3">
+                                <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
+                                  <Database className="h-5 w-5 text-white" />
+                                </div>
+                                <div className="flex-1">
+                                  <h5 className="text-base font-bold text-black mb-1">数据贡献</h5>
+                                  <p className="text-xs text-gray-600">安全、隐私地共享匿名化健康数据，加速研究和AI模型训练</p>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* 知识标注与验证 */}
+                            <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
+                              <div className="flex items-start mb-3">
+                                <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>
+                                  <UserCheck className="h-5 w-5 text-white" />
+                                </div>
+                                <div className="flex-1">
+                                  <h5 className="text-base font-bold text-black mb-1">知识标注与验证</h5>
+                                  <p className="text-xs text-gray-600">参与AI解析结果、医疗信息的标注验证，提升数据质量和模型准确性</p>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* 产品测试与反馈 */}
+                            <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
+                              <div className="flex items-start mb-3">
+                                <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fc593d' }}>
+                                  <TestTube className="h-5 w-5 text-white" />
+                                </div>
+                                <div className="flex-1">
+                                  <h5 className="text-base font-bold text-black mb-1">产品测试与反馈</h5>
+                                  <p className="text-xs text-gray-600">参与新产品功能测试，提供使用反馈和改进建议</p>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* 社区治理 */}
+                            <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
+                              <div className="flex items-start mb-3">
+                                <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
+                                  <Vote className="h-5 w-5 text-white" />
+                                </div>
+                                <div className="flex-1">
+                                  <h5 className="text-base font-bold text-black mb-1">社区治理 (DAO投票)</h5>
+                                  <p className="text-xs text-gray-600">通过持有代币参与DAO投票，决定项目发展方向和资金使用</p>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* 内容创作与分享 */}
+                            <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
+                              <div className="flex items-start mb-3">
+                                <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>
+                                  <PenTool className="h-5 w-5 text-white" />
+                                </div>
+                                <div className="flex-1">
+                                  <h5 className="text-base font-bold text-black mb-1">内容创作与分享</h5>
+                                  <p className="text-xs text-gray-600">分享经验、科普知识，共同建设社区内容生态</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* 生态飞轮模型 */}
+                        <div className="mb-8">
+                          <div className="text-center mb-6">
+                            <h4 className="text-xl font-bold text-black mb-4">
+                              生态飞轮模型
+                            </h4>
+                            <p className="text-sm text-black max-w-2xl mx-auto mb-6">
+                              CancerDAO生态飞轮展现了社区、产品服务、数据AI和代币之间的相互促进关系，形成可持续发展的生态系统。
+                            </p>
+                          </div>
+                          
+                          {/* 生态飞轮图片 */}
+                          <div className="mb-6 flex justify-center">
+                            <img 
+                              src="/attached_assets/image_1752204939305.png" 
+                              alt="CancerDAO生态飞轮模型"
+                              className="max-w-md mx-auto rounded-lg shadow-md"
+                            />
+                          </div>
+                          
+                          {/* 生态飞轮说明 */}
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
+                              <div className="flex items-start mb-3">
+                                <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
+                                  <Heart className="h-4 w-4 text-white" />
+                                </div>
+                                <div className="flex-1">
+                                  <h5 className="text-sm font-bold text-black mb-1">健康管理平台</h5>
+                                  <p className="text-xs text-gray-600">为社区成员提供癌症护理和预防支持服务及相关产品（由社区成员付费）</p>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
+                              <div className="flex items-start mb-3">
+                                <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>
+                                  <Brain className="h-4 w-4 text-white" />
+                                </div>
+                                <div className="flex-1">
+                                  <h5 className="text-sm font-bold text-black mb-1">数据和AI平台</h5>
+                                  <p className="text-xs text-gray-600">支持生态系统业务合作伙伴的精准癌症治疗和筛查开发（由合作伙伴付费）</p>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200 md:col-span-2">
+                              <div className="flex items-start mb-3">
+                                <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fc593d' }}>
+                                  <Coins className="h-4 w-4 text-white" />
+                                </div>
+                                <div className="flex-1">
+                                  <h5 className="text-sm font-bold text-black mb-1">CancerDAO代币</h5>
+                                  <p className="text-xs text-gray-600">作为生态系统内的流通代币，实现价值传递和治理激励</p>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
