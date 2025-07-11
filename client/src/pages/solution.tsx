@@ -58,9 +58,19 @@ export default function Solution() {
             {t("solution.pillars.title")}
           </h2>
           
-          {/* Circular Selection */}
+          {/* Circular Selection with Rotation */}
           <div className="relative flex items-center justify-center mb-16">
-            <div className="relative w-80 h-80 mx-auto">
+            {/* Triangle indicator pointing down */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-36 z-30">
+              <div className="w-0 h-0 border-l-4 border-r-4 border-t-8 border-transparent" style={{ borderTopColor: '#c9a4ff' }}></div>
+            </div>
+            
+            <div 
+              className="relative w-80 h-80 mx-auto transition-transform duration-700 ease-in-out"
+              style={{
+                transform: `rotate(${-selectedPillar * 120}deg)`,
+              }}
+            >
               {[
                 {
                   id: 0,
@@ -112,7 +122,7 @@ export default function Solution() {
                     style={{
                       left: `calc(50% + ${x}px)`,
                       top: `calc(50% + ${y}px)`,
-                      transform: `translate(-50%, -50%) ${selectedPillar === pillar.id ? 'scale(1.25)' : 'scale(1)'}`,
+                      transform: `translate(-50%, -50%) rotate(${selectedPillar * 120}deg) ${selectedPillar === pillar.id ? 'scale(1.25)' : 'scale(1)'}`,
                     }}
                     onClick={() => setSelectedPillar(pillar.id)}
                   >
