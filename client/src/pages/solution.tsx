@@ -62,7 +62,7 @@ export default function Solution() {
           <div className="relative flex items-center justify-center mb-8">
             {/* Triangle indicator pointing down */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-36 z-30">
-              <div className="w-0 h-0 border-l-6 border-r-6 border-t-12 border-transparent" style={{ borderTopColor: '#c9a4ff' }}></div>
+              <div className="w-0 h-0 border-l-6 border-r-6 border-b-12 border-transparent" style={{ borderBottomColor: '#c9a4ff' }}></div>
             </div>
             
             <div 
