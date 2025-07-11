@@ -71,7 +71,7 @@ export default function Homepage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-section relative overflow-hidden py-20 lg:py-32 bg-gradient-to-b from-[#B58AFF] via-[#c9a4ff] to-white">
+      <section className="hero-section relative overflow-hidden min-h-[800px] py-20 lg:py-32 bg-gradient-to-b from-[#B58AFF] via-[#c9a4ff] to-white">
         {/* Background Image Overlay */}
         <div 
           className="absolute inset-0 z-0 opacity-50 bg-cover bg-center bg-no-repeat"
