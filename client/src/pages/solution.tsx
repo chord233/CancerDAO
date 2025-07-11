@@ -93,7 +93,7 @@ export default function Solution() {
             <div 
               className="relative w-80 h-80 mx-auto transition-transform duration-700 ease-in-out"
               style={{
-                transform: `rotate(${(selectedPillar * 120) + 180}deg)`,
+                transform: `rotate(${(-selectedPillar * 120) + 180}deg)`,
               }}
             >
               {[
@@ -148,7 +148,7 @@ export default function Solution() {
                     style={{
                       left: `calc(50% + ${x}px)`,
                       top: `calc(50% + ${y}px)`,
-                      transform: `translate(-50%, -50%) rotate(${-(selectedPillar * 120) - 180}deg)`,
+                      transform: `translate(-50%, -50%) rotate(${(selectedPillar * 120) - 180}deg)`,
                     }}
                     onClick={() => setSelectedPillar(pillar.id)}
                   >
