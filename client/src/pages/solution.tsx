@@ -389,7 +389,7 @@ export default function Solution() {
                         </div>
                       </div>
                     );
-                  } else if (selectedPillar === 2) {
+                  } else if (selectedPillar === 1) {
                     // 社区驱动生态 - 显示社区参与方式和生态飞轮模型
                     return (
                       <div className="pt-6">
