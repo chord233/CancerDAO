@@ -36,6 +36,7 @@ import backgroundImage from "@assets/1500x500_1752159520914.jfif";
 
 export default function Homepage() {
   const [email, setEmail] = useState("");
+  const [activeCard, setActiveCard] = useState<number | null>(null);
   const { toast } = useToast();
   const { t } = useLanguage();
   const navigate = useNavigate();
@@ -151,60 +152,63 @@ export default function Homepage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="problem-card">
-                <div className="flex items-center mb-4">
-                  <AlertTriangle className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                  <h3 className="text-xl font-semibold text-black">
-                    {t("problem.global.title")}
-                  </h3>
+              {[
+                {
+                  id: 0,
+                  icon: AlertTriangle,
+                  title: t("problem.global.title"),
+                  description: t("problem.global.description"),
+                  points: [t("problem.global.point1"), t("problem.global.point2")]
+                },
+                {
+                  id: 1,
+                  icon: Users,
+                  title: t("problem.knowledge.title"),
+                  description: t("problem.knowledge.description"),
+                  points: [t("problem.knowledge.point1"), t("problem.knowledge.point2"), t("problem.knowledge.point3")]
+                },
+                {
+                  id: 2,
+                  icon: TrendingUp,
+                  title: t("problem.innovation.title"),
+                  description: t("problem.innovation.description"),
+                  points: [t("problem.innovation.point1"), t("problem.innovation.point2")]
+                }
+              ].map((card) => (
+                <div 
+                  key={card.id} 
+                  className={`problem-card cursor-pointer transition-all duration-300 ${
+                    activeCard === card.id ? 'ring-2 ring-purple-300' : ''
+                  }`}
+                  onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center">
+                      <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                      <h3 className="text-xl font-semibold text-black">
+                        {card.title}
+                      </h3>
+                    </div>
+                    <div className={`text-2xl font-bold transition-transform duration-300 ${
+                      activeCard === card.id ? 'rotate-180' : ''
+                    }`} style={{ color: '#c9a4ff' }}>
+                      ▼
+                    </div>
+                  </div>
+                  <div className={`space-y-3 overflow-hidden transition-all duration-500 ${
+                    activeCard === card.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}>
+                    <p className="text-black">
+                      <strong>{card.description}</strong>
+                    </p>
+                    <ul className="text-sm text-black space-y-1">
+                      {card.points.map((point, index) => (
+                        <li key={index}>• {point}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <div className="space-y-3">
-                  <p className="text-black">
-                    <strong>{t("problem.global.description")}</strong>
-                  </p>
-                  <ul className="text-sm text-black space-y-1">
-                    <li>• {t("problem.global.point1")}</li>
-                    <li>• {t("problem.global.point2")}</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="problem-card">
-                <div className="flex items-center mb-4">
-                  <Users className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                  <h3 className="text-xl font-semibold text-black">
-                    {t("problem.knowledge.title")}
-                  </h3>
-                </div>
-                <div className="space-y-3">
-                  <p className="text-black">
-                    <strong>{t("problem.knowledge.description")}</strong>
-                  </p>
-                  <ul className="text-sm text-black space-y-1">
-                    <li>• {t("problem.knowledge.point1")}</li>
-                    <li>• {t("problem.knowledge.point2")}</li>
-                    <li>• {t("problem.knowledge.point3")}</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="problem-card">
-                <div className="flex items-center mb-4">
-                  <TrendingUp className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                  <h3 className="text-xl font-semibold text-black">
-                    {t("problem.innovation.title")}
-                  </h3>
-                </div>
-                <div className="space-y-3">
-                  <p className="text-black">
-                    <strong>{t("problem.innovation.description")}</strong>
-                  </p>
-                  <ul className="text-sm text-black space-y-1">
-                    <li>• {t("problem.innovation.point1")}</li>
-                    <li>• {t("problem.innovation.point2")}</li>
-                  </ul>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
