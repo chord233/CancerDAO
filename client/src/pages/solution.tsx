@@ -58,9 +58,19 @@ export default function Solution() {
             {t("solution.pillars.title")}
           </h2>
           
-          {/* Inverted Triangle Layout */}
+          {/* Circular Selection with Rotation */}
           <div className="relative flex items-center justify-center mb-8">
-            <div className="relative w-96 h-80 mx-auto">
+            {/* Triangle indicator pointing down */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-36 z-30">
+              <div className="w-0 h-0 border-l-[12px] border-r-[12px] border-t-[15px] border-transparent" style={{ borderTopColor: '#c9a4ff' }}></div>
+            </div>
+            
+            <div 
+              className="relative w-80 h-80 mx-auto transition-transform duration-700 ease-in-out"
+              style={{
+                transform: `rotate(${-selectedPillar * 120}deg)`,
+              }}
+            >
               {[
                 {
                   id: 0,
@@ -71,8 +81,7 @@ export default function Solution() {
                     t("solution.ai.pillar.point1"),
                     t("solution.ai.pillar.point2"),
                     t("solution.ai.pillar.point3")
-                  ],
-                  position: { x: 0, y: -80 } // Top center
+                  ]
                 },
                 {
                   id: 1,
@@ -83,8 +92,7 @@ export default function Solution() {
                     t("solution.blockchain.pillar.point1"),
                     t("solution.blockchain.pillar.point2"),
                     t("solution.blockchain.pillar.point3")
-                  ],
-                  position: { x: -100, y: 80 } // Bottom left
+                  ]
                 },
                 {
                   id: 2,
@@ -95,44 +103,50 @@ export default function Solution() {
                     t("solution.community.pillar.point1"),
                     t("solution.community.pillar.point2"),
                     t("solution.community.pillar.point3")
-                  ],
-                  position: { x: 100, y: 80 } // Bottom right
+                  ]
                 }
-              ].map((pillar) => (
-                <div
-                  key={pillar.id}
-                  className={`absolute cursor-pointer transition-all duration-300 ${
-                    selectedPillar === pillar.id 
-                      ? 'transform scale-150 z-20' 
-                      : 'transform scale-100 z-10 hover:scale-110'
-                  }`}
-                  style={{
-                    left: `calc(50% + ${pillar.position.x}px)`,
-                    top: `calc(50% + ${pillar.position.y}px)`,
-                    transform: `translate(-50%, -50%) ${selectedPillar === pillar.id ? 'scale(1.5)' : 'scale(1)'}`,
-                  }}
-                  onClick={() => setSelectedPillar(pillar.id)}
-                >
-                  <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
-                    selectedPillar === pillar.id 
-                      ? 'shadow-2xl' 
-                      : 'shadow-md'
-                  }`} style={{ 
-                    background: selectedPillar === pillar.id 
-                      ? 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' 
-                      : '#c9a4ff'
-                  }}>
-                    <pillar.icon className="h-8 w-8 text-black" />
+              ].map((pillar, index) => {
+                const angle = (index * 120) - 90; // Start from top, 120 degrees apart
+                const radius = 120;
+                const x = Math.cos(angle * Math.PI / 180) * radius;
+                const y = Math.sin(angle * Math.PI / 180) * radius;
+                
+                return (
+                  <div
+                    key={pillar.id}
+                    className={`absolute cursor-pointer transition-all duration-300 ${
+                      selectedPillar === pillar.id 
+                        ? 'transform scale-150 z-20' 
+                        : 'transform scale-100 z-10 hover:scale-110'
+                    }`}
+                    style={{
+                      left: `calc(50% + ${x}px)`,
+                      top: `calc(50% + ${y}px)`,
+                      transform: `translate(-50%, -50%) rotate(${selectedPillar * 120}deg) ${selectedPillar === pillar.id ? 'scale(1.5)' : 'scale(1)'}`,
+                    }}
+                    onClick={() => setSelectedPillar(pillar.id)}
+                  >
+                    <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
+                      selectedPillar === pillar.id 
+                        ? 'shadow-2xl' 
+                        : 'shadow-md'
+                    }`} style={{ 
+                      background: selectedPillar === pillar.id 
+                        ? 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' 
+                        : '#c9a4ff'
+                    }}>
+                      <pillar.icon className="h-8 w-8 text-black" />
+                    </div>
+                    <div className="text-center mt-3">
+                      <h3 className={`text-sm font-bold text-black transition-all duration-300 ${
+                        selectedPillar === pillar.id ? 'text-lg' : 'text-sm'
+                      }`}>
+                        {pillar.title}
+                      </h3>
+                    </div>
                   </div>
-                  <div className="text-center mt-3">
-                    <h3 className={`text-sm font-bold text-black transition-all duration-300 ${
-                      selectedPillar === pillar.id ? 'text-lg' : 'text-sm'
-                    }`}>
-                      {pillar.title}
-                    </h3>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
