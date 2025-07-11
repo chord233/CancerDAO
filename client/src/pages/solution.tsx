@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -16,6 +17,7 @@ import architectureDiagram from "@assets/image_1752147829900.png";
 
 export default function Solution() {
   const { t } = useLanguage();
+  const [selectedPillar, setSelectedPillar] = useState<number>(0);
 
   return (
     <div className="min-h-screen py-20">
@@ -50,99 +52,161 @@ export default function Solution() {
           
         </section>
 
-        {/* Three Pillars - Detailed */}
+        {/* Three Pillars - Circular Layout */}
         <section className="mb-20">
           <h2 className="text-3xl font-bold text-center text-black mb-12">
             {t("solution.pillars.title")}
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <Card className="p-8 bg-white hover:shadow-lg transition-shadow" style={{ border: '1px solid #e7d1ff' }}>
-              <CardContent className="p-0">
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform" style={{ background: '#c9a4ff' }}>
-                    <Brain className="h-8 w-8 text-black" />
+          
+          {/* Circular Selection */}
+          <div className="relative flex items-center justify-center mb-16">
+            <div className="relative w-80 h-80 mx-auto">
+              {[
+                {
+                  id: 0,
+                  icon: Brain,
+                  title: t("solution.ai.pillar.title"),
+                  description: t("solution.ai.pillar.description"),
+                  points: [
+                    t("solution.ai.pillar.point1"),
+                    t("solution.ai.pillar.point2"),
+                    t("solution.ai.pillar.point3")
+                  ]
+                },
+                {
+                  id: 1,
+                  icon: Shield,
+                  title: t("solution.blockchain.pillar.title"),
+                  description: t("solution.blockchain.pillar.description"),
+                  points: [
+                    t("solution.blockchain.pillar.point1"),
+                    t("solution.blockchain.pillar.point2"),
+                    t("solution.blockchain.pillar.point3")
+                  ]
+                },
+                {
+                  id: 2,
+                  icon: Users,
+                  title: t("solution.community.pillar.title"),
+                  description: t("solution.community.pillar.description"),
+                  points: [
+                    t("solution.community.pillar.point1"),
+                    t("solution.community.pillar.point2"),
+                    t("solution.community.pillar.point3")
+                  ]
+                }
+              ].map((pillar, index) => {
+                const angle = (index * 120) - 90; // Start from top, 120 degrees apart
+                const radius = 120;
+                const x = Math.cos(angle * Math.PI / 180) * radius;
+                const y = Math.sin(angle * Math.PI / 180) * radius;
+                
+                return (
+                  <div
+                    key={pillar.id}
+                    className={`absolute cursor-pointer transition-all duration-300 ${
+                      selectedPillar === pillar.id 
+                        ? 'transform scale-125 z-20' 
+                        : 'transform scale-100 z-10 hover:scale-110'
+                    }`}
+                    style={{
+                      left: `calc(50% + ${x}px)`,
+                      top: `calc(50% + ${y}px)`,
+                      transform: `translate(-50%, -50%) ${selectedPillar === pillar.id ? 'scale(1.25)' : 'scale(1)'}`,
+                    }}
+                    onClick={() => setSelectedPillar(pillar.id)}
+                  >
+                    <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
+                      selectedPillar === pillar.id 
+                        ? 'shadow-2xl' 
+                        : 'shadow-md'
+                    }`} style={{ 
+                      background: selectedPillar === pillar.id 
+                        ? 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' 
+                        : '#c9a4ff'
+                    }}>
+                      <pillar.icon className="h-8 w-8 text-black" />
+                    </div>
+                    <div className="text-center mt-3">
+                      <h3 className={`text-sm font-bold text-black transition-all duration-300 ${
+                        selectedPillar === pillar.id ? 'text-base' : 'text-sm'
+                      }`}>
+                        {pillar.title}
+                      </h3>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-black">
-                    {t("solution.ai.pillar.title")}
-                  </h3>
-                </div>
-                <p className="text-black mb-6 leading-relaxed">
-                  {t("solution.ai.pillar.description")}
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("solution.ai.pillar.point1")}
-                  </div>
-                  <div className="flex items-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("solution.ai.pillar.point2")}
-                  </div>
-                  <div className="flex items-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("solution.ai.pillar.point3")}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                );
+              })}
+            </div>
+          </div>
 
-            <Card className="p-8 bg-white hover:shadow-lg transition-shadow" style={{ border: '1px solid #e7d1ff' }}>
+          {/* Selected Pillar Details */}
+          <div className="max-w-4xl mx-auto">
+            <Card className="p-8 bg-white shadow-lg transition-all duration-500" style={{ border: '1px solid #e7d1ff' }}>
               <CardContent className="p-0">
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform" style={{ background: '#c9a4ff' }}>
-                    <Shield className="h-8 w-8 text-black" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-black">
-                    {t("solution.blockchain.pillar.title")}
-                  </h3>
-                </div>
-                <p className="text-black mb-6 leading-relaxed">
-                  {t("solution.blockchain.pillar.description")}
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("solution.blockchain.pillar.point1")}
-                  </div>
-                  <div className="flex items-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("solution.blockchain.pillar.point2")}
-                  </div>
-                  <div className="flex items-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("solution.blockchain.pillar.point3")}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="p-8 bg-white hover:shadow-lg transition-shadow" style={{ border: '1px solid #e7d1ff' }}>
-              <CardContent className="p-0">
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform" style={{ background: '#c9a4ff' }}>
-                    <Users className="h-8 w-8 text-black" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-black">
-                    {t("solution.community.pillar.title")}
-                  </h3>
-                </div>
-                <p className="text-black mb-6 leading-relaxed">
-                  {t("solution.community.pillar.description")}
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("solution.community.pillar.point1")}
-                  </div>
-                  <div className="flex items-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("solution.community.pillar.point2")}
-                  </div>
-                  <div className="flex items-center text-sm text-black">
-                    <CheckCircle className="h-4 w-4 mr-2" style={{ color: '#fad000' }} />
-                    {t("solution.community.pillar.point3")}
-                  </div>
-                </div>
+                {(() => {
+                  const pillars = [
+                    {
+                      id: 0,
+                      icon: Brain,
+                      title: t("solution.ai.pillar.title"),
+                      description: t("solution.ai.pillar.description"),
+                      points: [
+                        t("solution.ai.pillar.point1"),
+                        t("solution.ai.pillar.point2"),
+                        t("solution.ai.pillar.point3")
+                      ]
+                    },
+                    {
+                      id: 1,
+                      icon: Shield,
+                      title: t("solution.blockchain.pillar.title"),
+                      description: t("solution.blockchain.pillar.description"),
+                      points: [
+                        t("solution.blockchain.pillar.point1"),
+                        t("solution.blockchain.pillar.point2"),
+                        t("solution.blockchain.pillar.point3")
+                      ]
+                    },
+                    {
+                      id: 2,
+                      icon: Users,
+                      title: t("solution.community.pillar.title"),
+                      description: t("solution.community.pillar.description"),
+                      points: [
+                        t("solution.community.pillar.point1"),
+                        t("solution.community.pillar.point2"),
+                        t("solution.community.pillar.point3")
+                      ]
+                    }
+                  ];
+                  
+                  const currentPillar = pillars[selectedPillar];
+                  
+                  return (
+                    <div className="text-center">
+                      <div className="mb-6">
+                        <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                          <currentPillar.icon className="h-8 w-8 text-black" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-black mb-4">
+                          {currentPillar.title}
+                        </h3>
+                      </div>
+                      <p className="text-black mb-6 leading-relaxed text-lg">
+                        {currentPillar.description}
+                      </p>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {currentPillar.points.map((point, index) => (
+                          <div key={index} className="flex items-center justify-center text-sm text-black">
+                            <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0" style={{ color: '#fad000' }} />
+                            <span>{point}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })()}
               </CardContent>
             </Card>
           </div>
