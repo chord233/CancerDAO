@@ -191,6 +191,7 @@ export default function Solution() {
                   ];
                   
                   const currentPillar = pillars[selectedPillar];
+                  console.log('Current selected pillar:', selectedPillar, currentPillar);
                   
                   return (
                     <div className="text-center pt-6">
