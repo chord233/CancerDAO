@@ -110,17 +110,6 @@ export default function Solution() {
                 },
                 {
                   id: 1,
-                  icon: Shield,
-                  title: t("solution.blockchain.pillar.title"),
-                  description: t("solution.blockchain.pillar.description"),
-                  points: [
-                    t("solution.blockchain.pillar.point1"),
-                    t("solution.blockchain.pillar.point2"),
-                    t("solution.blockchain.pillar.point3")
-                  ]
-                },
-                {
-                  id: 2,
                   icon: Users,
                   title: t("solution.community.pillar.title"),
                   description: t("solution.community.pillar.description"),
@@ -128,6 +117,17 @@ export default function Solution() {
                     t("solution.community.pillar.point1"),
                     t("solution.community.pillar.point2"),
                     t("solution.community.pillar.point3")
+                  ]
+                },
+                {
+                  id: 2,
+                  icon: Shield,
+                  title: t("solution.blockchain.pillar.title"),
+                  description: t("solution.blockchain.pillar.description"),
+                  points: [
+                    t("solution.blockchain.pillar.point1"),
+                    t("solution.blockchain.pillar.point2"),
+                    t("solution.blockchain.pillar.point3")
                   ]
                 }
               ].map((pillar, index) => {
@@ -666,20 +666,20 @@ export default function Solution() {
                       },
                       {
                         id: 1,
-                        description: t("solution.blockchain.pillar.description"),
-                        points: [
-                          t("solution.blockchain.pillar.point1"),
-                          t("solution.blockchain.pillar.point2"),
-                          t("solution.blockchain.pillar.point3")
-                        ]
-                      },
-                      {
-                        id: 2,
                         description: t("solution.community.pillar.description"),
                         points: [
                           t("solution.community.pillar.point1"),
                           t("solution.community.pillar.point2"),
                           t("solution.community.pillar.point3")
+                        ]
+                      },
+                      {
+                        id: 2,
+                        description: t("solution.blockchain.pillar.description"),
+                        points: [
+                          t("solution.blockchain.pillar.point1"),
+                          t("solution.blockchain.pillar.point2"),
+                          t("solution.blockchain.pillar.point3")
                         ]
                       }
                     ];
