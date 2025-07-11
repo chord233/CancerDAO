@@ -117,13 +117,13 @@ export default function Solution() {
                     key={pillar.id}
                     className={`absolute cursor-pointer transition-all duration-300 ${
                       selectedPillar === pillar.id 
-                        ? 'transform scale-150 z-20' 
-                        : 'transform scale-100 z-10 hover:scale-110'
+                        ? 'z-20' 
+                        : 'z-10 hover:scale-110'
                     }`}
                     style={{
                       left: `calc(50% + ${x}px)`,
                       top: `calc(50% + ${y}px)`,
-                      transform: `translate(-50%, -50%) rotate(${-(selectedPillar * 120) - 180}deg) ${selectedPillar === pillar.id ? 'scale(1.5)' : 'scale(1)'}`,
+                      transform: `translate(-50%, -50%) rotate(${-(selectedPillar * 120) - 180}deg)`,
                     }}
                     onClick={() => setSelectedPillar(pillar.id)}
                   >
@@ -139,9 +139,7 @@ export default function Solution() {
                       <pillar.icon className="h-8 w-8 text-black" />
                     </div>
                     <div className="text-center mt-3">
-                      <h3 className={`text-sm font-bold text-black transition-all duration-300 ${
-                        selectedPillar === pillar.id ? 'text-lg' : 'text-sm'
-                      }`}>
+                      <h3 className="text-sm font-bold text-black transition-all duration-300">
                         {pillar.title}
                       </h3>
                     </div>
