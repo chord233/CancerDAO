@@ -71,7 +71,7 @@ export default function Homepage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-section relative overflow-hidden py-20 lg:py-32 bg-gradient-to-b from-[#B58AFF] via-[#c9a4ff] to-white">
+      <section className="hero-section relative overflow-hidden py-32 lg:py-40 bg-gradient-to-b from-[#B58AFF] via-[#c9a4ff] to-white">
         {/* Background Image Overlay */}
         <div 
           className="absolute inset-0 z-0 opacity-50 bg-cover bg-center bg-no-repeat"
@@ -85,20 +85,20 @@ export default function Homepage() {
         
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="mb-8 flex justify-center">
-              <div className="text-5xl font-bold bg-gradient-to-r from-yellow-bright to-orange-red bg-clip-text text-transparent floating-animation">
+            <div className="mb-12 flex justify-center">
+              <div className="text-6xl lg:text-7xl font-bold bg-gradient-to-r from-yellow-bright to-orange-red bg-clip-text text-transparent floating-animation">
                 CancerDAO
               </div>
             </div>
-            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-8">
               <span className="bg-gradient-to-r from-yellow-bright to-orange-red bg-clip-text text-transparent">
                 {t("hero.title")}
               </span>
             </h1>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-[0px] pb-[0px] mt-[0px] mb-[0px] transform translate-y-16">
+            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center pt-[0px] pb-[0px] mt-[0px] mb-[0px] transform translate-y-16">
               <Button
-                className="btn-secondary text-lg px-8 py-4
+                className="btn-secondary text-xl px-12 py-6
                  border-2 border-orange-red text-orange-red bg-transparent 
                  hover:bg-orange-red hover:text-white rounded-full  
                  font-semibold transform transition-all duration-300 ease-in-out
@@ -108,10 +108,10 @@ export default function Homepage() {
                 }
               >
                 {t("hero.cta1")}
-                <ArrowRight className="ml-3 h-6 w-6" />
+                <ArrowRight className="ml-3 h-7 w-7" />
               </Button>
               <Button
-                className="btn-secondary text-lg px-8 py-4
+                className="btn-secondary text-xl px-12 py-6
                  border-2 border-purple-medium text-purple-medium bg-transparent
                  font-semibold rounded-full transform transition-all duration-300 ease-in-out
                  hover:scale-105 hover:bg-purple-medium hover:text-white 
