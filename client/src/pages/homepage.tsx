@@ -96,7 +96,7 @@ export default function Homepage() {
               </span>
             </h1>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-[20px] mb-[20px] pt-[50px] pb-[50px]">
               <Button
                 className="btn-secondary text-lg px-8 py-4
                  border-2 border-orange-red text-orange-red bg-transparent 
@@ -128,7 +128,6 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-
       {/* Problem Section */}
       <section className="py-20 bg-white relative">
         {/* Subtle continuation of background image at top */}
@@ -233,7 +232,6 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-
       {/* Product Preview - Simplified */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -363,7 +361,6 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-
       {/* Community Statistics */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -466,7 +463,6 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-
       {/* Team Preview - Simplified */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -555,7 +551,6 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-
       {/* Partners & Ecosystem Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
