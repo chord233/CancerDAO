@@ -96,7 +96,7 @@ export default function Homepage() {
               </span>
             </h1>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-[20px] mb-[20px] pt-[50px] pb-[50px]">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-[0px] pb-[0px] mt-[0px] mb-[0px]">
               <Button
                 className="btn-secondary text-lg px-8 py-4
                  border-2 border-orange-red text-orange-red bg-transparent 
