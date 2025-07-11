@@ -18,6 +18,12 @@ import {
   MessageCircle,
   Upload,
   BarChart3,
+  Star,
+  BookOpen,
+  Activity,
+  HelpCircle,
+  Stethoscope,
+  Edit,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
 import architectureDiagram from "@assets/image_1752147829900.png";
@@ -289,78 +295,177 @@ export default function Solution() {
                   </h3>
                 </div>
                 
-                {/* AI Agent 产品网格 */}
+                {/* AI Agent 产品网格 - 2行3列布局 */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {/* Report Bot */}
-                  <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#e7d1ff' }}>
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#c9a4ff' }}>
-                      <FileText className="h-6 w-6 text-white" />
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                    <div className="flex items-start mb-4">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style={{ backgroundColor: '#c9a4ff' }}>
+                        <FileText className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-black mb-1">{t("ai.agent.report.name")}</h4>
+                        <p className="text-sm text-gray-600 mb-3">{t("ai.agent.report.description")}</p>
+                      </div>
                     </div>
-                    <h4 className="text-lg font-bold text-black mb-2">{t("ai.agent.report.name")}</h4>
-                    <p className="text-sm text-black mb-3">{t("ai.agent.report.description")}</p>
-                    <Badge className="text-black" style={{ backgroundColor: '#fad000' }}>
-                      {t("ai.agent.report.status")}
-                    </Badge>
+                    <div className="flex items-center justify-between">
+                      <Badge className="text-black" style={{ backgroundColor: '#fad000' }}>
+                        {t("ai.agent.report.status")}
+                      </Badge>
+                      <span className="text-xs text-gray-500">Agent</span>
+                    </div>
                   </div>
                   
                   {/* Trial Bot */}
-                  <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#e7d1ff' }}>
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#c9a4ff' }}>
-                      <Search className="h-6 w-6 text-white" />
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                    <div className="flex items-start mb-4">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style={{ backgroundColor: '#fc593d' }}>
+                        <Search className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-black mb-1">{t("ai.agent.trial.name")}</h4>
+                        <p className="text-sm text-gray-600 mb-3">{t("ai.agent.trial.description")}</p>
+                      </div>
                     </div>
-                    <h4 className="text-lg font-bold text-black mb-2">{t("ai.agent.trial.name")}</h4>
-                    <p className="text-sm text-black mb-3">{t("ai.agent.trial.description")}</p>
-                    <Badge className="text-black" style={{ backgroundColor: '#fc593d' }}>
-                      {t("ai.agent.trial.status")}
-                    </Badge>
+                    <div className="flex items-center justify-between">
+                      <Badge className="text-black" style={{ backgroundColor: '#fc593d' }}>
+                        {t("ai.agent.trial.status")}
+                      </Badge>
+                      <span className="text-xs text-gray-500">Agent</span>
+                    </div>
                   </div>
                   
-                  {/* Insight Bot */}
-                  <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#e7d1ff' }}>
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#c9a4ff' }}>
-                      <Brain className="h-6 w-6 text-white" />
+                  {/* Clinical Bot */}
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                    <div className="flex items-start mb-4">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style={{ backgroundColor: '#fad000' }}>
+                        <Stethoscope className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-black mb-1">{t("ai.agent.clinical.name")}</h4>
+                        <p className="text-sm text-gray-600 mb-3">{t("ai.agent.clinical.description")}</p>
+                      </div>
                     </div>
-                    <h4 className="text-lg font-bold text-black mb-2">{t("ai.agent.insight.name")}</h4>
-                    <p className="text-sm text-black mb-3">{t("ai.agent.insight.description")}</p>
-                    <Badge className="text-black border border-black" style={{ backgroundColor: 'white' }}>
-                      {t("ai.agent.insight.status")}
-                    </Badge>
+                    <div className="flex items-center justify-between">
+                      <Badge className="text-black" style={{ backgroundColor: '#fc593d' }}>
+                        {t("ai.agent.clinical.status")}
+                      </Badge>
+                      <span className="text-xs text-gray-500">Agent</span>
+                    </div>
                   </div>
                   
-                  {/* Care Bot */}
-                  <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#e7d1ff' }}>
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#c9a4ff' }}>
-                      <Heart className="h-6 w-6 text-white" />
+                  {/* Content Bot */}
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                    <div className="flex items-start mb-4">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style={{ backgroundColor: '#fad000' }}>
+                        <Edit className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-black mb-1">{t("ai.agent.content.name")}</h4>
+                        <p className="text-sm text-gray-600 mb-3">{t("ai.agent.content.description")}</p>
+                      </div>
                     </div>
-                    <h4 className="text-lg font-bold text-black mb-2">{t("ai.agent.care.name")}</h4>
-                    <p className="text-sm text-black mb-3">{t("ai.agent.care.description")}</p>
-                    <Badge className="text-black border border-black" style={{ backgroundColor: 'white' }}>
-                      {t("ai.agent.care.status")}
-                    </Badge>
+                    <div className="flex items-center justify-between">
+                      <Badge className="text-black" style={{ backgroundColor: '#fad000' }}>
+                        {t("ai.agent.content.status")}
+                      </Badge>
+                      <span className="text-xs text-gray-500">Agent</span>
+                    </div>
+                  </div>
+                  
+                  {/* Longevity Bot */}
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                    <div className="flex items-start mb-4">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style={{ backgroundColor: '#c9a4ff' }}>
+                        <Activity className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-black mb-1">{t("ai.agent.longevity.name")}</h4>
+                        <p className="text-sm text-gray-600 mb-3">{t("ai.agent.longevity.description")}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <Badge className="text-black" style={{ backgroundColor: '#fc593d' }}>
+                        {t("ai.agent.longevity.status")}
+                      </Badge>
+                      <span className="text-xs text-gray-500">Agent</span>
+                    </div>
+                  </div>
+                  
+                  {/* Health Bot */}
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                    <div className="flex items-start mb-4">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style={{ backgroundColor: '#fc593d' }}>
+                        <Heart className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-black mb-1">{t("ai.agent.health.name")}</h4>
+                        <p className="text-sm text-gray-600 mb-3">{t("ai.agent.health.description")}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <Badge className="text-black" style={{ backgroundColor: '#fc593d' }}>
+                        {t("ai.agent.health.status")}
+                      </Badge>
+                      <span className="text-xs text-gray-500">Agent</span>
+                    </div>
+                  </div>
+                  
+                  {/* AMA Bot */}
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                    <div className="flex items-start mb-4">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style={{ backgroundColor: '#c9a4ff' }}>
+                        <HelpCircle className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-black mb-1">{t("ai.agent.ama.name")}</h4>
+                        <p className="text-sm text-gray-600 mb-3">{t("ai.agent.ama.description")}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <Badge className="text-black" style={{ backgroundColor: '#fad000' }}>
+                        {t("ai.agent.ama.status")}
+                      </Badge>
+                      <span className="text-xs text-gray-500">Agent</span>
+                    </div>
                   </div>
                   
                   {/* Research Bot */}
-                  <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#e7d1ff' }}>
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#c9a4ff' }}>
-                      <Microscope className="h-6 w-6 text-white" />
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                    <div className="flex items-start mb-4">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style={{ backgroundColor: '#c9a4ff' }}>
+                        <Microscope className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-black mb-1">{t("ai.agent.research.name")}</h4>
+                        <p className="text-sm text-gray-600 mb-3">{t("ai.agent.research.description")}</p>
+                      </div>
                     </div>
-                    <h4 className="text-lg font-bold text-black mb-2">{t("ai.agent.research.name")}</h4>
-                    <p className="text-sm text-black mb-3">{t("ai.agent.research.description")}</p>
-                    <Badge className="text-black" style={{ backgroundColor: '#fc593d' }}>
-                      {t("ai.agent.research.status")}
-                    </Badge>
+                    <div className="flex items-center justify-between">
+                      <Badge className="text-black" style={{ backgroundColor: '#fc593d' }}>
+                        {t("ai.agent.research.status")}
+                      </Badge>
+                      <span className="text-xs text-gray-500">Agent</span>
+                    </div>
                   </div>
                   
                   {/* Support Bot */}
-                  <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#e7d1ff' }}>
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#c9a4ff' }}>
-                      <MessageCircle className="h-6 w-6 text-white" />
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                    <div className="flex items-start mb-4">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style={{ backgroundColor: '#fad000' }}>
+                        <MessageCircle className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-black mb-1">{t("ai.agent.support.name")}</h4>
+                        <p className="text-sm text-gray-600 mb-3">{t("ai.agent.support.description")}</p>
+                      </div>
                     </div>
-                    <h4 className="text-lg font-bold text-black mb-2">{t("ai.agent.support.name")}</h4>
-                    <p className="text-sm text-black mb-3">{t("ai.agent.support.description")}</p>
-                    <Badge className="text-black border border-black" style={{ backgroundColor: 'white' }}>
-                      {t("ai.agent.support.status")}
-                    </Badge>
+                    <div className="flex items-center justify-between">
+                      <Badge className="text-black border border-black" style={{ backgroundColor: 'white' }}>
+                        {t("ai.agent.support.status")}
+                      </Badge>
+                      <span className="text-xs text-gray-500">Agent</span>
+                    </div>
                   </div>
                 </div>
               </CardContent>
