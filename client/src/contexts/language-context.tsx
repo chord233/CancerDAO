@@ -426,12 +426,12 @@ const translations = {
     "solution.ai.pillar.point1": "个性化健康评估与预测",
     "solution.ai.pillar.point2": "智能治疗方案推荐",
     "solution.ai.pillar.point3": "持续健康监测与管理",
-    "solution.blockchain.pillar.point1": "数据所有权完全归用户",
-    "solution.blockchain.pillar.point2": "隐私保护与透明追踪",
-    "solution.blockchain.pillar.point3": "激励机制与价值分享",
-    "solution.community.pillar.point1": "全球专家与患者互助网络",
-    "solution.community.pillar.point2": "开放治疗数据共享",
-    "solution.community.pillar.point3": "社区治理与决策参与"
+    "solution.blockchain.pillar.point1": "全球专家与患者互助网络",
+    "solution.blockchain.pillar.point2": "开放治疗数据共享",
+    "solution.blockchain.pillar.point3": "社区治理与决策参与",
+    "solution.community.pillar.point1": "数据所有权完全归用户",
+    "solution.community.pillar.point2": "隐私保护与透明追踪",
+    "solution.community.pillar.point3": "激励机制与价值分享"
   },
   en: {
     // 导航栏
@@ -571,12 +571,12 @@ const translations = {
     "solution.ai.pillar.point1": "Personalized Health Assessment & Prediction",
     "solution.ai.pillar.point2": "Intelligent Treatment Recommendations",
     "solution.ai.pillar.point3": "Continuous Health Monitoring & Management",
-    "solution.blockchain.pillar.point1": "Data Ownership Fully Belongs to Users",
-    "solution.blockchain.pillar.point2": "Privacy Protection & Transparent Tracking",
-    "solution.blockchain.pillar.point3": "Incentive Mechanisms & Value Sharing",
-    "solution.community.pillar.point1": "Global Expert & Patient Mutual Support Network",
-    "solution.community.pillar.point2": "Open Treatment Data Sharing",
-    "solution.community.pillar.point3": "Community Governance & Decision Participation",
+    "solution.blockchain.pillar.point1": "Global Expert & Patient Mutual Support Network",
+    "solution.blockchain.pillar.point2": "Open Treatment Data Sharing",
+    "solution.blockchain.pillar.point3": "Community Governance & Decision Participation",
+    "solution.community.pillar.point1": "Data Ownership Fully Belongs to Users",
+    "solution.community.pillar.point2": "Privacy Protection & Transparent Tracking",
+    "solution.community.pillar.point3": "Incentive Mechanisms & Value Sharing",
 
     // 社区力量
     "community.power.title": "You're not ALONE",
