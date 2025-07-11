@@ -395,7 +395,7 @@ export default function Solution() {
                         </div>
                       </div>
                     );
-                  } else if (selectedPillar === 1) {
+                  } else if (selectedPillar === 2) {
                     // 区块链与数据主权 - 显示区块链技术详细内容
                     return (
                       <div className="pt-6">
@@ -502,7 +502,7 @@ export default function Solution() {
                         </div>
                       </div>
                     );
-                  } else if (selectedPillar === 2) {
+                  } else if (selectedPillar === 1) {
                     // 社区驱动生态 - 显示社区参与方式和生态飞轮模型
                     return (
                       <div className="pt-6">

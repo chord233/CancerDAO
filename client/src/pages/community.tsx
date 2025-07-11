@@ -79,37 +79,7 @@ export default function Community() {
           </p>
         </div>
 
-        {/* 社区价值支柱 */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-black mb-4">
-              社区如何为您提供支持
-            </h2>
-            <p className="text-lg text-black max-w-3xl mx-auto">
-              我们的社区通过多个维度为每位成员提供全方位的支持和帮助
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {communityValues.map((value, index) => (
-              <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-0">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                    {index === 0 && <Heart className="h-8 w-8 text-black" />}
-                    {index === 1 && <BookOpen className="h-8 w-8 text-black" />}
-                    {index === 2 && <Lightbulb className="h-8 w-8 text-black" />}
-                  </div>
-                  <h3 className="text-xl font-bold text-black mb-4">
-                    {value.title}
-                  </h3>
-                  <p className="text-black leading-relaxed">
-                    {value.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
+        
 
         {/* 社区真实故事区 */}
         <section className="mb-20">
