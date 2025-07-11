@@ -177,34 +177,54 @@ export default function Homepage() {
               ].map((card) => (
                 <div 
                   key={card.id} 
-                  className={`problem-card cursor-pointer transition-all duration-300 ${
-                    activeCard === card.id ? 'relative z-20 shadow-2xl scale-105' : 'relative z-10'
-                  }`}
-                  onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
+                  className="relative"
                 >
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                      <h3 className="text-xl font-semibold text-black">
-                        {card.title}
-                      </h3>
+                  <div 
+                    className={`problem-card cursor-pointer transition-all duration-300 ${
+                      activeCard === card.id ? 'absolute z-50 shadow-2xl scale-105 left-0 right-0' : 'relative z-10'
+                    }`}
+                    onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center">
+                        <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                        <h3 className="text-xl font-semibold text-black">
+                          {card.title}
+                        </h3>
+                      </div>
+                      <div className={`text-2xl font-bold transition-transform duration-300 ${
+                        activeCard === card.id ? 'rotate-180' : ''
+                      }`} style={{ color: '#c9a4ff' }}>
+                        ▼
+                      </div>
                     </div>
-                    <div className={`text-2xl font-bold transition-transform duration-300 ${
-                      activeCard === card.id ? 'rotate-180' : ''
-                    }`} style={{ color: '#c9a4ff' }}>
-                      ▼
-                    </div>
+                    {activeCard === card.id && (
+                      <div className="space-y-3 animate-in slide-in-from-top-2 duration-300 mt-4 pt-4 border-t border-gray-200">
+                        <p className="text-black">
+                          <strong>{card.description}</strong>
+                        </p>
+                        <ul className="text-sm text-black space-y-1">
+                          {card.points.map((point, index) => (
+                            <li key={index}>• {point}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
-                  {activeCard === card.id && (
-                    <div className="space-y-3 animate-in slide-in-from-top-2 duration-300 mt-4 pt-4 border-t border-gray-200">
-                      <p className="text-black">
-                        <strong>{card.description}</strong>
-                      </p>
-                      <ul className="text-sm text-black space-y-1">
-                        {card.points.map((point, index) => (
-                          <li key={index}>• {point}</li>
-                        ))}
-                      </ul>
+                  {/* Placeholder to maintain layout when not expanded */}
+                  {activeCard !== card.id && (
+                    <div className="problem-card opacity-0 pointer-events-none">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center">
+                          <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                          <h3 className="text-xl font-semibold text-black">
+                            {card.title}
+                          </h3>
+                        </div>
+                        <div className="text-2xl font-bold" style={{ color: '#c9a4ff' }}>
+                          ▼
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>
