@@ -59,10 +59,10 @@ export default function Solution() {
           </h2>
           
           {/* Circular Selection with Rotation */}
-          <div className="relative flex items-center justify-center mb-16">
+          <div className="relative flex items-center justify-center mb-8">
             {/* Triangle indicator pointing down */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-36 z-30">
-              <div className="w-0 h-0 border-l-4 border-r-4 border-t-8 border-transparent" style={{ borderTopColor: '#c9a4ff' }}></div>
+              <div className="w-0 h-0 border-l-6 border-r-6 border-t-12 border-transparent" style={{ borderTopColor: '#c9a4ff' }}></div>
             </div>
             
             <div 
@@ -116,13 +116,13 @@ export default function Solution() {
                     key={pillar.id}
                     className={`absolute cursor-pointer transition-all duration-300 ${
                       selectedPillar === pillar.id 
-                        ? 'transform scale-125 z-20' 
+                        ? 'transform scale-150 z-20' 
                         : 'transform scale-100 z-10 hover:scale-110'
                     }`}
                     style={{
                       left: `calc(50% + ${x}px)`,
                       top: `calc(50% + ${y}px)`,
-                      transform: `translate(-50%, -50%) rotate(${selectedPillar * 120}deg) ${selectedPillar === pillar.id ? 'scale(1.25)' : 'scale(1)'}`,
+                      transform: `translate(-50%, -50%) rotate(${selectedPillar * 120}deg) ${selectedPillar === pillar.id ? 'scale(1.5)' : 'scale(1)'}`,
                     }}
                     onClick={() => setSelectedPillar(pillar.id)}
                   >
@@ -139,7 +139,7 @@ export default function Solution() {
                     </div>
                     <div className="text-center mt-3">
                       <h3 className={`text-sm font-bold text-black transition-all duration-300 ${
-                        selectedPillar === pillar.id ? 'text-base' : 'text-sm'
+                        selectedPillar === pillar.id ? 'text-lg' : 'text-sm'
                       }`}>
                         {pillar.title}
                       </h3>
@@ -150,16 +150,17 @@ export default function Solution() {
             </div>
           </div>
 
-          {/* Selected Pillar Details */}
-          <div className="max-w-4xl mx-auto">
-            <Card className="p-8 bg-white shadow-lg transition-all duration-500" style={{ border: '1px solid #e7d1ff' }}>
+          {/* Selected Pillar Details - Connected to selection above */}
+          <div className="max-w-4xl mx-auto relative">
+            {/* Connection line to selected pillar */}
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 w-0.5 h-8 z-10" style={{ backgroundColor: '#c9a4ff' }}></div>
+            
+            <Card className="p-8 bg-white shadow-lg transition-all duration-500 rounded-t-3xl" style={{ border: '1px solid #e7d1ff' }}>
               <CardContent className="p-0">
                 {(() => {
                   const pillars = [
                     {
                       id: 0,
-                      icon: Brain,
-                      title: t("solution.ai.pillar.title"),
                       description: t("solution.ai.pillar.description"),
                       points: [
                         t("solution.ai.pillar.point1"),
@@ -169,8 +170,6 @@ export default function Solution() {
                     },
                     {
                       id: 1,
-                      icon: Shield,
-                      title: t("solution.blockchain.pillar.title"),
                       description: t("solution.blockchain.pillar.description"),
                       points: [
                         t("solution.blockchain.pillar.point1"),
@@ -180,8 +179,6 @@ export default function Solution() {
                     },
                     {
                       id: 2,
-                      icon: Users,
-                      title: t("solution.community.pillar.title"),
                       description: t("solution.community.pillar.description"),
                       points: [
                         t("solution.community.pillar.point1"),
@@ -194,19 +191,11 @@ export default function Solution() {
                   const currentPillar = pillars[selectedPillar];
                   
                   return (
-                    <div className="text-center">
-                      <div className="mb-6">
-                        <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                          <currentPillar.icon className="h-8 w-8 text-black" />
-                        </div>
-                        <h3 className="text-2xl font-bold text-black mb-4">
-                          {currentPillar.title}
-                        </h3>
-                      </div>
-                      <p className="text-black mb-6 leading-relaxed text-lg">
+                    <div className="text-center pt-6">
+                      <p className="text-black mb-8 leading-relaxed text-lg">
                         {currentPillar.description}
                       </p>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {currentPillar.points.map((point, index) => (
                           <div key={index} className="flex items-center justify-center text-sm text-black">
                             <CheckCircle className="h-4 w-4 mr-2 flex-shrink-0" style={{ color: '#fad000' }} />
