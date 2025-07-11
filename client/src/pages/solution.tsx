@@ -61,7 +61,7 @@ export default function Solution() {
           {/* Circular Selection with Rotation */}
           <div className="relative flex items-center justify-center mb-8">
             {/* Triangle indicator pointing down */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-36 z-30">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-36 z-5 pointer-events-none">
               <div className="w-0 h-0 border-l-[12px] border-r-[12px] border-t-[15px] border-transparent" style={{ borderTopColor: '#c9a4ff' }}></div>
             </div>
             
@@ -125,7 +125,10 @@ export default function Solution() {
                       top: `calc(50% + ${y}px)`,
                       transform: `translate(-50%, -50%) rotate(${-(selectedPillar * 120) - 180}deg)`,
                     }}
-                    onClick={() => setSelectedPillar(pillar.id)}
+                    onClick={() => {
+                      console.log('Pillar clicked:', pillar.id, pillar.title);
+                      setSelectedPillar(pillar.id);
+                    }}
                   >
                     <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
                       selectedPillar === pillar.id 
