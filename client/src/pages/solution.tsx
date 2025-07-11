@@ -68,7 +68,7 @@ export default function Solution() {
             <div 
               className="relative w-80 h-80 mx-auto transition-transform duration-700 ease-in-out"
               style={{
-                transform: `rotate(${-selectedPillar * 120}deg)`,
+                transform: `rotate(${(selectedPillar * 120) + 180}deg)`,
               }}
             >
               {[
@@ -106,10 +106,11 @@ export default function Solution() {
                   ]
                 }
               ].map((pillar, index) => {
-                const angle = (index * 120) - 90; // Start from top, 120 degrees apart
+                // Calculate position - selected pillar should be at bottom (90°)
+                const baseAngle = (index * 120) - 90; // Base angles: -90, 30, 150 degrees
                 const radius = 120;
-                const x = Math.cos(angle * Math.PI / 180) * radius;
-                const y = Math.sin(angle * Math.PI / 180) * radius;
+                const x = Math.cos(baseAngle * Math.PI / 180) * radius;
+                const y = Math.sin(baseAngle * Math.PI / 180) * radius;
                 
                 return (
                   <div
@@ -122,7 +123,7 @@ export default function Solution() {
                     style={{
                       left: `calc(50% + ${x}px)`,
                       top: `calc(50% + ${y}px)`,
-                      transform: `translate(-50%, -50%) rotate(${selectedPillar * 120}deg) ${selectedPillar === pillar.id ? 'scale(1.5)' : 'scale(1)'}`,
+                      transform: `translate(-50%, -50%) rotate(${-(selectedPillar * 120) - 180}deg) ${selectedPillar === pillar.id ? 'scale(1.5)' : 'scale(1)'}`,
                     }}
                     onClick={() => setSelectedPillar(pillar.id)}
                   >
