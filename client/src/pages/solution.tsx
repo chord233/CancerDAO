@@ -125,10 +125,7 @@ export default function Solution() {
                       top: `calc(50% + ${y}px)`,
                       transform: `translate(-50%, -50%) rotate(${-(selectedPillar * 120) - 180}deg)`,
                     }}
-                    onClick={() => {
-                      console.log('Pillar clicked:', pillar.id, pillar.title);
-                      setSelectedPillar(pillar.id);
-                    }}
+                    onClick={() => setSelectedPillar(pillar.id)}
                   >
                     <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
                       selectedPillar === pillar.id 
@@ -191,7 +188,6 @@ export default function Solution() {
                   ];
                   
                   const currentPillar = pillars[selectedPillar];
-                  console.log('Current selected pillar:', selectedPillar, currentPillar);
                   
                   return (
                     <div className="text-center pt-6">

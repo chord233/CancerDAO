@@ -71,11 +71,11 @@ const translations = {
     "solution.ai.pillar.button": "了解更多 AI 赋能",
     "solution.blockchain.pillar.title": "区块链保障",
     "solution.blockchain.pillar.description":
-      "CancerDAO 构建了一个由用户自主控制的数据基础设施，基于区块链和隐私计算技术，实现数据可控、可追溯、可激励地共享，推动科研与新药开发。",
+      "CancerDAO 鼓励公众通过贡献数据、参与社区治理与科普活动获得奖励，真正实现'以患者为中心'的公共健康创新生态。",
     "solution.blockchain.pillar.button": "了解更多区块链保障",
     "solution.community.pillar.title": "社区驱动",
     "solution.community.pillar.description":
-      "CancerDAO 鼓励公众通过贡献数据、参与社区治理与科普活动获得奖励，真正实现“以患者为中心”的公共健康创新生态。",
+"CancerDAO 构建了一个由用户自主控制的数据基础设施，基于区块链和隐私计算技术，实现数据可控、可追溯、可激励地共享，推动科研与新药开发。",
     "solution.community.pillar.button": "了解更多社区驱动",
 
     // 产品预览
