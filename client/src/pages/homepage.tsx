@@ -151,7 +151,7 @@ export default function Homepage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
               {[
                 {
                   id: 0,
@@ -178,7 +178,7 @@ export default function Homepage() {
                 <div 
                   key={card.id} 
                   className={`problem-card cursor-pointer transition-all duration-300 ${
-                    activeCard === card.id ? 'ring-2 ring-purple-300' : ''
+                    activeCard === card.id ? 'relative z-20 shadow-2xl scale-105' : 'relative z-10'
                   }`}
                   onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
                 >
@@ -196,7 +196,7 @@ export default function Homepage() {
                     </div>
                   </div>
                   {activeCard === card.id && (
-                    <div className="space-y-3 animate-in slide-in-from-top-2 duration-300">
+                    <div className="space-y-3 animate-in slide-in-from-top-2 duration-300 mt-4 pt-4 border-t border-gray-200">
                       <p className="text-black">
                         <strong>{card.description}</strong>
                       </p>
