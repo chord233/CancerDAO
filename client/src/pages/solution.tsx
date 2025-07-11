@@ -275,14 +275,7 @@ export default function Solution() {
                   </div>
                 </div>
                 
-                {/* 架构图 */}
-                <div className="mb-6">
-                  <img 
-                    src="/attached_assets/image_1752147829900.png" 
-                    alt="CancerDAO AI Architecture Diagram"
-                    className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
-                  />
-                </div>
+                
               </CardContent>
             </Card>
 
