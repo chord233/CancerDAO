@@ -35,7 +35,7 @@ import {
   Fingerprint,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
-import architectureDiagram from "@assets/image_1752147829900.png";
+import { ArchitectureDiagram } from "@/components/architecture-diagram";
 import dataNftFlowChart from "@assets/image_1752205358199.png";
 import fheFlowChart1 from "@assets/image_1752205374610.png";
 import fheFlowChart2 from "@assets/image_1752205381666.png";
@@ -66,11 +66,9 @@ export default function Solution() {
           {/* CancerDAO Architecture Diagram */}
           <div className="mb-16 flex justify-center">
             <div className="max-w-4xl w-full">
-              <img 
-                src={architectureDiagram} 
-                alt="CancerDAO Architecture Diagram" 
-                className="w-full h-auto rounded-2xl shadow-lg border border-purple-200"
-              />
+              <div className="rounded-2xl shadow-lg border border-purple-200 overflow-hidden">
+                <ArchitectureDiagram />
+              </div>
             </div>
           </div>
 
