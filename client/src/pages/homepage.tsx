@@ -195,18 +195,18 @@ export default function Homepage() {
                       ▼
                     </div>
                   </div>
-                  <div className={`space-y-3 overflow-hidden transition-all duration-500 ${
-                    activeCard === card.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}>
-                    <p className="text-black">
-                      <strong>{card.description}</strong>
-                    </p>
-                    <ul className="text-sm text-black space-y-1">
-                      {card.points.map((point, index) => (
-                        <li key={index}>• {point}</li>
-                      ))}
-                    </ul>
-                  </div>
+                  {activeCard === card.id && (
+                    <div className="space-y-3 animate-in slide-in-from-top-2 duration-300">
+                      <p className="text-black">
+                        <strong>{card.description}</strong>
+                      </p>
+                      <ul className="text-sm text-black space-y-1">
+                        {card.points.map((point, index) => (
+                          <li key={index}>• {point}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
