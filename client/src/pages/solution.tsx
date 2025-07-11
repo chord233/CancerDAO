@@ -396,6 +396,113 @@ export default function Solution() {
                       </div>
                     );
                   } else if (selectedPillar === 1) {
+                    // 区块链与数据主权 - 显示区块链技术详细内容
+                    return (
+                      <div className="pt-6">
+                        <div className="text-center mb-8">
+                          <h3 className="text-2xl font-bold text-black mb-4">
+                            区块链与数据主权：构建可信的数字健康未来
+                          </h3>
+                        </div>
+                        
+                        {/* 为什么我们需要区块链？ */}
+                        <div className="mb-8">
+                          <div className="text-center mb-6">
+                            <h4 className="text-xl font-bold text-black mb-4">
+                              为什么我们需要区块链？
+                            </h4>
+                          </div>
+                          
+                          <div className="text-left mb-6">
+                            <p className="text-black leading-relaxed">
+                              在传统的中心化数据管理模式下，我们面临着严峻的信任挑战和数据孤岛问题。用户的数据通常由单一机构掌控，缺乏透明度，且容易出现隐私泄露和数据滥用。此外，不同机构之间的数据难以互联互通，形成了"信息孤岛"，阻碍了医疗健康领域的协作和创新。CancerDAO 引入区块链技术，正是为了解决这些核心痛点。区块链的去中心化、不可篡改和透明特性，能够在多方参与的健康价值网络中建立起无需信任的协作机制，确保用户对其健康数据拥有绝对主权，并保障数据和价值在网络中的公开透明流转。
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* 核心技术解释与图示 */}
+                        <div className="mb-8">
+                          <div className="text-center mb-6">
+                            <h4 className="text-xl font-bold text-black mb-4">
+                              核心技术解释与图示
+                            </h4>
+                          </div>
+                          
+                          {/* 子模块 1: Data NFT */}
+                          <div className="mb-8">
+                            <div className="flex items-center mb-4">
+                              <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
+                                <Database className="h-4 w-4 text-white" />
+                              </div>
+                              <h5 className="text-lg font-bold text-black">子模块 1：Data NFT</h5>
+                            </div>
+                            
+                            <div className="text-left mb-6">
+                              <p className="text-black leading-relaxed">
+                                Data NFT 是一种独特的数字代币，它将您的个人健康数据转化为真正属于您的数字资产。数据提供者首先提供加密的健康数据，这些数据随后被记录在区块链上并进行通证化，生成独特的Data NFT。这些Data NFT代表了数据的唯一性、所有权和可追溯性，并可以在市场中进行交易。通过这种方式，数据提供者能够控制谁可以访问他们的数据，并通过数据使用费和产品版税的形式获得收益，甚至从平台奖励中受益。
+                              </p>
+                            </div>
+                            
+                            <div className="mb-6 flex justify-center">
+                              <img 
+                                src={dataNftFlowChart} 
+                                alt="Data NFT 流程图"
+                                className="max-w-full mx-auto rounded-lg shadow-md"
+                              />
+                            </div>
+                          </div>
+                          
+                          {/* 子模块 2: 全同态加密 (FHE) */}
+                          <div className="mb-8">
+                            <div className="flex items-center mb-4">
+                              <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>
+                                <Lock className="h-4 w-4 text-white" />
+                              </div>
+                              <h5 className="text-lg font-bold text-black">子模块 2：全同态加密 (FHE)</h5>
+                            </div>
+                            
+                            <div className="text-left mb-6">
+                              <p className="text-black leading-relaxed">
+                                全同态加密 (FHE) 是一项突破性技术，它允许在不解密数据的情况下直接对加密数据执行计算。这意味着，即使您的生物和医疗数据处于加密状态，人工智能模型或研究人员仍然可以对其进行分析和处理，而数据本身的原始形式始终是保密的，不会被泄露。FHE 彻底消除了数据在使用过程中的隐私风险，确保了您的敏感健康信息在被用于生成洞察或开发新疗法时，其隐私性得到最高级别的保护。
+                              </p>
+                            </div>
+                            
+                            <div className="mb-6 flex justify-center">
+                              <img 
+                                src={fheFlowChart1} 
+                                alt="FHE 流程图 1"
+                                className="max-w-full mx-auto rounded-lg shadow-md"
+                              />
+                            </div>
+                            
+                            <div className="mb-6 flex justify-center">
+                              <img 
+                                src={fheFlowChart2} 
+                                alt="FHE 流程图 2"
+                                className="max-w-full mx-auto rounded-lg shadow-md"
+                              />
+                            </div>
+                          </div>
+                          
+                          {/* 子模块 3: 去中心化身份 (DID) */}
+                          <div className="mb-8">
+                            <div className="flex items-center mb-4">
+                              <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fc593d' }}>
+                                <Fingerprint className="h-4 w-4 text-white" />
+                              </div>
+                              <h5 className="text-lg font-bold text-black">子模块 3：去中心化身份 (DID)</h5>
+                            </div>
+                            
+                            <div className="text-left mb-6">
+                              <p className="text-black leading-relaxed">
+                                去中心化身份（DID）使用户能够在没有中心化机构的情况下拥有并完全控制自己的数字身份。DID 允许用户管理自己的身份信息，并用于对数据访问进行授权。这极大地增强了用户对其数据主权的控制，保障了隐私和安全。
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  } else if (selectedPillar === 2) {
                     // 社区驱动生态 - 显示社区参与方式和生态飞轮模型
                     return (
                       <div className="pt-6">
@@ -540,113 +647,6 @@ export default function Solution() {
                                   <p className="text-xs text-gray-600">作为生态系统内的流通代币，实现价值传递和治理激励</p>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  } else if (selectedPillar === 2) {
-                    // 区块链与数据主权 - 显示区块链技术详细内容
-                    return (
-                      <div className="pt-6">
-                        <div className="text-center mb-8">
-                          <h3 className="text-2xl font-bold text-black mb-4">
-                            区块链与数据主权：构建可信的数字健康未来
-                          </h3>
-                        </div>
-                        
-                        {/* 为什么我们需要区块链？ */}
-                        <div className="mb-8">
-                          <div className="text-center mb-6">
-                            <h4 className="text-xl font-bold text-black mb-4">
-                              为什么我们需要区块链？
-                            </h4>
-                          </div>
-                          
-                          <div className="text-left mb-6">
-                            <p className="text-black leading-relaxed">
-                              在传统的中心化数据管理模式下，我们面临着严峻的信任挑战和数据孤岛问题。用户的数据通常由单一机构掌控，缺乏透明度，且容易出现隐私泄露和数据滥用。此外，不同机构之间的数据难以互联互通，形成了"信息孤岛"，阻碍了医疗健康领域的协作和创新。CancerDAO 引入区块链技术，正是为了解决这些核心痛点。区块链的去中心化、不可篡改和透明特性，能够在多方参与的健康价值网络中建立起无需信任的协作机制，确保用户对其健康数据拥有绝对主权，并保障数据和价值在网络中的公开透明流转。
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* 核心技术解释与图示 */}
-                        <div className="mb-8">
-                          <div className="text-center mb-6">
-                            <h4 className="text-xl font-bold text-black mb-4">
-                              核心技术解释与图示
-                            </h4>
-                          </div>
-                          
-                          {/* 子模块 1: Data NFT */}
-                          <div className="mb-8">
-                            <div className="flex items-center mb-4">
-                              <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
-                                <Database className="h-4 w-4 text-white" />
-                              </div>
-                              <h5 className="text-lg font-bold text-black">子模块 1：Data NFT</h5>
-                            </div>
-                            
-                            <div className="text-left mb-6">
-                              <p className="text-black leading-relaxed">
-                                Data NFT 是一种独特的数字代币，它将您的个人健康数据转化为真正属于您的数字资产。数据提供者首先提供加密的健康数据，这些数据随后被记录在区块链上并进行通证化，生成独特的Data NFT。这些Data NFT代表了数据的唯一性、所有权和可追溯性，并可以在市场中进行交易。通过这种方式，数据提供者能够控制谁可以访问他们的数据，并通过数据使用费和产品版税的形式获得收益，甚至从平台奖励中受益。
-                              </p>
-                            </div>
-                            
-                            <div className="mb-6 flex justify-center">
-                              <img 
-                                src={dataNftFlowChart} 
-                                alt="Data NFT 流程图"
-                                className="max-w-full mx-auto rounded-lg shadow-md"
-                              />
-                            </div>
-                          </div>
-                          
-                          {/* 子模块 2: 全同态加密 (FHE) */}
-                          <div className="mb-8">
-                            <div className="flex items-center mb-4">
-                              <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>
-                                <Lock className="h-4 w-4 text-white" />
-                              </div>
-                              <h5 className="text-lg font-bold text-black">子模块 2：全同态加密 (FHE)</h5>
-                            </div>
-                            
-                            <div className="text-left mb-6">
-                              <p className="text-black leading-relaxed">
-                                全同态加密 (FHE) 是一项突破性技术，它允许在不解密数据的情况下直接对加密数据执行计算。这意味着，即使您的生物和医疗数据处于加密状态，人工智能模型或研究人员仍然可以对其进行分析和处理，而数据本身的原始形式始终是保密的，不会被泄露。FHE 彻底消除了数据在使用过程中的隐私风险，确保了您的敏感健康信息在被用于生成洞察或开发新疗法时，其隐私性得到最高级别的保护。
-                              </p>
-                            </div>
-                            
-                            <div className="mb-6 flex justify-center">
-                              <img 
-                                src={fheFlowChart1} 
-                                alt="FHE 流程图 1"
-                                className="max-w-full mx-auto rounded-lg shadow-md"
-                              />
-                            </div>
-                            
-                            <div className="mb-6 flex justify-center">
-                              <img 
-                                src={fheFlowChart2} 
-                                alt="FHE 流程图 2"
-                                className="max-w-full mx-auto rounded-lg shadow-md"
-                              />
-                            </div>
-                          </div>
-                          
-                          {/* 子模块 3: 去中心化身份 (DID) */}
-                          <div className="mb-8">
-                            <div className="flex items-center mb-4">
-                              <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fc593d' }}>
-                                <Fingerprint className="h-4 w-4 text-white" />
-                              </div>
-                              <h5 className="text-lg font-bold text-black">子模块 3：去中心化身份 (DID)</h5>
-                            </div>
-                            
-                            <div className="text-left mb-6">
-                              <p className="text-black leading-relaxed">
-                                去中心化身份（DID）使用户能够在没有中心化机构的情况下拥有并完全控制自己的数字身份。DID 允许用户管理自己的身份信息，并用于对数据访问进行授权。这极大地增强了用户对其数据主权的控制，保障了隐私和安全。
-                              </p>
                             </div>
                           </div>
                         </div>
