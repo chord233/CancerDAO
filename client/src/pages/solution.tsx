@@ -35,7 +35,7 @@ import {
   Fingerprint,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
-import { ArchitectureDiagram } from "@/components/architecture-diagram";
+import architectureDiagram from "@assets/image_1752147829900.png";
 import dataNftFlowChart from "@assets/image_1752205358199.png";
 import fheFlowChart1 from "@assets/image_1752205374610.png";
 import fheFlowChart2 from "@assets/image_1752205381666.png";
@@ -58,38 +58,27 @@ export default function Solution() {
         </div>
 
         {/* Core Flow Diagram */}
-        <section className="mb-12 rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)', border: '1px solid #e7d1ff' }}>
+        <section className="mb-20 rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)', border: '1px solid #e7d1ff' }}>
           <h2 className="text-3xl font-bold text-center text-black mb-12">
             {t("solution.core.title")}
           </h2>
           
           {/* CancerDAO Architecture Diagram */}
-          <div className="mb-8 flex justify-center">
+          <div className="mb-16 flex justify-center">
             <div className="max-w-4xl w-full">
-              <div className="rounded-2xl shadow-lg border border-purple-200 overflow-hidden">
-                <ArchitectureDiagram />
-              </div>
+              <img 
+                src={architectureDiagram} 
+                alt="CancerDAO Architecture Diagram" 
+                className="w-full h-auto rounded-2xl shadow-lg border border-purple-200"
+              />
             </div>
           </div>
 
-          {/* 连接说明文字 */}
-          <div className="text-center mt-8">
-            <p className="text-lg text-black max-w-3xl mx-auto">
-              {t("solution.core.subtitle")}
-            </p>
-          </div>
+          
         </section>
 
-        {/* 渐变过渡区域 */}
-        <div className="relative mb-8">
-          <div className="h-16 bg-gradient-to-b from-transparent to-gray-50"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="w-6 h-6 rounded-full" style={{ backgroundColor: '#c9a4ff' }}></div>
-          </div>
-        </div>
-
         {/* Three Pillars - Circular Layout */}
-        <section className="mb-20 bg-gray-50 py-16 -mt-8 rounded-3xl">
+        <section className="mb-20">
           <h2 className="text-3xl font-bold text-center text-black mb-12">
             {t("solution.pillars.title")}
           </h2>

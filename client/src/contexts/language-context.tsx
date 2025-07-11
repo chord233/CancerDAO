@@ -57,8 +57,6 @@ const translations = {
     "solution.title": "我们的解决方案",
     "solution.subtitle": "通过三大核心支柱，构建一个全面的癌症防治生态系统",
     "solution.core.title": "核心价值循环",
-    "solution.core.subtitle": "以下三大核心支柱是实现这一愿景的关键驱动力",
-    "solution.pillars.title": "三大核心支柱",
     "solution.ai.title": "AI 平台",
     "solution.ai.description": "智能分析与预测",
     "solution.blockchain.title": "区块链 Medical ID",
@@ -529,8 +527,6 @@ const translations = {
     "solution.subtitle":
       "Building a comprehensive cancer prevention and treatment ecosystem through three core pillars.",
     "solution.core.title": "Core Value Cycle",
-    "solution.core.subtitle": "The following three core pillars are the key drivers to achieve this vision",
-    "solution.pillars.title": "Three Core Pillars",
     "solution.ai.title": "AI Platform",
     "solution.ai.description": "Intelligent Analysis & Prediction",
     "solution.blockchain.title": "Blockchain Medical ID",
