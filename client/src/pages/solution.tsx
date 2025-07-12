@@ -103,17 +103,23 @@ export default function Solution() {
 
                 {/* Issue Arrow */}
                 <div className="absolute top-16 left-72">
-                  <div className="flex items-center">
-                    <span className="text-xs text-gray-600 mr-2">Issue</span>
-                    <ArrowRight className="h-4 w-4 text-purple-400" />
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs text-gray-600 mb-2">Issue</span>
+                    <div className="flex items-center">
+                      <div className="w-8 h-0.5 bg-purple-400"></div>
+                      <ArrowRight className="h-4 w-4 text-purple-400" />
+                    </div>
                   </div>
                 </div>
 
                 {/* Support Arrow */}
                 <div className="absolute top-16 right-32">
-                  <div className="flex items-center">
-                    <span className="text-xs text-gray-600 mr-2">Support</span>
-                    <ArrowDown className="h-4 w-4 text-purple-400" />
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs text-gray-600 mb-2">Support</span>
+                    <div className="flex flex-col items-center">
+                      <div className="w-0.5 h-8 bg-purple-400"></div>
+                      <ArrowDown className="h-4 w-4 text-purple-400" />
+                    </div>
                   </div>
                 </div>
 
