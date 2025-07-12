@@ -248,13 +248,13 @@ export default function Homepage() {
             {/* 第一个位置 - 产品演示视频 */}
             <div className="text-center">
               <div className="relative mb-8">
-                <div className="max-w-md mx-auto rounded-2xl shadow-2xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                <div className="max-w-lg mx-auto rounded-2xl shadow-2xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
                   <video
                     className="w-full h-auto block"
                     controls
                     poster=""
                     preload="metadata"
-                    style={{ maxHeight: '400px' }}
+                    style={{ maxHeight: '450px' }}
                   >
                     <source src="/attached_assets/视频_1752331442308.mp4" type="video/mp4" />
                     您的浏览器不支持视频播放。
