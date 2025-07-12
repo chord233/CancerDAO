@@ -126,7 +126,7 @@ export default function Solution() {
                 {/* Main Flow - Four Boxes */}
                 <div className="grid grid-cols-4 gap-6 mt-56 mb-8">
                   {/* AI-powered Cancer Support Platform */}
-                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                  <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
                     <div className="flex flex-col items-center text-center">
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
                         <Brain className="h-8 w-8 text-white" />
@@ -138,7 +138,7 @@ export default function Solution() {
                   </div>
 
                   {/* Blockchain-based Medical ID */}
-                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                  <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
                     <div className="flex flex-col items-center text-center">
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
                         <div className="grid grid-cols-2 gap-1">
@@ -155,7 +155,7 @@ export default function Solution() {
                   </div>
 
                   {/* Decentralized Cancer Database */}
-                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                  <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
                     <div className="flex flex-col items-center text-center">
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
                         <div className="flex items-center justify-center">
@@ -174,7 +174,7 @@ export default function Solution() {
                   </div>
 
                   {/* AI-driven Therapies and Screening */}
-                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                  <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
                     <div className="flex flex-col items-center text-center">
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
                         <div className="relative">
