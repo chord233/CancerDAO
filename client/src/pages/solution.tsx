@@ -95,7 +95,7 @@ export default function Solution() {
                       </div>
                       <div>
                         <h4 className="text-sm font-bold text-black">CancerDAO</h4>
-                        <h4 className="text-gray-600 text-[14px] font-bold">Token</h4>
+                        <h4 className="text-[14px] font-bold text-[#000000]">Token</h4>
                       </div>
                     </div>
                   </div>
