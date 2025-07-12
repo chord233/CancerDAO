@@ -70,7 +70,7 @@ export default function Solution() {
               <div className="relative bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 shadow-lg border border-purple-200">
                 {/* Community Section */}
                 <div className="absolute top-8 left-8">
-                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200 pl-[50px] pr-[50px]">
                     <div className="flex flex-col items-center">
                       <div className="w-24 h-12 flex items-center justify-center mb-3 overflow-hidden">
                         <img 
