@@ -244,110 +244,35 @@ export default function Homepage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* 第一个手机 - AI智能分析 */}
-            <div className="text-center">
-              <div className="relative mb-8">
-                <div className="w-80 h-96 mx-auto rounded-3xl p-2 shadow-2xl" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                  <div className="w-full h-full bg-white rounded-2xl overflow-hidden">
-                    <div className="h-20 flex items-center justify-center" style={{ background: 'linear-gradient(90deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                      <div className="text-black font-bold text-lg">
-                        CancerDAO PILL
-                      </div>
-                    </div>
-                    <div className="p-6 space-y-4">
-                      <div className="p-4 rounded-lg" style={{ backgroundColor: '#e7d1ff' }}>
-                        <div className="flex items-center justify-center mb-3">
-                          <Brain className="h-6 w-6" style={{ color: '#c9a4ff' }} />
-                        </div>
-                        <h4 className="font-semibold text-black mb-2 text-center">
-                          {t("product.ai.analysis")}
-                        </h4>
-                        <div className="w-full h-16 rounded" style={{ backgroundColor: '#c9a4ff' }}></div>
-                        <p className="text-xs text-black mt-2 text-center">
-                          AI 实时分析中...
-                        </p>
-                      </div>
-                      <div className="p-4 rounded-lg bg-gray-100">
-                        <div className="space-y-2">
-                          <div className="h-2 rounded" style={{ backgroundColor: '#e7d1ff', width: '80%' }}></div>
-                          <div className="h-2 rounded" style={{ backgroundColor: '#e7d1ff', width: '60%' }}></div>
-                          <div className="h-2 rounded" style={{ backgroundColor: '#e7d1ff', width: '90%' }}></div>
-                        </div>
-                      </div>
-                    </div>
+          <div className="flex justify-center">
+            {/* 产品演示视频 */}
+            <div className="relative max-w-4xl w-full">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                <div className="p-4">
+                  <div className="bg-white rounded-2xl overflow-hidden">
+                    <video
+                      className="w-full h-auto"
+                      controls
+                      poster=""
+                      preload="metadata"
+                      style={{ maxHeight: '600px' }}
+                    >
+                      <source src="/attached_assets/视频_1752331442308.mp4" type="video/mp4" />
+                      您的浏览器不支持视频播放。
+                    </video>
                   </div>
                 </div>
               </div>
               
-              <div className="space-y-4">
+              <div className="text-center mt-8">
                 <div className="flex items-center justify-center mb-4">
                   <Brain className="h-8 w-8 mr-3" style={{ color: '#c9a4ff' }} />
                   <h3 className="text-2xl font-bold text-black">
                     {t("product.feature1.title")}
                   </h3>
                 </div>
-                <p className="text-black leading-relaxed max-w-md mx-auto">
+                <p className="text-black leading-relaxed max-w-3xl mx-auto">
                   {t("product.feature1.description")}
-                </p>
-              </div>
-            </div>
-
-            {/* 第二个手机 - 健康时间线 */}
-            <div className="text-center">
-              <div className="relative mb-8">
-                <div className="w-80 h-96 mx-auto rounded-3xl p-2 shadow-2xl" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                  <div className="w-full h-full bg-white rounded-2xl overflow-hidden">
-                    <div className="h-20 flex items-center justify-center" style={{ background: 'linear-gradient(90deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                      <div className="text-black font-bold text-lg">
-                        CancerDAO PILL
-                      </div>
-                    </div>
-                    <div className="p-6 space-y-4">
-                      <div className="p-4 rounded-lg" style={{ backgroundColor: '#e7d1ff' }}>
-                        <div className="flex items-center justify-center mb-3">
-                          <Smartphone className="h-6 w-6" style={{ color: '#c9a4ff' }} />
-                        </div>
-                        <h4 className="font-semibold text-black mb-2 text-center">
-                          {t("product.timeline")}
-                        </h4>
-                        <div className="space-y-3">
-                          <div className="flex items-center space-x-3">
-                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#c9a4ff' }}></div>
-                            <div className="text-xs text-black text-left">2024年3月 体检报告</div>
-                          </div>
-                          <div className="flex items-center space-x-3">
-                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#fad000' }}></div>
-                            <div className="text-xs text-black text-left">2024年6月 基因检测</div>
-                          </div>
-                          <div className="flex items-center space-x-3">
-                            <div className="w-3 h-3 rounded-full bg-gray-300"></div>
-                            <div className="text-xs text-gray-500 text-left">2024年9月 预约检查</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="p-4 rounded-lg" style={{ backgroundColor: '#e7d1ff' }}>
-                        <h4 className="font-semibold text-black mb-2">
-                          {t("product.blockchain.security")}
-                        </h4>
-                        <div className="flex items-center justify-center">
-                          <Shield className="h-8 w-8" style={{ color: '#c9a4ff' }} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex items-center justify-center mb-4">
-                  <Smartphone className="h-8 w-8 mr-3" style={{ color: '#c9a4ff' }} />
-                  <h3 className="text-2xl font-bold text-black">
-                    {t("product.feature2.title")}
-                  </h3>
-                </div>
-                <p className="text-black leading-relaxed max-w-md mx-auto">
-                  {t("product.feature2.description")}
                 </p>
               </div>
             </div>
