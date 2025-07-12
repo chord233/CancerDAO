@@ -193,7 +193,7 @@ export default function Solution() {
                 <div className="absolute bottom-60 left-32">
                   <div className="flex items-center">
                     <div className="flex flex-col items-center">
-                      <div className="w-0.5 h-8 bg-purple-400"></div>
+                      <div className="w-0.5 h-4 bg-purple-400"></div>
                       <ArrowDown className="h-4 w-4 text-purple-400" />
                     </div>
                     <span className="text-xs text-gray-600 ml-2">Build</span>
