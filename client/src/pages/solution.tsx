@@ -190,10 +190,13 @@ export default function Solution() {
                 </div>
 
                 {/* Flow Arrows */}
-                <div className="absolute bottom-24 left-8">
-                  <div className="flex flex-col items-center">
-                    <span className="text-xs text-gray-600 mb-2">Build</span>
-                    <ArrowDown className="h-4 w-4 text-purple-400" />
+                <div className="absolute bottom-48 left-20">
+                  <div className="flex items-center">
+                    <div className="flex flex-col items-center">
+                      <div className="w-0.5 h-8 bg-purple-400"></div>
+                      <ArrowDown className="h-4 w-4 text-purple-400" />
+                    </div>
+                    <span className="text-xs text-gray-600 ml-2">Build</span>
                   </div>
                 </div>
 
