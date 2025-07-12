@@ -124,7 +124,7 @@ export default function Solution() {
                 </div>
 
                 {/* Main Flow - Four Boxes */}
-                <div className="grid grid-cols-4 gap-6 mt-20 mb-8">
+                <div className="grid grid-cols-4 gap-6 mt-44 mb-8">
                   {/* AI-powered Cancer Support Platform */}
                   <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
                     <div className="flex flex-col items-center text-center">
