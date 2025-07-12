@@ -8,6 +8,7 @@ import {
   Users,
   Database,
   ArrowRight,
+  ArrowDown,
   CheckCircle,
   Lock,
   Cpu,
@@ -35,7 +36,6 @@ import {
   Fingerprint,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
-import architectureDiagram from "@assets/image_1752147829900.png";
 import dataNftFlowChart from "@assets/image_1752205358199.png";
 import fheFlowChart1 from "@assets/image_1752205374610.png";
 import fheFlowChart2 from "@assets/image_1752205381666.png";
@@ -65,12 +65,148 @@ export default function Solution() {
           
           {/* CancerDAO Architecture Diagram */}
           <div className="mb-16 flex justify-center">
-            <div className="max-w-4xl w-full">
-              <img 
-                src={architectureDiagram} 
-                alt="CancerDAO Architecture Diagram" 
-                className="w-full h-auto rounded-2xl shadow-lg border border-purple-200"
-              />
+            <div className="max-w-6xl w-full">
+              <div className="relative bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 shadow-lg border border-purple-200">
+                {/* Community Section */}
+                <div className="absolute top-8 left-8">
+                  <div className="flex flex-col items-center">
+                    <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                      <Users className="h-8 w-8 text-white" />
+                    </div>
+                    <div className="text-center">
+                      <h3 className="text-sm font-bold text-black mb-1">CANCER</h3>
+                      <h3 className="text-sm font-bold text-black">DAO</h3>
+                      <p className="text-xs text-gray-600 mt-1">Community</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Token Section */}
+                <div className="absolute top-8 right-8">
+                  <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center mr-2" style={{ backgroundColor: '#c9a4ff' }}>
+                        <span className="text-white text-xs font-bold">C</span>
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-black">CancerDAO</h4>
+                        <h4 className="text-xs text-gray-600">Token</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Issue Arrow */}
+                <div className="absolute top-16 left-32">
+                  <div className="flex items-center">
+                    <span className="text-xs text-gray-600 mr-2">Issue</span>
+                    <ArrowRight className="h-4 w-4 text-purple-400" />
+                  </div>
+                </div>
+
+                {/* Support Arrow */}
+                <div className="absolute top-16 right-32">
+                  <div className="flex items-center">
+                    <span className="text-xs text-gray-600 mr-2">Support</span>
+                    <ArrowDown className="h-4 w-4 text-purple-400" />
+                  </div>
+                </div>
+
+                {/* Main Flow - Four Boxes */}
+                <div className="grid grid-cols-4 gap-6 mt-20 mb-8">
+                  {/* AI-powered Cancer Support Platform */}
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                        <Brain className="h-8 w-8 text-white" />
+                      </div>
+                      <h4 className="text-sm font-bold text-black mb-2">AI-powered</h4>
+                      <h4 className="text-sm font-bold text-black mb-2">Cancer Support</h4>
+                      <h4 className="text-sm font-bold text-black">Platform</h4>
+                    </div>
+                  </div>
+
+                  {/* Blockchain-based Medical ID */}
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                        <div className="grid grid-cols-2 gap-1">
+                          <div className="w-2 h-2 bg-white rounded-sm"></div>
+                          <div className="w-2 h-2 bg-white rounded-sm"></div>
+                          <div className="w-2 h-2 bg-white rounded-sm"></div>
+                          <div className="w-2 h-2 bg-white rounded-sm"></div>
+                        </div>
+                      </div>
+                      <h4 className="text-sm font-bold text-black mb-2">Blockchain-</h4>
+                      <h4 className="text-sm font-bold text-black mb-2">based</h4>
+                      <h4 className="text-sm font-bold text-black">Medical ID</h4>
+                    </div>
+                  </div>
+
+                  {/* Decentralized Cancer Database */}
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                        <div className="flex items-center justify-center">
+                          <Heart className="h-6 w-6 text-white mr-1" />
+                          <div className="flex flex-col">
+                            <div className="w-1 h-1 bg-white rounded-full mb-1"></div>
+                            <div className="w-1 h-1 bg-white rounded-full mb-1"></div>
+                            <div className="w-1 h-1 bg-white rounded-full"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <h4 className="text-sm font-bold text-black mb-2">Decentralized</h4>
+                      <h4 className="text-sm font-bold text-black mb-2">Cancer</h4>
+                      <h4 className="text-sm font-bold text-black">Database</h4>
+                    </div>
+                  </div>
+
+                  {/* AI-driven Therapies and Screening */}
+                  <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                        <div className="relative">
+                          <div className="w-6 h-6 rounded-full bg-white opacity-80"></div>
+                          <div className="absolute top-1 left-1 w-4 h-4 rounded-full bg-white"></div>
+                        </div>
+                      </div>
+                      <h4 className="text-sm font-bold text-black mb-2">AI-driven</h4>
+                      <h4 className="text-sm font-bold text-black mb-2">Therapies</h4>
+                      <h4 className="text-sm font-bold text-black">and Screening</h4>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Flow Arrows */}
+                <div className="absolute bottom-24 left-8">
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs text-gray-600 mb-2">Build</span>
+                    <ArrowDown className="h-4 w-4 text-purple-400" />
+                  </div>
+                </div>
+
+                <div className="absolute bottom-32 left-1/4">
+                  <div className="flex items-center">
+                    <span className="text-xs text-gray-600 mr-2">Data</span>
+                    <ArrowRight className="h-4 w-4 text-purple-400" />
+                  </div>
+                </div>
+
+                <div className="absolute bottom-32 left-2/4">
+                  <div className="flex items-center">
+                    <span className="text-xs text-gray-600 mr-2">Contribute</span>
+                    <ArrowRight className="h-4 w-4 text-purple-400" />
+                  </div>
+                </div>
+
+                <div className="absolute bottom-32 right-1/4">
+                  <div className="flex items-center">
+                    <span className="text-xs text-gray-600 mr-2">Develop</span>
+                    <ArrowRight className="h-4 w-4 text-purple-400" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
