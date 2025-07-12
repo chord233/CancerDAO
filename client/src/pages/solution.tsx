@@ -124,7 +124,7 @@ export default function Solution() {
                 </div>
 
                 {/* Main Flow - Four Boxes */}
-                <div className="flex justify-center items-center mt-56 mb-8 gap-12 mx-0">
+                <div className="flex justify-between items-center mt-56 mb-8 px-8">
                   {/* AI-powered Cancer Support Platform */}
                   <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200 w-44">
                     <div className="flex flex-col items-center text-center">
