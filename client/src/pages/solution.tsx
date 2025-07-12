@@ -190,7 +190,7 @@ export default function Solution() {
                 </div>
 
                 {/* Flow Arrows */}
-                <div className="absolute bottom-48 left-20">
+                <div className="absolute bottom-60 left-32">
                   <div className="flex items-center">
                     <div className="flex flex-col items-center">
                       <div className="w-0.5 h-8 bg-purple-400"></div>
