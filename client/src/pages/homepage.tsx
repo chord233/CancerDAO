@@ -248,25 +248,18 @@ export default function Homepage() {
             {/* 第一个位置 - 产品演示视频 */}
             <div className="text-center">
               <div className="relative mb-8">
-                <div className="w-80 h-96 mx-auto rounded-3xl p-2 shadow-2xl" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                  <div className="w-full h-full bg-white rounded-2xl overflow-hidden">
-                    <div className="h-20 flex items-center justify-center" style={{ background: 'linear-gradient(90deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                      <div className="text-black font-bold text-lg">
-                        CancerDAO PILL
-                      </div>
-                    </div>
-                    <div className="p-2">
-                      <video
-                        className="w-full h-auto rounded-lg"
-                        controls
-                        poster=""
-                        preload="metadata"
-                        style={{ maxHeight: '280px' }}
-                      >
-                        <source src="/attached_assets/视频_1752331442308.mp4" type="video/mp4" />
-                        您的浏览器不支持视频播放。
-                      </video>
-                    </div>
+                <div className="max-w-md mx-auto rounded-3xl p-4 shadow-2xl" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                  <div className="bg-white rounded-2xl overflow-hidden">
+                    <video
+                      className="w-full h-auto rounded-2xl"
+                      controls
+                      poster=""
+                      preload="metadata"
+                      style={{ maxHeight: '400px' }}
+                    >
+                      <source src="/attached_assets/视频_1752331442308.mp4" type="video/mp4" />
+                      您的浏览器不支持视频播放。
+                    </video>
                   </div>
                 </div>
               </div>
