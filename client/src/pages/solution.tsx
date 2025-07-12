@@ -36,6 +36,7 @@ import {
   Fingerprint,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
+import cancerDaoLogo from "@assets/透明底_1752333750993.png";
 import dataNftFlowChart from "@assets/image_1752205358199.png";
 import fheFlowChart1 from "@assets/image_1752205374610.png";
 import fheFlowChart2 from "@assets/image_1752205381666.png";
@@ -70,12 +71,14 @@ export default function Solution() {
                 {/* Community Section */}
                 <div className="absolute top-8 left-8">
                   <div className="flex flex-col items-center">
-                    <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                      <Users className="h-8 w-8 text-white" />
+                    <div className="w-20 h-20 flex items-center justify-center mb-4">
+                      <img 
+                        src={cancerDaoLogo} 
+                        alt="CancerDAO Logo" 
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                     <div className="text-center">
-                      <h3 className="text-sm font-bold text-black mb-1">CANCER</h3>
-                      <h3 className="text-sm font-bold text-black">DAO</h3>
                       <p className="text-xs text-gray-600 mt-1">Community</p>
                     </div>
                   </div>
