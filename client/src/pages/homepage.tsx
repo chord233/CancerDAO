@@ -244,42 +244,8 @@ export default function Homepage() {
             </p>
           </div>
 
-          {/* 产品演示视频 */}
-          <div className="flex justify-center mb-20">
-            <div className="relative max-w-4xl w-full">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                <div className="p-4">
-                  <div className="bg-white rounded-2xl overflow-hidden">
-                    <video
-                      className="w-full h-auto"
-                      controls
-                      poster=""
-                      preload="metadata"
-                      style={{ maxHeight: '600px' }}
-                    >
-                      <source src="/attached_assets/视频_1752331442308.mp4" type="video/mp4" />
-                      您的浏览器不支持视频播放。
-                    </video>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="text-center mt-8">
-                <div className="flex items-center justify-center mb-4">
-                  <Brain className="h-8 w-8 mr-3" style={{ color: '#c9a4ff' }} />
-                  <h3 className="text-2xl font-bold text-black">
-                    产品演示视频
-                  </h3>
-                </div>
-                <p className="text-black leading-relaxed max-w-3xl mx-auto">
-                  观看我们的产品演示，了解CancerDAO如何通过AI技术为您提供个性化的癌症预防和治疗方案
-                </p>
-              </div>
-            </div>
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* 第一个手机 - AI智能分析 */}
+            {/* 第一个位置 - 产品演示视频 */}
             <div className="text-center">
               <div className="relative mb-8">
                 <div className="w-80 h-96 mx-auto rounded-3xl p-2 shadow-2xl" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
@@ -289,26 +255,17 @@ export default function Homepage() {
                         CancerDAO PILL
                       </div>
                     </div>
-                    <div className="p-6 space-y-4">
-                      <div className="p-4 rounded-lg" style={{ backgroundColor: '#e7d1ff' }}>
-                        <div className="flex items-center justify-center mb-3">
-                          <Brain className="h-6 w-6" style={{ color: '#c9a4ff' }} />
-                        </div>
-                        <h4 className="font-semibold text-black mb-2 text-center">
-                          {t("product.ai.analysis")}
-                        </h4>
-                        <div className="w-full h-16 rounded" style={{ backgroundColor: '#c9a4ff' }}></div>
-                        <p className="text-xs text-black mt-2 text-center">
-                          AI 实时分析中...
-                        </p>
-                      </div>
-                      <div className="p-4 rounded-lg bg-gray-100">
-                        <div className="space-y-2">
-                          <div className="h-2 rounded" style={{ backgroundColor: '#e7d1ff', width: '80%' }}></div>
-                          <div className="h-2 rounded" style={{ backgroundColor: '#e7d1ff', width: '60%' }}></div>
-                          <div className="h-2 rounded" style={{ backgroundColor: '#e7d1ff', width: '90%' }}></div>
-                        </div>
-                      </div>
+                    <div className="p-2">
+                      <video
+                        className="w-full h-auto rounded-lg"
+                        controls
+                        poster=""
+                        preload="metadata"
+                        style={{ maxHeight: '280px' }}
+                      >
+                        <source src="/attached_assets/视频_1752331442308.mp4" type="video/mp4" />
+                        您的浏览器不支持视频播放。
+                      </video>
                     </div>
                   </div>
                 </div>
