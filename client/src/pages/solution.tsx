@@ -70,16 +70,18 @@ export default function Solution() {
               <div className="relative bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 shadow-lg border border-purple-200">
                 {/* Community Section */}
                 <div className="absolute top-8 left-8">
-                  <div className="flex flex-col items-center">
-                    <div className="w-20 h-20 flex items-center justify-center mb-4">
-                      <img 
-                        src={cancerDaoLogo} 
-                        alt="CancerDAO Logo" 
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <div className="text-center">
-                      <p className="text-xs text-gray-600 mt-1">Community</p>
+                  <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
+                    <div className="flex flex-col items-center">
+                      <div className="w-16 h-16 flex items-center justify-center mb-2">
+                        <img 
+                          src={cancerDaoLogo} 
+                          alt="CancerDAO Logo" 
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <div className="text-center">
+                        <p className="text-xs text-gray-600">Community</p>
+                      </div>
                     </div>
                   </div>
                 </div>
