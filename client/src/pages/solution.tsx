@@ -80,7 +80,7 @@ export default function Solution() {
                         />
                       </div>
                       <div className="text-center">
-                        <p className="text-xs text-gray-600">Community</p>
+                        <p className="font-bold text-[14px] text-[#000000]">Community</p>
                       </div>
                     </div>
                   </div>
