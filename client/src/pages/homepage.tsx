@@ -248,7 +248,7 @@ export default function Homepage() {
             {/* 第一个位置 - 产品演示视频 */}
             <div className="text-center">
               <div className="relative mb-8">
-                <div className="w-48 h-96 mx-auto rounded-2xl shadow-2xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                <div className="w-64 h-[32rem] mx-auto rounded-2xl shadow-2xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
                   <video
                     className="w-full h-full object-cover block"
                     controls
