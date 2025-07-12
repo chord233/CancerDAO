@@ -103,7 +103,7 @@ export default function Solution() {
                 </div>
 
                 {/* Issue Arrow */}
-                <div className="absolute top-16 left-40">
+                <div className="absolute top-16 left-52">
                   <div className="flex items-center">
                     <span className="text-xs text-gray-600 mr-2">Issue</span>
                     <ArrowRight className="h-4 w-4 text-purple-400" />
