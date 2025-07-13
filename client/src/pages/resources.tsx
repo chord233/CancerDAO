@@ -63,6 +63,18 @@ export default function Resources() {
       image: "/attached_assets/image_1752412955703.png",
       readTime: "5 分钟",
       link: "https://x.com/CancerDAOxyz/status/1901547167678144864"
+    },
+    {
+      id: 4,
+      title: "与 DeSci 对抗乳腺癌：如果安吉丽娜·朱莉早点知道就好了",
+      author: "CancerDAO",
+      date: "2024-01-04",
+      category: "乳腺癌",
+      excerpt: "乳腺癌作为女性常见癌症，有激素受体阳性、HER2阳性和三阴性乳腺癌三种主要类型，预后和治疗方案各异。了解安吉丽娜·朱莉的预防性手术选择背后的科学依据。",
+      tags: ["乳腺癌", "预防性手术", "DeSci"],
+      image: "/attached_assets/image_1752414255252.png",
+      readTime: "5 分钟",
+      link: "https://x.com/CancerDAOxyz/status/1899391536229499117"
     }
   ];
 
