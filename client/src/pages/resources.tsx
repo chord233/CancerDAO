@@ -214,12 +214,7 @@ export default function Resources() {
                     <CardTitle className="text-lg font-bold text-black line-clamp-2">
                       {post.title}
                     </CardTitle>
-                    <div className="flex items-center text-sm text-black">
-                      <User className="h-4 w-4 mr-2" />
-                      <span>{post.author}</span>
-                      <Calendar className="h-4 w-4 ml-4 mr-2" />
-                      <span>{post.date}</span>
-                    </div>
+                    
                   </CardHeader>
                   <CardContent>
                     <p className="text-black mb-4 line-clamp-3">
