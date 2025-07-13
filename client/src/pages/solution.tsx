@@ -200,9 +200,9 @@ export default function Solution() {
                   </div>
                 </div>
 
-                <div className="absolute bottom-32 left-1/4">
-                  <div className="flex items-center">
-                    <span className="text-xs text-gray-600 mr-2">Data</span>
+                <div className="absolute left-1/4 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs text-gray-600 mb-2">Data</span>
                     <ArrowRight className="h-4 w-4 text-purple-400" />
                   </div>
                 </div>
