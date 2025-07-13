@@ -224,6 +224,7 @@ export default function Resources() {
                     <Button 
                       className="w-full"
                       style={{ backgroundColor: '#fad000' }}
+                      onClick={() => window.open('https://x.com/CancerDAOxyz/status/1906607182369726728', '_blank')}
                     >
                       {t("resources.read.more")} <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
