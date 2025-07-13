@@ -131,7 +131,9 @@ export default function Solution() {
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
                         <Brain className="h-8 w-8 text-white" />
                       </div>
-                      <h4 className="text-sm font-bold text-black">{t("architecture.ai.platform")}</h4>
+                      <h4 className="text-sm font-bold text-black mb-2">{t("architecture.ai.platform.line1")}</h4>
+                      <h4 className="text-sm font-bold text-black mb-2">{t("architecture.ai.platform.line2")}</h4>
+                      <h4 className="text-sm font-bold text-black">{t("architecture.ai.platform.line3")}</h4>
                     </div>
                   </div>
 
@@ -146,7 +148,9 @@ export default function Solution() {
                           <div className="w-2 h-2 bg-white rounded-sm"></div>
                         </div>
                       </div>
-                      <h4 className="text-sm font-bold text-black">{t("architecture.blockchain.medical.id")}</h4>
+                      <h4 className="text-sm font-bold text-black mb-2">{t("architecture.blockchain.medical.id.line1")}</h4>
+                      <h4 className="text-sm font-bold text-black mb-2">{t("architecture.blockchain.medical.id.line2")}</h4>
+                      <h4 className="text-sm font-bold text-black">{t("architecture.blockchain.medical.id.line3")}</h4>
                     </div>
                   </div>
 
@@ -163,7 +167,9 @@ export default function Solution() {
                           </div>
                         </div>
                       </div>
-                      <h4 className="text-sm font-bold text-black">{t("architecture.decentralized.database")}</h4>
+                      <h4 className="text-sm font-bold text-black mb-2">{t("architecture.decentralized.database.line1")}</h4>
+                      <h4 className="text-sm font-bold text-black mb-2">{t("architecture.decentralized.database.line2")}</h4>
+                      <h4 className="text-sm font-bold text-black">{t("architecture.decentralized.database.line3")}</h4>
                     </div>
                   </div>
 
@@ -176,7 +182,9 @@ export default function Solution() {
                           <div className="absolute top-1 left-1 w-4 h-4 rounded-full bg-white"></div>
                         </div>
                       </div>
-                      <h4 className="text-sm font-bold text-black">{t("architecture.ai.therapies")}</h4>
+                      <h4 className="text-sm font-bold text-black mb-2">{t("architecture.ai.therapies.line1")}</h4>
+                      <h4 className="text-sm font-bold text-black mb-2">{t("architecture.ai.therapies.line2")}</h4>
+                      <h4 className="text-sm font-bold text-black">{t("architecture.ai.therapies.line3")}</h4>
                     </div>
                   </div>
                 </div>
