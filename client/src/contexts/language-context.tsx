@@ -419,8 +419,8 @@ const translations = {
     "community.activities.event2.status": "进行中",
     "community.activities.event2.title": "医疗知识分享会",
     "community.activities.event2.description": "定期邀请医疗专家和经验丰富的患者分享最新的治疗方法、护理技巧和康复经验。",
-    "community.activities.event2.participants": "50-100人",
-    "community.activities.event2.format": "线上直播",
+    "community.activities.event2.participants": "20-30人",
+    "community.activities.event2.format": "线下",
     
     // Resources页面新增翻译
     "resources.read.more": "阅读全文",
@@ -1295,8 +1295,8 @@ const translations = {
     "community.activities.event2.status": "Ongoing",
     "community.activities.event2.title": "Medical Knowledge Sharing Sessions",
     "community.activities.event2.description": "Regularly invite medical experts and experienced patients to share the latest treatment methods, care techniques, and recovery experiences.",
-    "community.activities.event2.participants": "50-100 people",
-    "community.activities.event2.format": "Online Live Stream",
+    "community.activities.event2.participants": "20-30 people",
+    "community.activities.event2.format": "Offline",
     
     // Resources页面新增翻译
     "resources.read.more": "Read More",
