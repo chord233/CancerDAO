@@ -220,7 +220,7 @@ export default function Solution() {
                   </div>
                 </div>
 
-                <div className="absolute bottom-32 right-1/4" style={{ transform: 'translate(25px, -25px)' }}>
+                <div className="absolute bottom-32 right-1/4" style={{ transform: 'translate(35px, -25px)' }}>
                   <div className="flex flex-col items-center">
                     <span className="text-xs text-gray-600 mb-2">Develop</span>
                     <div className="flex items-center">
