@@ -420,7 +420,7 @@ const translations = {
     "community.activities.event2.title": "DeSci 社区线下见面会",
     "community.activities.event2.description": "定期邀请医疗专家和经验丰富的患者分享最新的治疗方法、护理技巧和康复经验。",
     "community.activities.event2.participants": "20-30人",
-    "community.activities.event2.format": "线下",
+    "community.activities.event2.format": "上海",
     
     // Resources页面新增翻译
     "resources.read.more": "阅读全文",
@@ -1296,7 +1296,7 @@ const translations = {
     "community.activities.event2.title": "DeSci Community Offline Meetup",
     "community.activities.event2.description": "Regularly invite medical experts and experienced patients to share the latest treatment methods, care techniques, and recovery experiences.",
     "community.activities.event2.participants": "20-30 people",
-    "community.activities.event2.format": "Offline",
+    "community.activities.event2.format": "Shanghai",
     
     // Resources页面新增翻译
     "resources.read.more": "Read More",
