@@ -312,13 +312,7 @@ export default function Resources() {
                     <p className="text-black mb-4 line-clamp-3">
                       {article.excerpt}
                     </p>
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {article.tags.map((tag, index) => (
-                        <Badge key={index} variant="outline" className="text-xs">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
+                    
                     <Button 
                       size="sm"
                       className="w-full"
