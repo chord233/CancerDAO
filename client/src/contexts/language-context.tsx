@@ -418,7 +418,7 @@ const translations = {
     "community.activities.event1.format": "线上",
     "community.activities.event2.status": "已结束",
     "community.activities.event2.title": "DeSci 社区线下见面会",
-    "community.activities.event2.description": "定期邀请医疗专家和经验丰富的患者分享最新的治疗方法、护理技巧和康复经验。",
+    "community.activities.event2.description": "🏡 DeSci 社区，集结！\nCancerDAO 将于 3 月 15 日在上海举办 #DeSci Builders Meetup！",
     "community.activities.event2.participants": "20-30人",
     "community.activities.event2.format": "上海",
     
@@ -1294,7 +1294,7 @@ const translations = {
     "community.activities.event1.format": "Online Meeting",
     "community.activities.event2.status": "Completed",
     "community.activities.event2.title": "DeSci Community Offline Meetup",
-    "community.activities.event2.description": "Regularly invite medical experts and experienced patients to share the latest treatment methods, care techniques, and recovery experiences.",
+    "community.activities.event2.description": "🏡 DeSci Community, Assemble!\nCancerDAO will host #DeSci Builders Meetup in Shanghai on March 15th!",
     "community.activities.event2.participants": "20-30 people",
     "community.activities.event2.format": "Shanghai",
     

@@ -216,7 +216,10 @@ export default function Community() {
               </CardContent>
             </Card>
 
-            <Card className="p-6">
+            <Card 
+              className="p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+              onClick={() => window.open('https://x.com/CancerDAOxyz/status/1901129600165405043', '_blank')}
+            >
               <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
                   <Badge style={{ backgroundColor: '#e7d1ff' }} className="text-black">
@@ -228,6 +231,13 @@ export default function Community() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
+                <div className="mb-4">
+                  <img 
+                    src="/attached_assets/image_1752396814895.png" 
+                    alt="DeSci Community Meetup" 
+                    className="w-full h-48 object-cover rounded-lg mb-4"
+                  />
+                </div>
                 <p className="text-black mb-4">
                   {t("community.activities.event2.description")}
                 </p>
