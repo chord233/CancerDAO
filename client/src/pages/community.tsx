@@ -381,7 +381,7 @@ export default function Community() {
                           </div>
                           <div className="flex items-center gap-1">
                             <MessageCircle className="h-4 w-4" />
-                            <span>线下</span>
+                            <span>香港城市大学</span>
                           </div>
                         </div>
                       </CardContent>
