@@ -200,7 +200,7 @@ export default function Solution() {
                   </div>
                 </div>
 
-                <div className="absolute left-1/4 top-1/2 transform translate-x-1/2 -translate-y-1/2" style={{ transform: 'translate(calc(50% - 60px), calc(-50% + 90px))' }}>
+                <div className="absolute left-1/4 top-1/2 transform translate-x-1/2 -translate-y-1/2" style={{ transform: 'translate(calc(50% - 70px), calc(-50% + 90px))' }}>
                   <div className="flex flex-col items-center">
                     <span className="text-xs text-gray-600 mb-2">Data</span>
                     <div className="flex items-center">
