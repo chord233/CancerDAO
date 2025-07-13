@@ -208,10 +208,6 @@ export default function Community() {
                     <MessageCircle className="h-4 w-4" />
                     <span>{t("community.activities.event1.format")}</span>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <ExternalLink className="h-4 w-4" />
-                    <span>View on Twitter</span>
-                  </div>
                 </div>
               </CardContent>
             </Card>
