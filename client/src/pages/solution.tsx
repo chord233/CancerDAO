@@ -207,9 +207,9 @@ export default function Solution() {
                   </div>
                 </div>
 
-                <div className="absolute bottom-32 left-2/4">
-                  <div className="flex items-center">
-                    <span className="text-xs text-gray-600 mr-2">Contribute</span>
+                <div className="absolute bottom-32 left-2/4" style={{ transform: 'translate(-25px, -25px)' }}>
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs text-gray-600 mb-2">Contribute</span>
                     <ArrowRight className="h-4 w-4 text-purple-400" />
                   </div>
                 </div>
