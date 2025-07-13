@@ -245,24 +245,7 @@ export default function Resources() {
               </p>
             </div>
 
-            {/* 分类过滤 */}
-            <div className="flex flex-wrap gap-2 justify-center mb-8">
-              {[
-                t("resources.insights.category.all"),
-                t("resources.insights.category.prevention"),
-                t("resources.insights.category.treatment"),
-                t("resources.insights.category.genetics"),
-                t("resources.insights.category.privacy")
-              ].map((category, index) => (
-                <Badge 
-                  key={index}
-                  className="cursor-pointer px-4 py-2 text-black"
-                  style={{ backgroundColor: '#e7d1ff' }}
-                >
-                  {category}
-                </Badge>
-              ))}
-            </div>
+            
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {insightArticles.map((article) => (
