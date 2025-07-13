@@ -559,7 +559,6 @@ export default function Solution() {
                             区块链与数据主权：构建可信的数字健康未来
                           </h3>
                         </div>
-                        
                         {/* 为什么我们需要区块链？ */}
                         <div className="mb-8">
                           <div className="text-center mb-6">
@@ -574,7 +573,6 @@ export default function Solution() {
                             </p>
                           </div>
                         </div>
-
                         {/* 核心技术解释与图示 */}
                         <div className="mb-8">
                           <div className="text-center mb-6">
@@ -589,7 +587,7 @@ export default function Solution() {
                               <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
                                 <Database className="h-4 w-4 text-white" />
                               </div>
-                              <h5 className="text-lg font-bold text-black">子模块 1：Data NFT</h5>
+                              <h5 className="text-lg font-bold text-black">Data NFT</h5>
                             </div>
                             
                             <div className="text-left mb-6">
