@@ -102,7 +102,7 @@ export default function Solution() {
                 </div>
 
                 {/* Issue Arrow */}
-                <div className="absolute top-16 left-72" style={{ transform: 'translate(-25px, 0)' }}>
+                <div className="absolute top-16 left-72" style={{ transform: 'translate(-50px, 0)' }}>
                   <div className="flex flex-col items-center">
                     <span className="text-xs text-gray-600 mb-2">Issue</span>
                     <div className="flex items-center">
