@@ -106,7 +106,7 @@ export default function Solution() {
                   <div className="flex flex-col items-center">
                     <span className="text-xs text-gray-600 mb-2">Issue</span>
                     <div className="flex items-center">
-                      <div className="w-8 h-0.5 bg-purple-400"></div>
+                      <div className="w-48 h-0.5 bg-purple-400"></div>
                       <ArrowRight className="h-4 w-4 text-purple-400" />
                     </div>
                   </div>
