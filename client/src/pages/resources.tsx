@@ -280,9 +280,9 @@ export default function Resources() {
 
             
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {insightArticles.map((article) => (
-                <Card key={article.id} className="hover:shadow-lg transition-shadow cursor-pointer">
+                <Card key={article.id} className="hover:shadow-lg transition-shadow cursor-pointer flex flex-col h-full">
                   <div className="aspect-video rounded-t-lg overflow-hidden">
                     {article.image === "/api/placeholder/400/200" ? (
                       <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-t-lg flex items-center justify-center h-full">
@@ -296,19 +296,19 @@ export default function Resources() {
                       />
                     )}
                   </div>
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-black line-clamp-2">
+                  <CardHeader className="flex-shrink-0">
+                    <CardTitle className="text-lg font-bold text-black line-clamp-2 min-h-[56px]">
                       {article.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-black mb-4 line-clamp-3">
+                  <CardContent className="flex flex-col flex-grow">
+                    <p className="text-black mb-4 line-clamp-3 flex-grow">
                       {article.excerpt}
                     </p>
                     
                     <Button 
                       size="sm"
-                      className="w-full"
+                      className="w-full mt-auto"
                       style={{ backgroundColor: '#fad000' }}
                       onClick={() => article.link && window.open(article.link, '_blank')}
                     >
