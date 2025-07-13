@@ -295,9 +295,6 @@ export default function Resources() {
                     )}
                   </div>
                   <CardHeader>
-                    <Badge style={{ backgroundColor: '#c9a4ff' }} className="text-black w-fit">
-                      {article.category}
-                    </Badge>
                     <CardTitle className="text-lg font-bold text-black line-clamp-2">
                       {article.title}
                     </CardTitle>
