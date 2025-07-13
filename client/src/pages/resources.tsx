@@ -224,12 +224,8 @@ export default function Resources() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {blogPosts.map((post) => (
                 <Card key={post.id} className="hover:shadow-lg transition-shadow cursor-pointer">
-                  <div className="aspect-video rounded-t-lg overflow-hidden">
-                    <img 
-                      src="/attached_assets/image_1752397751004.png" 
-                      alt="Warren Buffett prostate cancer information" 
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="aspect-video bg-gradient-to-br from-purple-100 to-purple-200 rounded-t-lg flex items-center justify-center">
+                    <BookOpen className="h-12 w-12 text-black" />
                   </div>
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
