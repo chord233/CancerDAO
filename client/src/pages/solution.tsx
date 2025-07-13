@@ -190,7 +190,7 @@ export default function Solution() {
                 </div>
 
                 {/* Flow Arrows */}
-                <div className="absolute bottom-60 left-32" style={{ transform: 'translate(-25px, -50px)' }}>
+                <div className="absolute bottom-60 left-32" style={{ transform: 'translate(-25px, -25px)' }}>
                   <div className="flex items-center">
                     <div className="flex flex-col items-center">
                       <div className="w-0.5 h-8 bg-purple-400"></div>
