@@ -149,8 +149,7 @@ export default function Solution() {
                         </div>
                       </div>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.blockchain.medical.id.line1")}</h4>
-                      <h4 className="text-sm font-bold text-black mb-2">{t("architecture.blockchain.medical.id.line2")}</h4>
-                      <h4 className="text-sm font-bold text-black">{t("architecture.blockchain.medical.id.line3")}</h4>
+                      <h4 className="text-sm font-bold text-black">{t("architecture.blockchain.medical.id.line2")}</h4>
                     </div>
                   </div>
 
