@@ -60,6 +60,17 @@ export default function Resources() {
       tags: ["社区", "研究模式", "患者中心"],
       image: "/api/placeholder/400/200",
       readTime: t("resources.blog.post3.readTime")
+    },
+    {
+      id: 4,
+      title: "沃伦·巴菲特战胜前列腺癌：健康是最佳投资，早期筛查是关键",
+      author: "CancerDAO",
+      date: "2024-01-01",
+      category: "前列腺癌",
+      excerpt: "股神沃伦·巴菲特在81岁时被诊断出早期前列腺癌后，通过每年进行PSA检测的早期发现和为期6周的放射治疗，最终完全康复，并在93岁高龄仍保持健康。",
+      tags: ["前列腺癌", "早期筛查", "成功案例"],
+      image: "/api/placeholder/400/200",
+      readTime: "5 分钟"
     }
   ];
 
@@ -75,9 +86,9 @@ export default function Resources() {
     },
     {
       id: 2,
-      title: "沃伦·巴菲特战胜前列腺癌：健康是最佳投资，早期筛查是关键",
-      category: "前列腺癌",
-      excerpt: "股神沃伦·巴菲特在81岁时被诊断出早期前列腺癌后，通过每年进行PSA检测的早期发现和为期6周的放射治疗，最终完全康复，并在93岁高龄仍保持健康。",
+      title: t("resources.insights.article2.title"),
+      category: t("resources.insights.article2.category"),
+      excerpt: t("resources.insights.article2.excerpt"),
       tags: ["基因检测", "个性化医疗", "精准医疗"],
       image: "/api/placeholder/400/200"
     },
