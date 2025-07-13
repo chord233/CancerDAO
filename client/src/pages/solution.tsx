@@ -106,7 +106,7 @@ export default function Solution() {
                   <div className="flex flex-col items-center">
                     <span className="mb-2 text-[#000000] text-[14px] font-bold">{t("architecture.issue")}</span>
                     <div className="flex items-center">
-                      <div className="w-64 h-0.5 bg-purple-400"></div>
+                      <div className="w-80 h-0.5 bg-purple-400"></div>
                       <ArrowRight className="h-4 w-4 text-purple-400" />
                     </div>
                   </div>
