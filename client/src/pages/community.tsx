@@ -15,6 +15,8 @@ import {
   Lightbulb,
   Handshake
 } from "lucide-react";
+import { useEffect } from "react";
+import Autoplay from "embla-carousel-autoplay";
 import logoVotingImage from "@assets/image_1752395077376.png";
 
 export default function Community() {
@@ -227,7 +229,14 @@ export default function Community() {
                       </CardHeader>
                       <CardContent>
                         <div className="mb-4">
-                          <Carousel className="w-full">
+                          <Carousel 
+                            className="w-full"
+                            plugins={[
+                              Autoplay({
+                                delay: 3000,
+                              }),
+                            ]}
+                          >
                             <CarouselContent>
                               <CarouselItem>
                                 <img 
