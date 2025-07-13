@@ -65,30 +65,7 @@ export default function Resources() {
       image: "/attached_assets/image_1752401674727.png",
       link: "https://x.com/CancerDAOxyz/status/1859207201610686641"
     },
-    {
-      id: 2,
-      title: t("resources.insights.article1.title"),
-      category: t("resources.insights.article1.category"),
-      excerpt: t("resources.insights.article1.excerpt"),
-      tags: ["预防", "生活方式", "健康"],
-      image: "/api/placeholder/400/200"
-    },
-    {
-      id: 3,
-      title: t("resources.insights.article2.title"),
-      category: t("resources.insights.article2.category"),
-      excerpt: t("resources.insights.article2.excerpt"),
-      tags: ["基因检测", "个性化医疗", "精准医疗"],
-      image: "/api/placeholder/400/200"
-    },
-    {
-      id: 4,
-      title: "免疫疗法：癌症治疗的新希望",
-      category: "治疗进展",
-      excerpt: "了解免疫疗法如何激活人体自身的免疫系统来对抗癌症，以及最新的研究进展。",
-      tags: ["免疫疗法", "治疗", "创新"],
-      image: "/api/placeholder/400/200"
-    },
+
     {
       id: 5,
       title: "高糖摄入量如何增加癌症风险",
