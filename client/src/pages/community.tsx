@@ -319,12 +319,73 @@ export default function Community() {
                       </CardContent>
                     </Card>
 
-                    {/* 预留第四个活动位置 */}
-                    <div className="flex items-center justify-center h-full">
-                      <div className="text-center text-gray-400">
-                        <p className="text-lg">更多活动即将推出...</p>
-                      </div>
-                    </div>
+                    {/* DeSAI Meetup 活动 */}
+                    <Card 
+                      className="p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                      onClick={() => window.open('https://x.com/CancerDAOxyz', '_blank')}
+                    >
+                      <CardHeader>
+                        <div className="flex items-center gap-2 mb-2">
+                          <Badge style={{ backgroundColor: '#fc593d' }} className="text-white">
+                            已结束
+                          </Badge>
+                        </div>
+                        <CardTitle className="text-xl font-bold text-black">
+                          DeSAI Meetup：科学与医疗保健创新
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="mb-4">
+                          <Carousel 
+                            className="w-full"
+                            plugins={[
+                              Autoplay({
+                                delay: 3000,
+                              }),
+                            ]}
+                          >
+                            <CarouselContent>
+                              <CarouselItem>
+                                <img 
+                                  src="/attached_assets/1f29a9d538c6e8fd2befce30d65e800a_1752426759124.jpg" 
+                                  alt="DeSAI Meetup Poster" 
+                                  className="w-full h-48 object-cover rounded-lg"
+                                />
+                              </CarouselItem>
+                              <CarouselItem>
+                                <img 
+                                  src="/attached_assets/b3c97d3df9ed6a7e294888c97e0cb461_1752426773167.jpg" 
+                                  alt="DeSAI Meetup - Conference Room" 
+                                  className="w-full h-48 object-cover rounded-lg"
+                                />
+                              </CarouselItem>
+                              <CarouselItem>
+                                <img 
+                                  src="/attached_assets/16ba53464d82239c3899e4588fd2388b_1752426782675.jpg" 
+                                  alt="DeSAI Meetup - Presentation" 
+                                  className="w-full h-48 object-cover rounded-lg"
+                                />
+                              </CarouselItem>
+                            </CarouselContent>
+                            <CarouselPrevious className="left-2" />
+                            <CarouselNext className="right-2" />
+                          </Carousel>
+                        </div>
+                        <p className="text-black mb-4">
+                          很高兴邀请您参加我们的 DeSAI Meetup！本次活动将聚焦科学与医疗保健领域的创新，深入探讨去中心化科学（DeSci）与人工智能（AI）的融合。 无论您是行业专家、研究人员，还是对未来医疗科技充满热情的朋友，我们都诚挚地欢迎您的到来。
+                        </p>
+                        <div className="flex items-center gap-4 text-sm text-black">
+                          <div className="flex items-center gap-1">
+                            <Users className="h-4 w-4" />
+                            <span>香港城市大学</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MessageCircle className="h-4 w-4" />
+                            <span>线下</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
                 </CarouselItem>
               </CarouselContent>
