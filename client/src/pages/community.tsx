@@ -14,6 +14,7 @@ import {
   Lightbulb,
   Handshake
 } from "lucide-react";
+import logoVotingImage from "@assets/image_1752395077376.png";
 
 export default function Community() {
   const { t } = useLanguage();
@@ -176,7 +177,7 @@ export default function Community() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="p-6">
+            <Card className="p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => window.open('https://x.com/CancerDAOxyz/status/1896793598873763861', '_blank')}>
               <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
                   <Badge style={{ backgroundColor: '#c9a4ff' }} className="text-black">
@@ -188,6 +189,13 @@ export default function Community() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
+                <div className="mb-4">
+                  <img 
+                    src={logoVotingImage} 
+                    alt="Logo Voting Contest" 
+                    className="w-full h-auto rounded-lg shadow-md"
+                  />
+                </div>
                 <p className="text-black mb-4">
                   {t("community.activities.event1.description")}
                 </p>
@@ -199,6 +207,10 @@ export default function Community() {
                   <div className="flex items-center gap-1">
                     <MessageCircle className="h-4 w-4" />
                     <span>{t("community.activities.event1.format")}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <ExternalLink className="h-4 w-4" />
+                    <span>View on Twitter</span>
                   </div>
                 </div>
               </CardContent>
