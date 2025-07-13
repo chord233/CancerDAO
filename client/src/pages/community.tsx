@@ -22,27 +22,27 @@ export default function Community() {
   const communityStories = [
     {
       id: 1,
-      title: "小A的故事：从迷茫到坚定",
+      title: t("community.story1.title"),
       avatar: "A",
-      summary: "当小A被诊断出患病时，她感到了前所未有的迷茫和无助。在CancerDAO社区中，她找到了有着相似经历的伙伴，他们的鼓励和经验分享让她重新找回了信心，勇敢地面对治疗。社区的医疗资源推荐也帮助她找到了最合适的医生和治疗方案。",
-      category: "情感支持",
-      readTime: "3分钟阅读"
+      summary: t("community.story1.summary"),
+      category: t("community.story1.category"),
+      readTime: t("community.story1.readTime")
     },
     {
       id: 2,
-      title: "张妈妈：社区让我不再孤单",
+      title: t("community.story2.title"),
       avatar: "张",
-      summary: "张妈妈的家人生病后，她日夜操劳，身心俱疲。是社区中其他患者家属的理解和支持，让她意识到自己并不孤单。大家互相帮助，分享日常护理、心理疏导、资源获取等经验，让张妈妈感受到了家的温暖。",
-      category: "家属支持",
-      readTime: "4分钟阅读"
+      summary: t("community.story2.summary"),
+      category: t("community.story2.category"),
+      readTime: t("community.story2.readTime")
     },
     {
       id: 3,
-      title: "老李的康复之路：AI与社区的双重力量",
+      title: t("community.story3.title"),
       avatar: "李",
-      summary: "老李在康复过程中遇到了很多挑战，CancerDAO PILL的个性化健康时间轴帮助他准确记录和管理数据，而社区成员的康复经验分享也给了他宝贵的建议。AI和社区的双重支持，让老李的康复之路更加顺利和充满希望。",
-      category: "康复支持",
-      readTime: "5分钟阅读"
+      summary: t("community.story3.summary"),
+      category: t("community.story3.category"),
+      readTime: t("community.story3.readTime")
     }
   ];
 
@@ -50,18 +50,18 @@ export default function Community() {
   const communityValues = [
     {
       icon: <Heart className="h-8 w-8" />,
-      title: "情感价值",
-      description: "共同的经历和感受，让患者和家属找到归属感，减轻孤独和焦虑。在这里，每个人都能理解你的感受，没有人需要独自承担。"
+      title: t("community.values.emotional.title"),
+      description: t("community.values.emotional.description")
     },
     {
       icon: <BookOpen className="h-8 w-8" />,
-      title: "信息互助价值",
-      description: "成员之间分享诊疗经验、护理知识、资源信息，形成一个实时更新的知识库。集体智慧让每个人都能获得更好的治疗和护理建议。"
+      title: t("community.values.information.title"),
+      description: t("community.values.information.description")
     },
     {
       icon: <Lightbulb className="h-8 w-8" />,
-      title: "专业知识与个人经验结合",
-      description: "社区不仅有用户分享，未来也可能引入专业人士答疑，结合个人经验提供多维度帮助。理论与实践相结合，为每个人提供最实用的指导。"
+      title: t("community.values.professional.title"),
+      description: t("community.values.professional.description")
     }
   ];
 
@@ -72,10 +72,10 @@ export default function Community() {
         {/* 页面主标题 */}
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold text-black mb-8">
-            社区支持：您从不孤单，我们与您同行
+            {t("community.title")}
           </h1>
           <p className="text-xl text-black max-w-4xl mx-auto leading-relaxed">
-            在CancerDAO社区中，每个人都是重要的一份子。我们相信，通过分享经验、互相支持和共同成长，我们能够一起面对挑战，创造更美好的未来。
+            {t("community.subtitle")}
           </p>
         </div>
 
@@ -85,10 +85,10 @@ export default function Community() {
         <section className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-black mb-4">
-              倾听他们的声音：社区互助真实故事
+              {t("community.stories.title")}
             </h2>
             <p className="text-lg text-black max-w-3xl mx-auto">
-              这些真实的故事展现了社区成员之间的温暖与力量，每个故事都是希望的见证
+              {t("community.stories.subtitle")}
             </p>
           </div>
 
@@ -238,10 +238,10 @@ export default function Community() {
         <div className="text-center rounded-2xl p-8" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-black mb-6">
-              别再独自面对，加入 CancerDAO 社区，与我们共同抗击癌症，拥抱健康！
+              {t("community.join.title")}
             </h2>
             <p className="text-lg text-black mb-8">
-              无论您是患者、家属、医疗专业人士还是关心健康的普通人，我们的社区都欢迎您的加入。在这里，您将找到理解、支持和希望。
+              {t("community.join.subtitle")}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -251,7 +251,7 @@ export default function Community() {
                 style={{ backgroundColor: '#fad000' }}
                 onClick={() => window.location.href = '/'}
               >
-                立即加入社区
+{t("community.join.button")}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button 

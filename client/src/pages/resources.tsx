@@ -30,36 +30,36 @@ export default function Resources() {
   const blogPosts = [
     {
       id: 1,
-      title: "AI在癌症早期检测中的突破性进展",
+      title: t("resources.blog.post1.title"),
       author: "XXX",
       date: "2024-01-15",
-      category: "技术深度",
-      excerpt: "探索人工智能如何革命性地改进癌症早期检测的准确性和效率，为患者提供更好的治疗机会。",
+      category: t("resources.blog.post1.category"),
+      excerpt: t("resources.blog.post1.excerpt"),
       tags: ["AI", "早期检测", "医疗技术"],
       image: "/api/placeholder/400/200",
-      readTime: "8 分钟"
+      readTime: t("resources.blog.post1.readTime")
     },
     {
       id: 2,
-      title: "区块链在医疗数据隐私保护中的应用",
+      title: t("resources.blog.post2.title"),
       author: "XXX",
       date: "2024-01-10",
-      category: "项目进展",
-      excerpt: "了解CancerDAO如何利用区块链技术确保患者数据的安全性和隐私保护，实现真正的数据主权。",
+      category: t("resources.blog.post2.category"),
+      excerpt: t("resources.blog.post2.excerpt"),
       tags: ["区块链", "数据隐私", "医疗数据"],
       image: "/api/placeholder/400/200",
-      readTime: "6 分钟"
+      readTime: t("resources.blog.post2.readTime")
     },
     {
       id: 3,
-      title: "社区驱动的癌症研究新模式",
+      title: t("resources.blog.post3.title"),
       author: "XXX",
       date: "2024-01-05",
-      category: "团队见解",
-      excerpt: "探讨如何通过社区参与和集体智慧加速癌症研究的进展，建立患者中心的创新生态系统。",
+      category: t("resources.blog.post3.category"),
+      excerpt: t("resources.blog.post3.excerpt"),
       tags: ["社区", "研究模式", "患者中心"],
       image: "/api/placeholder/400/200",
-      readTime: "5 分钟"
+      readTime: t("resources.blog.post3.readTime")
     }
   ];
 
@@ -67,9 +67,9 @@ export default function Resources() {
   const insightArticles = [
     {
       id: 1,
-      title: "癌症预防：生活方式的重要性",
-      category: "癌症预防",
-      excerpt: "了解日常生活中的简单改变如何显著降低患癌风险，包括饮食、运动和环境因素。",
+      title: t("resources.insights.article1.title"),
+      category: t("resources.insights.article1.category"),
+      excerpt: t("resources.insights.article1.excerpt"),
       tags: ["预防", "生活方式", "健康"],
       image: "/api/placeholder/400/200"
     },
@@ -198,15 +198,15 @@ export default function Resources() {
           <TabsList className="grid w-full grid-cols-3 mb-8">
             <TabsTrigger value="blog" className="flex items-center gap-2">
               <BookOpen className="h-4 w-4" />
-              博客文章
+{t("resources.blog.title")}
             </TabsTrigger>
             <TabsTrigger value="insights" className="flex items-center gap-2">
               <Brain className="h-4 w-4" />
-              科普知识
+              {t("resources.insights.title")}
             </TabsTrigger>
             <TabsTrigger value="faq" className="flex items-center gap-2">
               <HelpCircle className="h-4 w-4" />
-              常见问题
+              {t("resources.faq.title")}
             </TabsTrigger>
           </TabsList>
 
@@ -214,10 +214,10 @@ export default function Resources() {
           <TabsContent value="blog" className="space-y-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-black mb-4">
-                博客与文章：我们的见解与最新进展
+                {t("resources.blog.title")}
               </h2>
               <p className="text-lg text-black">
-                深入了解我们的最新研究成果、技术突破和团队洞察
+                {t("resources.blog.subtitle")}
               </p>
             </div>
 
@@ -262,7 +262,7 @@ export default function Resources() {
                       className="w-full"
                       style={{ backgroundColor: '#fad000' }}
                     >
-                      阅读全文 <ArrowRight className="ml-2 h-4 w-4" />
+                      {t("resources.read.more")} <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </CardContent>
                 </Card>
