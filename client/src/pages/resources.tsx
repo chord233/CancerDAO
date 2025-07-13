@@ -36,8 +36,21 @@ export default function Resources() {
       category: "前列腺癌",
       excerpt: "股神沃伦·巴菲特在81岁时被诊断出早期前列腺癌后，通过每年进行PSA检测的早期发现和为期6周的放射治疗，最终完全康复，并在93岁高龄仍保持健康。",
       tags: ["前列腺癌", "早期筛查", "成功案例"],
-      image: "/api/placeholder/400/200",
-      readTime: "5 分钟"
+      image: "/attached_assets/image_1752400819628.png",
+      readTime: "5 分钟",
+      link: "https://x.com/CancerDAOxyz/status/1906607182369726728"
+    },
+    {
+      id: 2,
+      title: "约翰·韦恩的抗癌之路：吸烟的警示与硬汉的韧性",
+      author: "CancerDAO",
+      date: "2024-01-02",
+      category: "肺癌",
+      excerpt: "传奇演员约翰·韦恩在1964年因长期大量吸烟被诊断出晚期肺癌的经历。他最初因担心形象而隐瞒病情，后转变为积极的癌症意识和反吸烟运动倡导者，尽管付出了切除左肺和四根肋骨的代价。",
+      tags: ["肺癌", "反吸烟", "意识倡导"],
+      image: "/attached_assets/image_1752401190831.png",
+      readTime: "5 分钟",
+      link: "https://x.com/CancerDAOxyz/status/1904163508125945945"
     }
   ];
 
@@ -204,8 +217,8 @@ export default function Resources() {
                 <Card key={post.id} className="hover:shadow-lg transition-shadow cursor-pointer">
                   <div className="aspect-video rounded-t-lg overflow-hidden">
                     <img 
-                      src="/attached_assets/image_1752400819628.png" 
-                      alt="Warren Buffett Prostate Cancer" 
+                      src={post.image} 
+                      alt={post.title} 
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -224,7 +237,7 @@ export default function Resources() {
                     <Button 
                       className="w-full"
                       style={{ backgroundColor: '#fad000' }}
-                      onClick={() => window.open('https://x.com/CancerDAOxyz/status/1906607182369726728', '_blank')}
+                      onClick={() => window.open(post.link, '_blank')}
                     >
                       {t("resources.read.more")} <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
