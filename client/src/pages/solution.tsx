@@ -133,7 +133,6 @@ export default function Solution() {
                       </div>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.ai.platform.line1")}</h4>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.ai.platform.line2")}</h4>
-                      <h4 className="text-sm font-bold text-black">{t("architecture.ai.platform.line3")}</h4>
                     </div>
                   </div>
 
@@ -168,7 +167,6 @@ export default function Solution() {
                       </div>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.decentralized.database.line1")}</h4>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.decentralized.database.line2")}</h4>
-                      <h4 className="text-sm font-bold text-black">{t("architecture.decentralized.database.line3")}</h4>
                     </div>
                   </div>
 
@@ -183,7 +181,6 @@ export default function Solution() {
                       </div>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.ai.therapies.line1")}</h4>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.ai.therapies.line2")}</h4>
-                      <h4 className="text-sm font-bold text-black">{t("architecture.ai.therapies.line3")}</h4>
                     </div>
                   </div>
                 </div>
@@ -199,7 +196,7 @@ export default function Solution() {
                   </div>
                 </div>
 
-                <div className="absolute left-1/4 top-1/2 transform translate-x-1/2 -translate-y-1/2" style={{ transform: 'translate(calc(50% - 70px), calc(-50% + 90px))' }}>
+                <div className="absolute left-1/4 top-1/2 transform translate-x-1/2 -translate-y-1/2" style={{ transform: 'translate(calc(50% - 70px), calc(-50% + 80px))' }}>
                   <div className="flex flex-col items-center">
                     <span className="mb-2 text-[#000000] font-bold text-[14px]">{t("architecture.data")}</span>
                     <div className="flex items-center">
