@@ -210,15 +210,7 @@ export default function Resources() {
                     />
                   </div>
                   <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge style={{ backgroundColor: '#e7d1ff' }} className="text-black">
-                        {post.category}
-                      </Badge>
-                      <div className="flex items-center text-sm text-black">
-                        <Clock className="h-4 w-4 mr-1" />
-                        {post.readTime}
-                      </div>
-                    </div>
+                    
                     <CardTitle className="text-lg font-bold text-black line-clamp-2">
                       {post.title}
                     </CardTitle>
