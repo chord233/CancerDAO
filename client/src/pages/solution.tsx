@@ -119,7 +119,7 @@ export default function Solution() {
                       <div className="w-0.5 h-12 bg-purple-400"></div>
                       <ArrowDown className="h-4 w-4 text-purple-400" />
                     </div>
-                    <span className="text-xs text-gray-600 ml-2">Support</span>
+                    <span className="ml-2 text-[#000000] text-[14px] font-bold">Support</span>
                   </div>
                 </div>
 
@@ -222,7 +222,7 @@ export default function Solution() {
 
                 <div className="absolute bottom-32 right-1/4" style={{ transform: 'translate(35px, -25px)' }}>
                   <div className="flex flex-col items-center">
-                    <span className="text-xs text-gray-600 mb-2">Develop</span>
+                    <span className="mb-2 text-[#000000] text-[14px] font-bold">Develop</span>
                     <div className="flex items-center">
                       <div className="w-12 h-0.5 bg-purple-400"></div>
                       <ArrowRight className="h-4 w-4 text-purple-400" />
