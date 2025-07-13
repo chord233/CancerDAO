@@ -105,7 +105,7 @@ export default function Resources() {
       category: "治疗进展",
       excerpt: "癌症免疫治疗的突破！Monash 和 Southampton 的研究人员发现 XPO1 蛋白能吸引自然杀伤（NK）细胞，提高癌症患者的生存率。",
       tags: ["免疫治疗", "XPO1蛋白", "NK细胞"],
-      image: "/attached_assets/image_1752423160935.png",
+      image: "/attached_assets/image_1752423313435.png",
       link: "https://x.com/CancerDAOxyz/status/1878793316613128446"
     }
   ];
