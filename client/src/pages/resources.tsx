@@ -51,6 +51,18 @@ export default function Resources() {
       image: "/attached_assets/image_1752401190831.png",
       readTime: "5 分钟",
       link: "https://x.com/CancerDAOxyz/status/1904163508125945945"
+    },
+    {
+      id: 3,
+      title: "胰腺癌的快速癌症预防提示",
+      author: "CancerDAO",
+      date: "2024-01-03",
+      category: "胰腺癌",
+      excerpt: "胰腺癌预防关键在于针对家族史、糖尿病、慢性胰腺炎等高风险人群进行早期筛查和生活方式干预。了解如何识别风险因素并采取有效的预防措施。",
+      tags: ["胰腺癌", "预防", "高风险人群"],
+      image: "/attached_assets/image_1752412955703.png",
+      readTime: "5 分钟",
+      link: "https://x.com/CancerDAOxyz/status/1901547167678144864"
     }
   ];
 
