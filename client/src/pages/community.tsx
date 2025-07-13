@@ -179,7 +179,7 @@ export default function Community() {
                     <Card className="p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => window.open('https://x.com/CancerDAOxyz/status/1896793598873763861', '_blank')}>
                       <CardHeader>
                         <div className="flex items-center gap-2 mb-2">
-                          <Badge style={{ backgroundColor: '#c9a4ff' }} className="text-black">
+                          <Badge style={{ backgroundColor: '#fc593d' }} className="text-white">
                             {t("community.activities.event1.status")}
                           </Badge>
                         </div>
@@ -217,7 +217,7 @@ export default function Community() {
                     >
                       <CardHeader>
                         <div className="flex items-center gap-2 mb-2">
-                          <Badge style={{ backgroundColor: '#e7d1ff' }} className="text-black">
+                          <Badge style={{ backgroundColor: '#fc593d' }} className="text-white">
                             {t("community.activities.event2.status")}
                           </Badge>
                         </div>
