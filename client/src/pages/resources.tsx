@@ -283,9 +283,15 @@ export default function Resources() {
 
             {/* 分类过滤 */}
             <div className="flex flex-wrap gap-2 justify-center mb-8">
-              {["全部", "癌症预防", "治疗进展", "基因科技", "数据隐私"].map((category) => (
+              {[
+                t("resources.insights.category.all"),
+                t("resources.insights.category.prevention"),
+                t("resources.insights.category.treatment"),
+                t("resources.insights.category.genetics"),
+                t("resources.insights.category.privacy")
+              ].map((category, index) => (
                 <Badge 
-                  key={category}
+                  key={index}
                   className="cursor-pointer px-4 py-2 text-black"
                   style={{ backgroundColor: '#e7d1ff' }}
                 >
@@ -391,7 +397,7 @@ export default function Resources() {
                 className="text-black"
                 style={{ borderColor: '#fc593d' }}
               >
-                查看所有问题 <ArrowRight className="ml-2 h-4 w-4" />
+                {t("resources.faq.viewAll")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </TabsContent>
@@ -400,10 +406,10 @@ export default function Resources() {
         {/* 底部CTA */}
         <div className="mt-16 text-center rounded-2xl p-8" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
           <h3 className="text-2xl font-bold text-black mb-4">
-            还有其他问题？
+            {t("resources.contact.title")}
           </h3>
           <p className="text-black mb-6">
-            如果您没有找到所需的信息，请随时联系我们的团队
+            {t("resources.contact.subtitle")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -417,7 +423,7 @@ export default function Resources() {
                 }, 200);
               }}
             >
-              联系我们
+{t("resources.contact.button")}
             </Button>
             <Button 
               variant="outline"
@@ -430,7 +436,7 @@ export default function Resources() {
                 }, 100);
               }}
             >
-              加入社区讨论
+{t("resources.community.button")}
             </Button>
           </div>
         </div>

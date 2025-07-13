@@ -448,6 +448,16 @@ const translations = {
     "resources.insights.article3.category": "治疗进展",
     "resources.insights.article3.excerpt": "了解免疫疗法如何激活人体自身的免疫系统来对抗癌症，以及最新的研究进展。",
     "community.stories.readMore": "阅读全文",
+    "resources.insights.category.all": "全部",
+    "resources.insights.category.prevention": "癌症预防",
+    "resources.insights.category.treatment": "治疗进展",
+    "resources.insights.category.genetics": "基因科技",
+    "resources.insights.category.privacy": "数据隐私",
+    "resources.faq.viewAll": "查看所有问题",
+    "resources.contact.title": "还有其他问题？",
+    "resources.contact.subtitle": "如果您没有找到所需的信息，请随时联系我们的团队",
+    "resources.contact.button": "联系我们",
+    "resources.community.button": "加入社区讨论",
 
     // Toast消息
     "toast.subscribe.success.title": "订阅成功",
@@ -1313,7 +1323,17 @@ const translations = {
     "resources.insights.article3.title": "Immunotherapy: New Hope for Cancer Treatment",
     "resources.insights.article3.category": "Treatment Progress",
     "resources.insights.article3.excerpt": "Learn how immunotherapy activates the body's own immune system to fight cancer, and the latest research progress.",
-    "community.stories.readMore": "Read Full Story"
+    "community.stories.readMore": "Read Full Story",
+    "resources.insights.category.all": "All",
+    "resources.insights.category.prevention": "Cancer Prevention",
+    "resources.insights.category.treatment": "Treatment Progress",
+    "resources.insights.category.genetics": "Genetic Technology",
+    "resources.insights.category.privacy": "Data Privacy",
+    "resources.faq.viewAll": "View All Questions",
+    "resources.contact.title": "Have Other Questions?",
+    "resources.contact.subtitle": "If you haven't found the information you need, feel free to contact our team",
+    "resources.contact.button": "Contact Us",
+    "resources.community.button": "Join Community Discussion"
 
   },
 };
