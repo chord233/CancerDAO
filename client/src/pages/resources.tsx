@@ -88,6 +88,15 @@ export default function Resources() {
       excerpt: "了解免疫疗法如何激活人体自身的免疫系统来对抗癌症，以及最新的研究进展。",
       tags: ["免疫疗法", "治疗", "创新"],
       image: "/api/placeholder/400/200"
+    },
+    {
+      id: 5,
+      title: "高糖摄入量如何增加癌症风险",
+      category: "癌症预防",
+      excerpt: "高糖摄入量如何通过四种生理机制增加癌症风险：血糖升高、炎症反应、氧化应激和肥胖相关的激素失衡。",
+      tags: ["糖摄入", "癌症预防", "生理机制"],
+      image: "/attached_assets/image_1752412155148.png",
+      link: "https://x.com/CancerDAOxyz/status/1902009532613808231"
     }
   ];
 
