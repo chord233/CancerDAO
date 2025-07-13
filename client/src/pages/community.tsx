@@ -270,10 +270,6 @@ export default function Community() {
                 </p>
                 <div className="flex items-center gap-4 text-sm text-black">
                   <div className="flex items-center gap-1">
-                    <Users className="h-4 w-4" />
-                    <span>100+ 参与者</span>
-                  </div>
-                  <div className="flex items-center gap-1">
                     <MessageCircle className="h-4 w-4" />
                     <span>线上</span>
                   </div>
