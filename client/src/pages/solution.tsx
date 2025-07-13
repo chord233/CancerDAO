@@ -116,7 +116,7 @@ export default function Solution() {
                 <div className="absolute top-16 right-32" style={{ transform: 'translate(-200px, 125px)' }}>
                   <div className="flex items-center">
                     <div className="flex flex-col items-center">
-                      <div className="w-0.5 h-4 bg-purple-400"></div>
+                      <div className="w-0.5 h-12 bg-purple-400"></div>
                       <ArrowDown className="h-4 w-4 text-purple-400" />
                     </div>
                     <span className="text-xs text-gray-600 ml-2">Support</span>
