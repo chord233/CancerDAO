@@ -251,13 +251,7 @@ export default function Resources() {
                     <p className="text-black mb-4 line-clamp-3">
                       {post.excerpt}
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {post.tags.map((tag, index) => (
-                        <Badge key={index} variant="outline" className="text-xs">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
+                    
                     <Button 
                       className="w-full"
                       style={{ backgroundColor: '#fad000' }}
