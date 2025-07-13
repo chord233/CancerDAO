@@ -415,7 +415,7 @@ const translations = {
     "community.activities.event1.title": "Cancer DAO logo 社区投票",
     "community.activities.event1.description": "投票赢取 USDT！ 🧬 \n我们需要您的帮助来选择完美的品牌标志！1 名获胜者将获得 $25 USDT 的奖励！",
     "community.activities.event1.participants": "190人",
-    "community.activities.event1.format": "线上会议",
+    "community.activities.event1.format": "线上",
     "community.activities.event2.status": "进行中",
     "community.activities.event2.title": "医疗知识分享会",
     "community.activities.event2.description": "定期邀请医疗专家和经验丰富的患者分享最新的治疗方法、护理技巧和康复经验。",
