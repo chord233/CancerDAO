@@ -227,11 +227,33 @@ export default function Community() {
                       </CardHeader>
                       <CardContent>
                         <div className="mb-4">
-                          <img 
-                            src="/attached_assets/image_1752396814895.png" 
-                            alt="DeSci Community Meetup" 
-                            className="w-full h-48 object-cover rounded-lg mb-4"
-                          />
+                          <Carousel className="w-full">
+                            <CarouselContent>
+                              <CarouselItem>
+                                <img 
+                                  src="/attached_assets/image_1752396814895.png" 
+                                  alt="DeSci Community Meetup" 
+                                  className="w-full h-48 object-cover rounded-lg"
+                                />
+                              </CarouselItem>
+                              <CarouselItem>
+                                <img 
+                                  src="/attached_assets/76a56adc0003d6c5547509fcd01c7737_1752426046247.jpg" 
+                                  alt="DeSci Community Meetup - Shanghai Night" 
+                                  className="w-full h-48 object-cover rounded-lg"
+                                />
+                              </CarouselItem>
+                              <CarouselItem>
+                                <img 
+                                  src="/attached_assets/c95f9936c28805a7c86b63f168aa29ba_1752426083436.jpg" 
+                                  alt="DeSci Community Meetup - Bitcoin Rowing Club" 
+                                  className="w-full h-48 object-cover rounded-lg"
+                                />
+                              </CarouselItem>
+                            </CarouselContent>
+                            <CarouselPrevious className="left-2" />
+                            <CarouselNext className="right-2" />
+                          </Carousel>
                         </div>
                         <p className="text-black mb-4">
                           {t("community.activities.event2.description")}
