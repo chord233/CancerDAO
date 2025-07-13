@@ -169,7 +169,7 @@ export default function Community() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => window.open('https://x.com/CancerDAOxyz/status/1896793598873763861', '_blank')}>
               <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
@@ -238,6 +238,44 @@ export default function Community() {
                   <div className="flex items-center gap-1">
                     <MessageCircle className="h-4 w-4" />
                     <span>{t("community.activities.event2.format")}</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card 
+              className="p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+              onClick={() => window.open('https://x.com/CancerDAOxyz/status/1859207201610686641', '_blank')}
+            >
+              <CardHeader>
+                <div className="flex items-center gap-2 mb-2">
+                  <Badge style={{ backgroundColor: '#fc593d' }} className="text-white">
+                    已结束
+                  </Badge>
+                </div>
+                <CardTitle className="text-xl font-bold text-black">
+                  DeSci AMA
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-4">
+                  <img 
+                    src="/attached_assets/image_1752404470286.png" 
+                    alt="DeSci AMA" 
+                    className="w-full h-48 object-cover rounded-lg mb-4"
+                  />
+                </div>
+                <p className="text-black mb-4">
+                  🧪 DeSci AMA 来了！加入我们，与 @commondotxyz @nobleblocks @Genpharmachain 进行精彩的讨论，讨论将患者数据标记为 RWA 及其彻底改变癌症研究的潜力。
+                </p>
+                <div className="flex items-center gap-4 text-sm text-black">
+                  <div className="flex items-center gap-1">
+                    <Users className="h-4 w-4" />
+                    <span>100+ 参与者</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <MessageCircle className="h-4 w-4" />
+                    <span>线上</span>
                   </div>
                 </div>
               </CardContent>
