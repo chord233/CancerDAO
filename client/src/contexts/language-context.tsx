@@ -447,6 +447,7 @@ const translations = {
     "resources.insights.article3.title": "免疫疗法：癌症治疗的新希望",
     "resources.insights.article3.category": "治疗进展",
     "resources.insights.article3.excerpt": "了解免疫疗法如何激活人体自身的免疫系统来对抗癌症，以及最新的研究进展。",
+    "community.stories.readMore": "阅读全文",
 
     // Toast消息
     "toast.subscribe.success.title": "订阅成功",
@@ -1311,7 +1312,8 @@ const translations = {
     "resources.insights.article2.excerpt": "Explore how genetic testing technology helps us understand personal cancer risk and develop precise prevention and treatment strategies.",
     "resources.insights.article3.title": "Immunotherapy: New Hope for Cancer Treatment",
     "resources.insights.article3.category": "Treatment Progress",
-    "resources.insights.article3.excerpt": "Learn how immunotherapy activates the body's own immune system to fight cancer, and the latest research progress."
+    "resources.insights.article3.excerpt": "Learn how immunotherapy activates the body's own immune system to fight cancer, and the latest research progress.",
+    "community.stories.readMore": "Read Full Story"
 
   },
 };

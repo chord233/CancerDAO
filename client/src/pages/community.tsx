@@ -123,7 +123,7 @@ export default function Community() {
                     className="w-full"
                     style={{ backgroundColor: '#fad000' }}
                   >
-                    阅读全文 <ArrowRight className="ml-2 h-4 w-4" />
+                    {t("community.stories.readMore")} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
               </Card>
