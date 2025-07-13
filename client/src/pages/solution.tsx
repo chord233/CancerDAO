@@ -113,7 +113,7 @@ export default function Solution() {
                 </div>
 
                 {/* Support Arrow */}
-                <div className="absolute top-16 right-32" style={{ transform: 'translate(-100px, 125px)' }}>
+                <div className="absolute top-16 right-32" style={{ transform: 'translate(-200px, 125px)' }}>
                   <div className="flex items-center">
                     <div className="flex flex-col items-center">
                       <div className="w-0.5 h-4 bg-purple-400"></div>
