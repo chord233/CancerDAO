@@ -105,14 +105,7 @@ export default function Community() {
                       <CardTitle className="text-lg font-bold text-black">
                         {story.title}
                       </CardTitle>
-                      <div className="flex items-center gap-2 mt-1">
-                        <Badge style={{ backgroundColor: '#e7d1ff' }} className="text-black text-xs">
-                          {story.category}
-                        </Badge>
-                        <span className="text-sm text-black">
-                          {story.readTime}
-                        </span>
-                      </div>
+                      
                     </div>
                   </div>
                 </CardHeader>
