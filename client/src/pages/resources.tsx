@@ -30,39 +30,6 @@ export default function Resources() {
   const blogPosts = [
     {
       id: 1,
-      title: t("resources.blog.post1.title"),
-      author: "XXX",
-      date: "2024-01-15",
-      category: t("resources.blog.post1.category"),
-      excerpt: t("resources.blog.post1.excerpt"),
-      tags: ["AI", "早期检测", "医疗技术"],
-      image: "/api/placeholder/400/200",
-      readTime: t("resources.blog.post1.readTime")
-    },
-    {
-      id: 2,
-      title: t("resources.blog.post2.title"),
-      author: "XXX",
-      date: "2024-01-10",
-      category: t("resources.blog.post2.category"),
-      excerpt: t("resources.blog.post2.excerpt"),
-      tags: ["区块链", "数据隐私", "医疗数据"],
-      image: "/api/placeholder/400/200",
-      readTime: t("resources.blog.post2.readTime")
-    },
-    {
-      id: 3,
-      title: t("resources.blog.post3.title"),
-      author: "XXX",
-      date: "2024-01-05",
-      category: t("resources.blog.post3.category"),
-      excerpt: t("resources.blog.post3.excerpt"),
-      tags: ["社区", "研究模式", "患者中心"],
-      image: "/api/placeholder/400/200",
-      readTime: t("resources.blog.post3.readTime")
-    },
-    {
-      id: 4,
       title: "沃伦·巴菲特战胜前列腺癌：健康是最佳投资，早期筛查是关键",
       author: "CancerDAO",
       date: "2024-01-01",
