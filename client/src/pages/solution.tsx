@@ -203,21 +203,30 @@ export default function Solution() {
                 <div className="absolute left-1/4 top-1/2 transform translate-x-1/2 -translate-y-1/2" style={{ transform: 'translate(calc(50% - 35px), calc(-50% + 90px))' }}>
                   <div className="flex flex-col items-center">
                     <span className="text-xs text-gray-600 mb-2">Data</span>
-                    <ArrowRight className="h-4 w-4 text-purple-400" />
+                    <div className="flex items-center">
+                      <div className="w-12 h-0.5 bg-purple-400"></div>
+                      <ArrowRight className="h-4 w-4 text-purple-400" />
+                    </div>
                   </div>
                 </div>
 
                 <div className="absolute bottom-32 left-2/4" style={{ transform: 'translate(-25px, -25px)' }}>
                   <div className="flex flex-col items-center">
                     <span className="text-xs text-gray-600 mb-2">Contribute</span>
-                    <ArrowRight className="h-4 w-4 text-purple-400" />
+                    <div className="flex items-center">
+                      <div className="w-12 h-0.5 bg-purple-400"></div>
+                      <ArrowRight className="h-4 w-4 text-purple-400" />
+                    </div>
                   </div>
                 </div>
 
                 <div className="absolute bottom-32 right-1/4" style={{ transform: 'translate(25px, -25px)' }}>
                   <div className="flex flex-col items-center">
                     <span className="text-xs text-gray-600 mb-2">Develop</span>
-                    <ArrowRight className="h-4 w-4 text-purple-400" />
+                    <div className="flex items-center">
+                      <div className="w-12 h-0.5 bg-purple-400"></div>
+                      <ArrowRight className="h-4 w-4 text-purple-400" />
+                    </div>
                   </div>
                 </div>
               </div>
