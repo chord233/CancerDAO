@@ -643,7 +643,7 @@ export default function Solution() {
                               <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fc593d' }}>
                                 <Fingerprint className="h-4 w-4 text-white" />
                               </div>
-                              <h5 className="text-lg font-bold text-black">子模块 3：去中心化身份 (DID)</h5>
+                              <h5 className="text-lg font-bold text-black">去中心化身份 (DID)</h5>
                             </div>
                             
                             <div className="text-left mb-6">
