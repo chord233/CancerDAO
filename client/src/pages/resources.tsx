@@ -274,10 +274,10 @@ export default function Resources() {
           <TabsContent value="insights" className="space-y-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-black mb-4">
-                科普知识：探索健康前沿
+                {t("resources.insights.title")}
               </h2>
               <p className="text-lg text-black">
-                了解癌症预防、治疗和前沿科技的最新知识
+                {t("resources.insights.subtitle")}
               </p>
             </div>
 
@@ -324,7 +324,7 @@ export default function Resources() {
                       className="w-full"
                       style={{ backgroundColor: '#fad000' }}
                     >
-                      了解更多 <ExternalLink className="ml-2 h-4 w-4" />
+                      {t("resources.learn.more")} <ExternalLink className="ml-2 h-4 w-4" />
                     </Button>
                   </CardContent>
                 </Card>
@@ -336,10 +336,10 @@ export default function Resources() {
           <TabsContent value="faq" className="space-y-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-black mb-4">
-                常见问题
+                {t("resources.faq.title")}
               </h2>
               <p className="text-lg text-black">
-                找到关于平台、技术、数据隐私和社区参与的常见问题答案
+                {t("resources.faq.subtitle")}
               </p>
             </div>
 
@@ -348,7 +348,7 @@ export default function Resources() {
               <div className="relative">
                 <Search className="absolute left-3 top-3 h-4 w-4 text-black" />
                 <Input
-                  placeholder="搜索问题..."
+                  placeholder={t("resources.faq.search.placeholder")}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10"

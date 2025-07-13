@@ -136,29 +136,29 @@ export default function Community() {
           <div className="rounded-2xl p-8" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)' }}>
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-black mb-4">
-                我们的社区力量
+                {t("community.stats.title")}
               </h2>
               <p className="text-lg text-black">
-                数字背后是每一个真实的故事和坚定的信念
+                {t("community.stats.subtitle")}
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-black mb-2">2,000+</div>
-                <div className="text-black">活跃成员</div>
+                <div className="text-black">{t("community.stats.members")}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-black mb-2">500+</div>
-                <div className="text-black">分享故事</div>
+                <div className="text-black">{t("community.stats.stories")}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-black mb-2">100+</div>
-                <div className="text-black">专业志愿者</div>
+                <div className="text-black">{t("community.stats.volunteers")}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-black mb-2">24/7</div>
-                <div className="text-black">社区支持</div>
+                <div className="text-black">{t("community.stats.support")}</div>
               </div>
             </div>
           </div>
@@ -168,10 +168,10 @@ export default function Community() {
         <section className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-black mb-4">
-              社区活动
+              {t("community.activities.title")}
             </h2>
             <p className="text-lg text-black">
-              参与我们的各种活动，与社区成员一起学习、成长和互助
+              {t("community.activities.subtitle")}
             </p>
           </div>
 
@@ -180,25 +180,25 @@ export default function Community() {
               <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
                   <Badge style={{ backgroundColor: '#c9a4ff' }} className="text-black">
-                    即将开始
+{t("community.activities.event1.status")}
                   </Badge>
                 </div>
                 <CardTitle className="text-xl font-bold text-black">
-                  每周患者支持小组
+{t("community.activities.event1.title")}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-black mb-4">
-                  每周日晚上8点，我们都会举办线上支持小组活动，为患者和家属提供情感支持和经验分享的平台。
+                  {t("community.activities.event1.description")}
                 </p>
                 <div className="flex items-center gap-4 text-sm text-black">
                   <div className="flex items-center gap-1">
                     <Users className="h-4 w-4" />
-                    <span>20-30人</span>
+                    <span>{t("community.activities.event1.participants")}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <MessageCircle className="h-4 w-4" />
-                    <span>线上会议</span>
+                    <span>{t("community.activities.event1.format")}</span>
                   </div>
                 </div>
               </CardContent>
@@ -208,25 +208,25 @@ export default function Community() {
               <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
                   <Badge style={{ backgroundColor: '#e7d1ff' }} className="text-black">
-                    进行中
+{t("community.activities.event2.status")}
                   </Badge>
                 </div>
                 <CardTitle className="text-xl font-bold text-black">
-                  医疗知识分享会
+{t("community.activities.event2.title")}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-black mb-4">
-                  定期邀请医疗专家和经验丰富的患者分享最新的治疗方法、护理技巧和康复经验。
+                  {t("community.activities.event2.description")}
                 </p>
                 <div className="flex items-center gap-4 text-sm text-black">
                   <div className="flex items-center gap-1">
                     <Users className="h-4 w-4" />
-                    <span>50-100人</span>
+                    <span>{t("community.activities.event2.participants")}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <MessageCircle className="h-4 w-4" />
-                    <span>线上直播</span>
+                    <span>{t("community.activities.event2.format")}</span>
                   </div>
                 </div>
               </CardContent>
@@ -261,7 +261,7 @@ export default function Community() {
                 style={{ borderColor: '#fc593d' }}
                 onClick={() => window.open('http://discord.gg/zKwyqxjeun', '_blank')}
               >
-                访问Discord社区
+{t("community.join.discord")}
                 <ExternalLink className="ml-2 h-5 w-5" />
               </Button>
               <Button 
@@ -271,7 +271,7 @@ export default function Community() {
                 style={{ borderColor: '#fc593d' }}
                 onClick={() => window.open('https://twitter.com/CancerDAOxyz', '_blank')}
               >
-                关注Twitter
+{t("community.join.twitter")}
                 <ExternalLink className="ml-2 h-5 w-5" />
               </Button>
               <Button 
@@ -281,14 +281,14 @@ export default function Community() {
                 style={{ borderColor: '#c9a4ff' }}
                 onClick={() => window.open('https://web.telegram.org/a/#-1002393239074_1', '_blank')}
               >
-                加入Telegram群组
+{t("community.join.telegram")}
                 <ExternalLink className="ml-2 h-5 w-5" />
               </Button>
             </div>
             
             <div className="mt-6 text-sm text-black">
               <p>
-                加入后，您将获得：24/7社区支持 • 专业医疗咨询 • 同伴经验分享 • 最新治疗资讯
+{t("community.join.benefits")}
               </p>
             </div>
           </div>
