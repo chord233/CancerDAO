@@ -88,7 +88,7 @@ export default function Solution() {
 
                 {/* Token Section */}
                 <div className="absolute" style={{ top: '82px', right: '32px' }}>
-                  <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
+                  <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200 w-44">
                     <div className="flex items-center mb-2">
                       <div className="w-8 h-8 rounded-full flex items-center justify-center mr-2" style={{ backgroundColor: '#c9a4ff' }}>
                         <span className="text-white text-xs font-bold">C</span>
