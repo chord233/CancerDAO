@@ -58,6 +58,15 @@ export default function Resources() {
   const insightArticles = [
     {
       id: 1,
+      title: "癌症治疗的突破",
+      category: "治疗进展",
+      excerpt: "这个非常规的案例研究强调了溶瘤病毒疗法作为新辅助治疗方式的潜力。",
+      tags: ["溶瘤病毒", "治疗突破", "创新疗法"],
+      image: "/attached_assets/image_1752401674727.png",
+      link: "https://x.com/CancerDAOxyz/status/1859207201610686641"
+    },
+    {
+      id: 2,
       title: t("resources.insights.article1.title"),
       category: t("resources.insights.article1.category"),
       excerpt: t("resources.insights.article1.excerpt"),
@@ -65,7 +74,7 @@ export default function Resources() {
       image: "/api/placeholder/400/200"
     },
     {
-      id: 2,
+      id: 3,
       title: t("resources.insights.article2.title"),
       category: t("resources.insights.article2.category"),
       excerpt: t("resources.insights.article2.excerpt"),
@@ -73,19 +82,11 @@ export default function Resources() {
       image: "/api/placeholder/400/200"
     },
     {
-      id: 3,
+      id: 4,
       title: "免疫疗法：癌症治疗的新希望",
       category: "治疗进展",
       excerpt: "了解免疫疗法如何激活人体自身的免疫系统来对抗癌症，以及最新的研究进展。",
       tags: ["免疫疗法", "治疗", "创新"],
-      image: "/api/placeholder/400/200"
-    },
-    {
-      id: 4,
-      title: "数据隐私在医疗中的重要性",
-      category: "数据隐私",
-      excerpt: "了解为什么医疗数据隐私至关重要，以及如何在共享数据促进研究的同时保护患者隐私。",
-      tags: ["隐私保护", "医疗数据", "安全"],
       image: "/api/placeholder/400/200"
     }
   ];
@@ -280,8 +281,18 @@ export default function Resources() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {insightArticles.map((article) => (
                 <Card key={article.id} className="hover:shadow-lg transition-shadow cursor-pointer">
-                  <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 rounded-t-lg flex items-center justify-center">
-                    <Brain className="h-12 w-12 text-black" />
+                  <div className="aspect-video rounded-t-lg overflow-hidden">
+                    {article.image === "/api/placeholder/400/200" ? (
+                      <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-t-lg flex items-center justify-center h-full">
+                        <Brain className="h-12 w-12 text-black" />
+                      </div>
+                    ) : (
+                      <img 
+                        src={article.image} 
+                        alt={article.title} 
+                        className="w-full h-full object-cover"
+                      />
+                    )}
                   </div>
                   <CardHeader>
                     <Badge style={{ backgroundColor: '#c9a4ff' }} className="text-black w-fit">
@@ -300,6 +311,7 @@ export default function Resources() {
                       size="sm"
                       className="w-full"
                       style={{ backgroundColor: '#fad000' }}
+                      onClick={() => article.link && window.open(article.link, '_blank')}
                     >
                       {t("resources.learn.more")} <ExternalLink className="ml-2 h-4 w-4" />
                     </Button>
