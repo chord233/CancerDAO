@@ -80,7 +80,7 @@ export default function Solution() {
                         />
                       </div>
                       <div className="text-center">
-                        <p className="font-bold text-[14px] text-[#000000]">Community</p>
+                        <p className="font-bold text-[14px] text-[#000000]">{t("architecture.community")}</p>
                       </div>
                     </div>
                   </div>
@@ -95,7 +95,7 @@ export default function Solution() {
                       </div>
                       <div>
                         <h4 className="text-sm font-bold text-black">CancerDAO</h4>
-                        <h4 className="text-[14px] font-bold text-[#000000]">Token</h4>
+                        <h4 className="text-[14px] font-bold text-[#000000]">{t("architecture.token")}</h4>
                       </div>
                     </div>
                   </div>
@@ -104,7 +104,7 @@ export default function Solution() {
                 {/* Issue Arrow */}
                 <div className="absolute top-16 left-72" style={{ transform: 'translate(-50px, 0)' }}>
                   <div className="flex flex-col items-center">
-                    <span className="mb-2 text-[#000000] text-[14px] font-bold">Issue</span>
+                    <span className="mb-2 text-[#000000] text-[14px] font-bold">{t("architecture.issue")}</span>
                     <div className="flex items-center">
                       <div className="w-64 h-0.5 bg-purple-400"></div>
                       <ArrowRight className="h-4 w-4 text-purple-400" />
@@ -119,7 +119,7 @@ export default function Solution() {
                       <div className="w-0.5 h-12 bg-purple-400"></div>
                       <ArrowDown className="h-4 w-4 text-purple-400" />
                     </div>
-                    <span className="ml-2 text-[#000000] text-[14px] font-bold">Support</span>
+                    <span className="ml-2 text-[#000000] text-[14px] font-bold">{t("architecture.support")}</span>
                   </div>
                 </div>
 
@@ -131,9 +131,7 @@ export default function Solution() {
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
                         <Brain className="h-8 w-8 text-white" />
                       </div>
-                      <h4 className="text-sm font-bold text-black mb-2">AI-powered</h4>
-                      <h4 className="text-sm font-bold text-black mb-2">Cancer Support</h4>
-                      <h4 className="text-sm font-bold text-black">Platform</h4>
+                      <h4 className="text-sm font-bold text-black">{t("architecture.ai.platform")}</h4>
                     </div>
                   </div>
 
@@ -148,9 +146,7 @@ export default function Solution() {
                           <div className="w-2 h-2 bg-white rounded-sm"></div>
                         </div>
                       </div>
-                      <h4 className="text-sm font-bold text-black mb-2">Blockchain-</h4>
-                      <h4 className="text-sm font-bold text-black mb-2">based</h4>
-                      <h4 className="text-sm font-bold text-black">Medical ID</h4>
+                      <h4 className="text-sm font-bold text-black">{t("architecture.blockchain.medical.id")}</h4>
                     </div>
                   </div>
 
@@ -167,9 +163,7 @@ export default function Solution() {
                           </div>
                         </div>
                       </div>
-                      <h4 className="text-sm font-bold text-black mb-2">Decentralized</h4>
-                      <h4 className="text-sm font-bold text-black mb-2">Cancer</h4>
-                      <h4 className="text-sm font-bold text-black">Database</h4>
+                      <h4 className="text-sm font-bold text-black">{t("architecture.decentralized.database")}</h4>
                     </div>
                   </div>
 
@@ -182,9 +176,7 @@ export default function Solution() {
                           <div className="absolute top-1 left-1 w-4 h-4 rounded-full bg-white"></div>
                         </div>
                       </div>
-                      <h4 className="text-sm font-bold text-black mb-2">AI-driven</h4>
-                      <h4 className="text-sm font-bold text-black mb-2">Therapies</h4>
-                      <h4 className="text-sm font-bold text-black">and Screening</h4>
+                      <h4 className="text-sm font-bold text-black">{t("architecture.ai.therapies")}</h4>
                     </div>
                   </div>
                 </div>
@@ -196,13 +188,13 @@ export default function Solution() {
                       <div className="w-0.5 h-8 bg-purple-400"></div>
                       <ArrowDown className="h-4 w-4 text-purple-400" />
                     </div>
-                    <span className="ml-2 text-[#000000] font-bold text-[14px]">Build</span>
+                    <span className="ml-2 text-[#000000] font-bold text-[14px]">{t("architecture.build")}</span>
                   </div>
                 </div>
 
                 <div className="absolute left-1/4 top-1/2 transform translate-x-1/2 -translate-y-1/2" style={{ transform: 'translate(calc(50% - 70px), calc(-50% + 90px))' }}>
                   <div className="flex flex-col items-center">
-                    <span className="mb-2 text-[#000000] font-bold text-[14px]">Data</span>
+                    <span className="mb-2 text-[#000000] font-bold text-[14px]">{t("architecture.data")}</span>
                     <div className="flex items-center">
                       <div className="w-12 h-0.5 bg-purple-400"></div>
                       <ArrowRight className="h-4 w-4 text-purple-400" />
@@ -212,7 +204,7 @@ export default function Solution() {
 
                 <div className="absolute bottom-32 left-2/4" style={{ transform: 'translate(-35px, -25px)' }}>
                   <div className="flex flex-col items-center">
-                    <span className="mb-2 text-[14px] font-bold text-[#000000]">Contribute</span>
+                    <span className="mb-2 text-[14px] font-bold text-[#000000]">{t("architecture.contribute")}</span>
                     <div className="flex items-center">
                       <div className="w-12 h-0.5 bg-purple-400"></div>
                       <ArrowRight className="h-4 w-4 text-purple-400" />
@@ -222,7 +214,7 @@ export default function Solution() {
 
                 <div className="absolute bottom-32 right-1/4" style={{ transform: 'translate(35px, -25px)' }}>
                   <div className="flex flex-col items-center">
-                    <span className="mb-2 text-[#000000] text-[14px] font-bold">Develop</span>
+                    <span className="mb-2 text-[#000000] text-[14px] font-bold">{t("architecture.develop")}</span>
                     <div className="flex items-center">
                       <div className="w-12 h-0.5 bg-purple-400"></div>
                       <ArrowRight className="h-4 w-4 text-purple-400" />

@@ -473,7 +473,21 @@ const translations = {
     "ai.agent.health.status": "开发中",
     "ai.agent.ama.name": "CancerDAO AMA Bot",
     "ai.agent.ama.description": "共同构建一个没有癌症的世界，回答各种癌症相关问题",
-    "ai.agent.ama.status": "已上线"
+    "ai.agent.ama.status": "已上线",
+    
+    // 架构图翻译
+    "architecture.community": "社区",
+    "architecture.token": "代币",
+    "architecture.issue": "发布",
+    "architecture.support": "支持",
+    "architecture.build": "构建",
+    "architecture.data": "数据",
+    "architecture.contribute": "贡献",
+    "architecture.develop": "开发",
+    "architecture.ai.platform": "AI驱动的癌症支持平台",
+    "architecture.blockchain.medical.id": "基于区块链的医疗身份",
+    "architecture.decentralized.database": "去中心化癌症数据库",
+    "architecture.ai.therapies": "AI驱动的疗法与筛查"
   },
   en: {
     // 导航栏
@@ -655,6 +669,20 @@ const translations = {
     "ai.agent.ama.name": "CancerDAO AMA Bot",
     "ai.agent.ama.description": "Together, build a world without cancer, answering various cancer-related questions",
     "ai.agent.ama.status": "Live",
+    
+    // 架构图翻译
+    "architecture.community": "Community",
+    "architecture.token": "Token",
+    "architecture.issue": "Issue",
+    "architecture.support": "Support",
+    "architecture.build": "Build",
+    "architecture.data": "Data",
+    "architecture.contribute": "Contribute",
+    "architecture.develop": "Develop",
+    "architecture.ai.platform": "AI-powered Cancer Support Platform",
+    "architecture.blockchain.medical.id": "Blockchain-based Medical ID",
+    "architecture.decentralized.database": "Decentralized Cancer Database",
+    "architecture.ai.therapies": "AI-driven Therapies and Screening",
     "solution.blockchain.pillar.point1": "Global Expert & Patient Mutual Support Network",
     "solution.blockchain.pillar.point2": "Open Treatment Data Sharing",
     "solution.blockchain.pillar.point3": "Community Governance & Decision Participation",
