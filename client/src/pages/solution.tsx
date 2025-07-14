@@ -264,7 +264,7 @@ export default function Solution() {
                           </div>
                           
                           {/* 流程步骤 */}
-                          <div className="flex items-center justify-center space-x-8 mb-8">
+                          <div className="flex items-center justify-center space-x-6 mb-8">
                             <div className="flex flex-col items-center">
                               <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: '#e7d1ff' }}>
                                 <Upload className="h-6 w-6" style={{ color: '#c9a4ff' }} />
@@ -288,6 +288,15 @@ export default function Solution() {
                                 <BarChart3 className="h-6 w-6" style={{ color: '#c9a4ff' }} />
                               </div>
                               <p className="mt-3 text-sm text-black font-semibold">{t("ai.analysis.step3")}</p>
+                            </div>
+                            
+                            <ArrowRight className="h-6 w-6" style={{ color: '#c9a4ff' }} />
+                            
+                            <div className="flex flex-col items-center">
+                              <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: '#e7d1ff' }}>
+                                <UserCheck className="h-6 w-6" style={{ color: '#c9a4ff' }} />
+                              </div>
+                              <p className="mt-3 text-sm text-black font-semibold">个性化AI健康顾问</p>
                             </div>
                           </div>
                         </div>
