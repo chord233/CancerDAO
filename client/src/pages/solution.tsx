@@ -68,6 +68,19 @@ const DnaTokenIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+// Custom AI therapies screening SVG icon
+const AiTherapiesIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 1024 1024"
+    width="32"
+    height="32"
+    fill="currentColor"
+  >
+    <path d="M517.354406 935.282192a296.930527 296.930527 0 0 0 395.118214 21.556434L704.2599 748.376699zM680.4606 678.598648l23.176282-23.176281L885.309021 473.50102l69.155033-69.155033A236.746959 236.746959 0 0 0 619.404806 69.411342l-548.256115 548.256115a236.746959 236.746959 0 1 0 335.183852 335.059248L423.652452 935.157589l256.808148-256.558941zM394.619799 392.633243l274.128057-274.128058a167.467322 167.467322 0 1 1 236.746959 236.746959l-274.128058 274.128057-236.746958-236.746958M958.949786 910.610667h-0.124604 0.124604zM937.393352 515.118643l-186.905493 186.905493L959.4482 910.610667a297.428942 297.428942 0 0 0-22.054848-395.492024z" />
+  </svg>
+);
+
 export default function Solution() {
   const { t } = useLanguage();
   const [selectedPillar, setSelectedPillar] = useState<number>(0);
@@ -196,10 +209,7 @@ export default function Solution() {
                   <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200 w-44">
                     <div className="flex flex-col items-center text-center">
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                        <div className="relative">
-                          <div className="w-6 h-6 rounded-full bg-white opacity-80"></div>
-                          <div className="absolute top-1 left-1 w-4 h-4 rounded-full bg-white"></div>
-                        </div>
+                        <AiTherapiesIcon className="h-8 w-8 text-white" />
                       </div>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.ai.therapies.line1")}</h4>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.ai.therapies.line2")}</h4>
