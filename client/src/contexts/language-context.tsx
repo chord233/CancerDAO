@@ -1256,8 +1256,6 @@ const translations = {
     "resources.insights.category.treatment": "Treatment Guidelines",
     "resources.insights.category.nutrition": "Nutrition Guidance",
     "resources.insights.category.psychology": "Psychological Support",
-    "resources.contact.title": "If you haven't found the information you need, please feel free to contact our team",
-    "resources.contact.button": "Contact Us",
     
     // Community页面
     "community.hero.title": "You Are Never Alone, We Walk With You",
@@ -1324,11 +1322,6 @@ const translations = {
     "resources.insights.article3.category": "Treatment Progress",
     "resources.insights.article3.excerpt": "Learn how immunotherapy activates the body's own immune system to fight cancer, and the latest research progress.",
     "community.stories.readMore": "Read Full Story",
-    "resources.insights.category.all": "All",
-    "resources.insights.category.prevention": "Cancer Prevention",
-    "resources.insights.category.treatment": "Treatment Progress",
-    "resources.insights.category.genetics": "Genetic Technology",
-    "resources.insights.category.privacy": "Data Privacy",
     "resources.faq.viewAll": "View All Questions",
     "resources.contact.title": "Have Other Questions?",
     "resources.contact.subtitle": "If you haven't found the information you need, feel free to contact our team",
@@ -1339,7 +1332,7 @@ const translations = {
 };
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("zh");
+  const [language, setLanguage] = useState<Language>("en");
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") as Language;
