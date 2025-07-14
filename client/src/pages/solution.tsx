@@ -147,7 +147,7 @@ export default function Solution() {
                   <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200 w-44">
                     <div className="flex items-center mb-2">
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mr-2 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                        <img src={tokenIcon} alt="CancerDAO Token" className="h-8 w-8" />
+                        <DnaTokenIcon className="h-8 w-8 text-white" />
                       </div>
                       <div>
                         <h4 className="text-sm font-bold text-black">CancerDAO</h4>
