@@ -234,16 +234,14 @@ const translations = {
     "community.activities.upcoming": "即将开始",
     "community.activities.ongoing": "进行中",
     "community.activities.completed": "已完成",
-    "community.activities.event1.title": "DeSci AMA",
+    "community.activities.event1.title": "AI医疗创新峰会",
     "community.activities.event1.description":
-      "🧪 DeSci AMA 来了！加入我们，与 @commondotxyz @nobleblocks @Genpharmachain 进行精彩的讨论，讨论将患者数据标记为 RWA 及其彻底改变癌症研究的潜力。",
-    "community.activities.event1.format": "线上",
-    "community.activities.event1.status": "已结束",
-    "community.activities.event2.title": "DeSAI Meetup：科学与医疗保健创新",
+      "汇聚全球AI医疗专家，探讨癌症预防新技术",
+    "community.activities.event1.location": "线上会议",
+    "community.activities.event2.title": "区块链健康数据研讨会",
     "community.activities.event2.description":
-      "很高兴邀请您参加我们的 DeSAI Meetup！本次活动将聚焦科学与医疗保健领域的创新，深入探讨去中心化科学（DeSci）与人工智能（AI）的融合。 无论您是行业专家、研究人员，还是对未来医疗科技充满热情的朋友，我们都诚挚地欢迎您的到来。",
-    "community.activities.event2.format": "香港城市大学",
-    "community.activities.event2.status": "已结束",
+      "讨论去中心化健康数据管理的最佳实践",
+    "community.activities.event2.location": "新加坡",
     "community.activities.event3.title": "社区开发者马拉松",
     "community.activities.event3.description":
       "48小时开发挑战，构建创新健康应用",
@@ -1223,18 +1221,6 @@ const translations = {
     "about.contact.phone": "Phone Number",
     "about.contact.message": "Your Message",
     "about.contact.privacy": "I agree that CancerDAO may process my personal information and contact me in accordance with its Privacy Policy.",
-    
-    // Community活动英文翻译
-    "community.activities.event1.title": "DeSci AMA",
-    "community.activities.event1.description":
-      "🧪 DeSci AMA is here! Join us for an exciting discussion with @commondotxyz @nobleblocks @Genpharmachain about tokenizing patient data as RWA and its potential to revolutionize cancer research.",
-    "community.activities.event1.format": "Online",
-    "community.activities.event1.status": "Completed",
-    "community.activities.event2.title": "DeSAI Meetup: Innovation in Science and Healthcare",
-    "community.activities.event2.description":
-      "We are delighted to invite you to our DeSAI Meetup! This event will focus on innovation in science and healthcare, exploring the convergence of decentralized science (DeSci) and artificial intelligence (AI). Whether you are an industry expert, researcher, or someone passionate about the future of medical technology, we warmly welcome you to join us.",
-    "community.activities.event2.format": "City University of Hong Kong",
-    "community.activities.event2.status": "Completed",
     "about.contact.submit": "Submit Information",
     "about.contact.submitting": "Submitting...",
     "about.contact.placeholder.name": "Enter your name",
@@ -1270,6 +1256,8 @@ const translations = {
     "resources.insights.category.treatment": "Treatment Guidelines",
     "resources.insights.category.nutrition": "Nutrition Guidance",
     "resources.insights.category.psychology": "Psychological Support",
+    "resources.contact.title": "If you haven't found the information you need, please feel free to contact our team",
+    "resources.contact.button": "Contact Us",
     
     // Community页面
     "community.hero.title": "You Are Never Alone, We Walk With You",
@@ -1336,6 +1324,11 @@ const translations = {
     "resources.insights.article3.category": "Treatment Progress",
     "resources.insights.article3.excerpt": "Learn how immunotherapy activates the body's own immune system to fight cancer, and the latest research progress.",
     "community.stories.readMore": "Read Full Story",
+    "resources.insights.category.all": "All",
+    "resources.insights.category.prevention": "Cancer Prevention",
+    "resources.insights.category.treatment": "Treatment Progress",
+    "resources.insights.category.genetics": "Genetic Technology",
+    "resources.insights.category.privacy": "Data Privacy",
     "resources.faq.viewAll": "View All Questions",
     "resources.contact.title": "Have Other Questions?",
     "resources.contact.subtitle": "If you haven't found the information you need, feel free to contact our team",
@@ -1346,7 +1339,7 @@ const translations = {
 };
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>("zh");
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") as Language;

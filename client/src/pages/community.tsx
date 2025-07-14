@@ -308,12 +308,12 @@ export default function Community() {
                           />
                         </div>
                         <p className="text-black mb-4">
-                          {t("community.activities.event1.description")}
+                          🧪 DeSci AMA 来了！加入我们，与 @commondotxyz @nobleblocks @Genpharmachain 进行精彩的讨论，讨论将患者数据标记为 RWA 及其彻底改变癌症研究的潜力。
                         </p>
                         <div className="flex items-center gap-4 text-sm text-black">
                           <div className="flex items-center gap-1">
                             <MessageCircle className="h-4 w-4" />
-                            <span>{t("community.activities.event1.format")}</span>
+                            <span>线上</span>
                           </div>
                         </div>
                       </CardContent>
@@ -327,11 +327,11 @@ export default function Community() {
                       <CardHeader>
                         <div className="flex items-center gap-2 mb-2">
                           <Badge style={{ backgroundColor: '#fc593d' }} className="text-white">
-                            {t("community.activities.event2.status")}
+                            已结束
                           </Badge>
                         </div>
                         <CardTitle className="text-xl font-bold text-black">
-                          {t("community.activities.event2.title")}
+                          DeSAI Meetup：科学与医疗保健创新
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
@@ -372,12 +372,12 @@ export default function Community() {
                           </Carousel>
                         </div>
                         <p className="text-black mb-4">
-                          {t("community.activities.event2.description")}
+                          很高兴邀请您参加我们的 DeSAI Meetup！本次活动将聚焦科学与医疗保健领域的创新，深入探讨去中心化科学（DeSci）与人工智能（AI）的融合。 无论您是行业专家、研究人员，还是对未来医疗科技充满热情的朋友，我们都诚挚地欢迎您的到来。
                         </p>
                         <div className="flex items-center gap-4 text-sm text-black">
                           <div className="flex items-center gap-1">
                             <Users className="h-4 w-4" />
-                            <span>{t("community.activities.event2.format")}</span>
+                            <span>香港城市大学</span>
                           </div>
                         </div>
                       </CardContent>
