@@ -123,7 +123,7 @@ export default function Solution() {
           {/* CancerDAO Architecture Diagram */}
           <div className="mb-16 flex justify-center">
             <div className="max-w-6xl w-full">
-              <div className="relative bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 shadow-lg border border-purple-200">
+              <div className="relative rounded-2xl p-8 shadow-lg border border-purple-200" style={{ background: 'linear-gradient(135deg, #f3f0ff 0%, #e6f3ff 100%)' }}>
                 {/* Community Section */}
                 <div className="absolute top-8 left-8">
                   <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
