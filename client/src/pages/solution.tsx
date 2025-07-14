@@ -34,6 +34,7 @@ import {
   Key,
   UserX,
   Fingerprint,
+  Grid3x3,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
 import cancerDaoLogo from "@assets/透明底_1752333750993.png";
@@ -140,12 +141,7 @@ export default function Solution() {
                   <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200 w-44">
                     <div className="flex flex-col items-center text-center">
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                        <div className="grid grid-cols-2 gap-1">
-                          <div className="w-2 h-2 bg-white rounded-sm"></div>
-                          <div className="w-2 h-2 bg-white rounded-sm"></div>
-                          <div className="w-2 h-2 bg-white rounded-sm"></div>
-                          <div className="w-2 h-2 bg-white rounded-sm"></div>
-                        </div>
+                        <Grid3x3 className="h-8 w-8 text-white" />
                       </div>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.blockchain.medical.id.line1")}</h4>
                       <h4 className="text-sm font-bold text-black">{t("architecture.blockchain.medical.id.line2")}</h4>
