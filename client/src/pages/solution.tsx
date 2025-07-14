@@ -42,6 +42,19 @@ import dataNftFlowChart from "@assets/image_1752205358199.png";
 import fheFlowChart1 from "@assets/image_1752205374610.png";
 import fheFlowChart2 from "@assets/image_1752205381666.png";
 
+// Custom blockchain cube SVG icon
+const BlockchainCubeIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 1024 1024"
+    width="32"
+    height="32"
+    fill="currentColor"
+  >
+    <path d="M544.928 138.464l256 157.984A66.24 66.24 0 0 1 832 352.896V673.28a66.24 66.24 0 0 1-31.072 56.448l-256 157.984c-20.256 12.48-45.6 12.48-65.856 0l-256-157.984A66.24 66.24 0 0 1 192 673.28V352.896c0-23.136 11.808-44.544 31.072-56.448l256-157.984a62.496 62.496 0 0 1 65.856 0z m220.8 258.912l-220.608 136.16v272.288l220.64-136.16-0.032-272.288z m-507.488 6.944v265.344l209.376 129.216v-265.344L258.24 404.32z m254.336-204.416l-226.848 139.968 221.184 136.48 226.816-139.968-221.152-136.48z" />
+  </svg>
+);
+
 export default function Solution() {
   const { t } = useLanguage();
   const [selectedPillar, setSelectedPillar] = useState<number>(0);
@@ -141,7 +154,7 @@ export default function Solution() {
                   <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200 w-44">
                     <div className="flex flex-col items-center text-center">
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                        <Grid3x3 className="h-8 w-8 text-white" />
+                        <BlockchainCubeIcon className="h-8 w-8 text-white" />
                       </div>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.blockchain.medical.id.line1")}</h4>
                       <h4 className="text-sm font-bold text-black">{t("architecture.blockchain.medical.id.line2")}</h4>
