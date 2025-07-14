@@ -129,7 +129,7 @@ export default function Solution() {
                   <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200 w-44">
                     <div className="flex flex-col items-center text-center">
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                        <Brain className="h-8 w-8 text-white" />
+                        <Cpu className="h-8 w-8 text-white" />
                       </div>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.ai.platform.line1")}</h4>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.ai.platform.line2")}</h4>
@@ -254,7 +254,7 @@ export default function Solution() {
               {[
                 {
                   id: 0,
-                  icon: Brain,
+                  icon: Cpu,
                   title: t("solution.ai.pillar.title"),
                   description: t("solution.ai.pillar.description"),
                   points: [
