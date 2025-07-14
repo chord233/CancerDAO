@@ -34,6 +34,7 @@ import { useLanguage } from "@/contexts/language-context";
 import { Link, useNavigate } from "react-router-dom";
 import backgroundImage from "@assets/1500x500_1752159520914.jfif";
 import medicalTimelineImage from "@assets/fcff4af08eed8cfcd771ee7f8838a565_1752466134324.png";
+import cancerDaoLogo from "@assets/透明底_1752468326586.png";
 
 export default function Homepage() {
   const [email, setEmail] = useState("");
@@ -87,8 +88,12 @@ export default function Homepage() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="mb-12 flex justify-center">
-              <div className="text-6xl lg:text-7xl font-bold bg-gradient-to-r from-yellow-bright to-orange-red bg-clip-text text-transparent floating-animation">
-                CancerDAO
+              <div className="floating-animation">
+                <img 
+                  src={cancerDaoLogo} 
+                  alt="CancerDAO Logo" 
+                  className="h-16 lg:h-20 w-auto"
+                />
               </div>
             </div>
             <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-8">
