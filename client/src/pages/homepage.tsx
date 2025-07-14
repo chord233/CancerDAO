@@ -33,6 +33,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/language-context";
 import { Link, useNavigate } from "react-router-dom";
 import backgroundImage from "@assets/1500x500_1752159520914.jfif";
+import medicalTimelineImage from "@assets/fcff4af08eed8cfcd771ee7f8838a565_1752466134324.png";
 
 export default function Homepage() {
   const [email, setEmail] = useState("");
@@ -277,46 +278,12 @@ export default function Homepage() {
             {/* 第二个手机 - 健康时间线 */}
             <div className="text-center">
               <div className="relative mb-8">
-                <div className="w-80 h-96 mx-auto rounded-3xl p-2 shadow-2xl" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                  <div className="w-full h-full bg-white rounded-2xl overflow-hidden">
-                    <div className="h-20 flex items-center justify-center" style={{ background: 'linear-gradient(90deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                      <div className="text-black font-bold text-lg">
-                        CancerDAO PILL
-                      </div>
-                    </div>
-                    <div className="p-6 space-y-4">
-                      <div className="p-4 rounded-lg" style={{ backgroundColor: '#e7d1ff' }}>
-                        <div className="flex items-center justify-center mb-3">
-                          <Smartphone className="h-6 w-6" style={{ color: '#c9a4ff' }} />
-                        </div>
-                        <h4 className="font-semibold text-black mb-2 text-center">
-                          {t("product.timeline")}
-                        </h4>
-                        <div className="space-y-3">
-                          <div className="flex items-center space-x-3">
-                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#c9a4ff' }}></div>
-                            <div className="text-xs text-black text-left">2024年3月 体检报告</div>
-                          </div>
-                          <div className="flex items-center space-x-3">
-                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#fad000' }}></div>
-                            <div className="text-xs text-black text-left">2024年6月 基因检测</div>
-                          </div>
-                          <div className="flex items-center space-x-3">
-                            <div className="w-3 h-3 rounded-full bg-gray-300"></div>
-                            <div className="text-xs text-gray-500 text-left">2024年9月 预约检查</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="p-4 rounded-lg" style={{ backgroundColor: '#e7d1ff' }}>
-                        <h4 className="font-semibold text-black mb-2">
-                          {t("product.blockchain.security")}
-                        </h4>
-                        <div className="flex items-center justify-center">
-                          <Shield className="h-8 w-8" style={{ color: '#c9a4ff' }} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div className="w-64 h-[32rem] mx-auto rounded-2xl shadow-2xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                  <img
+                    src={medicalTimelineImage}
+                    alt="Medical Timeline Interface"
+                    className="w-full h-full object-cover block"
+                  />
                 </div>
               </div>
               
