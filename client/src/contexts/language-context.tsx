@@ -106,6 +106,7 @@ const translations = {
       "CancerDAO PILL 为您构建一个全面的个人健康时间轴，整合您的每一次检查、每一次用药和日常健康数据。您可以清晰追踪健康历程，管理个人数据，并随时回顾，为健康决策提供可靠依据。",
 
     "product.learn.more": "了解更多",
+    "product.trial.button": "立即试用",
 
     // 订阅
     "subscribe.title": "订阅更新",
@@ -735,6 +736,7 @@ const translations = {
       "CancerDAO PILL builds a comprehensive personal health timeline for you, integrating every examination, medication, and daily health data. You can clearly track your health journey, manage personal data, and review it at any time, providing a reliable basis for health decisions.",
 
     "product.learn.more": "Learn More",
+    "product.trial.button": "Try Now",
 
     // 订阅
     "subscribe.title": "Subscribe for Updates",
