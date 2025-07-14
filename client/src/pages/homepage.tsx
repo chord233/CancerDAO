@@ -280,6 +280,19 @@ export default function Homepage() {
                 <p className="text-black leading-relaxed max-w-md mx-auto">
                   {t("product.feature1.description")}
                 </p>
+                
+                {/* Trial Button */}
+                <div className="pt-4">
+                  <Button 
+                    className="bg-purple-medium hover:bg-purple-light text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+                    onClick={() => {
+                      // 未来将连接到小程序链接
+                      console.log("Trial button clicked - will connect to mini-program");
+                    }}
+                  >
+                    {t("product.trial.button")}
+                  </Button>
+                </div>
               </div>
             </div>
 
