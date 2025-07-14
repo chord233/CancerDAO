@@ -82,6 +82,21 @@ const AiTherapiesIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+// Custom Network/Connection SVG icon
+const NetworkIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 1024 1024"
+    width="32"
+    height="32"
+    fill="currentColor"
+  >
+    <path d="M510.912 990.016a421.12 421.12 0 0 1-232.896-69.888 19.2 19.2 0 1 1 21.12-32 385.472 385.472 0 0 0 372.288 28.544 19.2 19.2 0 0 1 16 34.944 420.352 420.352 0 0 1-176.512 38.4z" />
+    <path d="M111.616 649.088a19.2 19.2 0 0 1-19.2-16.192A424 424 0 0 1 372.224 166.4a19.2 19.2 0 1 1 12.8 36.288 385.344 385.344 0 0 0-259.136 363.84A394.88 394.88 0 0 0 130.56 627.2a19.2 19.2 0 0 1-15.936 22.016zM894.464 713.984a19.776 19.776 0 0 1-6.08-0.96 19.2 19.2 0 0 1-12.16-24.32 385.6 385.6 0 0 0-164.352-450.688 19.2 19.2 0 0 1 20.096-32.768 424.064 424.064 0 0 1 180.672 495.616 19.2 19.2 0 0 1-18.176 13.12zM192.384 967.168a147.2 147.2 0 1 1 147.2-147.2 147.2 147.2 0 0 1-147.2 147.2z m0-255.424a108.8 108.8 0 1 0 108.8 108.8 108.8 108.8 0 0 0-108.8-108.8z" />
+    <path d="M849.6 967.168a147.2 147.2 0 1 1 147.2-147.2 147.2 147.2 0 0 1-147.2 147.2z m0-255.424a108.8 108.8 0 1 0 108.8 108.8 108.8 108.8 0 0 0-108.8-108.8zM510.72 313.024a147.2 147.2 0 1 1 147.2-146.88 147.2 147.2 0 0 1-147.2 146.88zM510.72 57.6a108.8 108.8 0 1 0 108.8 108.8 108.8 108.8 0 0 0-108.8-108.8zM510.72 731.584a147.2 147.2 0 1 1 147.2-147.2 147.2 147.2 0 0 1-147.2 147.2z m0-255.424a108.8 108.8 0 1 0 108.8 108.48 108.8 108.8 0 0 0-108.8-108.48z" />
+  </svg>
+);
+
 export default function Solution() {
   const { t } = useLanguage();
   const [selectedPillar, setSelectedPillar] = useState<number>(0);
@@ -192,14 +207,7 @@ export default function Solution() {
                   <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200 w-44">
                     <div className="flex flex-col items-center text-center">
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mb-3 shadow-lg" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                        <div className="flex items-center justify-center">
-                          <Heart className="h-6 w-6 text-white mr-1" />
-                          <div className="flex flex-col">
-                            <div className="w-1 h-1 bg-white rounded-full mb-1"></div>
-                            <div className="w-1 h-1 bg-white rounded-full mb-1"></div>
-                            <div className="w-1 h-1 bg-white rounded-full"></div>
-                          </div>
-                        </div>
+                        <NetworkIcon className="h-8 w-8 text-white" />
                       </div>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.decentralized.database.line1")}</h4>
                       <h4 className="text-sm font-bold text-black mb-2">{t("architecture.decentralized.database.line2")}</h4>
