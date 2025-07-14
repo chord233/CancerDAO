@@ -116,11 +116,39 @@ export default function Solution() {
 
         {/* Core Flow Diagram */}
         <section className="mb-20 rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)', border: '1px solid #e7d1ff' }}>
-          <h2 className="text-3xl font-bold text-center text-black mb-12">
-            {t("solution.core.title")}
-          </h2>
-          
-          {/* CancerDAO Architecture Diagram */}
+          {/* Introduction Text */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-black mb-6">
+              {t("solution.core.intro.title")}
+            </h2>
+            <p className="text-lg text-black max-w-4xl mx-auto leading-relaxed mb-8">
+              {t("solution.core.intro.description")}
+            </p>
+          </div>
+
+          {/* Architecture Flow Diagram */}
+          <div className="mb-16 flex justify-center">
+            <div className="max-w-4xl w-full">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-black mb-4">
+                  {t("solution.core.architecture.title")}
+                </h3>
+              </div>
+              
+              {/* Flow Diagram Image */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-purple-200">
+                <div className="flex justify-center">
+                  <img 
+                    src="attached_assets/image_1752396814895.png" 
+                    alt="CancerDAO Architecture Flow" 
+                    className="max-w-full h-auto rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Original Architecture Diagram */}
           <div className="mb-16 flex justify-center">
             <div className="max-w-6xl w-full">
               <div className="relative bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 shadow-lg border border-purple-200">
