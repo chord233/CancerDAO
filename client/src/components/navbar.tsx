@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/language-context";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { WalletButton } from "@/components/wallet-button";
 
 export function Navbar() {
   const location = useLocation();
@@ -77,6 +78,7 @@ export function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSwitcher />
+            <WalletButton />
             <Button 
               className="btn-primary"
               onClick={handleJoinCommunity}
@@ -119,6 +121,9 @@ export function Navbar() {
               <div className="pt-4 space-y-3">
                 <div className="flex justify-center">
                   <LanguageSwitcher />
+                </div>
+                <div className="flex justify-center">
+                  <WalletButton />
                 </div>
                 <Button 
                   className="btn-primary w-full"
