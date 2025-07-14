@@ -253,6 +253,9 @@ export default function Homepage() {
                   <video
                     className="w-full h-full object-cover block"
                     controls
+                    autoPlay
+                    loop
+                    muted
                     poster=""
                     preload="metadata"
                   >
