@@ -41,7 +41,7 @@ const translations = {
     "problem.global.point1": "大约有 20% 的人将罹患癌症，其中约 10% 会因此离世",
     "problem.global.point2":
       "早发性癌症（50岁以下）的发病率在 1990 年至 2019 年间增加了 79.1%",
-    "problem.knowledge.title": "知识和支持不足",
+    "problem.knowledge.title": "公众在癌症预防和治疗方面知识和支持不足",
     "problem.knowledge.description": "公众在癌症预防和治疗方面知识和支持不足",
     "problem.knowledge.point1": "健康管理及相关数据的知识和工具有限",
     "problem.knowledge.point2": "难以获得创新的癌症预防和治疗方法",
@@ -668,7 +668,7 @@ const translations = {
       "Approximately 20% of people will develop cancer, and about 10% will die from it.",
     "problem.global.point2":
       "The incidence of early-onset cancer (under 50) increased by 79.1% between 1990 and 2019.",
-    "problem.knowledge.title": "Insufficient Knowledge and Support",
+    "problem.knowledge.title": "Public Lacks Knowledge and Support in Cancer Prevention and Treatment",
     "problem.knowledge.description":
       "The public lacks sufficient knowledge and support in cancer prevention and treatment.",
     "problem.knowledge.point1":

@@ -216,7 +216,7 @@ export default function Homepage() {
                         {activeCard === card.id && (
                           <div className="space-y-3 animate-in slide-in-from-top-2 duration-300 mt-4 pt-4 border-t border-gray-200">
                             <p className="text-black">
-                              <strong>{card.description}</strong>
+                              {card.description}
                             </p>
                             <ul className="text-sm text-black space-y-1">
                               {card.points.map((point, index) => (
@@ -252,7 +252,7 @@ export default function Homepage() {
                         {activeCard === card.id && (
                           <div className="space-y-3 animate-in slide-in-from-top-2 duration-300 mt-4 pt-4 border-t border-gray-200">
                             <p className="text-black">
-                              <strong>{card.description}</strong>
+                              {card.description}
                             </p>
                             <ul className="text-sm text-black space-y-1">
                               {card.points.map((point, index) => (
