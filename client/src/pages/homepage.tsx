@@ -163,7 +163,8 @@ export default function Homepage() {
                   icon: AlertTriangle,
                   title: t("problem.global.title"),
                   description: t("problem.global.description"),
-                  points: [t("problem.global.point1"), t("problem.global.point2")]
+                  points: [t("problem.global.point1"), t("problem.global.point2")],
+                  image: "/attached_assets/2_1752589440310.png"
                 },
                 {
                   id: 1,
@@ -192,7 +193,15 @@ export default function Homepage() {
                   >
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center">
-                        <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                        {card.image ? (
+                          <img 
+                            src={card.image} 
+                            alt={card.title}
+                            className="h-8 w-8 mr-3 object-cover rounded"
+                          />
+                        ) : (
+                          <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                        )}
                         <h3 className="text-xl font-semibold text-black">
                           {card.title}
                         </h3>
@@ -221,7 +230,15 @@ export default function Homepage() {
                     <div className="problem-card opacity-0 pointer-events-none">
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center">
-                          <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                          {card.image ? (
+                            <img 
+                              src={card.image} 
+                              alt={card.title}
+                              className="h-8 w-8 mr-3 object-cover rounded"
+                            />
+                          ) : (
+                            <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                          )}
                           <h3 className="text-xl font-semibold text-black">
                             {card.title}
                           </h3>
