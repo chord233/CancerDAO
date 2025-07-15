@@ -54,7 +54,7 @@ const translations = {
     "problem.innovation.point2": "获取公众和患者的成本高昂",
 
     // 生态系统部分
-    "ecosystem.title": "CancerDAO 生态系统",
+    "ecosystem.title": "CancerDAO 的解决方案",
     "ecosystem.subtitle": "构建一个全面的癌症防治生态系统，以患者为中心，技术赋能，社区驱动",
 
     // 解决方案部分
@@ -784,7 +784,7 @@ const translations = {
       "High costs of acquiring public and patient data.",
 
     // 生态系统部分
-    "ecosystem.title": "CancerDAO Ecosystem",
+    "ecosystem.title": "CancerDAO's Solution",
     "ecosystem.subtitle": "Building a comprehensive cancer prevention and treatment ecosystem with patient-centered, technology-empowered, and community-driven approach",
 
     // 解决方案部分
