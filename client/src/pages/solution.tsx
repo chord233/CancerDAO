@@ -343,6 +343,20 @@ export default function Solution() {
                           </div>
                         </div>
 
+                        {/* 视频演示 */}
+                        <div className="mb-8 flex justify-center">
+                          <div className="max-w-2xl mx-auto">
+                            <video 
+                              src="/attached_assets/视频_1752596503369.mp4" 
+                              autoPlay 
+                              loop 
+                              muted 
+                              playsInline
+                              className="w-full h-auto rounded-lg shadow-md"
+                            />
+                          </div>
+                        </div>
+
                         {/* AI Agent 产品矩阵 */}
                         <div className="text-center mb-6">
                           <h4 className="text-xl font-bold text-black mb-6">
