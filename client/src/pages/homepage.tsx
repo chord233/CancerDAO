@@ -192,11 +192,31 @@ export default function Homepage() {
                     onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
                   >
                     {card.id === 0 && card.image ? (
-                      <img 
-                        src={card.image} 
-                        alt={card.title}
-                        className="w-full h-auto rounded-lg"
-                      />
+                      <>
+                        <img 
+                          src={card.image} 
+                          alt={card.title}
+                          className="w-full h-auto rounded-lg mb-4"
+                        />
+                        {activeCard === card.id && (
+                          <div className="space-y-3 animate-in slide-in-from-top-2 duration-300 mt-4 pt-4 border-t border-gray-200">
+                            <div className="flex items-center mb-2">
+                              <card.icon className="h-6 w-6 mr-2" style={{ color: '#fc593d' }} />
+                              <h3 className="text-lg font-semibold text-black">
+                                {card.title}
+                              </h3>
+                            </div>
+                            <p className="text-black">
+                              <strong>{card.description}</strong>
+                            </p>
+                            <ul className="text-sm text-black space-y-1">
+                              {card.points.map((point, index) => (
+                                <li key={index}>• {point}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </>
                     ) : (
                       <>
                         <div className="flex items-center justify-between mb-4">
