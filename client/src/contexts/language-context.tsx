@@ -55,7 +55,7 @@ const translations = {
 
     // 生态系统部分
     "ecosystem.title": "CancerDAO 的解决方案",
-    "ecosystem.subtitle": "构建一个全面的癌症防治生态系统，以患者为中心，技术赋能，社区驱动",
+    "ecosystem.subtitle": "CancerDAO 生态系统由 AI 驱动的癌症支持平台构成，该平台利用数据建立区块链医疗 ID，进而为去中心化癌症数据库贡献数据，最终目标是开发 AI 驱动的癌症疗法和筛查，共同推动癌症预防和治疗的创新与发展。",
 
     // 解决方案部分
     "solution.title": "我们的解决方案",
