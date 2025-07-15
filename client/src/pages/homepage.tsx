@@ -179,7 +179,8 @@ export default function Homepage() {
                   icon: TrendingUp,
                   title: t("problem.innovation.title"),
                   description: t("problem.innovation.description"),
-                  points: [t("problem.innovation.point1"), t("problem.innovation.point2")]
+                  points: [t("problem.innovation.point1"), t("problem.innovation.point2")],
+                  image: "/attached_assets/4_1752591925448.jpg"
                 }
               ].map((card) => (
                 <div 
@@ -192,7 +193,7 @@ export default function Homepage() {
                     }`}
                     onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
                   >
-                    {(card.id === 0 || card.id === 1) && card.image ? (
+                    {(card.id === 0 || card.id === 1 || card.id === 2) && card.image ? (
                       <>
                         <img 
                           src={card.image} 
@@ -259,7 +260,7 @@ export default function Homepage() {
                   {/* Placeholder to maintain layout when not expanded */}
                   {activeCard !== card.id && (
                     <div className="problem-card opacity-0 pointer-events-none">
-                      {(card.id === 0 || card.id === 1) && card.image ? (
+                      {(card.id === 0 || card.id === 1 || card.id === 2) && card.image ? (
                         <img 
                           src={card.image} 
                           alt={card.title}
