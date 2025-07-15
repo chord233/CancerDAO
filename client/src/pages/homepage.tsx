@@ -358,6 +358,19 @@ export default function Homepage() {
               </div>
             </div>
           </div>
+          
+          {/* CancerDAO Architecture Diagram */}
+          <div className="mb-16 flex justify-center">
+            <div className="max-w-6xl w-full">
+              <div className="relative rounded-2xl shadow-lg border border-purple-200">
+                <img 
+                  src="/attached_assets/image_1752475567563.png" 
+                  alt="CancerDAO Architecture Diagram" 
+                  className="w-full h-auto rounded-2xl"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       
