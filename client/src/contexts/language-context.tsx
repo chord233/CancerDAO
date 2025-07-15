@@ -37,7 +37,7 @@ const translations = {
     "problem.subtitle":
       "癌症正成为人类健康的重大威胁，而现有的预防和治疗体系存在诸多局限",
     "problem.global.title": "全球癌症发病率上升",
-    "problem.global.description": "癌症发病率上升，尤其在年轻群体中",
+    "problem.global.description": "全球癌症发病率上升，尤其在年轻群体中",
     "problem.global.point1": "大约有 20% 的人将罹患癌症，其中约 10% 会因此离世",
     "problem.global.point2":
       "早发性癌症（50岁以下）的发病率在 1990 年至 2019 年间增加了 79.1%",
@@ -663,7 +663,7 @@ const translations = {
       "Cancer is becoming a major threat to human health, and existing prevention and treatment systems have many limitations.",
     "problem.global.title": "Rising Global Cancer Incidence",
     "problem.global.description":
-      "Rising cancer incidence, especially among younger populations",
+      "Rising global cancer incidence, especially among younger populations",
     "problem.global.point1":
       "Approximately 20% of people will develop cancer, and about 10% will die from it.",
     "problem.global.point2":
