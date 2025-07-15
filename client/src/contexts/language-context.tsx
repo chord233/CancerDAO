@@ -147,7 +147,7 @@ const translations = {
       "社区不仅有用户分享，未来也可能引入专业人士答疑，结合个人经验提供多维度帮助。理论与实践相结合，为每个人提供最实用的指导。",
     "community.stories.title": "真实故事：社区的力量",
     "community.stories.subtitle":
-      "听听我们社区成员的真实经历，看看他们如何在彼此的支持下走过最困难的时光。",
+      "期待你的发声",
     "community.story1.title": "小A的故事：从迷茫到坚定",
     "community.story1.summary":
       "当小A被诊断出患病时，她感到了前所未有的迷茫和无助。在CancerDAO社区中，她找到了有着相似经历的伙伴，他们的鼓励和经验分享让她重新找回了信心，勇敢地面对治疗。社区的医疗资源推荐也帮助她找到了最合适的医生和治疗方案。",
@@ -976,7 +976,7 @@ const translations = {
       "The community not only has user sharing but may also introduce professional Q&A in the future, combining personal experience to provide multi-dimensional help. Theory and practice combined provide the most practical guidance for everyone.",
     "community.stories.title": "Real Stories: The Power of Community",
     "community.stories.subtitle":
-      "Listen to the real experiences of our community members and see how they got through the most difficult times with each other's support.",
+      "Looking forward to your voice",
     "community.story1.title":
       "Little A's Story: From Confusion to Determination",
     "community.story1.summary":
