@@ -96,35 +96,26 @@ export default function Community() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {communityStories.map((story) => (
-              <Card key={story.id} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-black" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                      {story.avatar}
-                    </div>
-                    <div>
-                      <CardTitle className="text-lg font-bold text-black">
-                        {story.title}
-                      </CardTitle>
-                      
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-black leading-relaxed mb-4">
-                    {story.summary}
-                  </p>
-                  <Button 
-                    className="w-full"
-                    style={{ backgroundColor: '#fad000' }}
-                  >
-                    {t("community.stories.readMore")} <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="text-center py-20">
+            <div className="max-w-2xl mx-auto">
+              <div className="w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl font-bold text-black" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                💬
+              </div>
+              <h3 className="text-2xl font-bold text-black mb-4">
+                期待你的发声
+              </h3>
+              <p className="text-lg text-black mb-8">
+                我们正在收集社区成员的真实故事，如果你愿意分享你的经历，请联系我们。
+              </p>
+              <Button 
+                className="font-semibold px-8 py-3 text-black"
+                style={{ backgroundColor: '#fad000' }}
+                onClick={() => window.open('https://twitter.com/CancerDAOxyz', '_blank')}
+              >
+                分享你的故事
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
           </div>
         </section>
 
