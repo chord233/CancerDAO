@@ -164,7 +164,7 @@ export default function Homepage() {
                   title: t("problem.global.title"),
                   description: t("problem.global.description"),
                   points: [t("problem.global.point1"), t("problem.global.point2")],
-                  image: "/attached_assets/2_1752589440310.png"
+                  image: "/attached_assets/2_1752591217296.jpg"
                 },
                 {
                   id: 1,
