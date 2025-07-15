@@ -304,7 +304,75 @@ export default function Homepage() {
         </div>
       </section>
       
-      
+      {/* CancerDAO Ecosystem - Three Modules */}
+      <section className="py-20 rounded-3xl mx-4 my-20" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)', border: '1px solid #e7d1ff' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
+              {t("ecosystem.title")}
+            </h2>
+            <p className="text-xl text-black max-w-3xl mx-auto">
+              {t("ecosystem.subtitle")}
+            </p>
+          </div>
+          
+          <div className="max-w-6xl mx-auto mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Module 1: Patient-Centered Ecosystem */}
+              <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
+                <div className="flex flex-col items-center text-center mb-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ backgroundColor: '#c9a4ff' }}>
+                    <Users className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-black">以患者为核心的生态系统</h3>
+                </div>
+                <p className="text-sm text-black leading-relaxed text-center">
+                  CancerDAO 正在打造一个以患者和公众为核心的生态系统，汇聚包括普通大众在内的所有利益相关方，形成抗击癌症的统一战线。
+                </p>
+              </div>
+
+              {/* Module 2: Web3 & AI Technology */}
+              <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
+                <div className="flex flex-col items-center text-center mb-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ backgroundColor: '#fad000' }}>
+                    <Shield className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-black">Web3 技术与 AI 驱动</h3>
+                </div>
+                <p className="text-sm text-black leading-relaxed text-center">
+                  CancerDAO 运用 Web3 技术和基础设施，构建去中心化的癌症数据库，以此为基础开发开源、AI 驱动的解决方案，致力于个性化诊疗与癌症预防。
+                </p>
+              </div>
+
+              {/* Module 3: Sustainable Financial System */}
+              <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
+                <div className="flex flex-col items-center text-center mb-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ backgroundColor: '#fc593d' }}>
+                    <Coins className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-black">可持续金融体系</h3>
+                </div>
+                <p className="text-sm text-black leading-relaxed text-center">
+                  此外，CancerDAO 正在试点运行一套可持续的金融体系，通过其原生代币促进社区支持、激励参与，并确保开源创新成果始终面向公众，造福社会。
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          {/* CancerDAO Architecture Diagram */}
+          <div className="mb-16 flex justify-center">
+            <div className="max-w-6xl w-full">
+              <div className="relative rounded-2xl shadow-lg border border-purple-200">
+                <img 
+                  src="/attached_assets/image_1752475567563.png" 
+                  alt="CancerDAO Architecture Diagram" 
+                  className="w-full h-auto rounded-2xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       
       {/* Product Preview - Simplified */}
       <section className="py-20 bg-white">
