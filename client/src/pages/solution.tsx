@@ -133,7 +133,20 @@ export default function Solution() {
             </div>
           </div>
 
-          
+          {/* CancerDAO Ecosystem Description */}
+          <div className="max-w-4xl mx-auto text-center mb-8">
+            <div className="space-y-6">
+              <p className="text-lg text-black leading-relaxed">
+                CancerDAO 正在打造一个以患者和公众为核心的生态系统，汇聚包括普通大众在内的所有利益相关方，形成抗击癌症的统一战线。
+              </p>
+              <p className="text-lg text-black leading-relaxed">
+                CancerDAO 运用 Web3 技术和基础设施，构建去中心化的癌症数据库，以此为基础开发开源、AI 驱动的解决方案，致力于个性化诊疗与癌症预防。
+              </p>
+              <p className="text-lg text-black leading-relaxed">
+                此外，CancerDAO 正在试点运行一套可持续的金融体系，通过其原生代币促进社区支持、激励参与，并确保开源创新成果始终面向公众，造福社会。
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* Three Pillars - Circular Layout */}
