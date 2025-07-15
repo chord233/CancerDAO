@@ -134,7 +134,7 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-      {/* Problem Section */}
+      {/* Problem Section - Image Display */}
       <section className="py-20 bg-white relative">
         {/* Subtle continuation of background image at top */}
         <div 
@@ -156,101 +156,16 @@ export default function Homepage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-              {[
-                {
-                  id: 0,
-                  icon: AlertTriangle,
-                  title: t("problem.global.title"),
-                  description: t("problem.global.description"),
-                  points: [t("problem.global.point1"), t("problem.global.point2")],
-                  image: "/attached_assets/2_1752589440310.png"
-                },
-                {
-                  id: 1,
-                  icon: Users,
-                  title: t("problem.knowledge.title"),
-                  description: t("problem.knowledge.description"),
-                  points: [t("problem.knowledge.point1"), t("problem.knowledge.point2"), t("problem.knowledge.point3")]
-                },
-                {
-                  id: 2,
-                  icon: TrendingUp,
-                  title: t("problem.innovation.title"),
-                  description: t("problem.innovation.description"),
-                  points: [t("problem.innovation.point1"), t("problem.innovation.point2")]
-                }
-              ].map((card) => (
-                <div 
-                  key={card.id} 
-                  className="relative"
-                >
-                  <div 
-                    className={`problem-card cursor-pointer transition-all duration-300 ${
-                      activeCard === card.id ? 'absolute z-50 shadow-2xl scale-105 left-0 right-0' : 'relative z-10'
-                    }`}
-                    onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
-                  >
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center">
-                        {card.image ? (
-                          <img 
-                            src={card.image} 
-                            alt={card.title}
-                            className="h-8 w-8 mr-3 object-cover rounded"
-                          />
-                        ) : (
-                          <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                        )}
-                        <h3 className="text-xl font-semibold text-black">
-                          {card.title}
-                        </h3>
-                      </div>
-                      <div className={`text-2xl font-bold transition-transform duration-300 ${
-                        activeCard === card.id ? 'rotate-180' : ''
-                      }`} style={{ color: '#c9a4ff' }}>
-                        ▼
-                      </div>
-                    </div>
-                    {activeCard === card.id && (
-                      <div className="space-y-3 animate-in slide-in-from-top-2 duration-300 mt-4 pt-4 border-t border-gray-200">
-                        <p className="text-black">
-                          <strong>{card.description}</strong>
-                        </p>
-                        <ul className="text-sm text-black space-y-1">
-                          {card.points.map((point, index) => (
-                            <li key={index}>• {point}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                  {/* Placeholder to maintain layout when not expanded */}
-                  {activeCard !== card.id && (
-                    <div className="problem-card opacity-0 pointer-events-none">
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center">
-                          {card.image ? (
-                            <img 
-                              src={card.image} 
-                              alt={card.title}
-                              className="h-8 w-8 mr-3 object-cover rounded"
-                            />
-                          ) : (
-                            <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                          )}
-                          <h3 className="text-xl font-semibold text-black">
-                            {card.title}
-                          </h3>
-                        </div>
-                        <div className="text-2xl font-bold" style={{ color: '#c9a4ff' }}>
-                          ▼
-                        </div>
-                      </div>
-                    </div>
-                  )}
+            <div className="flex justify-center">
+              <div className="max-w-6xl w-full">
+                <div className="rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                  <img 
+                    src="/attached_assets/image_1752589733451.png" 
+                    alt="Global Challenges Visualization" 
+                    className="w-full h-auto object-cover"
+                  />
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
