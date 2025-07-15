@@ -171,7 +171,8 @@ export default function Homepage() {
                   icon: Users,
                   title: t("problem.knowledge.title"),
                   description: t("problem.knowledge.description"),
-                  points: [t("problem.knowledge.point1"), t("problem.knowledge.point2"), t("problem.knowledge.point3")]
+                  points: [t("problem.knowledge.point1"), t("problem.knowledge.point2"), t("problem.knowledge.point3")],
+                  image: "/attached_assets/3_1752591389815.jpg"
                 },
                 {
                   id: 2,
