@@ -195,8 +195,26 @@ export default function Homepage() {
                   >
                     {(card.id === 0 || card.id === 1 || card.id === 2) && card.image ? (
                       <>
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center">
+                            <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                            <h3 className="text-xl font-semibold text-black">
+                              {card.title}
+                            </h3>
+                          </div>
+                          <div className={`text-2xl font-bold transition-transform duration-300 ${
+                            activeCard === card.id ? 'rotate-180' : ''
+                          }`} style={{ color: '#c9a4ff' }}>
+                            ▼
+                          </div>
+                        </div>
+                        <img 
+                          src={card.image} 
+                          alt={card.title}
+                          className="w-full h-auto rounded-lg mb-4"
+                        />
                         {activeCard === card.id && (
-                          <div className="space-y-3 animate-in slide-in-from-top-2 duration-300 mb-4 pb-4 border-b border-gray-200">
+                          <div className="space-y-3 animate-in slide-in-from-top-2 duration-300 mt-4 pt-4 border-t border-gray-200">
                             <p className="text-black">
                               <strong>{card.description}</strong>
                             </p>
@@ -207,11 +225,6 @@ export default function Homepage() {
                             </ul>
                           </div>
                         )}
-                        <img 
-                          src={card.image} 
-                          alt={card.title}
-                          className="w-full h-auto rounded-lg"
-                        />
                       </>
                     ) : (
                       <>
