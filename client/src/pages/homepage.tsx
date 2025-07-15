@@ -187,7 +187,7 @@ export default function Homepage() {
                 >
                   <div 
                     className={`problem-card cursor-pointer transition-all duration-300 ${
-                      activeCard === card.id ? 'absolute z-50 shadow-2xl scale-105 left-0 right-0' : 'relative z-10'
+                      activeCard === card.id ? 'relative z-10 shadow-2xl transform scale-105' : 'relative z-10'
                     }`}
                     onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
                   >
