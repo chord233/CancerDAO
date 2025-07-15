@@ -53,6 +53,10 @@ const translations = {
       "数据碎片化、孤立，缺乏标准化和共享，限制了 AI 驱动创新的发展",
     "problem.innovation.point2": "获取公众和患者的成本高昂",
 
+    // 生态系统部分
+    "ecosystem.title": "CancerDAO 生态系统",
+    "ecosystem.subtitle": "构建一个全面的癌症防治生态系统，以患者为中心，技术赋能，社区驱动",
+
     // 解决方案部分
     "solution.title": "我们的解决方案",
     "solution.subtitle": "通过三大核心支柱，构建一个全面的癌症防治生态系统",
@@ -778,6 +782,10 @@ const translations = {
       "Fragmented and isolated data, lack of standardization and sharing, limiting the development of AI-driven innovation.",
     "problem.innovation.point2":
       "High costs of acquiring public and patient data.",
+
+    // 生态系统部分
+    "ecosystem.title": "CancerDAO Ecosystem",
+    "ecosystem.subtitle": "Building a comprehensive cancer prevention and treatment ecosystem with patient-centered, technology-empowered, and community-driven approach",
 
     // 解决方案部分
     "solution.title": "Our Solution",
