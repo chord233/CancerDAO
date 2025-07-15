@@ -345,7 +345,7 @@ export default function Solution() {
 
                         {/* 视频演示 */}
                         <div className="mb-8 flex justify-center">
-                          <div className="max-w-2xl mx-auto">
+                          <div className="max-w-xs mx-auto">
                             <video 
                               src="/attached_assets/视频_1752596503369.mp4" 
                               autoPlay 
