@@ -192,7 +192,7 @@ export default function Homepage() {
                     }`}
                     onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
                   >
-                    {card.id === 0 && card.image ? (
+                    {(card.id === 0 || card.id === 1) && card.image ? (
                       <>
                         <img 
                           src={card.image} 
@@ -259,7 +259,7 @@ export default function Homepage() {
                   {/* Placeholder to maintain layout when not expanded */}
                   {activeCard !== card.id && (
                     <div className="problem-card opacity-0 pointer-events-none">
-                      {card.id === 0 && card.image ? (
+                      {(card.id === 0 || card.id === 1) && card.image ? (
                         <img 
                           src={card.image} 
                           alt={card.title}
