@@ -47,7 +47,7 @@ const translations = {
     "problem.knowledge.point2": "难以获得创新的癌症预防和治疗方法",
     "problem.knowledge.point3":
       '公众和患者通常被视为"顾客"，限制了积极参与创新',
-    "problem.innovation.title": "创新缓慢且成本高昂",
+    "problem.innovation.title": "机构和企业创新缓慢且成本高昂",
     "problem.innovation.description": "机构和企业创新缓慢且成本高昂",
     "problem.innovation.point1":
       "数据碎片化、孤立，缺乏标准化和共享，限制了 AI 驱动创新的发展",
@@ -677,7 +677,7 @@ const translations = {
       "Difficulty in accessing innovative cancer prevention and treatment methods.",
     "problem.knowledge.point3":
       "The public and patients are often seen as 'customers,' limiting active participation in innovation.",
-    "problem.innovation.title": "Slow and Costly Innovation",
+    "problem.innovation.title": "Institutions and Enterprises Face Slow and Costly Innovation",
     "problem.innovation.description":
       "Institutional and corporate innovation is slow and expensive.",
     "problem.innovation.point1":
