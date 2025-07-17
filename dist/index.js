@@ -245,13 +245,19 @@ function serveStatic(app2) {
 
 // server/index.ts
 import path3 from "path";
+import { fileURLToPath as fileURLToPath2 } from "url";
+var __filename2 = fileURLToPath2(import.meta.url);
+var __dirname2 = path3.dirname(__filename2);
 var app = express2();
 app.use(express2.json());
 app.use(express2.urlencoded({ extended: false }));
-app.use("/attached_assets", express2.static(path3.resolve(process.cwd(), "attached_assets")));
+app.use(
+  "/attached_assets",
+  express2.static(path3.resolve(__dirname2, "..", "attached_assets"))
+);
 app.use((req, res, next) => {
   const start = Date.now();
-  const path4 = req.path;
+  const reqPath = req.path;
   let capturedJsonResponse = void 0;
   const originalResJson = res.json;
   res.json = function(bodyJson, ...args) {
@@ -260,8 +266,8 @@ app.use((req, res, next) => {
   };
   res.on("finish", () => {
     const duration = Date.now() - start;
-    if (path4.startsWith("/api")) {
-      let logLine = `${req.method} ${path4} ${res.statusCode} in ${duration}ms`;
+    if (reqPath.startsWith("/api")) {
+      let logLine = `${req.method} ${reqPath} ${res.statusCode} in ${duration}ms`;
       if (capturedJsonResponse) {
         logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
       }
@@ -299,7 +305,7 @@ app.use((req, res, next) => {
   } catch (err) {
     if (err.code === "EADDRINUSE") {
       log(`\u26A0\uFE0F Port ${port} is already in use. Trying port ${Number(port) + 1}...`);
-      server.listen(Number(port) + 1, () => {
+      server.listen(Number(port) + 1, "0.0.0.0", () => {
         log(`Server running on http://localhost:${Number(port) + 1}`);
       });
     } else {
