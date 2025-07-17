@@ -347,7 +347,7 @@ export default function Solution() {
                         <div className="mb-8 flex justify-center">
                           <div className="max-w-xs mx-auto">
                             <video 
-                              src="/attached_assets/视频_1752596503369.mp4" 
+                              src="/attached_assets/视频2.mp4"
                               autoPlay 
                               loop 
                               muted 

@@ -25,6 +25,15 @@ const translations = {
     "nav.resources": "资源中心",
     "nav.join": "加入社区",
 
+    // 邮箱连接
+    "email.connect": "连接邮箱",
+    "email.connected": "已连接",
+    "email.connectTitle": "连接邮箱",
+    "email.placeholder": "请输入你的邮箱",
+    "email.confirm": "确认连接",
+    "email.connecting": "连接中...",
+    "email.invalid": "请输入有效的邮箱地址",
+
     // 首页
     "hero.title": "与公众共建，革新癌症防治",
     "hero.subtitle":
@@ -744,6 +753,15 @@ const translations = {
     "nav.community": "Community",
     "nav.resources": "Resources",
     "nav.join": "Join Community",
+
+    // Email Connect
+    "email.connect": "Connect Email",
+    "email.connected": "Email Connected",
+    "email.connectTitle": "Connect Your Email",
+    "email.placeholder": "Enter your email address",
+    "email.confirm": "Confirm",
+    "email.connecting": "Connecting...",
+    "email.invalid": "Please enter a valid email address",
 
     // 首页
     "hero.title": "Revolutionize Cancer Prevention and Care, with the Public",

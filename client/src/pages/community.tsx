@@ -91,9 +91,6 @@ export default function Community() {
             <h2 className="text-3xl font-bold text-black mb-4">
               {t("community.stories.title")}
             </h2>
-            <p className="text-lg text-black max-w-3xl mx-auto">
-              {t("community.stories.subtitle")}
-            </p>
           </div>
 
           <div className="text-center py-20">

@@ -51,24 +51,35 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = 5000;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
-  });
+  const port = process.env.PORT || 5000;
+
+  // Windows兼容的服务器启动方式
+  try {
+    server.listen(port, () => {
+      log(`Server running on http://localhost:${port}`);
+
+      // 开发环境额外信息
+      if (app.get("env") === "development") {
+        log(`  - API: http://localhost:${port}/api`);
+        log(`  - Assets: http://localhost:${port}/attached_assets`);
+        log(`  - Vite: http://localhost:3000`); // 如果Vite使用不同端口
+      }
+    });
+  } catch (err) {
+    if (err.code === 'EADDRINUSE') {
+      log(`⚠️ Port ${port} is already in use. Trying port ${Number(port)+1}...`);
+      server.listen(Number(port)+1, () => {
+        log(`Server running on http://localhost:${Number(port)+1}`);
+      });
+    } else {
+      log(`❌ Server startup error: ${err.message}`);
+      process.exit(1);
+    }
+  }
 })();
