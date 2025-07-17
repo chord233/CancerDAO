@@ -175,6 +175,9 @@ var vite_config_default = defineConfig({
 
 // server/vite.ts
 import { nanoid } from "nanoid";
+import { fileURLToPath } from "url";
+var __filename = fileURLToPath(import.meta.url);
+var __dirname = path2.dirname(__filename);
 var viteLogger = createLogger();
 function log(message, source = "express") {
   const formattedTime = (/* @__PURE__ */ new Date()).toLocaleTimeString("en-US", {
@@ -209,7 +212,7 @@ async function setupVite(app2, server) {
     const url = req.originalUrl;
     try {
       const clientTemplate = path2.resolve(
-        import.meta.dirname,
+        __dirname,
         "..",
         "client",
         "index.html"
@@ -228,7 +231,7 @@ async function setupVite(app2, server) {
   });
 }
 function serveStatic(app2) {
-  const distPath = path2.resolve(import.meta.dirname, "..", "dist", "public");
+  const distPath = path2.resolve(__dirname, "..", "dist", "public");
   if (!fs.existsSync(distPath)) {
     throw new Error(
       `\u274C Could not find the build directory: ${distPath}, make sure to run 'npm run build' first.`
