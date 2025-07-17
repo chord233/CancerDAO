@@ -61,14 +61,12 @@ app.use((req, res, next) => {
 
   // Windows兼容的服务器启动方式
   try {
-    server.listen(port, () => {
+    server.listen(port,'0.0.0.0',() => {
       log(`Server running on http://localhost:${port}`);
-
-      // 开发环境额外信息
       if (app.get("env") === "development") {
         log(`  - API: http://localhost:${port}/api`);
         log(`  - Assets: http://localhost:${port}/attached_assets`);
-        log(`  - Vite: http://localhost:3000`); // 如果Vite使用不同端口
+        log(`  - Vite: http://localhost:3000`);
       }
     });
   } catch (err) {
