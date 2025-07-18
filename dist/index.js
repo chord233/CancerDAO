@@ -143,6 +143,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import { fileURLToPath } from "url";
+var __filename = fileURLToPath(import.meta.url);
+var __dirname = path.dirname(__filename);
 var vite_config_default = defineConfig({
   plugins: [
     react(),
@@ -155,14 +158,14 @@ var vite_config_default = defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets")
+      "@": path.resolve(__dirname, "client", "src"),
+      "@shared": path.resolve(__dirname, "shared"),
+      "@assets": path.resolve(__dirname, "attached_assets")
     }
   },
-  root: path.resolve(import.meta.dirname, "client"),
+  root: path.resolve(__dirname, "client"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true
   },
   server: {
@@ -175,9 +178,9 @@ var vite_config_default = defineConfig({
 
 // server/vite.ts
 import { nanoid } from "nanoid";
-import { fileURLToPath } from "url";
-var __filename = fileURLToPath(import.meta.url);
-var __dirname = path2.dirname(__filename);
+import { fileURLToPath as fileURLToPath2 } from "url";
+var __filename2 = fileURLToPath2(import.meta.url);
+var __dirname2 = path2.dirname(__filename2);
 var viteLogger = createLogger();
 function log(message, source = "express") {
   const formattedTime = (/* @__PURE__ */ new Date()).toLocaleTimeString("en-US", {
@@ -212,7 +215,7 @@ async function setupVite(app2, server) {
     const url = req.originalUrl;
     try {
       const clientTemplate = path2.resolve(
-        __dirname,
+        __dirname2,
         "..",
         "client",
         "index.html"
@@ -231,7 +234,7 @@ async function setupVite(app2, server) {
   });
 }
 function serveStatic(app2) {
-  const distPath = path2.resolve(__dirname, "..", "dist", "public");
+  const distPath = path2.resolve(__dirname2, "..", "dist", "public");
   if (!fs.existsSync(distPath)) {
     throw new Error(
       `\u274C Could not find the build directory: ${distPath}, make sure to run 'npm run build' first.`
@@ -245,15 +248,15 @@ function serveStatic(app2) {
 
 // server/index.ts
 import path3 from "path";
-import { fileURLToPath as fileURLToPath2 } from "url";
-var __filename2 = fileURLToPath2(import.meta.url);
-var __dirname2 = path3.dirname(__filename2);
+import { fileURLToPath as fileURLToPath3 } from "url";
+var __filename3 = fileURLToPath3(import.meta.url);
+var __dirname3 = path3.dirname(__filename3);
 var app = express2();
 app.use(express2.json());
 app.use(express2.urlencoded({ extended: false }));
 app.use(
   "/attached_assets",
-  express2.static(path3.resolve(__dirname2, "..", "attached_assets"))
+  express2.static(path3.resolve(__dirname3, "..", "attached_assets"))
 );
 app.use((req, res, next) => {
   const start = Date.now();
