@@ -391,18 +391,28 @@ export default function Homepage() {
               </div>
             </div>
 
-            {/* 第二个手机 - 健康时间线 */}
+            {/* 第二个手机 - 健康时间线（用视频代替图片） */}
             <div className="text-center">
               <div className="relative mb-8">
-                <div className="w-64 h-[32rem] mx-auto rounded-2xl shadow-2xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                  <img
-                    src={medicalTimelineImage}
-                    alt="Medical Timeline Interface"
-                    className="w-full h-full object-cover block"
-                  />
+                <div
+                    className="w-64 h-[32rem] mx-auto rounded-2xl shadow-2xl overflow-hidden"
+                    style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}
+                >
+                  <video
+                      className="w-full h-full object-cover block"
+                      controls
+                      autoPlay
+                      loop
+                      muted
+                      poster=""
+                      preload="metadata"
+                  >
+                    <source src="/attached_assets/事件线.mp4" type="video/mp4" />
+                    您的浏览器不支持视频播放。
+                  </video>
                 </div>
               </div>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center justify-center mb-4">
                   <Smartphone className="h-8 w-8 mr-3" style={{ color: '#c9a4ff' }} />
@@ -413,21 +423,22 @@ export default function Homepage() {
                 <p className="text-black leading-relaxed max-w-md mx-auto">
                   {t("product.feature2.description")}
                 </p>
-                
+
                 {/* Trial Button */}
                 <div className="pt-4">
-                  <Button 
-                    className="bg-purple-medium hover:bg-purple-light text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
-                    onClick={() => {
-                      // 未来将连接到小程序链接
-                      console.log("Trial button clicked - will connect to mini-program");
-                    }}
+                  <Button
+                      className="bg-purple-medium hover:bg-purple-light text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+                      onClick={() => {
+                        // 未来将连接到小程序链接
+                        console.log("Trial button clicked - will connect to mini-program");
+                      }}
                   >
                     {t("product.trial.button")}
                   </Button>
                 </div>
               </div>
             </div>
+
           </div>
           
           <div className="text-center mt-16">
