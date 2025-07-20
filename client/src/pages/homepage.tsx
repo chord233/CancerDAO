@@ -644,88 +644,85 @@ export default function Homepage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
-              我们的合作伙伴
+              {t("partners.title")}
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              欢迎各类组织加入，共同推动创新
+              {t("partners.subtitle")}
             </p>
           </div>
 
           {/* Partner Logos Carousel */}
           <div className="relative overflow-hidden mb-12">
             <div className="flex animate-scroll whitespace-nowrap">
-              {/* First set of partners */}
               {[
-                { name: "Alpha Medical Group", logo: "AM", website: "#" },
-                { name: "Beta Research Institute", logo: "BR", website: "#" },
-                { name: "Gamma Health Tech", logo: "GH", website: "#" },
-                { name: "Delta Innovation Lab", logo: "DI", website: "#" },
-                { name: "Epsilon BioSciences", logo: "EB", website: "#" },
-                { name: "Zeta Digital Health", logo: "ZD", website: "#" }
+                { name: "City University of HongKong", logoImage: "/partner_logo/CityU_logo.svg", website: "#" },
+                { name: "DeSAI XYZ", logoImage: "/partner_logo/DeSAI_xyz_logo.svg", website: "#" },
+                { name: "DeSAI Sino", logoImage: "/partner_logo/DESCI_SINO_logo.svg", website: "#" },
+                { name: "AuraSci", logoImage: "/partner_logo/AuraSci_logo.png", website: "#" },
+                { name: "DeSci Asia", logoImage: "/partner_logo/DeSciAsia_logo.svg", website: "#" },
+                { name: "DeSci China", logoImage: "/partner_logo/DeSciChina_logo.png", website: "#" },
               ].map((partner, index) => (
-                <div 
-                  key={index} 
-                  className="inline-block mx-4 group cursor-pointer"
-                  onClick={() => partner.website !== "#" && window.open(partner.website, "_blank")}
-                >
-                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center h-32 w-40">
-                    <div 
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-black mb-2 group-hover:scale-110 transition-transform duration-300"
-                      style={{ backgroundColor: '#e7d1ff' }}
+                  <div
+                      key={index}
+                      className="inline-block mx-4 group cursor-pointer"
+                      onClick={() => partner.website !== "#" && window.open(partner.website, "_blank")}
+                  >
+                    <div
+                        className="bg-[#e7d1ff] border border-gray-200 rounded-lg p-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center h-32 w-40 overflow-hidden"
                     >
-                      {partner.logo}
-                    </div>
-                    <div className="text-xs font-medium text-black text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {partner.name}
+                      <img
+                          src={partner.logoImage}
+                          alt={partner.name}
+                          className="w-full h-full object-contain"
+                      />
                     </div>
                   </div>
-                </div>
               ))}
               {/* Duplicate set for seamless scroll */}
               {[
-                { name: "Alpha Medical Group", logo: "AM", website: "#" },
-                { name: "Beta Research Institute", logo: "BR", website: "#" },
-                { name: "Gamma Health Tech", logo: "GH", website: "#" },
-                { name: "Delta Innovation Lab", logo: "DI", website: "#" },
-                { name: "Epsilon BioSciences", logo: "EB", website: "#" },
-                { name: "Zeta Digital Health", logo: "ZD", website: "#" }
+                { name: "City University of HongKong", logoImage: "/partner_logo/CityU_logo.svg", website: "#" },
+                { name: "DeSAI XYZ", logoImage: "/partner_logo/DeSAI_xyz_logo.svg", website: "#" },
+                { name: "DeSAI Sino", logoImage: "/partner_logo/DESCI_SINO_logo.svg", website: "#" },
+                { name: "AuraSci", logoImage: "/partner_logo/AuraSci_logo.png", website: "#" },
+                { name: "DeSci Asia", logoImage: "/partner_logo/DeSciAsia_logo.svg", website: "#" },
+                { name: "DeSci China", logoImage: "/partner_logo/DeSciChina_logo.png", website: "#" },
               ].map((partner, index) => (
-                <div 
-                  key={`duplicate-${index}`} 
-                  className="inline-block mx-4 group cursor-pointer"
-                  onClick={() => partner.website !== "#" && window.open(partner.website, "_blank")}
-                >
-                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center h-32 w-40">
-                    <div 
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-black mb-2 group-hover:scale-110 transition-transform duration-300"
-                      style={{ backgroundColor: '#e7d1ff' }}
+                  <div
+                      key={`duplicate-${index}`}
+                      className="inline-block mx-4 group cursor-pointer"
+                      onClick={() => partner.website !== "#" && window.open(partner.website, "_blank")}
+                  >
+                    <div
+                        className="bg-[#e7d1ff] border border-gray-200 rounded-lg p-2 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center h-32 w-40 overflow-hidden"
                     >
-                      {partner.logo}
-                    </div>
-                    <div className="text-xs font-medium text-black text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {partner.name}
+                      <img
+                          src={partner.logoImage}
+                          alt={partner.name}
+                          className="w-full h-full object-contain"
+                      />
                     </div>
                   </div>
-                </div>
               ))}
             </div>
           </div>
+
+
 
           {/* Call to Action */}
           <div className="text-center">
             <div className="rounded-2xl p-8 max-w-2xl mx-auto border border-gray-200">
               <h3 className="text-xl font-bold text-black mb-4">
-                成为我们的合作伙伴
+                {t("partners.join_us")}
               </h3>
               <p className="text-black mb-6">
-                我们正在寻找志同道合的机构和组织，共同构建去中心化的癌症预防与治疗生态系统
+                {t("partners.we_found")}
               </p>
               <Button 
                 className="font-semibold px-8 py-3 text-black"
                 style={{ backgroundColor: '#fad000' }}
                 onClick={() => navigate('/for-partners')}
               >
-                了解合作机会
+                {t("partners.collaboration")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>

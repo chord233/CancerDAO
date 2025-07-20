@@ -129,10 +129,12 @@ export default function Solution() {
                   <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ backgroundColor: '#c9a4ff' }}>
                     <Users className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-black">以患者为核心的生态系统</h3>
+                  <h3 className="text-lg font-bold text-black">
+                    {t("solution.core.patient.title")}
+                  </h3>
                 </div>
                 <p className="text-sm text-black leading-relaxed text-center">
-                  CancerDAO 正在打造一个以患者和公众为核心的生态系统，汇聚包括普通大众在内的所有利益相关方，形成抗击癌症的统一战线。
+                  {t("solution.core.patient.content")}
                 </p>
               </div>
 
@@ -142,10 +144,10 @@ export default function Solution() {
                   <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ backgroundColor: '#fad000' }}>
                     <Shield className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-black">Web3 技术与 AI 驱动</h3>
+                  <h3 className="text-lg font-bold text-black">{t("solution.core.web3.title")}</h3>
                 </div>
                 <p className="text-sm text-black leading-relaxed text-center">
-                  CancerDAO 运用 Web3 技术和基础设施，构建去中心化的癌症数据库，以此为基础开发开源、AI 驱动的解决方案，致力于个性化诊疗与癌症预防。
+                  {t("solution.core.web3.content")}
                 </p>
               </div>
 
@@ -155,10 +157,10 @@ export default function Solution() {
                   <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ backgroundColor: '#fc593d' }}>
                     <Coins className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-black">可持续金融体系</h3>
+                  <h3 className="text-lg font-bold text-black">{t("solution.core.finance.title")}</h3>
                 </div>
                 <p className="text-sm text-black leading-relaxed text-center">
-                  此外，CancerDAO 正在试点运行一套可持续的金融体系，通过其原生代币促进社区支持、激励参与，并确保开源创新成果始终面向公众，造福社会。
+                  {t("solution.core.finance.content")}
                 </p>
               </div>
             </div>
@@ -338,7 +340,7 @@ export default function Solution() {
                               <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: '#e7d1ff' }}>
                                 <UserCheck className="h-6 w-6" style={{ color: '#c9a4ff' }} />
                               </div>
-                              <p className="mt-3 text-sm text-black font-semibold">个性化AI健康顾问</p>
+                              <p className="mt-3 text-sm text-black font-semibold">{t("ai.analysis.step4")}</p>
                             </div>
                           </div>
                         </div>
@@ -384,81 +386,81 @@ export default function Solution() {
                             </div>
                           </div>
                           
-                          {/* Trial Bot */}
-                          <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
-                            <div className="flex items-start mb-3">
-                              <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fc593d' }}>
-                                <Search className="h-5 w-5 text-white" />
-                              </div>
-                              <div className="flex-1">
-                                <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.trial.name")}</h5>
-                                <p className="text-xs text-gray-600 mb-2">{t("ai.agent.trial.description")}</p>
-                              </div>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <Badge className="text-black text-xs" style={{ backgroundColor: '#fc593d' }}>
-                                {t("ai.agent.trial.status")}
-                              </Badge>
-                              <span className="text-xs text-gray-500">Agent</span>
-                            </div>
-                          </div>
+                          {/*/!* Trial Bot *!/*/}
+                          {/*<div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">*/}
+                          {/*  <div className="flex items-start mb-3">*/}
+                          {/*    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fc593d' }}>*/}
+                          {/*      <Search className="h-5 w-5 text-white" />*/}
+                          {/*    </div>*/}
+                          {/*    <div className="flex-1">*/}
+                          {/*      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.trial.name")}</h5>*/}
+                          {/*      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.trial.description")}</p>*/}
+                          {/*    </div>*/}
+                          {/*  </div>*/}
+                          {/*  <div className="flex items-center justify-between">*/}
+                          {/*    <Badge className="text-black text-xs" style={{ backgroundColor: '#fc593d' }}>*/}
+                          {/*      {t("ai.agent.trial.status")}*/}
+                          {/*    </Badge>*/}
+                          {/*    <span className="text-xs text-gray-500">Agent</span>*/}
+                          {/*  </div>*/}
+                          {/*</div>*/}
                           
-                          {/* Clinical Bot */}
-                          <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
-                            <div className="flex items-start mb-3">
-                              <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>
-                                <Stethoscope className="h-5 w-5 text-white" />
-                              </div>
-                              <div className="flex-1">
-                                <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.clinical.name")}</h5>
-                                <p className="text-xs text-gray-600 mb-2">{t("ai.agent.clinical.description")}</p>
-                              </div>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <Badge className="text-black text-xs" style={{ backgroundColor: '#fc593d' }}>
-                                {t("ai.agent.clinical.status")}
-                              </Badge>
-                              <span className="text-xs text-gray-500">Agent</span>
-                            </div>
-                          </div>
+                          {/*/!* Clinical Bot *!/*/}
+                          {/*<div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">*/}
+                          {/*  <div className="flex items-start mb-3">*/}
+                          {/*    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>*/}
+                          {/*      <Stethoscope className="h-5 w-5 text-white" />*/}
+                          {/*    </div>*/}
+                          {/*    <div className="flex-1">*/}
+                          {/*      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.clinical.name")}</h5>*/}
+                          {/*      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.clinical.description")}</p>*/}
+                          {/*    </div>*/}
+                          {/*  </div>*/}
+                          {/*  <div className="flex items-center justify-between">*/}
+                          {/*    <Badge className="text-black text-xs" style={{ backgroundColor: '#fc593d' }}>*/}
+                          {/*      {t("ai.agent.clinical.status")}*/}
+                          {/*    </Badge>*/}
+                          {/*    <span className="text-xs text-gray-500">Agent</span>*/}
+                          {/*  </div>*/}
+                          {/*</div>*/}
                           
-                          {/* Content Bot */}
-                          <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
-                            <div className="flex items-start mb-3">
-                              <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>
-                                <Edit className="h-5 w-5 text-white" />
-                              </div>
-                              <div className="flex-1">
-                                <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.content.name")}</h5>
-                                <p className="text-xs text-gray-600 mb-2">{t("ai.agent.content.description")}</p>
-                              </div>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <Badge className="text-black text-xs" style={{ backgroundColor: '#fad000' }}>
-                                {t("ai.agent.content.status")}
-                              </Badge>
-                              <span className="text-xs text-gray-500">Agent</span>
-                            </div>
-                          </div>
+                          {/*/!* Content Bot *!/*/}
+                          {/*<div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">*/}
+                          {/*  <div className="flex items-start mb-3">*/}
+                          {/*    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>*/}
+                          {/*      <Edit className="h-5 w-5 text-white" />*/}
+                          {/*    </div>*/}
+                          {/*    <div className="flex-1">*/}
+                          {/*      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.content.name")}</h5>*/}
+                          {/*      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.content.description")}</p>*/}
+                          {/*    </div>*/}
+                          {/*  </div>*/}
+                          {/*  <div className="flex items-center justify-between">*/}
+                          {/*    <Badge className="text-black text-xs" style={{ backgroundColor: '#fad000' }}>*/}
+                          {/*      {t("ai.agent.content.status")}*/}
+                          {/*    </Badge>*/}
+                          {/*    <span className="text-xs text-gray-500">Agent</span>*/}
+                          {/*  </div>*/}
+                          {/*</div>*/}
                           
-                          {/* Longevity Bot */}
-                          <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
-                            <div className="flex items-start mb-3">
-                              <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
-                                <Activity className="h-5 w-5 text-white" />
-                              </div>
-                              <div className="flex-1">
-                                <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.longevity.name")}</h5>
-                                <p className="text-xs text-gray-600 mb-2">{t("ai.agent.longevity.description")}</p>
-                              </div>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <Badge className="text-black text-xs" style={{ backgroundColor: '#fc593d' }}>
-                                {t("ai.agent.longevity.status")}
-                              </Badge>
-                              <span className="text-xs text-gray-500">Agent</span>
-                            </div>
-                          </div>
+                          {/*/!* Longevity Bot *!/*/}
+                          {/*<div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">*/}
+                          {/*  <div className="flex items-start mb-3">*/}
+                          {/*    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>*/}
+                          {/*      <Activity className="h-5 w-5 text-white" />*/}
+                          {/*    </div>*/}
+                          {/*    <div className="flex-1">*/}
+                          {/*      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.longevity.name")}</h5>*/}
+                          {/*      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.longevity.description")}</p>*/}
+                          {/*    </div>*/}
+                          {/*  </div>*/}
+                          {/*  <div className="flex items-center justify-between">*/}
+                          {/*    <Badge className="text-black text-xs" style={{ backgroundColor: '#fc593d' }}>*/}
+                          {/*      {t("ai.agent.longevity.status")}*/}
+                          {/*    </Badge>*/}
+                          {/*    <span className="text-xs text-gray-500">Agent</span>*/}
+                          {/*  </div>*/}
+                          {/*</div>*/}
                           
                           {/* AMA Bot */}
                           <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
@@ -479,43 +481,43 @@ export default function Solution() {
                             </div>
                           </div>
                           
-                          {/* Research Bot */}
-                          <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
-                            <div className="flex items-start mb-3">
-                              <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
-                                <Microscope className="h-5 w-5 text-white" />
-                              </div>
-                              <div className="flex-1">
-                                <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.research.name")}</h5>
-                                <p className="text-xs text-gray-600 mb-2">{t("ai.agent.research.description")}</p>
-                              </div>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <Badge className="text-black text-xs" style={{ backgroundColor: '#fc593d' }}>
-                                {t("ai.agent.research.status")}
-                              </Badge>
-                              <span className="text-xs text-gray-500">Agent</span>
-                            </div>
-                          </div>
+                          {/*/!* Research Bot *!/*/}
+                          {/*<div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">*/}
+                          {/*  <div className="flex items-start mb-3">*/}
+                          {/*    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>*/}
+                          {/*      <Microscope className="h-5 w-5 text-white" />*/}
+                          {/*    </div>*/}
+                          {/*    <div className="flex-1">*/}
+                          {/*      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.research.name")}</h5>*/}
+                          {/*      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.research.description")}</p>*/}
+                          {/*    </div>*/}
+                          {/*  </div>*/}
+                          {/*  <div className="flex items-center justify-between">*/}
+                          {/*    <Badge className="text-black text-xs" style={{ backgroundColor: '#fc593d' }}>*/}
+                          {/*      {t("ai.agent.research.status")}*/}
+                          {/*    </Badge>*/}
+                          {/*    <span className="text-xs text-gray-500">Agent</span>*/}
+                          {/*  </div>*/}
+                          {/*</div>*/}
                           
-                          {/* Support Bot */}
-                          <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
-                            <div className="flex items-start mb-3">
-                              <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>
-                                <MessageCircle className="h-5 w-5 text-white" />
-                              </div>
-                              <div className="flex-1">
-                                <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.support.name")}</h5>
-                                <p className="text-xs text-gray-600 mb-2">{t("ai.agent.support.description")}</p>
-                              </div>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <Badge className="text-black border border-black text-xs" style={{ backgroundColor: 'white' }}>
-                                {t("ai.agent.support.status")}
-                              </Badge>
-                              <span className="text-xs text-gray-500">Agent</span>
-                            </div>
-                          </div>
+                          {/*/!* Support Bot *!/*/}
+                          {/*<div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">*/}
+                          {/*  <div className="flex items-start mb-3">*/}
+                          {/*    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>*/}
+                          {/*      <MessageCircle className="h-5 w-5 text-white" />*/}
+                          {/*    </div>*/}
+                          {/*    <div className="flex-1">*/}
+                          {/*      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.support.name")}</h5>*/}
+                          {/*      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.support.description")}</p>*/}
+                          {/*    </div>*/}
+                          {/*  </div>*/}
+                          {/*  <div className="flex items-center justify-between">*/}
+                          {/*    <Badge className="text-black border border-black text-xs" style={{ backgroundColor: 'white' }}>*/}
+                          {/*      {t("ai.agent.support.status")}*/}
+                          {/*    </Badge>*/}
+                          {/*    <span className="text-xs text-gray-500">Agent</span>*/}
+                          {/*  </div>*/}
+                          {/*</div>*/}
                         </div>
                       </div>
                     );
@@ -525,26 +527,28 @@ export default function Solution() {
                       <div className="pt-6">
                         <div className="text-center mb-8">
                           <h3 className="text-2xl font-bold text-black mb-4">
-                            区块链与数据主权：构建可信的数字健康未来
+                            {t("blockchain.title")}
                           </h3>
                         </div>
                         {/* 为什么我们需要区块链？ */}
                         <div className="mb-8">
                           <div className="text-center mb-6">
                             <h4 className="text-xl font-bold text-black mb-4">
-                              为什么我们需要区块链？
+                              {t("blockchain.why.title")}
                             </h4>
                           </div>
                           
                           <div className="text-left mb-6">
-                            <p className="text-black leading-relaxed">区块链的去中心化、不可篡改和透明特性，能够在多方参与的健康价值网络中建立起无需信任的协作机制，确保用户对其健康数据拥有绝对主权，并保障数据和价值在网络中的公开透明流转。</p>
+                            <p className="text-black leading-relaxed">
+                              {t("blockchain.why.content")}
+                            </p>
                           </div>
                         </div>
                         {/* 核心技术解释与图示 */}
                         <div className="mb-8">
                           <div className="text-center mb-6">
                             <h4 className="text-xl font-bold text-black mb-4">
-                              核心技术解释与图示
+                              {t("blockchain.technology.title")}
                             </h4>
                           </div>
                           
@@ -554,12 +558,14 @@ export default function Solution() {
                               <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
                                 <Database className="h-4 w-4 text-white" />
                               </div>
-                              <h5 className="text-lg font-bold text-black">Data NFT</h5>
+                              <h5 className="text-lg font-bold text-black">
+                                {t("blockchain.technology.datanft.title")}
+                              </h5>
                             </div>
                             
                             <div className="text-left mb-6">
                               <p className="text-black leading-relaxed">
-                                Data NFT 是一种独特的数字代币，它将您的个人健康数据转化为真正属于您的数字资产。数据提供者首先提供加密的健康数据，这些数据随后被记录在区块链上并进行通证化，生成独特的Data NFT。这些Data NFT代表了数据的唯一性、所有权和可追溯性，并可以在市场中进行交易。通过这种方式，数据提供者能够控制谁可以访问他们的数据，并通过数据使用费和产品版税的形式获得收益，甚至从平台奖励中受益。
+                                {t("blockchain.technology.datanft.content")}
                               </p>
                             </div>
                             
@@ -578,12 +584,14 @@ export default function Solution() {
                               <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>
                                 <Lock className="h-4 w-4 text-white" />
                               </div>
-                              <h5 className="text-lg font-bold text-black">全同态加密 (FHE)</h5>
+                              <h5 className="text-lg font-bold text-black">
+                                {t("blockchain.technology.fhe.title")}
+                              </h5>
                             </div>
                             
                             <div className="text-left mb-6">
                               <p className="text-black leading-relaxed">
-                                全同态加密 (FHE) 是一项突破性技术，它允许在不解密数据的情况下直接对加密数据执行计算。这意味着，即使您的生物和医疗数据处于加密状态，人工智能模型或研究人员仍然可以对其进行分析和处理，而数据本身的原始形式始终是保密的，不会被泄露。FHE 彻底消除了数据在使用过程中的隐私风险，确保了您的敏感健康信息在被用于生成洞察或开发新疗法时，其隐私性得到最高级别的保护。
+                                {t("blockchain.technology.fhe.content")}
                               </p>
                             </div>
                             
@@ -610,12 +618,14 @@ export default function Solution() {
                               <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fc593d' }}>
                                 <Fingerprint className="h-4 w-4 text-white" />
                               </div>
-                              <h5 className="text-lg font-bold text-black">去中心化身份 (DID)</h5>
+                              <h5 className="text-lg font-bold text-black">
+                                {t("blockchain.technology.did.title")}
+                              </h5>
                             </div>
                             
                             <div className="text-left mb-6">
                               <p className="text-black leading-relaxed">
-                                去中心化身份（DID）使用户能够在没有中心化机构的情况下拥有并完全控制自己的数字身份。DID 允许用户管理自己的身份信息，并用于对数据访问进行授权。这极大地增强了用户对其数据主权的控制，保障了隐私和安全。
+                                {t("blockchain.technology.did.content")}
                               </p>
                             </div>
                           </div>
@@ -628,10 +638,10 @@ export default function Solution() {
                       <div className="pt-6">
                         <div className="text-center mb-8">
                           <h3 className="text-2xl font-bold text-black mb-4">
-                            社区驱动生态：共建、共享、共赢的未来
+                            {t("communitydriven.title")}
                           </h3>
                           <p className="text-lg text-black max-w-3xl mx-auto mb-8">
-                            社区在CancerDAO生态系统中占据核心地位。社区成员不仅仅是用户，更是共建者、贡献者、所有者，共同推动癌症防治事业的发展。
+                            {t("communitydriven.content")}
                           </p>
                         </div>
                         
@@ -639,7 +649,7 @@ export default function Solution() {
                         <div className="mb-8">
                           <div className="text-center mb-6">
                             <h4 className="text-xl font-bold text-black mb-6">
-                              社区参与方式
+                              {t("communitydriven.join")}
                             </h4>
                           </div>
                           
@@ -648,11 +658,15 @@ export default function Solution() {
                             <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
                               <div className="flex items-start mb-3">
                                 <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
-                                  <Database className="h-5 w-5 text-white" />
+                                  <Heart className="h-4 w-4 text-white" />
                                 </div>
                                 <div className="flex-1">
-                                  <h5 className="text-base font-bold text-black mb-1">数据贡献</h5>
-                                  <p className="text-xs text-gray-600">安全、隐私地共享匿名化健康数据，加速研究和AI模型训练</p>
+                                  <h5 className="text-base font-bold text-black mb-1">
+                                    {t("communitydriven.join.health.title")}
+                                  </h5>
+                                  <p className="text-xs text-gray-600">
+                                    {t("communitydriven.join.health.content")}
+                                  </p>
                                 </div>
                               </div>
                             </div>
@@ -661,11 +675,15 @@ export default function Solution() {
                             <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
                               <div className="flex items-start mb-3">
                                 <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>
-                                  <UserCheck className="h-5 w-5 text-white" />
+                                  <Brain className="h-4 w-4 text-white" />
                                 </div>
                                 <div className="flex-1">
-                                  <h5 className="text-base font-bold text-black mb-1">知识标注与验证</h5>
-                                  <p className="text-xs text-gray-600">参与AI解析结果、医疗信息的标注验证，提升数据质量和模型准确性</p>
+                                  <h5 className="text-base font-bold text-black mb-1">
+                                    {t("communitydriven.join.data.title")}
+                                  </h5>
+                                  <p className="text-xs text-gray-600">
+                                    {t("communitydriven.join.data.content")}
+                                  </p>
                                 </div>
                               </div>
                             </div>
@@ -674,40 +692,19 @@ export default function Solution() {
                             <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
                               <div className="flex items-start mb-3">
                                 <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fc593d' }}>
-                                  <TestTube className="h-5 w-5 text-white" />
+                                  <Coins className="h-4 w-4 text-white" />
                                 </div>
                                 <div className="flex-1">
-                                  <h5 className="text-base font-bold text-black mb-1">产品测试与反馈</h5>
-                                  <p className="text-xs text-gray-600">参与新产品功能测试，提供使用反馈和改进建议</p>
+                                  <h5 className="text-base font-bold text-black mb-1">
+                                    {t("communitydriven.join.token.title")}
+                                  </h5>
+                                  <p className="text-xs text-gray-600">
+                                    {t("communitydriven.join.token.content")}
+                                  </p>
                                 </div>
                               </div>
                             </div>
-                            
-                            {/* 社区治理 */}
-                            <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
-                              <div className="flex items-start mb-3">
-                                <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
-                                  <Vote className="h-5 w-5 text-white" />
-                                </div>
-                                <div className="flex-1">
-                                  <h5 className="text-base font-bold text-black mb-1">社区治理 (DAO投票)</h5>
-                                  <p className="text-xs text-gray-600">通过持有代币参与DAO投票，决定项目发展方向和资金使用</p>
-                                </div>
-                              </div>
-                            </div>
-                            
-                            {/* 内容创作与分享 */}
-                            <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
-                              <div className="flex items-start mb-3">
-                                <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>
-                                  <PenTool className="h-5 w-5 text-white" />
-                                </div>
-                                <div className="flex-1">
-                                  <h5 className="text-base font-bold text-black mb-1">内容创作与分享</h5>
-                                  <p className="text-xs text-gray-600">分享经验、科普知识，共同建设社区内容生态</p>
-                                </div>
-                              </div>
-                            </div>
+
                           </div>
                         </div>
 
@@ -715,10 +712,10 @@ export default function Solution() {
                         <div className="mb-8">
                           <div className="text-center mb-6">
                             <h4 className="text-xl font-bold text-black mb-4">
-                              生态飞轮模型
+                              {t("communitydriven.model.title")}
                             </h4>
                             <p className="text-sm text-black max-w-2xl mx-auto mb-6">
-                              CancerDAO生态飞轮展现了社区、产品服务、数据AI和代币之间的相互促进关系，形成可持续发展的生态系统。
+                              {t("communitydriven.model.content")}
                             </p>
                           </div>
                           
@@ -730,45 +727,7 @@ export default function Solution() {
                               className="max-w-md mx-auto rounded-lg shadow-md"
                             />
                           </div>
-                          
-                          {/* 生态飞轮说明 */}
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
-                              <div className="flex items-start mb-3">
-                                <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
-                                  <Heart className="h-4 w-4 text-white" />
-                                </div>
-                                <div className="flex-1">
-                                  <h5 className="text-sm font-bold text-black mb-1">健康管理平台</h5>
-                                  <p className="text-xs text-gray-600">为社区成员提供癌症护理和预防支持服务及相关产品（由社区成员付费）</p>
-                                </div>
-                              </div>
-                            </div>
-                            
-                            <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
-                              <div className="flex items-start mb-3">
-                                <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>
-                                  <Brain className="h-4 w-4 text-white" />
-                                </div>
-                                <div className="flex-1">
-                                  <h5 className="text-sm font-bold text-black mb-1">数据和AI平台</h5>
-                                  <p className="text-xs text-gray-600">支持生态系统业务合作伙伴的精准癌症治疗和筛查开发（由合作伙伴付费）</p>
-                                </div>
-                              </div>
-                            </div>
-                            
-                            <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200 md:col-span-2">
-                              <div className="flex items-start mb-3">
-                                <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fc593d' }}>
-                                  <Coins className="h-4 w-4 text-white" />
-                                </div>
-                                <div className="flex-1">
-                                  <h5 className="text-sm font-bold text-black mb-1">CancerDAO代币</h5>
-                                  <p className="text-xs text-gray-600">作为生态系统内的流通代币，实现价值传递和治理激励</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+
                         </div>
                       </div>
                     );
