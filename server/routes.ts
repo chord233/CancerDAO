@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertSubscriberSchema, insertContactMessageSchema } from "@shared/schema";
 import { z } from "zod";
+import { handleContact } from './handlers/contact';
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Subscribers endpoints
@@ -41,18 +42,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/contact", async (req, res) => {
-    try {
-      const messageData = insertContactMessageSchema.parse(req.body);
-      const message = await storage.createContactMessage(messageData);
-      res.status(201).json({ success: true, message: "Message sent successfully" });
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        return res.status(400).json({ error: "Invalid message data", details: error.errors });
-      }
-      res.status(500).json({ error: "Failed to send message" });
-    }
-  });
+  app.post("/api/contact", handleContact);
 
   const httpServer = createServer(app);
   return httpServer;

@@ -90,3 +90,5 @@ export function getPipelineStageIcon(stage: string): string {
       return "fas fa-circle";
   }
 }
+
+

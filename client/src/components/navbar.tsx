@@ -1,5 +1,6 @@
 // components/navbar.tsx
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Mail, Wallet, User, LogOut, CreditCard, AlertCircle } from "lucide-react";
@@ -374,6 +375,81 @@ class WalletService {
   }
 }
 
+// 用户数据存储服务
+class UserStorageService {
+  private static USERS_KEY = 'cancerdao_users';
+  private static CURRENT_USER_KEY = 'cancerdao_current_user';
+
+  static saveUser(userData: any) {
+    try {
+      const users = this.getAllUsers();
+      const userKey = userData.email || userData.walletAddress;
+      users[userKey] = {
+        ...userData,
+        createdAt: new Date().toISOString(),
+        lastLoginAt: new Date().toISOString()
+      };
+      localStorage.setItem(this.USERS_KEY, JSON.stringify(users));
+      localStorage.setItem(this.CURRENT_USER_KEY, userKey);
+    } catch (error) {
+      console.error('保存用户数据失败:', error);
+    }
+  }
+
+  static getUser(userKey: string) {
+    try {
+      const users = this.getAllUsers();
+      return users[userKey] || null;
+    } catch (error) {
+      console.error('获取用户数据失败:', error);
+      return null;
+    }
+  }
+
+  static getAllUsers() {
+    try {
+      const users = localStorage.getItem(this.USERS_KEY);
+      return users ? JSON.parse(users) : {};
+    } catch (error) {
+      console.error('获取用户列表失败:', error);
+      return {};
+    }
+  }
+
+  static userExists(userKey: string) {
+    const users = this.getAllUsers();
+    return !!users[userKey];
+  }
+
+  static validateEmailLogin(email: string, password: string) {
+    const userData = this.getUser(email);
+    if (!userData) {
+      throw new Error('用户不存在，请先注册');
+    }
+    if (userData.password !== password) {
+      throw new Error('密码错误');
+    }
+    return userData;
+  }
+
+  static getCurrentUser() {
+    try {
+      const currentUserKey = localStorage.getItem(this.CURRENT_USER_KEY);
+      return currentUserKey ? this.getUser(currentUserKey) : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  static clearCurrentUser() {
+    try {
+      localStorage.removeItem(this.CURRENT_USER_KEY);
+    } catch (error) {
+      console.error('清除当前用户失败:', error);
+    }
+  }
+}
+
 // 用户头像下拉菜单组件
 function UserProfileDropdown({
                                userState,
@@ -548,11 +624,25 @@ function UserProfileDropdown({
   );
 }
 
-// 登录下拉菜单组件
+// 登录弹窗组件
 function LoginDropdown({ onLogin }: { onLogin: (type: LoginType, userData: any) => void }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [showEmailForm, setShowEmailForm] = useState<boolean>(false);
+  const [emailFormData, setEmailFormData] = useState({
+    email: '',
+    password: ''
+  });
+
+  // 添加注册相关状态
+  const [isRegisterMode, setIsRegisterMode] = useState<boolean>(false);
+  const [registerFormData, setRegisterFormData] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+    name: ''
+  });
   const { t } = useLanguage();
 
   const handleEmailLogin = async () => {
@@ -657,79 +747,469 @@ function LoginDropdown({ onLogin }: { onLogin: (type: LoginType, userData: any) 
     }
   };
 
+  const handleEmailFormLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading('email');
+    setError(null);
+
+    try {
+      // 验证邮箱格式
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailFormData.email)) {
+        throw new Error('请输入有效的邮箱地址');
+      }
+
+      if (emailFormData.password.length < 6) {
+        throw new Error('密码长度至少6位');
+      }
+
+      // 模拟登录API调用
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // 验证用户登录
+      const userData = UserStorageService.validateEmailLogin(emailFormData.email, emailFormData.password);
+
+      // 更新最后登录时间
+      UserStorageService.saveUser({
+        ...userData,
+        lastLoginAt: new Date().toISOString()
+      });
+
+      onLogin(LoginType.EMAIL, userData);
+      setIsOpen(false);
+      setShowEmailForm(false);
+      setEmailFormData({ email: '', password: '' });
+
+    } catch (error: any) {
+      console.error('邮箱登录失败:', error);
+      setError(error.message || '登录失败，请重试');
+    } finally {
+      setIsLoading(null);
+    }
+  };
+
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading('register');
+    setError(null);
+
+    try {
+      // 验证表单
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(registerFormData.email)) {
+        throw new Error('请输入有效的邮箱地址');
+      }
+
+      if (registerFormData.password.length < 6) {
+        throw new Error('密码长度至少6位');
+      }
+
+      if (registerFormData.password !== registerFormData.confirmPassword) {
+        throw new Error('两次输入的密码不一致');
+      }
+
+      if (registerFormData.name.trim().length < 2) {
+        throw new Error('用户名至少2个字符');
+      }
+
+      // 检查用户是否已存在
+      if (UserStorageService.userExists(registerFormData.email)) {
+        throw new Error('该邮箱已被注册，请直接登录');
+      }
+
+      // 模拟注册API调用
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      // 创建新用户
+      const userData = {
+        name: registerFormData.name.trim(),
+        email: registerFormData.email,
+        password: registerFormData.password, // 实际应用中需要加密
+        avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${registerFormData.email}`,
+        points: 1000 // 新用户奖励积分
+      };
+
+      // 保存用户数据
+      UserStorageService.saveUser(userData);
+
+      // 自动登录
+      onLogin(LoginType.EMAIL, userData);
+      setIsOpen(false);
+      setIsRegisterMode(false);
+      setRegisterFormData({ email: '', password: '', confirmPassword: '', name: '' });
+
+    } catch (error: any) {
+      console.error('注册失败:', error);
+      setError(error.message || '注册失败，请重试');
+    } finally {
+      setIsLoading(null);
+    }
+  };
+
+  const handleGoogleRegister = async () => {
+    setIsLoading('google');
+    setError(null);
+
+    try {
+      // 先检查浏览器是否支持弹窗
+      const popup = window.open('', '_blank', 'width=1,height=1');
+      if (!popup) {
+        throw new Error('浏览器阻止了弹窗，请在浏览器设置中允许弹窗后重试');
+      }
+      popup.close();
+
+      const googleAuth = GoogleAuthService.getInstance();
+      const userData = await googleAuth.signIn();
+
+      if (!userData) {
+        throw new Error('无法获取用户信息，请重试');
+      }
+
+      // 检查用户是否已存在
+      if (UserStorageService.userExists(userData.email)) {
+        // 如果已存在，直接登录
+        const existingUser = UserStorageService.getUser(userData.email);
+        UserStorageService.saveUser({
+          ...existingUser,
+          lastLoginAt: new Date().toISOString()
+        });
+        onLogin(LoginType.EMAIL, existingUser);
+      } else {
+        // 如果不存在，注册新用户
+        const newUserData = {
+          ...userData,
+          points: 1000 // 新用户奖励积分
+        };
+        UserStorageService.saveUser(newUserData);
+        onLogin(LoginType.EMAIL, newUserData);
+      }
+
+      setIsOpen(false);
+
+    } catch (error: any) {
+      console.error('Google 注册/登录失败:', error);
+      let errorMessage = error.message || 'Google 注册失败，请重试';
+
+      if (errorMessage.includes('popup')) {
+        errorMessage = '浏览器阻止了登录窗口，请检查弹窗设置后重试';
+      }
+
+      setError(errorMessage);
+    } finally {
+      setIsLoading(null);
+    }
+  };
+
+  const handleWalletRegister = async () => {
+    setIsLoading('wallet');
+    setError(null);
+
+    try {
+      let walletData;
+
+      if (window.ethereum) {
+        walletData = await WalletService.connectMetaMask();
+      } else if ((window as any).solana && (window as any).solana.isPhantom) {
+        walletData = await WalletService.connectPhantom();
+      } else {
+        throw new Error('未检测到支持的钱包。请安装 MetaMask 或 Phantom 钱包。');
+      }
+
+      // 检查钱包是否已注册
+      if (UserStorageService.userExists(walletData.address)) {
+        // 如果已存在，直接登录
+        const existingUser = UserStorageService.getUser(walletData.address);
+        UserStorageService.saveUser({
+          ...existingUser,
+          lastLoginAt: new Date().toISOString()
+        });
+        onLogin(LoginType.WALLET, existingUser);
+      } else {
+        // 如果不存在，注册新用户
+        const userData = {
+          name: `钱包用户 ${walletData.address.slice(0, 6)}`,
+          walletAddress: walletData.address,
+          walletType: walletData.walletType,
+          points: 1000 // 新用户奖励积分
+        };
+        UserStorageService.saveUser(userData);
+        onLogin(LoginType.WALLET, userData);
+      }
+
+      setIsOpen(false);
+    } catch (error: any) {
+      console.error('钱包连接失败:', error);
+      setError(error.message || '钱包连接失败，请重试');
+    } finally {
+      setIsLoading(null);
+    }
+  };
+
+
   return (
       <div className="relative">
         <Button
             variant="outline"
             className="flex items-center space-x-2 hover:bg-purple-50 hover:border-purple-300"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsOpen(true)}
         >
           <span>{t('nav.login')}</span>
-          <ChevronDown className={cn("h-4 w-4 transition-transform", isOpen && "rotate-180")} />
         </Button>
 
-        {isOpen && (
+        {/* 弹窗遮罩和内容 */}
+        {isOpen && createPortal(
             <>
               {/* 遮罩层 */}
               <div
-                  className="fixed inset-0 z-40"
+                  className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
                   onClick={() => setIsOpen(false)}
-              />
+              >
+                {/* 弹窗内容 */}
+                <div
+                    className="bg-white rounded-2xl shadow-2xl w-full max-w-md relative overflow-hidden"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                  {/* 关闭按钮 */}
+                  <button
+                      onClick={() => setIsOpen(false)}
+                      className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors z-10"
+                  >
+                    <X className="h-5 w-5 text-gray-400" />
+                  </button>
 
-              {/* 下拉菜单 */}
-              <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
-                <div className="py-2">
-                  <div className="px-4 py-2 text-sm text-gray-500 border-b border-gray-100">
-                    {t('nav.chooseLogin')}
+                  {/* 弹窗头部 */}
+                  <div className="bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-6 text-white text-center">
+                    <h2 className="text-2xl font-bold mb-2">登录 CancerDAO</h2>
+                    <p className="text-purple-100 text-sm">选择您偏好的登录方式</p>
                   </div>
 
-                  {/* 谷歌邮箱选项 */}
-                  <div className="px-2 py-1">
-                    <button
-                        onClick={handleEmailLogin}
-                        disabled={isLoading !== null}
-                        className="w-full flex items-center justify-start px-2 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      <Mail className="h-4 w-4 mr-3" />
-                      <span className="flex-1 text-left">{t('nav.googleEmail')}</span>
-                      {isLoading === 'email' && (
-                          <div className="animate-spin rounded-full h-4 w-4 border-2 border-purple-600 border-t-transparent"></div>
-                      )}
-                    </button>
-                  </div>
+                  {/* 登录选项 */}
+                  <div className="p-8 space-y-4">
+                    {showEmailForm ? (
+                        /* 邮箱登录/注册表单 */
+                        <>
+                          <div className="flex items-center mb-6">
+                            <button
+                                onClick={() => {
+                                  handleBackToOptions();
+                                  setIsRegisterMode(false);
+                                }}
+                                className="p-2 hover:bg-gray-100 rounded-full transition-colors mr-3"
+                            >
+                              <ChevronDown className="h-5 w-5 rotate-90 text-gray-400" />
+                            </button>
+                            <h3 className="text-lg font-semibold text-gray-800">
+                              {isRegisterMode ? '邮箱注册' : '邮箱登录'}
+                            </h3>
+                          </div>
 
-                  {/* 钱包连接选项 */}
-                  <div className="px-2 py-1">
-                    <button
-                        onClick={handleWalletLogin}
-                        disabled={isLoading !== null}
-                        className="w-full flex items-center justify-start px-2 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      <Wallet className="h-4 w-4 mr-3" />
-                      <span className="flex-1 text-left">{t('nav.connectWallet')}</span>
-                      {isLoading === 'wallet' && (
-                          <div className="animate-spin rounded-full h-4 w-4 border-2 border-purple-600 border-t-transparent"></div>
-                      )}
-                    </button>
-                  </div>
+                          <form onSubmit={isRegisterMode ? handleRegister : handleEmailFormLogin} className="space-y-4">
+                            {isRegisterMode && (
+                                <div>
+                                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                                    用户名
+                                  </label>
+                                  <input
+                                      type="text"
+                                      id="name"
+                                      value={registerFormData.name}
+                                      onChange={(e) => setRegisterFormData(prev => ({ ...prev, name: e.target.value }))}
+                                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                      placeholder="请输入用户名"
+                                      required
+                                      minLength={2}
+                                  />
+                                </div>
+                            )}
 
-                  {/* 钱包提示信息 */}
-                  <div className="px-2 py-1 mt-2 border-t border-gray-100">
-                    <div className="text-xs text-gray-400 px-2 py-1">
-                      支持 MetaMask 和 Phantom 钱包
-                    </div>
+                            <div>
+                              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                                邮箱地址
+                              </label>
+                              <input
+                                  type="email"
+                                  id="email"
+                                  value={isRegisterMode ? registerFormData.email : emailFormData.email}
+                                  onChange={(e) => {
+                                    if (isRegisterMode) {
+                                      setRegisterFormData(prev => ({ ...prev, email: e.target.value }));
+                                    } else {
+                                      setEmailFormData(prev => ({ ...prev, email: e.target.value }));
+                                    }
+                                  }}
+                                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                  placeholder="请输入您的邮箱"
+                                  required
+                              />
+                            </div>
+
+                            <div>
+                              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                                密码
+                              </label>
+                              <input
+                                  type="password"
+                                  id="password"
+                                  value={isRegisterMode ? registerFormData.password : emailFormData.password}
+                                  onChange={(e) => {
+                                    if (isRegisterMode) {
+                                      setRegisterFormData(prev => ({ ...prev, password: e.target.value }));
+                                    } else {
+                                      setEmailFormData(prev => ({ ...prev, password: e.target.value }));
+                                    }
+                                  }}
+                                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                  placeholder="请输入密码"
+                                  required
+                                  minLength={6}
+                              />
+                            </div>
+
+                            {isRegisterMode && (
+                                <div>
+                                  <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
+                                    确认密码
+                                  </label>
+                                  <input
+                                      type="password"
+                                      id="confirmPassword"
+                                      value={registerFormData.confirmPassword}
+                                      onChange={(e) => setRegisterFormData(prev => ({ ...prev, confirmPassword: e.target.value }))}
+                                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                      placeholder="请再次输入密码"
+                                      required
+                                      minLength={6}
+                                  />
+                                </div>
+                            )}
+
+                            {!isRegisterMode && (
+                                <div className="flex items-center justify-between text-sm">
+                                  <label className="flex items-center">
+                                    <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                                    <span className="ml-2 text-gray-600">记住我</span>
+                                  </label>
+                                  <button type="button" className="text-blue-600 hover:text-blue-700">
+                                    忘记密码？
+                                  </button>
+                                </div>
+                            )}
+
+                            <button
+                                type="submit"
+                                disabled={isLoading === 'email' || isLoading === 'register'}
+                                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                            >
+                              {(isLoading === 'email' || isLoading === 'register') ? (
+                                  <>
+                                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+                                    <span>{isRegisterMode ? '注册中...' : '登录中...'}</span>
+                                  </>
+                              ) : (
+                                  <span>{isRegisterMode ? '注册' : '登录'}</span>
+                              )}
+                            </button>
+
+                            <div className="text-center">
+                              <p className="text-sm text-gray-600 mb-2">
+                                {isRegisterMode ? '已有账户？' : '还没有账户？'}
+                              </p>
+                              <button
+                                  type="button"
+                                  className="text-blue-600 hover:text-blue-700 font-medium text-sm hover:underline"
+                                  onClick={() => {
+                                    setIsRegisterMode(!isRegisterMode);
+                                    setError(null);
+                                  }}
+                              >
+                                {isRegisterMode ? '立即登录' : '立即注册'}
+                              </button>
+                            </div>
+                          </form>
+                        </>
+                    ) : (
+                        /* 原有的登录选项，需要修改按钮行为 */
+                        <>
+                          {/* Google 登录/注册 */}
+                          <button
+                              onClick={handleGoogleRegister}
+                              disabled={isLoading !== null}
+                              className="w-full flex items-center justify-center space-x-3 px-6 py-4 bg-white border-2 border-gray-200 rounded-xl hover:border-red-300 hover:shadow-md transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed group"
+                          >
+                            <div className="w-6 h-6 flex items-center justify-center">
+                              <svg viewBox="0 0 24 24" className="w-5 h-5">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                              </svg>
+                            </div>
+                            <span className="flex-1 text-gray-700 font-medium group-hover:text-gray-900">
+        使用 Google 账户登录/注册
+      </span>
+                            {isLoading === 'google' && (
+                                <div className="animate-spin rounded-full h-5 w-5 border-2 border-red-500 border-t-transparent"></div>
+                            )}
+                          </button>
+
+                          {/* 钱包登录/注册 */}
+                          <button
+                              onClick={handleWalletRegister}
+                              disabled={isLoading !== null}
+                              className="w-full flex items-center justify-center space-x-3 px-6 py-4 bg-white border-2 border-gray-200 rounded-xl hover:border-purple-300 hover:shadow-md transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed group"
+                          >
+                            <Wallet className="h-6 w-6 text-purple-600 group-hover:text-purple-700" />
+                            <span className="flex-1 text-gray-700 font-medium group-hover:text-gray-900">
+        连接钱包登录/注册
+      </span>
+                            {isLoading === 'wallet' && (
+                                <div className="animate-spin rounded-full h-5 w-5 border-2 border-purple-600 border-t-transparent"></div>
+                            )}
+                          </button>
+
+                          {/* 邮箱登录/注册 */}
+                          <button
+                              className="w-full flex items-center justify-center space-x-3 px-6 py-4 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-300 hover:shadow-md transition-all duration-200 group"
+                              onClick={() => setShowEmailForm(true)}
+                          >
+                            <Mail className="h-6 w-6 text-blue-600 group-hover:text-blue-700" />
+                            <span className="flex-1 text-gray-700 font-medium group-hover:text-gray-900">
+        使用邮箱登录/注册
+      </span>
+                          </button>
+
+                          {/* 删除原来的注册选项，因为已经集成到各个按钮中 */}
+                          <div className="relative my-6">
+                            <div className="absolute inset-0 flex items-center">
+                              <div className="w-full border-t border-gray-200"></div>
+                            </div>
+                            <div className="relative flex justify-center text-sm">
+                              <span className="px-4 bg-white text-gray-400">快速开始</span>
+                            </div>
+                          </div>
+
+                          {/* 钱包提示 */}
+                          <div className="bg-gray-50 rounded-lg p-3 mt-4">
+                            <p className="text-xs text-gray-500 text-center">
+                              支持 MetaMask、Phantom 等主流钱包 | 新用户注册即送1000积分
+                            </p>
+                          </div>
+                        </>
+                    )}
                   </div>
                 </div>
               </div>
-            </>
+            </>, document.body
         )}
 
         {/* 错误消息 */}
         {error && (
-            <ErrorMessage
-                message={error}
-                onClose={() => setError(null)}
-            />
+            <div className="fixed top-4 right-4 z-[60]">
+              <ErrorMessage
+                  message={error}
+                  onClose={() => setError(null)}
+              />
+            </div>
         )}
       </div>
   );
@@ -774,6 +1254,17 @@ export function Navbar() {
 
     checkWalletConnection();
 
+    // 检查是否有已登录的用户
+    const currentUser = UserStorageService.getCurrentUser();
+    if (currentUser && !userState.isLoggedIn) {
+      const loginType = currentUser.walletAddress ? LoginType.WALLET : LoginType.EMAIL;
+      setUserState({
+        isLoggedIn: true,
+        loginType,
+        user: currentUser
+      });
+    }
+
     // 监听钱包账户变化
     if (window.ethereum) {
       const handleAccountsChanged = (accounts: string[]) => {
@@ -802,6 +1293,7 @@ export function Navbar() {
   };
 
   const handleLogout = () => {
+    UserStorageService.clearCurrentUser();
     setUserState({
       isLoggedIn: false
     });
@@ -967,9 +1459,6 @@ export function Navbar() {
                         </div>
                     ) : (
                         <div className="space-y-2">
-                          <div className="text-center text-sm text-gray-500">
-                            {t('nav.chooseLogin')}
-                          </div>
                           <LoginDropdown onLogin={handleLogin} />
                         </div>
                     )}

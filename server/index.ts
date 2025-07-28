@@ -3,6 +3,8 @@ import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import path from "path";
 import { fileURLToPath } from "url"; // ✅ 添加这一行
+import dotenv from 'dotenv';
+dotenv.config();
 
 // ✅ 构造 __dirname 替代
 const __filename = fileURLToPath(import.meta.url);

@@ -655,12 +655,12 @@ export default function Homepage() {
           <div className="relative overflow-hidden mb-12">
             <div className="flex animate-scroll whitespace-nowrap">
               {[
-                { name: "City University of HongKong", logoImage: "/partner_logo/CityU_logo.svg", website: "#" },
-                { name: "DeSAI XYZ", logoImage: "/partner_logo/DeSAI_xyz_logo.svg", website: "#" },
-                { name: "DeSAI Sino", logoImage: "/partner_logo/DESCI_SINO_logo.svg", website: "#" },
-                { name: "AuraSci", logoImage: "/partner_logo/AuraSci_logo.png", website: "#" },
-                { name: "DeSci Asia", logoImage: "/partner_logo/DeSciAsia_logo.svg", website: "#" },
-                { name: "DeSci China", logoImage: "/partner_logo/DeSciChina_logo.png", website: "#" },
+                { name: "City University of HongKong", logoImage: "/partner_logo/CityU_logo.svg", website: "https://www.cityu.edu.hk/" },
+                { name: "DeSAI XYZ", logoImage: "/partner_logo/DeSAI Simplified Logo 1(1).svg", website: "https://x.com/DeSAI_xyz" },
+                { name: "DeSAI Sino", logoImage: "/partner_logo/DESCI_SINO_logo.svg", website: "https://x.com/descisino" },
+                { name: "AuraSci", logoImage: "/partner_logo/AuraSci_logo.png", website: "https://aurasci.xyz/" },
+                { name: "DeSci Asia", logoImage: "/partner_logo/DeSciAsia_logo.svg", website: "https://desciasia.org/" },
+                { name: "DeSci China", logoImage: "/partner_logo/DeSciChina_logo.png", website: "https://x.com/DeSciChina__X" },
               ].map((partner, index) => (
                   <div
                       key={index}
@@ -680,12 +680,12 @@ export default function Homepage() {
               ))}
               {/* Duplicate set for seamless scroll */}
               {[
-                { name: "City University of HongKong", logoImage: "/partner_logo/CityU_logo.svg", website: "#" },
-                { name: "DeSAI XYZ", logoImage: "/partner_logo/DeSAI_xyz_logo.svg", website: "#" },
-                { name: "DeSAI Sino", logoImage: "/partner_logo/DESCI_SINO_logo.svg", website: "#" },
-                { name: "AuraSci", logoImage: "/partner_logo/AuraSci_logo.png", website: "#" },
-                { name: "DeSci Asia", logoImage: "/partner_logo/DeSciAsia_logo.svg", website: "#" },
-                { name: "DeSci China", logoImage: "/partner_logo/DeSciChina_logo.png", website: "#" },
+                { name: "City University of HongKong", logoImage: "/partner_logo/CityU_logo.svg", website: "https://www.cityu.edu.hk/" },
+                { name: "DeSAI XYZ", logoImage: "/partner_logo/DeSAI Simplified Logo 1(1).svg", website: "https://x.com/DeSAI_xyz" },
+                { name: "DeSAI Sino", logoImage: "/partner_logo/DESCI_SINO_logo.svg", website: "https://x.com/descisino" },
+                { name: "AuraSci", logoImage: "/partner_logo/AuraSci_logo.png", website: "https://aurasci.xyz/" },
+                { name: "DeSci Asia", logoImage: "/partner_logo/DeSciAsia_logo.svg", website: "https://desciasia.org/" },
+                { name: "DeSci China", logoImage: "/partner_logo/DeSciChina_logo.png", website: "https://x.com/DeSciChina__X" },
               ].map((partner, index) => (
                   <div
                       key={`duplicate-${index}`}

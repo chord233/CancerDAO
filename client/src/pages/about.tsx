@@ -65,55 +65,84 @@ export default function About() {
       [field]: value
     }));
   };
-  
+
+  // 改进后的 handleSubmit 函数
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!contactForm.privacyAgreed) {
+
+    // 表单验证
+    if (!contactForm.name.trim() || !contactForm.email.trim() || !contactForm.message.trim() || !contactForm.subject) {
       toast({
-        title: "错误",
-        description: "您必须同意隐私政策才能提交表单",
+        title: t('about.contact.error.required') || "错误",
+        description: t('about.contact.error.required.desc') || "请填写所有必填字段",
         variant: "destructive"
       });
       return;
     }
-    
+
+    // 邮箱格式验证
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(contactForm.email)) {
+      toast({
+        title: t('about.contact.error.email') || "错误",
+        description: t('about.contact.error.email.desc') || "请输入有效的邮箱地址",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!contactForm.privacyAgreed) {
+      toast({
+        title: t('about.contact.error.privacy') || "错误",
+        description: t('about.contact.error.privacy.desc') || "您必须同意隐私政策才能提交表单",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsSubmitting(true);
-    
+
     try {
       const formData = {
-        ...contactForm,
-        privacyAgreed: contactForm.privacyAgreed ? 1 : 0
+        name: contactForm.name.trim(),
+        email: contactForm.email.trim(),
+        subject: contactForm.subject,
+        message: contactForm.message.trim(),
+        organization: contactForm.organization.trim(),
+        phone: contactForm.phone.trim(),
+        privacyAgreed: contactForm.privacyAgreed,
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
       };
-      
-      await apiRequest("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      
-      toast({
-        title: "成功",
-        description: "信息已发送，感谢您的联系！"
-      });
-      
-      // Reset form
-      setContactForm({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-        organization: '',
-        phone: '',
-        privacyAgreed: false
-      });
-      
+
+      const response = await apiRequest("POST", "/api/contact", formData);
+
+
+      if (response.ok) {
+        toast({
+          title: t('about.contact.success') || "成功",
+          description: t('about.contact.success.desc') || "信息已发送，感谢您的联系！我们会在24小时内回复您。"
+        });
+
+        // Reset form
+        setContactForm({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+          organization: '',
+          phone: '',
+          privacyAgreed: false
+        });
+      } else {
+        throw new Error('Network response was not ok');
+      }
+
     } catch (error) {
+      console.error('Contact form submission error:', error);
       toast({
-        title: "提交失败",
-        description: "请稍后再试",
+        title: t('about.contact.error') || "提交失败",
+        description: t('about.contact.error.desc') || "抱歉，邮件发送失败。请稍后再试或直接发送邮件至 contact@cancerdao.org",
         variant: "destructive"
       });
     } finally {
