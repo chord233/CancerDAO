@@ -84,6 +84,105 @@ var insertContactMessageSchema = createInsertSchema(contactMessages).omit({
 
 // server/routes.ts
 import { z as z2 } from "zod";
+
+// server/utils/email.ts
+import nodemailer from "nodemailer";
+console.log("SMTP_USER:", process.env.SMTP_USER);
+console.log("SMTP_PASS:", process.env.SMTP_PASS);
+var transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: parseInt(process.env.SMTP_PORT),
+  secure: false,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
+  }
+});
+var sendEmail = async (options) => {
+  try {
+    const mailOptions = {
+      from: `"CancerDAO" <${process.env.SMTP_USER}>`,
+      to: options.to,
+      subject: options.subject,
+      html: options.html
+    };
+    const result = await transporter.sendMail(mailOptions);
+    console.log("Email sent:", result.messageId);
+    return result;
+  } catch (error) {
+    console.error("Email sending failed:", error);
+    throw error;
+  }
+};
+
+// server/handlers/contact.ts
+var handleContact = async (req, res) => {
+  try {
+    const {
+      name,
+      email,
+      subject,
+      message,
+      organization,
+      phone,
+      privacyAgreed,
+      timestamp: timestamp2,
+      userAgent
+    } = req.body;
+    if (!name || !email || !subject || !message || !privacyAgreed) {
+      return res.status(400).json({
+        success: false,
+        error: "Missing required fields"
+      });
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({
+        success: false,
+        error: "Invalid email format"
+      });
+    }
+    await sendEmail({
+      to: "contact@cancerdao.org",
+      subject: `Contact Form: ${subject}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
+        ${organization ? `<p><strong>Organization:</strong> ${organization}</p>` : ""}
+        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, "<br>")}</p>
+        <hr>
+        <p><small>Submitted at: ${timestamp2 || (/* @__PURE__ */ new Date()).toISOString()}</small></p>
+        ${userAgent ? `<p><small>User Agent: ${userAgent}</small></p>` : ""}
+      `
+    });
+    await sendEmail({
+      to: email,
+      subject: "Thank you for contacting CancerDAO",
+      html: `
+        <h2>Thank you for your message!</h2>
+        <p>Dear ${name},</p>
+        <p>We have received your message and will get back to you within 24 hours.</p>
+        <p>Best regards,<br>The CancerDAO Team</p>
+      `
+    });
+    res.status(200).json({
+      success: true,
+      message: "Message sent successfully"
+    });
+  } catch (error) {
+    console.error("Contact form error:", error);
+    res.status(500).json({
+      success: false,
+      error: "Failed to send message"
+    });
+  }
+};
+
+// server/routes.ts
 async function registerRoutes(app2) {
   app2.get("/api/subscribers", async (req, res) => {
     try {
@@ -116,18 +215,7 @@ async function registerRoutes(app2) {
       res.status(500).json({ error: "Failed to fetch contact messages" });
     }
   });
-  app2.post("/api/contact", async (req, res) => {
-    try {
-      const messageData = insertContactMessageSchema.parse(req.body);
-      const message = await storage.createContactMessage(messageData);
-      res.status(201).json({ success: true, message: "Message sent successfully" });
-    } catch (error) {
-      if (error instanceof z2.ZodError) {
-        return res.status(400).json({ error: "Invalid message data", details: error.errors });
-      }
-      res.status(500).json({ error: "Failed to send message" });
-    }
-  });
+  app2.post("/api/contact", handleContact);
   const httpServer = createServer(app2);
   return httpServer;
 }
@@ -249,6 +337,8 @@ function serveStatic(app2) {
 // server/index.ts
 import path3 from "path";
 import { fileURLToPath as fileURLToPath3 } from "url";
+import dotenv from "dotenv";
+dotenv.config();
 var __filename3 = fileURLToPath3(import.meta.url);
 var __dirname3 = path3.dirname(__filename3);
 var app = express2();
