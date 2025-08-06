@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { MessageCircle, Send, FileText } from "lucide-react";
-import { LanguageSwitcher } from "./language-switcher";
+
 import { useLanguage } from "../contexts/language-context";
 
 // Custom Twitter X Icon Component
@@ -139,11 +139,7 @@ export function Footer() {
               </li>
             </ul>
             
-            {/* Language Switcher */}
-            <div className="mt-4">
-              <h4 className="text-gray-300 font-medium mb-2 text-sm">{t("footer.language")}</h4>
-              <LanguageSwitcher />
-            </div>
+
           </div>
         </div>
 

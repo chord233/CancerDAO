@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/language-context";
 import { LanguageSwitcher } from "@/components/language-switcher";
 
+
 interface NavigationItem {
   name: string;
   href: string;
@@ -991,7 +992,7 @@ function LoginDropdown({ onLogin }: { onLogin: (type: LoginType, userData: any) 
                           <div className="flex items-center mb-6">
                             <button
                                 onClick={() => {
-                                  handleBackToOptions();
+                                  setShowEmailForm(false);
                                   setIsRegisterMode(false);
                                 }}
                                 className="p-2 hover:bg-gray-100 rounded-full transition-colors mr-3"
@@ -1412,9 +1413,7 @@ export function Navbar() {
                       </Link>
                   ))}
                   <div className="pt-4 space-y-3">
-                    <div className="flex justify-center">
-                      <LanguageSwitcher />
-                    </div>
+
 
                     {/* 移动端登录选项 - 根据登录状态显示 */}
                     {userState.isLoggedIn ? (
@@ -1463,6 +1462,9 @@ export function Navbar() {
                         </div>
                     )}
 
+                    <div className="flex justify-center">
+                      <LanguageSwitcher />
+                    </div>
                     <Button
                         className="btn-primary w-full"
                         onClick={() => {
