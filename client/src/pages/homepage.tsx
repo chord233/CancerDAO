@@ -1,93 +1,124 @@
+/**
+ * CancerDAO 项目主页组件
+ * 包含企业介绍、产品展示、团队信息等核心模块
+ * 采用响应式设计，支持多语言国际化
+ */
+
+// ============== 依赖导入 ==============
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button"; // 自定义按钮组件
+import { Input } from "@/components/ui/input"; // 表单输入组件
+import { Card, CardContent } from "@/components/ui/card"; // 卡片布局组件
+import { Badge } from "@/components/ui/badge"; // 标签组件
+// Lucide React 图标库
 import {
-  Brain,
-  Shield,
-  Users,
-  AlertTriangle,
-  TrendingUp,
-  Database,
-  Coins,
-  Smartphone,
-  ArrowRight,
-  Mail,
-  Linkedin,
-  Twitter as TwitterIcon,
+  Brain,         // 大脑图标 - 代表AI功能
+  Shield,        // 盾牌图标 - 代表安全
+  Users,         // 用户图标 - 代表社区
+  AlertTriangle, // 警告图标 - 用于问题提示
+  TrendingUp,    // 上升趋势图标 - 用于增长数据
+  Database,      // 数据库图标 - 代表数据存储
+  Coins,         // 货币图标 - 代表经济系统
+  Smartphone,    // 手机图标 - 代表移动端
+  ArrowRight,    // 右箭头 - 用于导航
+  Mail,          // 邮件图标
+  Linkedin,      // LinkedIn图标
+  Twitter as TwitterIcon, // Twitter图标(重命名避免冲突)
 } from "lucide-react";
 
-// Custom X (Twitter) Icon
-const TwitterXIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    className="w-4 h-4"
-    fill="currentColor"
-  >
+// ============== 自定义组件 ==============
+/**
+ * 自定义Twitter(X)图标组件 
+ * 使用SVG实现新版X图标
+ */
+const TwitterXIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor">
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 );
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
-import { useLanguage } from "@/contexts/language-context";
-import { Link, useNavigate } from "react-router-dom";
-import backgroundImage from "@assets/1500x500_1752159520914.jfif";
-import medicalTimelineImage from "@assets/fcff4af08eed8cfcd771ee7f8838a565_1752466134324.png";
-import cancerDaoLogo from "@assets/透明底_1752468326586.png";
 
+// ============== 工具库导入 ==============
+import { useMutation } from "@tanstack/react-query"; // 数据变更管理
+import { apiRequest } from "@/lib/queryClient"; // API请求封装
+import { useToast } from "@/hooks/use-toast"; // 通知提示组件
+import { useLanguage } from "@/contexts/language-context"; // 多语言上下文
+import { Link, useNavigate } from "react-router-dom"; // 路由导航
+
+// ============== 静态资源导入 ==============
+import backgroundImage from "@assets/1500x500_1752159520914.jfif"; // 背景图片
+import medicalTimelineImage from "@assets/fcff4af08eed8cfcd771ee7f8838a565_1752466134324.png"; // 医疗时间线图片
+import cancerDaoLogo from "@assets/透明底_1752468326586.png"; // 透明LOGO
+
+// ============== 主组件 ==============
 export default function Homepage() {
-  const [email, setEmail] = useState("");
-  const [activeCard, setActiveCard] = useState<number | null>(null);
-  const { toast } = useToast();
-  const { t } = useLanguage();
-  const navigate = useNavigate();
+  // ============== 状态管理 ==============
+  const [email, setEmail] = useState(""); // 订阅邮箱输入状态
+  const [activeCard, setActiveCard] = useState<number | null>(null); // 当前激活的问题卡片ID
+  
+  // ============== 工具钩子 ==============
+  const { toast } = useToast(); // 通知提示控制
+  const { t } = useLanguage(); // 多语言翻译函数
+  const navigate = useNavigate(); // 路由导航
 
+  // ============== 数据变更 ==============
+  /**
+   * 邮箱订阅Mutation
+   * 处理用户提交邮箱订阅的异步操作
+   */
   const subscribeMutation = useMutation({
-    mutationFn: (email: string) =>
-      apiRequest("POST", "/api/subscribe", { email }),
+    mutationFn: (email: string) => 
+      apiRequest("POST", "/api/subscribe", { email }), // 调用订阅API
     onSuccess: () => {
+      // 订阅成功处理
       toast({
         title: t("toast.subscribe.success.title"),
         description: t("toast.subscribe.success.description"),
       });
-      setEmail("");
+      setEmail(""); // 清空输入框
     },
     onError: (error: any) => {
+      // 订阅失败处理
       toast({
         title: t("toast.subscribe.error.title"),
-        description:
-          error.response?.data?.error || t("toast.subscribe.error.description"),
-        variant: "destructive",
+        description: error.response?.data?.error || t("toast.subscribe.error.description"),
+        variant: "destructive", // 错误样式
       });
     },
   });
 
+  // ============== 事件处理 ==============
+  /**
+   * 处理订阅表单提交
+   * @param e - 表单事件对象
+   */
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (email.trim()) {
-      subscribeMutation.mutate(email.trim());
+      subscribeMutation.mutate(email.trim()); // 触发订阅Mutation
     }
   };
 
+  // ============== 页面渲染 ==============
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* ========== Hero 首屏区域 ========== */}
       <section className="hero-section relative overflow-hidden py-32 lg:py-40 bg-gradient-to-b from-[#B58AFF] via-[#c9a4ff] to-white">
-        {/* Background Image Overlay */}
+        {/* 背景图片层 - 半透明叠加 */}
         <div 
           className="absolute inset-0 z-0 opacity-50 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${backgroundImage})`,
-            filter: 'brightness(1.05) contrast(0.95)',
+            filter: 'brightness(1.05) contrast(0.95)', // 增强亮度和对比度
           }}
         />
-        {/* Gradient Overlay for smooth transition */}
+        
+        {/* 渐变遮罩层 - 实现平滑过渡 */}
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-[#c9a4ff]/15 to-white/60" />
         
+        {/* 内容容器 */}
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
+            {/* Logo展示 - 带有浮动动画 */}
             <div className="mb-12 flex justify-center">
               <div className="floating-animation">
                 <img 
@@ -97,36 +128,30 @@ export default function Homepage() {
                 />
               </div>
             </div>
+            
+            {/* 主标题 - 渐变文字效果 */}
             <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-8">
               <span className="bg-gradient-to-r from-yellow-bright to-orange-red bg-clip-text text-transparent">
                 {t("hero.title")}
               </span>
             </h1>
             
-            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center pt-[0px] pb-[0px] mt-[0px] mb-[0px] transform translate-y-16">
+            {/* 行动按钮组 */}
+            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center transform translate-y-16">
+              {/* 解决方案按钮 */}
               <Button
-                className="btn-secondary text-xl px-12 py-6
-                 border-2 border-orange-red text-orange-red bg-transparent 
-                 hover:bg-orange-red hover:text-white rounded-full  
-                 font-semibold transform transition-all duration-300 ease-in-out
-                 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-red focus:ring-offset-2"
-                onClick={() =>
-                  window.location.href = "/solution"
-                }
+                className="btn-secondary text-xl px-12 py-6 border-2 border-orange-red text-orange-red bg-transparent hover:bg-orange-red hover:text-white rounded-full font-semibold transform transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-red focus:ring-offset-2"
+                onClick={() => window.location.href = "/solution"}
               >
                 {t("hero.cta1")}
                 <ArrowRight className="ml-3 h-7 w-7" />
               </Button>
+              
+              {/* 加入社区按钮 */}
               <Button
-                className="btn-secondary text-xl px-12 py-6
-                 border-2 border-purple-medium text-purple-medium bg-transparent
-                 font-semibold rounded-full transform transition-all duration-300 ease-in-out
-                 hover:scale-105 hover:bg-purple-medium hover:text-white 
-                 focus:outline-none focus:ring-2 focus:ring-purple-medium focus:ring-offset-2"
-                onClick={() =>
-                  document
-                    .getElementById("join-community")
-                    ?.scrollIntoView({ behavior: "smooth" })
+                className="btn-secondary text-xl px-12 py-6 border-2 border-purple-medium text-purple-medium bg-transparent font-semibold rounded-full transform transition-all duration-300 ease-in-out hover:scale-105 hover:bg-purple-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-medium focus:ring-offset-2"
+                onClick={() => 
+                  document.getElementById("join-community")?.scrollIntoView({ behavior: "smooth" })
                 }
               >
                 {t("hero.cta2")}
@@ -135,19 +160,21 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-      {/* Problem Section */}
+
+      {/* ========== 问题展示区域 ========== */}
       <section className="py-20 bg-white relative">
-        {/* Subtle continuation of background image at top */}
+        {/* 顶部背景延续效果 */}
         <div 
           className="absolute top-0 left-0 right-0 h-40 opacity-20 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${backgroundImage})`,
             maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)',
           }}
         />
+        
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* 区块标题 */}
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
                 {t("problem.title")}
@@ -157,8 +184,10 @@ export default function Homepage() {
               </p>
             </div>
 
+            {/* 问题卡片网格 - 响应式布局 */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
               {[
+                // 全球性问题卡片
                 {
                   id: 0,
                   icon: AlertTriangle,
@@ -167,6 +196,7 @@ export default function Homepage() {
                   points: [t("problem.global.point1"), t("problem.global.point2")],
                   image: "/attached_assets/2_1752591217296.jpg"
                 },
+                // 知识共享问题卡片
                 {
                   id: 1,
                   icon: Users,
@@ -175,6 +205,7 @@ export default function Homepage() {
                   points: [t("problem.knowledge.point1"), t("problem.knowledge.point2"), t("problem.knowledge.point3")],
                   image: "/attached_assets/3_1752591389815.jpg"
                 },
+                // 创新障碍问题卡片
                 {
                   id: 2,
                   icon: TrendingUp,
@@ -184,128 +215,67 @@ export default function Homepage() {
                   image: "/attached_assets/4_1752591925448.jpg"
                 }
               ].map((card) => (
-                <div 
-                  key={card.id} 
-                  className="relative"
-                >
+                <div key={card.id} className="relative">
+                  {/* 可交互的问题卡片 */}
                   <div 
                     className={`problem-card cursor-pointer transition-all duration-300 ${
                       activeCard === card.id ? 'relative z-10 shadow-2xl transform scale-105' : 'relative z-10'
                     }`}
                     onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
                   >
-                    {(card.id === 0 || card.id === 1 || card.id === 2) && card.image ? (
+                    {/* 卡片内容渲染 */}
+                    {activeCard === card.id ? (
+                      // 展开状态下的卡片内容
                       <>
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center">
                             <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                            <h3 className="text-xl font-semibold text-black">
-                              {card.title}
-                            </h3>
+                            <h3 className="text-xl font-semibold text-black">{card.title}</h3>
                           </div>
-                          <div className={`text-2xl font-bold transition-transform duration-300 ${
-                            activeCard === card.id ? 'rotate-180' : ''
-                          }`} style={{ color: '#c9a4ff' }}>
+                          <div className="text-2xl font-bold rotate-180" style={{ color: '#c9a4ff' }}>
                             ▼
                           </div>
                         </div>
-                        <img 
-                          src={card.image} 
-                          alt={card.title}
-                          className="w-full h-auto rounded-lg mb-4"
-                        />
-                        {activeCard === card.id && (
-                          <div className="space-y-3 animate-in slide-in-from-top-2 duration-300 mt-4 pt-4 border-t border-gray-200">
-                            <p className="text-black">
-                              {card.description}
-                            </p>
-                            <ul className="text-sm text-black space-y-1">
-                              {card.points.map((point, index) => (
-                                <li key={index}>• {point}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
+                        <img src={card.image} alt={card.title} className="w-full h-auto rounded-lg mb-4" />
+                        <div className="space-y-3 animate-in slide-in-from-top-2 duration-300 mt-4 pt-4 border-t border-gray-200">
+                          <p className="text-black">{card.description}</p>
+                          <ul className="text-sm text-black space-y-1">
+                            {card.points.map((point, index) => (
+                              <li key={index}>• {point}</li>
+                            ))}
+                          </ul>
+                        </div>
                       </>
                     ) : (
+                      // 折叠状态下的卡片内容
                       <>
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center">
-                            {card.image ? (
-                              <img 
-                                src={card.image} 
-                                alt={card.title}
-                                className="h-8 w-8 mr-3 object-cover rounded"
-                              />
-                            ) : (
-                              <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                            )}
-                            <h3 className="text-xl font-semibold text-black">
-                              {card.title}
-                            </h3>
-                          </div>
-                          <div className={`text-2xl font-bold transition-transform duration-300 ${
-                            activeCard === card.id ? 'rotate-180' : ''
-                          }`} style={{ color: '#c9a4ff' }}>
-                            ▼
-                          </div>
-                        </div>
-                        {activeCard === card.id && (
-                          <div className="space-y-3 animate-in slide-in-from-top-2 duration-300 mt-4 pt-4 border-t border-gray-200">
-                            <p className="text-black">
-                              {card.description}
-                            </p>
-                            <ul className="text-sm text-black space-y-1">
-                              {card.points.map((point, index) => (
-                                <li key={index}>• {point}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </>
-                    )}
-                  </div>
-                  {/* Placeholder to maintain layout when not expanded */}
-                  {activeCard !== card.id && (
-                    <div className="problem-card opacity-0 pointer-events-none">
-                      {(card.id === 0 || card.id === 1 || card.id === 2) && card.image ? (
-                        <img 
-                          src={card.image} 
-                          alt={card.title}
-                          className="w-full h-auto rounded-lg"
-                        />
-                      ) : (
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center">
-                            {card.image ? (
-                              <img 
-                                src={card.image} 
-                                alt={card.title}
-                                className="h-8 w-8 mr-3 object-cover rounded"
-                              />
-                            ) : (
-                              <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                            )}
-                            <h3 className="text-xl font-semibold text-black">
-                              {card.title}
-                            </h3>
+                            <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                            <h3 className="text-xl font-semibold text-black">{card.title}</h3>
                           </div>
                           <div className="text-2xl font-bold" style={{ color: '#c9a4ff' }}>
                             ▼
                           </div>
                         </div>
-                      )}
-                    </div>
-                  )}
+                      </>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
       </section>
-      
-      {/* CancerDAO Ecosystem - Three Modules */}
-      <section className="py-20 rounded-3xl mx-4 my-20" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)', border: '1px solid #e7d1ff' }}>
+
+      {/* ========== 生态系统展示 ========== */}
+      <section 
+        className="py-20 rounded-3xl mx-4 my-20" 
+        style={{ 
+          background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)',
+          border: '1px solid #e7d1ff'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
@@ -316,9 +286,7 @@ export default function Homepage() {
             </p>
           </div>
           
-
-          
-          {/* CancerDAO Architecture Diagram */}
+          {/* 架构图展示 */}
           <div className="mb-16 flex justify-center">
             <div className="max-w-6xl w-full">
               <div className="relative rounded-2xl shadow-lg border border-purple-200">
@@ -332,10 +300,11 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-      
-      {/* Product Preview - Simplified */}
+
+      {/* ========== 产品预览区域 ========== */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* 产品区块标题 */}
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
               {t("product.title")}
@@ -345,22 +314,19 @@ export default function Homepage() {
             </p>
           </div>
 
+          {/* 产品特性网格布局 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* 第一个位置 - 产品演示视频 */}
+            {/* 产品演示视频区块 */}
             <div className="text-center">
               <div className="relative mb-8">
-                <div className="w-64 h-[32rem] mx-auto rounded-2xl shadow-2xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                <div className="w-64 h-[32rem] mx-auto rounded-2xl shadow-2xl overflow-hidden" 
+                  style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
                   <video
                     className="w-full h-full object-cover block"
-                    controls
-                    autoPlay
-                    loop
-                    muted
-                    poster=""
+                    controls autoPlay loop muted
                     preload="metadata"
                   >
                     <source src="/attached_assets/视频_1752331442308.mp4" type="video/mp4" />
-                    您的浏览器不支持视频播放。
                   </video>
                 </div>
               </div>
@@ -376,14 +342,11 @@ export default function Homepage() {
                   {t("product.feature1.description")}
                 </p>
                 
-                {/* Trial Button */}
+                {/* 试用按钮 */}
                 <div className="pt-4">
                   <Button 
                     className="bg-purple-medium hover:bg-purple-light text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
-                    onClick={() => {
-                      // 未来将连接到小程序链接
-                      console.log("Trial button clicked - will connect to mini-program");
-                    }}
+                    onClick={() => console.log("Trial button clicked")}
                   >
                     {t("product.trial.button")}
                   </Button>
@@ -391,24 +354,17 @@ export default function Homepage() {
               </div>
             </div>
 
-            {/* 第二个手机 - 健康时间线（用视频代替图片） */}
+            {/* 健康时间线区块 */}
             <div className="text-center">
               <div className="relative mb-8">
-                <div
-                    className="w-64 h-[32rem] mx-auto rounded-2xl shadow-2xl overflow-hidden"
-                    style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}
-                >
+                <div className="w-64 h-[32rem] mx-auto rounded-2xl shadow-2xl overflow-hidden"
+                  style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
                   <video
-                      className="w-full h-full object-cover block"
-                      controls
-                      autoPlay
-                      loop
-                      muted
-                      poster=""
-                      preload="metadata"
+                    className="w-full h-full object-cover block"
+                    controls autoPlay loop muted
+                    preload="metadata"
                   >
                     <source src="/attached_assets/事件线.mp4" type="video/mp4" />
-                    您的浏览器不支持视频播放。
                   </video>
                 </div>
               </div>
@@ -424,23 +380,20 @@ export default function Homepage() {
                   {t("product.feature2.description")}
                 </p>
 
-                {/* Trial Button */}
+                {/* 试用按钮 */}
                 <div className="pt-4">
                   <Button
-                      className="bg-purple-medium hover:bg-purple-light text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
-                      onClick={() => {
-                        // 未来将连接到小程序链接
-                        console.log("Trial button clicked - will connect to mini-program");
-                      }}
+                    className="bg-purple-medium hover:bg-purple-light text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+                    onClick={() => console.log("Trial button clicked")}
                   >
                     {t("product.trial.button")}
                   </Button>
                 </div>
               </div>
             </div>
-
           </div>
           
+          {/* 了解更多按钮 */}
           <div className="text-center mt-16">
             <Button className="btn-primary">
               {t("product.learn.more")}
@@ -449,7 +402,8 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-      {/* Community Statistics */}
+
+      {/* ========== 社区数据统计 ========== */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -461,7 +415,9 @@ export default function Homepage() {
             </p>
           </div>
 
+          {/* 数据统计卡片 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {/* 数据统计卡片 */}
             <Card className="text-center p-8">
               <CardContent className="p-0">
                 <div className="mb-4">
@@ -477,6 +433,7 @@ export default function Homepage() {
               </CardContent>
             </Card>
 
+            {/* 成员统计卡片 */}
             <Card className="text-center p-8">
               <CardContent className="p-0">
                 <div className="mb-4">
@@ -492,6 +449,7 @@ export default function Homepage() {
               </CardContent>
             </Card>
 
+            {/* AI模型卡片 */}
             <Card className="text-center p-8">
               <CardContent className="p-0">
                 <div className="mb-4">
@@ -508,6 +466,7 @@ export default function Homepage() {
             </Card>
           </div>
 
+          {/* 加入社区区块 */}
           <div
             id="join-community"
             className="rounded-2xl p-8 text-center"
@@ -523,27 +482,21 @@ export default function Homepage() {
               <Button
                 className="font-semibold px-8 py-3 text-black"
                 style={{ backgroundColor: '#fad000' }}
-                onClick={() =>
-                  window.open("http://discord.gg/zKwyqxjeun", "_blank")
-                }
+                onClick={() => window.open("http://discord.gg/zKwyqxjeun", "_blank")}
               >
                 {t("community.join.discord")}
               </Button>
               <Button
                 className="font-semibold px-8 py-3 text-black"
                 style={{ backgroundColor: '#fad000' }}
-                onClick={() =>
-                  window.open("https://twitter.com/CancerDAOxyz", "_blank")
-                }
+                onClick={() => window.open("https://twitter.com/CancerDAOxyz", "_blank")}
               >
                 {t("community.join.twitter")}
               </Button>
               <Button
                 className="font-semibold px-8 py-3 text-black"
                 style={{ backgroundColor: '#fad000' }}
-                onClick={() =>
-                  window.open("https://web.telegram.org/a/#-1002393239074_1", "_blank")
-                }
+                onClick={() => window.open("https://web.telegram.org/a/#-1002393239074_1", "_blank")}
               >
                 {t("community.join.telegram")}
               </Button>
@@ -551,7 +504,8 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-      {/* Team Preview - Simplified */}
+
+      {/* ========== 团队展示 ========== */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -563,8 +517,10 @@ export default function Homepage() {
             </p>
           </div>
 
+          {/* 团队成员网格 */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
+              // 团队成员数据
               {
                 name: "Prof. Michael Yang, PhD",
                 titleKey: "about.team.title.michael",
@@ -585,14 +541,16 @@ export default function Homepage() {
                 titleKey: "about.team.title.aspire",
               },
             ].map((member, index) => (
-              <Card
-                key={index}
-                className="p-6 hover:shadow-lg transition-all duration-300"
-              >
+              <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300">
                 <CardContent className="p-0">
+                  {/* 成员头像 */}
                   <div className="text-center mb-6">
-                    <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-black" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                      {member.name.split(' ')[0][0]}{member.name.split(' ')[1] ? member.name.split(' ')[1][0] : ''}
+                    <div 
+                      className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-black" 
+                      style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}
+                    >
+                      {/* 姓名首字母头像 */}
+                      {member.name.split(' ')[0][0]}{member.name.split(' ')[1]?.[0]}
                     </div>
                     <h3 className="text-lg font-bold text-black mb-1">
                       {member.name}
@@ -609,6 +567,7 @@ export default function Homepage() {
                     )}
                   </div>
 
+                  {/* 社交链接 */}
                   <div className="flex justify-center gap-2 pt-4 border-t" style={{ borderColor: '#e7d1ff' }}>
                     <Button variant="outline" size="sm" className="p-2">
                       <Linkedin className="h-4 w-4" />
@@ -622,15 +581,13 @@ export default function Homepage() {
             ))}
           </div>
 
+          {/* 了解更多按钮 */}
           <div className="text-center mt-12">
             <Button 
               className="btn-primary"
               onClick={() => {
                 navigate('/about');
-                // 确保页面滚动到顶部
-                setTimeout(() => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }, 50);
+                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
               }}
             >
               {t("team.learn.more")}
@@ -639,7 +596,8 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-      {/* Partners & Ecosystem Section */}
+
+      {/* ========== 合作伙伴展示 ========== */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -651,7 +609,7 @@ export default function Homepage() {
             </p>
           </div>
 
-          {/* Partner Logos Carousel */}
+          {/* 合作伙伴轮播图 */}
           <div className="relative overflow-hidden mb-12">
             <div className="flex animate-scroll whitespace-nowrap">
               {[
@@ -678,7 +636,7 @@ export default function Homepage() {
                     </div>
                   </div>
               ))}
-              {/* Duplicate set for seamless scroll */}
+              {/* 重复滚动 */}
               {[
                 { name: "City University of HongKong", logoImage: "/partner_logo/CityU_logo.svg", website: "https://www.cityu.edu.hk/" },
                 { name: "DeSAI XYZ", logoImage: "/partner_logo/DeSAI Simplified Logo 1(1).svg", website: "https://x.com/DeSAI_xyz" },
@@ -706,9 +664,7 @@ export default function Homepage() {
             </div>
           </div>
 
-
-
-          {/* Call to Action */}
+          {/* 合作行动号召 */}
           <div className="text-center">
             <div className="rounded-2xl p-8 max-w-2xl mx-auto border border-gray-200">
               <h3 className="text-xl font-bold text-black mb-4">

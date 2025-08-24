@@ -4,6 +4,11 @@ import { storage } from "./storage";
 import { insertSubscriberSchema, insertContactMessageSchema } from "@shared/schema";
 import { z } from "zod";
 import { handleContact } from './handlers/contact';
+import { getDeals } from './handlers/deals';
+import { getMetrics } from './handlers/metrics';
+import { getActivities } from './handlers/activities';
+import { getBackups, createBackup } from './handlers/backups';
+import { getForecast } from './handlers/forecast';
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Subscribers endpoints
@@ -43,6 +48,32 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   app.post("/api/contact", handleContact);
+
+  // 新增 API 路由
+  app.get("/api/deals", getDeals);
+  app.get("/api/metrics", getMetrics);
+  app.get("/api/activities", getActivities);
+  
+  app.get("/api/backups", getBackups);
+  app.post("/api/backups", createBackup);
+  
+  app.get("/api/forecast", getForecast);
+  
+  // 导出数据
+  app.get("/api/export", (req, res) => {
+    const data = {
+      deals: storage.getDeals?.() || [],
+      metrics: storage.getMetrics?.() || [],
+      activities: storage.getActivities?.() || [],
+    };
+    res.json(data);
+  });
+
+  // 图片占位
+  app.get("/api/placeholder/:width/:height", (req, res) => {
+    const { width, height } = req.params;
+    res.redirect(`https://via.placeholder.com/${width}x${height}`);
+  });
 
   const httpServer = createServer(app);
   return httpServer;

@@ -1,4 +1,5 @@
 import { subscribers, contactMessages, type Subscriber, type InsertSubscriber, type ContactMessage, type InsertContactMessage } from "@shared/schema";
+import type { Deal, Metric, Activity } from "./types";
 
 export interface IStorage {
   // Subscribers
@@ -8,6 +9,11 @@ export interface IStorage {
   // Contact Messages
   getContactMessages(): Promise<ContactMessage[]>;
   createContactMessage(message: InsertContactMessage): Promise<ContactMessage>;
+
+  // Additional Data
+  getDeals(): Promise<Deal[]>;
+  getMetrics(): Promise<Metric[]>;
+  getActivities(): Promise<Activity[]>;
 }
 
 export class MemStorage implements IStorage {
@@ -58,9 +64,69 @@ export class MemStorage implements IStorage {
       ...insertMessage,
       id,
       createdAt: new Date(),
+      organization: insertMessage.organization || null,
+      phone: insertMessage.phone || null
     };
     this.contactMessages.set(id, message);
     return message;
+  }
+
+  // Mock data implementations
+  async getDeals(): Promise<Deal[]> {
+    return [
+      {
+        id: 1,
+        title: "Research Grant #1",
+        amount: 50000,
+        status: "completed",
+        date: "2025-08-01"
+      },
+      {
+        id: 2,
+        title: "Clinical Trial Funding",
+        amount: 100000,
+        status: "pending",
+        date: "2025-08-15"
+      }
+    ];
+  }
+
+  async getMetrics(): Promise<Metric[]> {
+    return [
+      {
+        id: 1,
+        name: "Total Donations",
+        value: 1250000,
+        change: 12.5,
+        trend: "up"
+      },
+      {
+        id: 2,
+        name: "Active Projects",
+        value: 8,
+        change: 33.3,
+        trend: "up"
+      }
+    ];
+  }
+
+  async getActivities(): Promise<Activity[]> {
+    return [
+      {
+        id: 1,
+        type: "donation",
+        description: "New donation received",
+        date: "2025-08-22",
+        user: "Anonymous"
+      },
+      {
+        id: 2,
+        type: "project",
+        description: "New research project started",
+        date: "2025-08-21",
+        user: "Research Team"
+      }
+    ];
   }
 }
 

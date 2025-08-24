@@ -58,6 +58,15 @@ app.use((req, res, next) => {
     throw err;
   });
 
+  // 先设置 API 路由
+  app.use("/api", (req, res, next) => {
+    if (req.path.startsWith("/api")) {
+      next();
+    } else {
+      next("route");
+    }
+  });
+
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
@@ -67,7 +76,7 @@ app.use((req, res, next) => {
   const port = process.env.PORT || 5000;
 
   try {
-    server.listen(port, "0.0.0.0", () => {
+    server.listen(Number(port), "0.0.0.0", () => {
       log(`Server running on http://localhost:${port}`);
       if (app.get("env") === "development") {
         log(`  - API: http://localhost:${port}/api`);
