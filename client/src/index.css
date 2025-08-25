@@ -1,210 +1,271 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* @type {import('tailwindcss').Config} */
 
+/* Tailwind CSS 基础样式导入 */
+@tailwind base;        /* 导入Tailwind的基础样式，包括CSS重置和默认样式 */
+@tailwind components;  /* 导入Tailwind的组件类，用于构建可复用UI组件 */
+@tailwind utilities;   /* 导入Tailwind的工具类，提供各种实用样式 */
+
+/* 
+ * 根元素CSS变量定义 - 浅色主题
+ * 这些变量将用于整个应用程序的样式配置
+ */
 :root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(0, 0%, 0%);
-  --muted: #e7d1ff;
-  --muted-foreground: hsl(0, 0%, 0%);
-  --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(0, 0%, 0%);
-  --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(0, 0%, 0%);
-  --border: #e7d1ff;
-  --input: #e7d1ff;
-  --primary: #c9a4ff;
-  --primary-foreground: hsl(0, 0%, 0%);
-  --secondary: #e7d1ff;
-  --secondary-foreground: hsl(0, 0%, 0%);
-  --accent: #fad000;
-  --accent-foreground: hsl(0, 0%, 0%);
-  --destructive: #fc593d;
-  --destructive-foreground: hsl(0, 0%, 100%);
-  --ring: #c9a4ff;
-  --radius: 0.75rem;
+  /* 基础颜色变量 */
+  --background: hsl(0, 0%, 100%);      /* 背景色：白色 */
+  --foreground: hsl(0, 0%, 0%);        /* 前景/文字色：黑色 */
+  --muted: #e7d1ff;                    /* 柔和背景色：淡紫色 */
+  --muted-foreground: hsl(0, 0%, 0%);  /* 柔和前景色：黑色 */
   
-  /* CancerDAO Brand Colors */
-  --brand-primary: #e7d1ff;     /* Light purple */
-  --brand-secondary: #c9a4ff;   /* Medium purple */
-  --brand-accent: #fad000;      /* Yellow */
-  --brand-danger: #fc593d;      /* Red/orange */
-  --brand-purple: #c9a4ff;      /* Purple variant */
+  /* 弹出层/卡片颜色 */
+  --popover: hsl(0, 0%, 100%);         /* 弹出层背景色：白色 */
+  --popover-foreground: hsl(0, 0%, 0%);/* 弹出层文字色：黑色 */
+  --card: hsl(0, 0%, 100%);            /* 卡片背景色：白色 */
+  --card-foreground: hsl(0, 0%, 0%);   /* 卡片文字色：黑色 */
   
-  /* Additional theme variations */
-  --brand-primary-dark: #d4b8ff;
-  --brand-secondary-dark: #b085ff;
-  --brand-accent-dark: #e6c000;
-  --brand-danger-dark: #e04728;
+  /* UI元素颜色 */
+  --border: #e7d1ff;                   /* 边框色：淡紫色 */
+  --input: #e7d1ff;                    /* 输入框背景色：淡紫色 */
+  
+  /* 主要颜色 */
+  --primary: #c9a4ff;                  /* 主色调：中等紫色 */
+  --primary-foreground: hsl(0, 0%, 0%); /* 主色调上的文字色：黑色 */
+  
+  /* 次要颜色 */
+  --secondary: #e7d1ff;                /* 次色调：淡紫色 */
+  --secondary-foreground: hsl(0, 0%, 0%); /* 次色调上的文字色：黑色 */
+  
+  /* 强调色 */
+  --accent: #fad000;                   /* 强调色：黄色 */
+  --accent-foreground: hsl(0, 0%, 0%); /* 强调色上的文字色：黑色 */
+  
+  /* 危险操作颜色 */
+  --destructive: #fc593d;              /* 危险操作色：橙红色 */
+  --destructive-foreground: hsl(0, 0%, 100%); /* 危险操作上的文字色：白色 */
+  
+  /* 其他UI元素 */
+  --ring: #c9a4ff;                     /* 焦点环颜色：中等紫色 */
+  --radius: 0.75rem;                   /* 边框圆角半径：0.75rem */
+  
+  /* CancerDAO品牌颜色 */
+  --brand-primary: #e7d1ff;            /* 品牌主色：淡紫色 */
+  --brand-secondary: #c9a4ff;          /* 品牌次色：中等紫色 */
+  --brand-accent: #fad000;             /* 品牌强调色：黄色 */
+  --brand-danger: #fc593d;             /* 品牌危险色：橙红色 */
+  --brand-purple: #c9a4ff;             /* 品牌紫色变体：中等紫色 */
+  
+  /* 深色变体（用于悬停状态等） */
+  --brand-primary-dark: #d4b8ff;       /* 深色品牌主色 */
+  --brand-secondary-dark: #b085ff;     /* 深色品牌次色 */
+  --brand-accent-dark: #e6c000;        /* 深色品牌强调色 */
+  --brand-danger-dark: #e04728;        /* 深色品牌危险色 */
 }
 
+/* 
+ * 深色主题变量定义
+ * 当元素具有'dark'类时应用这些变量
+ */
 .dark {
-  --background: hsl(222.2, 84%, 4.9%);
-  --foreground: hsl(210, 40%, 98%);
-  --muted: hsl(217.2, 32.6%, 17.5%);
-  --muted-foreground: hsl(215, 20.2%, 65.1%);
-  --popover: hsl(222.2, 84%, 4.9%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --card: hsl(222.2, 84%, 4.9%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --border: hsl(217.2, 32.6%, 17.5%);
-  --input: hsl(217.2, 32.6%, 17.5%);
-  --primary: hsl(221.2, 83.2%, 53.3%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(217.2, 32.6%, 17.5%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --accent: hsl(217.2, 32.6%, 17.5%);
-  --accent-foreground: hsl(210, 40%, 98%);
-  --destructive: hsl(0, 62.8%, 30.6%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(212.7, 26.8%, 83.9%);
-  --brand-50: hsl(214, 100%, 97%);
-  --brand-500: hsl(221.2, 83.2%, 53.3%);
-  --brand-600: hsl(221.2, 83.2%, 43.3%);
-  --brand-700: hsl(221.2, 83.2%, 33.3%);
+  /* 基础颜色变量 */
+  --background: hsl(222.2, 84%, 4.9%);     /* 深色背景：深蓝色 */
+  --foreground: hsl(210, 40%, 98%);        /* 深色前景：浅灰色 */
+  --muted: hsl(217.2, 32.6%, 17.5%);       /* 深色柔和背景：深蓝灰色 */
+  --muted-foreground: hsl(215, 20.2%, 65.1%); /* 深色柔和前景：中灰色 */
+  
+  /* 弹出层/卡片颜色 */
+  --popover: hsl(222.2, 84%, 4.9%);        /* 深色弹出层背景 */
+  --popover-foreground: hsl(210, 40%, 98%); /* 深色弹出层文字 */
+  --card: hsl(222.2, 84%, 4.9%);           /* 深色卡片背景 */
+  --card-foreground: hsl(210, 40%, 98%);   /* 深色卡片文字 */
+  
+  /* UI元素颜色 */
+  --border: hsl(217.2, 32.6%, 17.5%);      /* 深色边框 */
+  --input: hsl(217.2, 32.6%, 17.5%);       /* 深色输入框背景 */
+  
+  /* 主要颜色 */
+  --primary: hsl(221.2, 83.2%, 53.3%);     /* 深色主题主色：蓝色 */
+  --primary-foreground: hsl(210, 40%, 98%); /* 主色上的文字色 */
+  
+  /* 次要颜色 */
+  --secondary: hsl(217.2, 32.6%, 17.5%);    /* 深色次色 */
+  --secondary-foreground: hsl(210, 40%, 98%); /* 次色上的文字色 */
+  
+  /* 强调色 */
+  --accent: hsl(217.2, 32.6%, 17.5%);      /* 深色强调色 */
+  --accent-foreground: hsl(210, 40%, 98%); /* 强调色上的文字色 */
+  
+  /* 危险操作颜色 */
+  --destructive: hsl(0, 62.8%, 30.6%);      /* 深色危险操作色：暗红色 */
+  --destructive-foreground: hsl(210, 40%, 98%); /* 危险操作上的文字色 */
+  
+  /* 其他UI元素 */
+  --ring: hsl(212.7, 26.8%, 83.9%);        /* 深色焦点环颜色 */
+  
+  /* 品牌色阶（用于深色主题） */
+  --brand-50: hsl(214, 100%, 97%);         /* 品牌色最浅变体 */
+  --brand-500: hsl(221.2, 83.2%, 53.3%);   /* 品牌色中等变体 */
+  --brand-600: hsl(221.2, 83.2%, 43.3%);  /* 品牌色较深变体 */
+  --brand-700: hsl(221.2, 83.2%, 33.3%);  /* 品牌色最深变体 */
 }
 
-
+/* 
+ * Tailwind基础层
+ * 在此层定义的样式会与Tailwind的基础样式合并
+ */
 @layer base {
+  /* 为所有元素应用边框颜色 */
   * {
-    @apply border-border;
+    @apply border-border;  /* 使用Tailwind的border-border类（对应--border变量） */
   }
 
+  /* 主体样式 */
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased bg-background text-foreground; /* 应用无衬线字体、抗锯齿、背景和文字颜色 */
+    /* 字体栈定义，优先使用Inter字体，然后是系统字体 */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   }
 }
 
+/* 
+ * Tailwind组件层
+ * 在此层定义的自定义组件类
+ */
 @layer components {
+  /* 英雄区域样式 */
   .hero-section {
-    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%); /* 品牌色渐变背景 */
   }
   
+  /* 英雄区域渐变覆盖 */
   .hero-gradient {
     background: linear-gradient(
       135deg,
-      rgba(231, 209, 255, 0.9) 0%,
-      rgba(201, 164, 255, 0.9) 50%,
-      rgba(250, 208, 0, 0.1) 100%
+      rgba(231, 209, 255, 0.9) 0%,        /* 淡紫色半透明 */
+      rgba(201, 164, 255, 0.9) 50%,      /* 中等紫色半透明 */
+      rgba(250, 208, 0, 0.1) 100%        /* 黄色极淡透明 */
     );
   }
   
+  /* 特性卡片样式 */
   .feature-card {
-    @apply bg-white/80 backdrop-blur-sm p-8 rounded-2xl hover:shadow-xl transition-all duration-300 hover:scale-105;
-    border: 1px solid var(--brand-primary);
+    @apply bg-white/80 backdrop-blur-sm p-8 rounded-2xl hover:shadow-xl transition-all duration-300 hover:scale-105; /* 半透明白色背景、模糊效果、内边距、圆角、悬停效果 */
+    border: 1px solid var(--brand-primary); /* 品牌主色边框 */
   }
   
+  /* 导航项样式 */
   .nav-item {
-    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 text-black hover:bg-purple-50 hover:text-purple-700;
-    position: relative;
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 text-black hover:bg-purple-50 hover:text-purple-700; /* 内边距、圆角、字体、过渡效果 */
+    position: relative; /* 相对定位，为伪元素定位做准备 */
   }
   
+  /* 活动导航项样式 */
   .nav-item.active {
-    @apply text-white font-bold;
-    background: linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%);
-    box-shadow: 0 4px 12px rgba(201, 164, 255, 0.3);
-    transform: translateY(-1px);
+    @apply text-white font-bold; /* 白色文字、粗体 */
+    background: linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%); /* 品牌色渐变背景 */
+    box-shadow: 0 4px 12px rgba(201, 164, 255, 0.3); /* 紫色阴影 */
+    transform: translateY(-1px); /* 轻微上移效果 */
   }
   
+  /* 活动导航项指示器 */
   .nav-item.active::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
-    height: 6px;
-    background: #c9a4ff;
-    border-radius: 50%;
+    content: ''; /* 伪元素内容 */
+    position: absolute; /* 绝对定位 */
+    bottom: -8px; /* 定位在底部 */
+    left: 50%; /* 水平居中 */
+    transform: translateX(-50%); /* 居中调整 */
+    width: 6px; /* 宽度 */
+    height: 6px; /* 高度 */
+    background: #c9a4ff; /* 品牌紫色 */
+    border-radius: 50%; /* 圆形 */
   }
 }
 
-/* Floating animation */
+/* 浮动动画效果 */
 .floating-animation {
-  animation: floating 3s ease-in-out infinite;
+  animation: floating 3s ease-in-out infinite; /* 应用浮动动画 */
 }
 
+/* 浮动动画关键帧定义 */
 @keyframes floating {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0px); } /* 起始和结束位置 */
+  50% { transform: translateY(-10px); }    /* 中间位置：上移10px */
 }
 
-/* Card hover animation */
+/* 卡片悬停动画 */
 .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 变换和阴影过渡效果 */
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px); /* 悬停时上移5px */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* 悬停时阴影增强 */
 }
 
-/* Button styles */
+/* 主要按钮样式 */
 .btn-primary {
-  background: linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%);
-  color: black;
-  border: none;
-  font-weight: 600;
-  padding: 12px 32px;
-  border-radius: 25px;
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%); /* 品牌色渐变背景 */
+  color: black; /* 黑色文字 */
+  border: none; /* 无边框 */
+  font-weight: 600; /* 字体粗细 */
+  padding: 12px 32px; /* 内边距 */
+  border-radius: 25px; /* 圆角 */
+  transition: all 0.3s ease; /* 所有属性过渡效果 */
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #b58aff 0%, #c9a4ff 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(201, 164, 255, 0.3);
+  background: linear-gradient(135deg, #b58aff 0%, #c9a4ff 100%); /* 悬停时较深的渐变 */
+  transform: translateY(-2px); /* 悬停时上移2px */
+  box-shadow: 0 8px 20px rgba(201, 164, 255, 0.3); /* 悬停时紫色阴影 */
 }
 
-/* Problem cards */
+/* 问题卡片样式 */
 .problem-card {
-  background: white;
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0.3s ease;
+  background: white; /* 白色背景 */
+  border-radius: 20px; /* 大圆角 */
+  padding: 24px; /* 内边距 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0.3s ease; /* 过渡效果 */
 }
 
 .problem-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px); /* 悬停时上移5px */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* 悬停时阴影增强 */
 }
 
-/* Enhanced background image overlay effects */
+/* 英雄区域增强样式 */
 .hero-section {
-  position: relative;
-  overflow: hidden;
+  position: relative; /* 相对定位 */
+  overflow: hidden; /* 隐藏溢出内容 */
 }
 
-/* Smooth section transitions with gradient blending */
+/* 区域过渡渐变效果 */
 .section-transition {
   background: linear-gradient(to bottom, 
-    rgba(255, 255, 255, 0) 0%, 
-    rgba(255, 255, 255, 0.3) 20%, 
-    rgba(255, 255, 255, 0.7) 60%, 
-    rgba(255, 255, 255, 1) 100%
+    rgba(255, 255, 255, 0) 0%,        /* 完全透明 */
+    rgba(255, 255, 255, 0.3) 20%,     /* 30%不透明 */
+    rgba(255, 255, 255, 0.7) 60%,     /* 70%不透明 */
+    rgba(255, 255, 255, 1) 100%       /* 完全不透明 */
   );
-  height: 100px;
-  margin-top: -50px;
-  position: relative;
-  z-index: 3;
+  height: 100px; /* 高度 */
+  margin-top: -50px; /* 负上外边距，用于重叠效果 */
+  position: relative; /* 相对定位 */
+  z-index: 3; /* 堆叠顺序 */
 }
 
-/* Partner carousel animation */
+/* 合作伙伴轮播动画 */
 .animate-scroll {
-  animation: scroll 20s linear infinite;
+  animation: scroll 20s linear infinite; /* 应用滚动动画 */
 }
 
 .animate-scroll:hover {
-  animation-play-state: paused;
+  animation-play-state: paused; /* 悬停时暂停动画 */
 }
 
+/* 水平滚动动画关键帧 */
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translateX(0); /* 起始位置 */
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* 结束位置：左移50% */
   }
 }

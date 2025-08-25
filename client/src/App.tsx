@@ -11,6 +11,7 @@ import ForPartners from "@/pages/for-partners";
 import Community from "@/pages/community";
 import Resources from "@/pages/resources";
 import NotFound from "@/pages/not-found";
+import { ProfilePage } from "@/pages/profile";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
@@ -45,6 +46,7 @@ function AppRouter() {
                 <Route path="/for-partners" element={<ForPartners />} />
                 <Route path="/community" element={<Community />} />
                 <Route path="/resources" element={<Resources />} />
+                <Route path="/profile" element={<ProfilePage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>

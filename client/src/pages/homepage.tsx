@@ -45,15 +45,14 @@ import { useLanguage } from "@/contexts/language-context"; // 多语言上下文
 import { Link, useNavigate } from "react-router-dom"; // 路由导航
 
 // ============== 静态资源导入 ==============
-import backgroundImage from "@assets/1500x500_1752159520914.jfif"; // 背景图片
-import medicalTimelineImage from "@assets/fcff4af08eed8cfcd771ee7f8838a565_1752466134324.png"; // 医疗时间线图片
+import backgroundImage from "@assets/background.png"; // 背景图片
 import cancerDaoLogo from "@assets/透明底_1752468326586.png"; // 透明LOGO
 
 // ============== 主组件 ==============
 export default function Homepage() {
   // ============== 状态管理 ==============
   const [email, setEmail] = useState(""); // 订阅邮箱输入状态
-  const [activeCard, setActiveCard] = useState<number | null>(null); // 当前激活的问题卡片ID
+  // 问题卡片改为默认展开，取消交互
   
   // ============== 工具钩子 ==============
   const { toast } = useToast(); // 通知提示控制
@@ -102,67 +101,77 @@ export default function Homepage() {
   return (
     <div className="min-h-screen">
       {/* ========== Hero 首屏区域 ========== */}
-      <section className="hero-section relative overflow-hidden py-32 lg:py-40 bg-gradient-to-b from-[#B58AFF] via-[#c9a4ff] to-white">
+      <section className="hero-section relative overflow-hidden py-32 lg:py-40 bg-gradient-to-b from-[#F2F3FB] via-[#FFFFFF] to-[#EAE3FA]">
         {/* 背景图片层 - 半透明叠加 */}
         <div 
-          className="absolute inset-0 z-0 opacity-50 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 z-0 opacity-100 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${backgroundImage})`,
             filter: 'brightness(1.05) contrast(0.95)', // 增强亮度和对比度
           }}
         />
         
-        {/* 渐变遮罩层 - 实现平滑过渡 */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-[#c9a4ff]/15 to-white/60" />
+       
         
         {/* 内容容器 */}
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            {/* Logo展示 - 带有浮动动画 */}
-            <div className="mb-12 flex justify-center">
-              <div className="floating-animation">
-                <img 
-                  src={cancerDaoLogo} 
-                  alt="CancerDAO Logo" 
-                  className="h-16 lg:h-20 w-auto"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            {/* 左侧：标题与按钮 */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-gray-900 mb-8">
+                {t("hero.title")}
+              </h1>
+              <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center lg:justify-start items-center">
+                <Button
+                  className="text-lg sm:text-xl px-10 sm:px-12 py-4 sm:py-6 border-2 border-orange-red text-orange-red bg-white/70 backdrop-blur rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:bg-orange-red hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-red focus:ring-offset-2"
+                  onClick={() => window.location.href = "/solution"}
+                >
+                  {t("hero.cta1")}
+                </Button>
+                <Button
+                  className="text-lg sm:text-xl px-10 sm:px-12 py-4 sm:py-6 border-2 border-purple-medium text-purple-medium bg-white/70 backdrop-blur rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:bg-purple-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-medium focus:ring-offset-2"
+                  onClick={() => document.getElementById("join-community")?.scrollIntoView({ behavior: "smooth" })}
+                >
+                  {t("hero.cta2")}
+                </Button>
+              </div>
+            </div>
+
+            {/* 右侧：Logo 与倒影 */}
+            <div className="relative flex items-center justify-center">
+              <div className="relative w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] lg:w-[460px] lg:h-[460px]">
+                {/* 主 Logo */}
+                <img
+                  src="/homepage/biglogo.png"
+                  alt="CancerDAO Logo"
+                  className="absolute inset-0 w-full h-full object-contain drop-shadow-xl"
+                  loading="eager"
+                  decoding="async"
+                />
+                {/* CSS 倒影：同图垂直翻转 + 渐隐遮罩 */}
+                <img
+                  src="/homepage/biglogo.png"
+                  alt="CancerDAO Logo Reflection"
+                  className="absolute left-1/2 top-[96%] -translate-x-1/2 translate-y-2 scale-y-[-1] w-[90%] h-auto object-contain opacity-30 sm:opacity-35 lg:opacity-40 blur-[2px] lg:blur-[3px] saturate-125 brightness-105 [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0.45),transparent)] [mask-size:100%_100%] [mask-repeat:no-repeat]"
+                  loading="eager"
+                  decoding="async"
                 />
               </div>
             </div>
-            
-            {/* 主标题 - 渐变文字效果 */}
-            <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-8">
-              <span className="bg-gradient-to-r from-yellow-bright to-orange-red bg-clip-text text-transparent">
-                {t("hero.title")}
-              </span>
-            </h1>
-            
-            {/* 行动按钮组 */}
-            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center transform translate-y-16">
-              {/* 解决方案按钮 */}
-              <Button
-                className="btn-secondary text-xl px-12 py-6 border-2 border-orange-red text-orange-red bg-transparent hover:bg-orange-red hover:text-white rounded-full font-semibold transform transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-red focus:ring-offset-2"
-                onClick={() => window.location.href = "/solution"}
-              >
-                {t("hero.cta1")}
-                <ArrowRight className="ml-3 h-7 w-7" />
-              </Button>
-              
-              {/* 加入社区按钮 */}
-              <Button
-                className="btn-secondary text-xl px-12 py-6 border-2 border-purple-medium text-purple-medium bg-transparent font-semibold rounded-full transform transition-all duration-300 ease-in-out hover:scale-105 hover:bg-purple-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-medium focus:ring-offset-2"
-                onClick={() => 
-                  document.getElementById("join-community")?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                {t("hero.cta2")}
-              </Button>
-            </div>
           </div>
         </div>
+
+        {/* 装饰性图标 */}
+        <img src="/icon/Group 2278.svg" alt="decor-2278" className="hidden sm:block absolute left-8 top-24 w-20 h-20" loading="lazy" decoding="async" />
+        <img src="/icon/Group 2279.svg" alt="decor-2279" className="hidden sm:block absolute left-[10%] bottom-20 w-14 h-14" loading="lazy" decoding="async" />
+        <img src="/icon/Group 2282.svg" alt="decor-2282" className="hidden sm:block absolute right-[24%] top-6 w-11 h-11" loading="lazy" decoding="async" />
+        <img src="/icon/Group 2283.svg" alt="decor-2283" className="hidden sm:block absolute right-6 top-28 w-16 h-16" loading="lazy" decoding="async" />
+        <img src="/icon/Group 2284.svg" alt="decor-2284" className="hidden sm:block absolute right-16 bottom-16 w-14 h-14" loading="lazy" decoding="async" />
+        <img src="/icon/Group 2288.svg" alt="decor-2288" className="hidden sm:block absolute left-[44%] top-[58%] w-20 h-20" loading="lazy" decoding="async" />
       </section>
 
       {/* ========== 问题展示区域 ========== */}
-      <section className="py-20 bg-white relative">
+      <section className="py-20 bg-[#EAE3FA] relative">
         {/* 顶部背景延续效果 */}
         <div 
           className="absolute top-0 left-0 right-0 h-40 opacity-20 bg-cover bg-center bg-no-repeat"
@@ -185,7 +194,7 @@ export default function Homepage() {
             </div>
 
             {/* 问题卡片网格 - 响应式布局 */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative items-stretch">
               {[
                 // 全球性问题卡片
                 {
@@ -216,50 +225,23 @@ export default function Homepage() {
                 }
               ].map((card) => (
                 <div key={card.id} className="relative">
-                  {/* 可交互的问题卡片 */}
-                  <div 
-                    className={`problem-card cursor-pointer transition-all duration-300 ${
-                      activeCard === card.id ? 'relative z-10 shadow-2xl transform scale-105' : 'relative z-10'
-                    }`}
-                    onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
-                  >
-                    {/* 卡片内容渲染 */}
-                    {activeCard === card.id ? (
-                      // 展开状态下的卡片内容
-                      <>
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center">
-                            <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                            <h3 className="text-xl font-semibold text-black">{card.title}</h3>
-                          </div>
-                          <div className="text-2xl font-bold rotate-180" style={{ color: '#c9a4ff' }}>
-                            ▼
-                          </div>
-                        </div>
-                        <img src={card.image} alt={card.title} className="w-full h-auto rounded-lg mb-4" />
-                        <div className="space-y-3 animate-in slide-in-from-top-2 duration-300 mt-4 pt-4 border-t border-gray-200">
-                          <p className="text-black">{card.description}</p>
-                          <ul className="text-sm text-black space-y-1">
-                            {card.points.map((point, index) => (
-                              <li key={index}>• {point}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      </>
-                    ) : (
-                      // 折叠状态下的卡片内容
-                      <>
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center">
-                            <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
-                            <h3 className="text-xl font-semibold text-black">{card.title}</h3>
-                          </div>
-                          <div className="text-2xl font-bold" style={{ color: '#c9a4ff' }}>
-                            ▼
-                          </div>
-                        </div>
-                      </>
-                    )}
+                  {/* 默认展开的静态问题卡片（无交互） */}
+                  <div className="relative z-10 h-full flex flex-col bg-white/60 backdrop-blur border border-white/60 rounded-3xl shadow-xl p-6 md:p-8">
+                    <div className="flex items-center mb-4">
+                      <div className="flex items-center">
+                        <card.icon className="h-8 w-8 mr-3" style={{ color: '#fc593d' }} />
+                        <h3 className="text-xl font-semibold text-black">{card.title}</h3>
+                      </div>
+                    </div>
+                    <img src={card.image} alt={card.title} className="w-full rounded-xl mb-4 aspect-[16/9] object-cover" loading="lazy" decoding="async" />
+                    <div className="space-y-3 mt-4 pt-4 border-t border-white/60">
+                      <p className="text-black">{card.description}</p>
+                      <ul className="text-sm text-black space-y-1">
+                        {card.points.map((point, index) => (
+                          <li key={index}>• {point}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -270,11 +252,8 @@ export default function Homepage() {
 
       {/* ========== 生态系统展示 ========== */}
       <section 
-        className="py-20 rounded-3xl mx-4 my-20" 
-        style={{ 
-          background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)',
-          border: '1px solid #e7d1ff'
-        }}
+        className="py-20 rounded-3xl mx-4 my-20 relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)' }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -289,11 +268,12 @@ export default function Homepage() {
           {/* 架构图展示 */}
           <div className="mb-16 flex justify-center">
             <div className="max-w-6xl w-full">
-              <div className="relative rounded-2xl shadow-lg border border-purple-200">
+              <div className="relative rounded-3xl shadow-xl border border-white/60 bg-white/60 backdrop-blur">
                 <img 
                   src="/attached_assets/image_1752475567563.png" 
                   alt="CancerDAO Architecture Diagram" 
-                  className="w-full h-auto rounded-2xl"
+                  className="w-full h-auto rounded-3xl"
+                  loading="lazy" decoding="async"
                 />
               </div>
             </div>
@@ -319,7 +299,7 @@ export default function Homepage() {
             {/* 产品演示视频区块 */}
             <div className="text-center">
               <div className="relative mb-8">
-                <div className="w-64 h-[32rem] mx-auto rounded-2xl shadow-2xl overflow-hidden" 
+                <div className="w-64 h-[32rem] mx-auto rounded-3xl shadow-2xl overflow-hidden border border-white/60 bg-white/60 backdrop-blur"
                   style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
                   <video
                     className="w-full h-full object-cover block"
@@ -345,7 +325,7 @@ export default function Homepage() {
                 {/* 试用按钮 */}
                 <div className="pt-4">
                   <Button 
-                    className="bg-purple-medium hover:bg-purple-light text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+                    className="text-black bg-gradient-to-r from-purple-medium to-purple-light hover:from-purple-dark hover:to-purple-medium px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
                     onClick={() => console.log("Trial button clicked")}
                   >
                     {t("product.trial.button")}
@@ -357,7 +337,7 @@ export default function Homepage() {
             {/* 健康时间线区块 */}
             <div className="text-center">
               <div className="relative mb-8">
-                <div className="w-64 h-[32rem] mx-auto rounded-2xl shadow-2xl overflow-hidden"
+                <div className="w-64 h-[32rem] mx-auto rounded-3xl shadow-2xl overflow-hidden border border-white/60 bg-white/60 backdrop-blur"
                   style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
                   <video
                     className="w-full h-full object-cover block"
@@ -383,7 +363,7 @@ export default function Homepage() {
                 {/* 试用按钮 */}
                 <div className="pt-4">
                   <Button
-                    className="bg-purple-medium hover:bg-purple-light text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+                    className="text-black bg-gradient-to-r from-purple-medium to-purple-light hover:from-purple-dark hover:to-purple-medium px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
                     onClick={() => console.log("Trial button clicked")}
                   >
                     {t("product.trial.button")}
@@ -403,7 +383,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* ========== 社区数据统计 ========== */}
+      {/* ========== 影响力数据统计======= */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -469,7 +449,7 @@ export default function Homepage() {
           {/* 加入社区区块 */}
           <div
             id="join-community"
-            className="rounded-2xl p-8 text-center"
+            className="rounded-3xl p-8 text-center border border-white/60 bg-white/60 backdrop-blur"
             style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}
           >
             <h3 className="text-2xl font-bold mb-4 text-black">
@@ -480,22 +460,19 @@ export default function Homepage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                className="font-semibold px-8 py-3 text-black"
-                style={{ backgroundColor: '#fad000' }}
+                className="font-semibold px-8 py-3 text-black rounded-full bg-[#fad000] hover:brightness-95 transition"
                 onClick={() => window.open("http://discord.gg/zKwyqxjeun", "_blank")}
               >
                 {t("community.join.discord")}
               </Button>
               <Button
-                className="font-semibold px-8 py-3 text-black"
-                style={{ backgroundColor: '#fad000' }}
+                className="font-semibold px-8 py-3 text-black rounded-full bg-[#fad000] hover:brightness-95 transition"
                 onClick={() => window.open("https://twitter.com/CancerDAOxyz", "_blank")}
               >
                 {t("community.join.twitter")}
               </Button>
               <Button
-                className="font-semibold px-8 py-3 text-black"
-                style={{ backgroundColor: '#fad000' }}
+                className="font-semibold px-8 py-3 text-black rounded-full bg-[#fad000] hover:brightness-95 transition"
                 onClick={() => window.open("https://web.telegram.org/a/#-1002393239074_1", "_blank")}
               >
                 {t("community.join.telegram")}
@@ -517,68 +494,110 @@ export default function Homepage() {
             </p>
           </div>
 
-          {/* 团队成员网格 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              // 团队成员数据
-              {
-                name: "Prof. Michael Yang, PhD",
-                titleKey: "about.team.title.michael",
-                roleKey: "about.team.role.michael",
-              },
-              {
-                name: "Prof. YoSean Wang, PhD",
-                titleKey: "about.team.title.yosean",
-                roleKey: "about.team.role.yosean",
-              },
-              {
-                name: "Zhiwei Bao, PhD",
-                titleKey: "about.team.title.zhiwei",
-                roleKey: "about.team.role.zhiwei",
-              },
-              {
-                name: "Aspire Cao",
-                titleKey: "about.team.title.aspire",
-              },
-            ].map((member, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-0">
-                  {/* 成员头像 */}
-                  <div className="text-center mb-6">
-                    <div 
-                      className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-black" 
-                      style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}
-                    >
-                      {/* 姓名首字母头像 */}
-                      {member.name.split(' ')[0][0]}{member.name.split(' ')[1]?.[0]}
-                    </div>
-                    <h3 className="text-lg font-bold text-black mb-1">
-                      {member.name}
-                    </h3>
-                    <Badge className="mb-2 text-black" style={{ backgroundColor: '#e7d1ff' }}>
-                      {t(member.titleKey)}
-                    </Badge>
-                    {member.roleKey && (
-                      <div className="text-sm font-semibold text-black mb-3">
-                        {t(member.roleKey).split('\n').map((line, i) => (
-                          <p key={i} className="mb-1">{line}</p>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* 社交链接 */}
-                  <div className="flex justify-center gap-2 pt-4 border-t" style={{ borderColor: '#e7d1ff' }}>
-                    <Button variant="outline" size="sm" className="p-2">
-                      <Linkedin className="h-4 w-4" />
-                    </Button>
-                    <Button variant="outline" size="sm" className="p-2">
-                      <TwitterXIcon className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+          {/* 团队环形展示（桌面） / 网格（移动） */}
+          <div className="grid sm:hidden grid-cols-3 gap-6 place-items-center">
+            {['/homepage/people1.jpg','/homepage/people2.jpg','/homepage/people3.jpg','/homepage/people4.jpg','/homepage/people5.jpg','/homepage/people6.png'].map((src, i) => (
+              <img key={i} src={src} alt={`member-${i+1}`} className="w-20 h-20 rounded-full object-cover border-2 border-white/70 shadow" loading="lazy" decoding="async" />
             ))}
+          </div>
+
+          <div className="hidden sm:block">
+            {/* 背景延续 */}
+            <div 
+              className="relative mx-auto w-full max-w-5xl h-[560px] sm:h-[620px] lg:h-[700px]"
+            >
+              {/* 背景图层 */}
+              <div 
+                className="absolute inset-0 opacity-30 bg-cover bg-center bg-no-repeat pointer-events-none"
+                style={{ backgroundImage: `url(${backgroundImage})` }}
+              />
+
+              {/* 四个同心圆：纯描边 */}
+              <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[620px] sm:size-[680px] lg:size-[760px] rounded-full border-[1.5px] border-amber-300" />
+              <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[520px] sm:size-[580px] lg:size-[640px] rounded-full border-[1.5px] border-pink-300" />
+              <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[400px] sm:size-[440px] lg:size-[480px] rounded-full border-[1.5px] border-rose-200" />
+              <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[260px] sm:size-[300px] lg:size-[320px] rounded-full border-[1.5px] border-orange-200" />
+
+              {/* 中心标志 */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center select-none">
+                <div className="mx-auto size-28 sm:size-32 lg:size-36 rounded-full bg-white/85 backdrop-blur-sm border border-black/5 flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
+                  <div className="leading-tight">
+                    <img src="/homepage/people4.jpg" alt="center" className="w-16 h-16 rounded-full object-cover mx-auto mb-1 hidden" />
+                    <img src="/homepage/biglogo.png" alt="CancerDAO" className="w-20 h-20 object-contain" />
+                  </div>
+                </div>
+              </div>
+
+              {/* 头像与弹出卡片：绑定在轨道上（正向朝向用户） */}
+              {[
+                // orbit: 4最大 -> 1最小；angle度数按顺时针
+                
+                { id: 3, name: 'Carol', role: '临床顾问', avatar: '/homepage/people3.jpg', orbit: 3, angle: 330, links: { linkedin: '#', twitter: '#' } },
+                { id: 4, name: 'David', role: 'AI 工程师', avatar: '/homepage/people4.jpg', orbit: 3, angle: 110, links: { linkedin: '#', twitter: '#' } },
+                { id: 5, name: 'Eve', role: 'BD 合作', avatar: '/homepage/people5.jpg', orbit: 2, angle: 210, links: { linkedin: '#', twitter: '#' } },
+                { id: 6, name: 'Frank', role: '产品经理', avatar: '/homepage/people6.png', orbit: 2, angle: 45, links: { linkedin: '#', twitter: '#' } },
+                { id: 7, name: 'Grace', role: '设计', avatar: '/homepage/people1.jpg', orbit: 1, angle: 160, links: { linkedin: '#', twitter: '#' } },
+                { id: 8, name: 'Heidi', role: '数据科学', avatar: '/homepage/people2.jpg', orbit: 1, angle: 350, links: { linkedin: '#', twitter: '#' } },
+              ].map((m) => (
+                <div key={m.id} className="group">
+                  {/* 计算位置：根据不同轨道的半径设置 translate */}
+                  <div
+                    className="absolute left-1/2 top-1/2"
+                    style={{
+                      transform: `translate(-50%,-50%) rotate(${m.angle}deg)`,
+                    }}
+                  >
+                    {/* 半径偏移容器（随断点变化），并做反向旋转让头像始终正向 */}
+                    <div
+                      className={
+                        `relative transform 
+                        ${m.orbit === 4 ? 'translate-x-[282px] sm:translate-x-[312px] lg:translate-x-[348px]' : ''}
+                        ${m.orbit === 3 ? 'translate-x-[253px] sm:translate-x-[283px] lg:translate-x-[312px]' : ''}
+                        ${m.orbit === 2 ? 'translate-x-[193px] sm:translate-x-[213px] lg:translate-x-[232px]' : ''}
+                        ${m.orbit === 1 ? 'translate-x-[123px] sm:translate-x-[143px] lg:translate-x-[152px]' : ''}`
+                      }
+                    >
+                      <div style={{ transform: `rotate(${-m.angle}deg)` }} className="relative">
+                      {/* 头像 */}
+                      <img
+                        src={m.avatar}
+                        alt={m.name}
+                        className="w-14 h-14 lg:w-16 lg:h-16 rounded-full object-cover border-2 border-white/80 shadow-lg"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      
+                      {/* 悬浮卡片 */}
+                      <div className="absolute left-1/2 -translate-x-1/2 translate-y-3 hidden group-hover:block z-10">
+                        <div className="min-w-[180px] max-w-[220px] rounded-2xl bg-white/90 backdrop-blur border border-black/5 p-3 shadow-xl text-left">
+                          <div className="flex items-center gap-3 mb-2">
+                            <img src={m.avatar} alt={m.name} className="w-10 h-10 rounded-full object-cover" />
+                            <div>
+                              <div className="font-semibold text-black">{m.name}</div>
+                              <div className="text-xs text-black/60">{m.role}</div>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2 pt-1">
+                            <a href={m.links.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-black/5 hover:bg-black/10 text-black">
+                              <Linkedin className="w-4 h-4" />
+                            </a>
+                            <a href={m.links.twitter} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-black/5 hover:bg-black/10 text-black">
+                              <TwitterXIcon className="w-4 h-4" />
+                            </a>
+                            <a href="#" className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-black/5 hover:bg-black/10 text-black">
+                              <Mail className="w-4 h-4" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+            
+            </div>
           </div>
 
           {/* 了解更多按钮 */}
@@ -666,7 +685,7 @@ export default function Homepage() {
 
           {/* 合作行动号召 */}
           <div className="text-center">
-            <div className="rounded-2xl p-8 max-w-2xl mx-auto border border-gray-200">
+            <div className="rounded-3xl p-8 max-w-2xl mx-auto border border-white/60 bg-white/60 backdrop-blur">
               <h3 className="text-xl font-bold text-black mb-4">
                 {t("partners.join_us")}
               </h3>
@@ -674,8 +693,7 @@ export default function Homepage() {
                 {t("partners.we_found")}
               </p>
               <Button 
-                className="font-semibold px-8 py-3 text-black"
-                style={{ backgroundColor: '#fad000' }}
+                className="font-semibold px-8 py-3 text-black rounded-full bg-[#fad000] hover:brightness-95 transition"
                 onClick={() => navigate('/for-partners')}
               >
                 {t("partners.collaboration")}
