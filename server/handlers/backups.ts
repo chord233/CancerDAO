@@ -1,6 +1,12 @@
 import { Request, Response } from 'express';
 import type { Backup } from '../../shared/types';
 
+/**
+ * 备份（Backup）相关处理器
+ * ---------------------------------
+ * - 提供查询备份列表与创建备份的接口（当前为内存模拟数据）
+ * - 类型定义参考 `shared/types.ts` 中的 `Backup`
+ */
 const mockBackups: Backup[] = [
   {
     id: 1,
@@ -11,6 +17,10 @@ const mockBackups: Backup[] = [
   }
 ];
 
+/**
+ * GET /api/backups
+ * 返回备份列表（模拟）。错误时返回 500。
+ */
 export const getBackups = async (req: Request, res: Response) => {
   try {
     res.json(mockBackups);
@@ -19,6 +29,11 @@ export const getBackups = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * POST /api/backups
+ * 创建新的备份记录（模拟），随机生成大小与时间戳。
+ * 成功返回 201 + 新备份记录。错误时返回 500。
+ */
 export const createBackup = async (req: Request, res: Response) => {
   try {
     const newBackup: Backup = {
@@ -34,3 +49,4 @@ export const createBackup = async (req: Request, res: Response) => {
     res.status(500).json({ error: "Failed to create backup" });
   }
 };
+

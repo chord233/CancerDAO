@@ -1,6 +1,12 @@
 import { Request, Response } from 'express';
 import type { Metric } from '../../shared/types';
 
+/**
+ * 指标（Metric）相关处理器
+ * ---------------------------------
+ * - 提供核心指标（如捐赠总额、活跃项目数、社区成员数）
+ * - 当前返回模拟数据，类型见 `shared/types.ts` 中的 `Metric`
+ */
 const mockMetrics: Metric[] = [
   {
     id: 1,
@@ -25,6 +31,10 @@ const mockMetrics: Metric[] = [
   }
 ];
 
+/**
+ * GET /api/metrics
+ * 返回指标数据（模拟）。错误时返回 500。
+ */
 export const getMetrics = async (req: Request, res: Response) => {
   try {
     res.json(mockMetrics);

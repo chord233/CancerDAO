@@ -383,7 +383,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* ========== 影响力数据统计======= */}
+      {/* ========== 影响力统计======= */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -520,12 +520,10 @@ export default function Homepage() {
 
               {/* 中心标志 */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center select-none">
-                <div className="mx-auto size-28 sm:size-32 lg:size-36 rounded-full bg-white/85 backdrop-blur-sm border border-black/5 flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
                   <div className="leading-tight">
                     <img src="/homepage/people4.jpg" alt="center" className="w-16 h-16 rounded-full object-cover mx-auto mb-1 hidden" />
                     <img src="/homepage/biglogo.png" alt="CancerDAO" className="w-20 h-20 object-contain" />
                   </div>
-                </div>
               </div>
 
               {/* 头像与弹出卡片：绑定在轨道上（正向朝向用户） */}

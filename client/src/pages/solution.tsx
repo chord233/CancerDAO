@@ -1,7 +1,10 @@
+// 导入React基础hooks
 import { useState } from "react";
+// 导入UI组件
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+// 导入Lucide图标库中的各种图标
 import {
   Brain,
   Shield,
@@ -36,14 +39,19 @@ import {
   Fingerprint,
   Grid3x3,
 } from "lucide-react";
+// 导入多语言支持
 import { useLanguage } from "@/contexts/language-context";
+// 导入静态资源
 import cancerDaoLogo from "@assets/透明底_1752333750993.png";
 import dataNftFlowChart from "@assets/image_1752205358199.png";
 import fheFlowChart1 from "@assets/image_1752205374610.png";
 import fheFlowChart2 from "@assets/image_1752205381666.png";
 import tokenIcon from "@assets/token_1752465516019.png";
 
-// Custom blockchain cube SVG icon
+/**
+ * 自定义区块链立方体图标组件
+ * @param {string} className - 可选的CSS类名
+ */
 const BlockchainCubeIcon = ({ className }: { className?: string }) => (
   <svg
     className={className}
@@ -52,11 +60,15 @@ const BlockchainCubeIcon = ({ className }: { className?: string }) => (
     height="32"
     fill="currentColor"
   >
+    {/* SVG路径定义立方体形状 */}
     <path d="M544.928 138.464l256 157.984A66.24 66.24 0 0 1 832 352.896V673.28a66.24 66.24 0 0 1-31.072 56.448l-256 157.984c-20.256 12.48-45.6 12.48-65.856 0l-256-157.984A66.24 66.24 0 0 1 192 673.28V352.896c0-23.136 11.808-44.544 31.072-56.448l256-157.984a62.496 62.496 0 0 1 65.856 0z m220.8 258.912l-220.608 136.16v272.288l220.64-136.16-0.032-272.288z m-507.488 6.944v265.344l209.376 129.216v-265.344L258.24 404.32z m254.336-204.416l-226.848 139.968 221.184 136.48 226.816-139.968-221.152-136.48z" />
   </svg>
 );
 
-// Custom DNA/token helix SVG icon
+/**
+ * 自定义DNA/代币螺旋图标组件
+ * @param {string} className - 可选的CSS类名
+ */
 const DnaTokenIcon = ({ className }: { className?: string }) => (
   <svg
     className={className}
@@ -65,11 +77,15 @@ const DnaTokenIcon = ({ className }: { className?: string }) => (
     height="32"
     fill="currentColor"
   >
+    {/* SVG路径定义DNA螺旋形状 */}
     <path d="M1028.096 623.104c0-81.92-111.616-145.92-247.808-145.92-9.216 0-19.968 0.512-28.672 1.024V238.592c1.024-6.144 1.024-12.288 1.024-18.432 0-80.896-103.424-143.872-240.128-143.872S268.8 139.776 268.8 220.16c0 6.144 1.024 12.288 2.048 18.432v65.536c-7.68-0.512-15.36-0.512-23.552-0.512-136.704 0-241.664 62.976-241.664 143.872 0 6.144 0.512 12.288 2.048 18.432v239.104c-1.024 6.144-2.048 12.288-2.048 18.432 0 80.896 104.96 143.872 241.664 143.872 8.192 0 15.872-0.512 23.552-1.024v65.536c-1.024 6.144-2.048 12.288-2.048 18.432 0 80.896 103.424 143.872 240.128 143.872s240.128-62.976 240.128-143.872c0-6.144-0.512-12.288-1.024-18.432V542.72c8.704 0.512 19.456 1.024 28.672 1.024 136.192 0 247.808-63.488 247.808-145.92 0-6.144-0.512-12.288-1.024-18.432V359.424c1.024-6.144 1.024-12.288 1.024-18.432 0-81.92-111.616-145.92-247.808-145.92-9.216 0-19.968 0.512-28.672 1.024V91.648c1.024-6.144 1.024-12.288 1.024-18.432 0-80.896-103.424-143.872-240.128-143.872S268.8 -10.24 268.8 70.144c0 6.144 1.024 12.288 2.048 18.432v105.472c-7.68-0.512-15.36-0.512-23.552-0.512-136.704 0-241.664 62.976-241.664 143.872 0 6.144 0.512 12.288 2.048 18.432v160.768c-1.024 6.144-2.048 12.288-2.048 18.432 0 80.896 104.96 143.872 241.664 143.872 8.192 0 15.872-0.512 23.552-1.024v160.768c-1.024 6.144-2.048 12.288-2.048 18.432 0 80.896 103.424 143.872 240.128 143.872s240.128-62.976 240.128-143.872c0-6.144-0.512-12.288-1.024-18.432V686.08c8.704 0.512 19.456 1.024 28.672 1.024 136.192 0 247.808-63.488 247.808-145.92z" />
   </svg>
 );
 
-// Custom AI therapies screening SVG icon
+/**
+ * 自定义AI疗法筛选图标组件
+ * @param {string} className - 可选的CSS类名
+ */
 const AiTherapiesIcon = ({ className }: { className?: string }) => (
   <svg
     className={className}
@@ -78,11 +94,15 @@ const AiTherapiesIcon = ({ className }: { className?: string }) => (
     height="32"
     fill="currentColor"
   >
+    {/* SVG路径定义AI相关形状 */}
     <path d="M517.354406 935.282192a296.930527 296.930527 0 0 0 395.118214 21.556434L704.2599 748.376699zM680.4606 678.598648l23.176282-23.176281L885.309021 473.50102l69.155033-69.155033A236.746959 236.746959 0 0 0 619.404806 69.411342l-548.256115 548.256115a236.746959 236.746959 0 1 0 335.183852 335.059248L423.652452 935.157589l256.808148-256.558941zM394.619799 392.633243l274.128057-274.128058a167.467322 167.467322 0 1 1 236.746959 236.746959l-274.128058 274.128057-236.746958-236.746958M958.949786 910.610667h-0.124604 0.124604zM937.393352 515.118643l-186.905493 186.905493L959.4482 910.610667a297.428942 297.428942 0 0 0-22.054848-395.492024z" />
   </svg>
 );
 
-// Custom Network/Connection SVG icon
+/**
+ * 自定义网络/连接图标组件
+ * @param {string} className - 可选的CSS类名
+ */
 const NetworkIcon = ({ className }: { className?: string }) => (
   <svg
     className={className}
@@ -91,20 +111,26 @@ const NetworkIcon = ({ className }: { className?: string }) => (
     height="32"
     fill="currentColor"
   >
+    {/* SVG路径定义网络连接形状 */}
     <path d="M510.912 990.016a421.12 421.12 0 0 1-232.896-69.888 19.2 19.2 0 1 1 21.12-32 385.472 385.472 0 0 0 372.288 28.544 19.2 19.2 0 0 1 16 34.944 420.352 420.352 0 0 1-176.512 38.4z" />
     <path d="M111.616 649.088a19.2 19.2 0 0 1-19.2-16.192A424 424 0 0 1 372.224 166.4a19.2 19.2 0 1 1 12.8 36.288 385.344 385.344 0 0 0-259.136 363.84A394.88 394.88 0 0 0 130.56 627.2a19.2 19.2 0 0 1-15.936 22.016zM894.464 713.984a19.776 19.776 0 0 1-6.08-0.96 19.2 19.2 0 0 1-12.16-24.32 385.6 385.6 0 0 0-164.352-450.688 19.2 19.2 0 0 1 20.096-32.768 424.064 424.064 0 0 1 180.672 495.616 19.2 19.2 0 0 1-18.176 13.12zM192.384 967.168a147.2 147.2 0 1 1 147.2-147.2 147.2 147.2 0 0 1-147.2 147.2z m0-255.424a108.8 108.8 0 1 0 108.8 108.8 108.8 108.8 0 0 0-108.8-108.8z" />
     <path d="M849.6 967.168a147.2 147.2 0 1 1 147.2-147.2 147.2 147.2 0 0 1-147.2 147.2z m0-255.424a108.8 108.8 0 1 0 108.8 108.8 108.8 108.8 0 0 0-108.8-108.8zM510.72 313.024a147.2 147.2 0 1 1 147.2-146.88 147.2 147.2 0 0 1-147.2 146.88zM510.72 57.6a108.8 108.8 0 1 0 108.8 108.8 108.8 108.8 0 0 0-108.8-108.8zM510.72 731.584a147.2 147.2 0 1 1 147.2-147.2 147.2 147.2 0 0 1-147.2 147.2z m0-255.424a108.8 108.8 0 1 0 108.8 108.48 108.8 108.8 0 0 0-108.8-108.48z" />
   </svg>
 );
 
+/**
+ * 解决方案页面主组件
+ */
 export default function Solution() {
+  // 使用多语言hook
   const { t } = useLanguage();
+  // 使用状态管理选中的支柱(0: AI, 1: 社区, 2: 区块链)
   const [selectedPillar, setSelectedPillar] = useState<number>(0);
 
   return (
     <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* 页面标题部分 */}
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold text-black mb-8">
             {t("solution.title")}
@@ -114,16 +140,16 @@ export default function Solution() {
           </p>
         </div>
 
-        {/* Core Flow Diagram */}
+        {/* 核心流程图部分 */}
         <section className="mb-20 rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)', border: '1px solid #e7d1ff' }}>
           <h2 className="text-3xl font-bold text-center text-black mb-12">
             {t("solution.core.title")}
           </h2>
           
-          {/* CancerDAO Ecosystem Description - Three Modules */}
+          {/* CancerDAO生态系统描述 - 三个模块 */}
           <div className="max-w-6xl mx-auto mb-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Module 1: Patient-Centered Ecosystem */}
+              {/* 模块1: 以患者为中心的生态系统 */}
               <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
                 <div className="flex flex-col items-center text-center mb-4">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ backgroundColor: '#c9a4ff' }}>
@@ -138,7 +164,7 @@ export default function Solution() {
                 </p>
               </div>
 
-              {/* Module 2: Web3 & AI Technology */}
+              {/* 模块2: Web3 & AI技术 */}
               <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
                 <div className="flex flex-col items-center text-center mb-4">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ backgroundColor: '#fad000' }}>
@@ -151,7 +177,7 @@ export default function Solution() {
                 </p>
               </div>
 
-              {/* Module 3: Sustainable Financial System */}
+              {/* 模块3: 可持续金融系统 */}
               <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
                 <div className="flex flex-col items-center text-center mb-4">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ backgroundColor: '#fc593d' }}>
@@ -166,7 +192,7 @@ export default function Solution() {
             </div>
           </div>
           
-          {/* CancerDAO Architecture Diagram */}
+          {/* CancerDAO架构图 */}
           <div className="mb-16 flex justify-center">
             <div className="max-w-6xl w-full">
               <div className="relative rounded-2xl shadow-lg border border-purple-200">
@@ -180,15 +206,15 @@ export default function Solution() {
           </div>
         </section>
 
-        {/* Three Pillars - Circular Layout */}
+        {/* 三大支柱 - 圆形布局部分 */}
         <section className="mb-20">
           <h2 className="text-3xl font-bold text-center text-black mb-12">
             {t("solution.pillars.title")}
           </h2>
           
-          {/* Circular Selection with Rotation */}
+          {/* 圆形选择器，带有旋转动画 */}
           <div className="relative flex items-center justify-center mb-8">
-            {/* Triangle indicator pointing down */}
+            {/* 三角形指示器，指向下方 */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-36 z-5 pointer-events-none">
               <div className="w-0 h-0 border-l-[12px] border-r-[12px] border-t-[15px] border-transparent" style={{ borderTopColor: '#c9a4ff' }}></div>
             </div>
@@ -199,6 +225,7 @@ export default function Solution() {
                 transform: `rotate(${(-selectedPillar * 120) + 180}deg)`,
               }}
             >
+              {/* 支柱数据数组 */}
               {[
                 {
                   id: 0,
@@ -234,8 +261,8 @@ export default function Solution() {
                   ]
                 }
               ].map((pillar, index) => {
-                // Calculate position - selected pillar should be at bottom (90°)
-                const baseAngle = (index * 120) - 90; // Base angles: -90, 30, 150 degrees
+                // 计算位置 - 选中的支柱应该在底部(90°)
+                const baseAngle = (index * 120) - 90; // 基础角度: -90, 30, 150度
                 const radius = 120;
                 const x = Math.cos(baseAngle * Math.PI / 180) * radius;
                 const y = Math.sin(baseAngle * Math.PI / 180) * radius;
@@ -277,9 +304,9 @@ export default function Solution() {
             </div>
           </div>
 
-          {/* Selected Pillar Details - Connected to selection above */}
+          {/* 选中的支柱详情 - 与上面的选择器关联 */}
           <div className="max-w-4xl mx-auto relative">
-            {/* Connection line to selected pillar */}
+            {/* 连接到选中支柱的线条 */}
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 w-0.5 h-8 z-10" style={{ backgroundColor: '#c9a4ff' }}></div>
             
             <Card className="p-8 bg-white shadow-lg transition-all duration-500 rounded-t-3xl" style={{ border: '1px solid #e7d1ff' }}>
@@ -298,7 +325,7 @@ export default function Solution() {
                           </p>
                         </div>
                         
-                        {/* AI 解析流程演示区 */}
+                        {/* AI解析流程演示区 */}
                         <div className="mb-8">
                           <div className="flex items-center justify-center mb-6">
                             <Cpu className="h-8 w-8 mr-4" style={{ color: '#c9a4ff' }} />
@@ -359,7 +386,7 @@ export default function Solution() {
                           </div>
                         </div>
 
-                        {/* AI Agent 产品矩阵 */}
+                        {/* AI Agent产品矩阵 */}
                         <div className="text-center mb-6">
                           <h4 className="text-xl font-bold text-black mb-6">
                             {t("ai.agent.matrix.title")}
@@ -386,82 +413,6 @@ export default function Solution() {
                             </div>
                           </div>
                           
-                          {/*/!* Trial Bot *!/*/}
-                          {/*<div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">*/}
-                          {/*  <div className="flex items-start mb-3">*/}
-                          {/*    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fc593d' }}>*/}
-                          {/*      <Search className="h-5 w-5 text-white" />*/}
-                          {/*    </div>*/}
-                          {/*    <div className="flex-1">*/}
-                          {/*      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.trial.name")}</h5>*/}
-                          {/*      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.trial.description")}</p>*/}
-                          {/*    </div>*/}
-                          {/*  </div>*/}
-                          {/*  <div className="flex items-center justify-between">*/}
-                          {/*    <Badge className="text-black text-xs" style={{ backgroundColor: '#fc593d' }}>*/}
-                          {/*      {t("ai.agent.trial.status")}*/}
-                          {/*    </Badge>*/}
-                          {/*    <span className="text-xs text-gray-500">Agent</span>*/}
-                          {/*  </div>*/}
-                          {/*</div>*/}
-                          
-                          {/*/!* Clinical Bot *!/*/}
-                          {/*<div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">*/}
-                          {/*  <div className="flex items-start mb-3">*/}
-                          {/*    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>*/}
-                          {/*      <Stethoscope className="h-5 w-5 text-white" />*/}
-                          {/*    </div>*/}
-                          {/*    <div className="flex-1">*/}
-                          {/*      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.clinical.name")}</h5>*/}
-                          {/*      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.clinical.description")}</p>*/}
-                          {/*    </div>*/}
-                          {/*  </div>*/}
-                          {/*  <div className="flex items-center justify-between">*/}
-                          {/*    <Badge className="text-black text-xs" style={{ backgroundColor: '#fc593d' }}>*/}
-                          {/*      {t("ai.agent.clinical.status")}*/}
-                          {/*    </Badge>*/}
-                          {/*    <span className="text-xs text-gray-500">Agent</span>*/}
-                          {/*  </div>*/}
-                          {/*</div>*/}
-                          
-                          {/*/!* Content Bot *!/*/}
-                          {/*<div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">*/}
-                          {/*  <div className="flex items-start mb-3">*/}
-                          {/*    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>*/}
-                          {/*      <Edit className="h-5 w-5 text-white" />*/}
-                          {/*    </div>*/}
-                          {/*    <div className="flex-1">*/}
-                          {/*      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.content.name")}</h5>*/}
-                          {/*      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.content.description")}</p>*/}
-                          {/*    </div>*/}
-                          {/*  </div>*/}
-                          {/*  <div className="flex items-center justify-between">*/}
-                          {/*    <Badge className="text-black text-xs" style={{ backgroundColor: '#fad000' }}>*/}
-                          {/*      {t("ai.agent.content.status")}*/}
-                          {/*    </Badge>*/}
-                          {/*    <span className="text-xs text-gray-500">Agent</span>*/}
-                          {/*  </div>*/}
-                          {/*</div>*/}
-                          
-                          {/*/!* Longevity Bot *!/*/}
-                          {/*<div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">*/}
-                          {/*  <div className="flex items-start mb-3">*/}
-                          {/*    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>*/}
-                          {/*      <Activity className="h-5 w-5 text-white" />*/}
-                          {/*    </div>*/}
-                          {/*    <div className="flex-1">*/}
-                          {/*      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.longevity.name")}</h5>*/}
-                          {/*      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.longevity.description")}</p>*/}
-                          {/*    </div>*/}
-                          {/*  </div>*/}
-                          {/*  <div className="flex items-center justify-between">*/}
-                          {/*    <Badge className="text-black text-xs" style={{ backgroundColor: '#fc593d' }}>*/}
-                          {/*      {t("ai.agent.longevity.status")}*/}
-                          {/*    </Badge>*/}
-                          {/*    <span className="text-xs text-gray-500">Agent</span>*/}
-                          {/*  </div>*/}
-                          {/*</div>*/}
-                          
                           {/* AMA Bot */}
                           <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
                             <div className="flex items-start mb-3">
@@ -480,44 +431,6 @@ export default function Solution() {
                               <span className="text-xs text-gray-500">Agent</span>
                             </div>
                           </div>
-                          
-                          {/*/!* Research Bot *!/*/}
-                          {/*<div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">*/}
-                          {/*  <div className="flex items-start mb-3">*/}
-                          {/*    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>*/}
-                          {/*      <Microscope className="h-5 w-5 text-white" />*/}
-                          {/*    </div>*/}
-                          {/*    <div className="flex-1">*/}
-                          {/*      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.research.name")}</h5>*/}
-                          {/*      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.research.description")}</p>*/}
-                          {/*    </div>*/}
-                          {/*  </div>*/}
-                          {/*  <div className="flex items-center justify-between">*/}
-                          {/*    <Badge className="text-black text-xs" style={{ backgroundColor: '#fc593d' }}>*/}
-                          {/*      {t("ai.agent.research.status")}*/}
-                          {/*    </Badge>*/}
-                          {/*    <span className="text-xs text-gray-500">Agent</span>*/}
-                          {/*  </div>*/}
-                          {/*</div>*/}
-                          
-                          {/*/!* Support Bot *!/*/}
-                          {/*<div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">*/}
-                          {/*  <div className="flex items-start mb-3">*/}
-                          {/*    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#fad000' }}>*/}
-                          {/*      <MessageCircle className="h-5 w-5 text-white" />*/}
-                          {/*    </div>*/}
-                          {/*    <div className="flex-1">*/}
-                          {/*      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.support.name")}</h5>*/}
-                          {/*      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.support.description")}</p>*/}
-                          {/*    </div>*/}
-                          {/*  </div>*/}
-                          {/*  <div className="flex items-center justify-between">*/}
-                          {/*    <Badge className="text-black border border-black text-xs" style={{ backgroundColor: 'white' }}>*/}
-                          {/*      {t("ai.agent.support.status")}*/}
-                          {/*    </Badge>*/}
-                          {/*    <span className="text-xs text-gray-500">Agent</span>*/}
-                          {/*  </div>*/}
-                          {/*</div>*/}
                         </div>
                       </div>
                     );
@@ -704,7 +617,6 @@ export default function Solution() {
                                 </div>
                               </div>
                             </div>
-
                           </div>
                         </div>
 
@@ -727,7 +639,6 @@ export default function Solution() {
                               className="max-w-md mx-auto rounded-lg shadow-md"
                             />
                           </div>
-
                         </div>
                       </div>
                     );
@@ -787,9 +698,7 @@ export default function Solution() {
           </div>
         </section>
 
-
-
-        {/* Call to Action */}
+        {/* 行动号召部分 */}
         <div className="text-center rounded-2xl p-8" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
           <h3 className="text-2xl font-bold mb-4 text-black">
             {t("solution.cta.title")}

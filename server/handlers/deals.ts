@@ -1,6 +1,12 @@
 import { Request, Response } from 'express';
 import type { Deal } from '../../shared/types';
 
+/**
+ * 交易（Deal）相关处理器
+ * ---------------------------------
+ * - 提供获取资金/资助等交易列表的接口（当前为模拟数据）
+ * - 类型定义参考 `shared/types.ts` 中的 `Deal`
+ */
 const mockDeals: Deal[] = [
   {
     id: 1,
@@ -18,6 +24,10 @@ const mockDeals: Deal[] = [
   }
 ];
 
+/**
+ * GET /api/deals
+ * 返回交易列表（模拟）。错误时返回 500。
+ */
 export const getDeals = async (req: Request, res: Response) => {
   try {
     res.json(mockDeals);

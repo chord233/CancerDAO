@@ -1,6 +1,12 @@
 import { Request, Response } from 'express';
 import type { Activity } from '../../shared/types';
 
+/**
+ * 活动（Activity）相关处理器
+ * ---------------------------------
+ * - 提供获取活动时间线的接口（当前为模拟数据）
+ * - 前端类型定义参考 `shared/types.ts` 中的 `Activity`
+ */
 const mockActivities: Activity[] = [
   {
     id: 1,
@@ -18,6 +24,11 @@ const mockActivities: Activity[] = [
   }
 ];
 
+/**
+ * GET /api/activities
+ * 返回活动时间线（模拟数据）。
+ * 错误处理：统一返回 500 与错误信息。
+ */
 export const getActivities = async (req: Request, res: Response) => {
   try {
     res.json(mockActivities);

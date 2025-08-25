@@ -1,6 +1,12 @@
 import { Request, Response } from 'express';
 import type { Forecast } from '../../shared/types';
 
+/**
+ * 预测（Forecast）相关处理器
+ * ---------------------------------
+ * - 提供获取财务/指标预测数据的接口（当前为模拟数据）
+ * - 类型定义参考 `shared/types.ts` 中的 `Forecast`
+ */
 const mockForecasts: Forecast[] = [
   {
     id: 1,
@@ -18,6 +24,10 @@ const mockForecasts: Forecast[] = [
   }
 ];
 
+/**
+ * GET /api/forecast
+ * 返回预测数据（模拟）。错误时返回 500。
+ */
 export const getForecast = async (req: Request, res: Response) => {
   try {
     res.json(mockForecasts);
