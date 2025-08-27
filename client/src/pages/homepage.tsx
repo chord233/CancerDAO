@@ -104,7 +104,7 @@ export default function Homepage() {
       <section className="hero-section relative overflow-hidden py-32 lg:py-40 bg-gradient-to-b from-[#F2F3FB] via-[#FFFFFF] to-[#EAE3FA]">
         {/* 背景图片层 - 半透明叠加 */}
         <div 
-          className="absolute inset-0 z-0 opacity-100 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 z-0 opacity-30 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${backgroundImage})`,
             filter: 'brightness(1.05) contrast(0.95)', // 增强亮度和对比度
@@ -194,7 +194,7 @@ export default function Homepage() {
             </div>
 
             {/* 问题卡片网格 - 响应式布局 */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 relative items-stretch  ">
               {[
                 // 全球性问题卡片
                 {
@@ -282,8 +282,19 @@ export default function Homepage() {
       </section>
 
       {/* ========== 产品预览区域 ========== */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-white overflow-hidden">
+        {/* 背景点阵：Vector.png（只展示相关区域，随断点调整位置与尺寸） */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-80"
+          style={{
+            backgroundImage: "url(/Vector.png)",
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '1400px auto',
+            backgroundPosition: 'center 50%',
+          }}
+        />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 产品区块标题 */}
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
@@ -294,188 +305,161 @@ export default function Homepage() {
             </p>
           </div>
 
-          {/* 产品特性网格布局 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* 产品演示视频区块 */}
-            <div className="text-center">
-              <div className="relative mb-8">
-                <div className="w-64 h-[32rem] mx-auto rounded-3xl shadow-2xl overflow-hidden border border-white/60 bg-white/60 backdrop-blur"
-                  style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                  <video
-                    className="w-full h-full object-cover block"
-                    controls autoPlay loop muted
-                    preload="metadata"
-                  >
-                    <source src="/attached_assets/视频_1752331442308.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex items-center justify-center mb-4">
-                  <Brain className="h-8 w-8 mr-3" style={{ color: '#c9a4ff' }} />
-                  <h3 className="text-2xl font-bold text-black">
-                    {t("product.feature1.title")}
-                  </h3>
-                </div>
-                <p className="text-black leading-relaxed max-w-md mx-auto">
-                  {t("product.feature1.description")}
-                </p>
-                
-                {/* 试用按钮 */}
-                <div className="pt-4">
-                  <Button 
-                    className="text-black bg-gradient-to-r from-purple-medium to-purple-light hover:from-purple-dark hover:to-purple-medium px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
-                    onClick={() => console.log("Trial button clicked")}
-                  >
-                    {t("product.trial.button")}
-                  </Button>
-                </div>
+          {/* Row 1：左图右文 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-16 mb-20">
+            {/* 媒体：视频/图片（左） */}
+            <div className="order-1 md:order-1 flex justify-center">
+              <div
+                className="w-64 h-[32rem] rounded-3xl shadow-2xl overflow-hidden border border-white/60 bg-white/60 backdrop-blur"
+                style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}
+              >
+                <video
+                  className="w-full h-full object-cover block"
+                  controls autoPlay loop muted
+                  preload="metadata"
+                >
+                  <source src="/attached_assets/视频_1752331442308.mp4" type="video/mp4" />
+                </video>
               </div>
             </div>
 
-            {/* 健康时间线区块 */}
-            <div className="text-center">
-              <div className="relative mb-8">
-                <div className="w-64 h-[32rem] mx-auto rounded-3xl shadow-2xl overflow-hidden border border-white/60 bg-white/60 backdrop-blur"
-                  style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                  <video
-                    className="w-full h-full object-cover block"
-                    controls autoPlay loop muted
-                    preload="metadata"
-                  >
-                    <source src="/attached_assets/事件线.mp4" type="video/mp4" />
-                  </video>
-                </div>
+            {/* 文案（右） */}
+            <div className="order-2 md:order-2 text-left md:pl-6">
+              <div className="flex items-center mb-4">
+                <Brain className="h-8 w-8 mr-3" style={{ color: '#c9a4ff' }} />
+                <h3 className="text-2xl font-bold text-black">{t("product.feature1.title")}</h3>
               </div>
+              <p className="text-black/90 leading-relaxed max-w-xl mb-6">
+                {t("product.feature1.description")}
+              </p>
+              <Button 
+                className="text-black bg-gradient-to-r from-purple-medium to-purple-light hover:from-purple-dark hover:to-purple-medium px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+                onClick={() => console.log('Trial button clicked')}
+              >
+                {t("product.trial.button")}
+              </Button>
+            </div>
+          </div>
 
-              <div className="space-y-4">
-                <div className="flex items-center justify-center mb-4">
-                  <Smartphone className="h-8 w-8 mr-3" style={{ color: '#c9a4ff' }} />
-                  <h3 className="text-2xl font-bold text-black">
-                    {t("product.feature2.title")}
-                  </h3>
-                </div>
-                <p className="text-black leading-relaxed max-w-md mx-auto">
-                  {t("product.feature2.description")}
-                </p>
+          {/* Row 2：右图左文（交错） */}
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-16">
+            {/* 文案（左） */}
+            <div className="order-2 md:order-1 text-left md:pr-6">
+              <div className="flex items-center mb-4">
+                <Smartphone className="h-8 w-8 mr-3" style={{ color: '#c9a4ff' }} />
+                <h3 className="text-2xl font-bold text-black">{t("product.feature2.title")}</h3>
+              </div>
+              <p className="text-black/90 leading-relaxed max-w-xl mb-6">
+                {t("product.feature2.description")}
+              </p>
+              <Button 
+                className="text-black bg-gradient-to-r from-purple-medium to-purple-light hover:from-purple-dark hover:to-purple-medium px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+                onClick={() => console.log('Trial button clicked')}
+              >
+                {t("product.trial.button")}
+              </Button>
+            </div>
 
-                {/* 试用按钮 */}
-                <div className="pt-4">
-                  <Button
-                    className="text-black bg-gradient-to-r from-purple-medium to-purple-light hover:from-purple-dark hover:to-purple-medium px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
-                    onClick={() => console.log("Trial button clicked")}
-                  >
-                    {t("product.trial.button")}
-                  </Button>
-                </div>
+            {/* 媒体：视频/图片（右） */}
+            <div className="order-1 md:order-2 flex justify-center">
+              <div
+                className="w-64 h-[32rem] rounded-3xl shadow-2xl overflow-hidden border border-white/60 bg-white/60 backdrop-blur"
+                style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}
+              >
+                <video
+                  className="w-full h-full object-cover block"
+                  controls autoPlay loop muted
+                  preload="metadata"
+                >
+                  <source src="/attached_assets/事件线.mp4" type="video/mp4" />
+                </video>
               </div>
             </div>
           </div>
-          
+
           {/* 了解更多按钮 */}
-          <div className="text-center mt-16">
-            <Button className="btn-primary">
-              {t("product.learn.more")}
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
+          
         </div>
       </section>
 
-      {/* ========== 影响力统计======= */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
+      {/* ========== 影响力数据统计======= */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* 新背景：地球淡化图层 */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-80 pointer-events-none"
+          style={{ backgroundImage: "url(/impact_background.png)" }}
+        />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-3">
               {t("community.title")}
             </h2>
-            <p className="text-xl text-black max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-black/80 max-w-3xl mx-auto">
               {t("community.subtitle")}
             </p>
           </div>
 
-          {/* 数据统计卡片 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {/* 数据统计卡片 */}
-            <Card className="text-center p-8">
-              <CardContent className="p-0">
-                <div className="mb-4">
-                  <Database className="h-8 w-8 mx-auto" style={{ color: '#c9a4ff' }} />
-                </div>
-                <h3 className="text-xl font-bold text-black mb-2">
-                  {t("community.data.title")}
-                </h3>
-                <p className="text-3xl font-bold mb-2" style={{ color: '#c9a4ff' }}>
-                  {t("community.data.count")}
-                </p>
-                <p className="text-black">{t("community.data.label")}</p>
-              </CardContent>
-            </Card>
+          {/* 三列数据：列内居中对齐 */}
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 items-stretch md:justify-items-center max-w-[1100px] mx-auto">
+          
+            {/* 健康数据 */}
+            <div className="w-full text-center">
+              <div className="text-sm text-black/70 mb-1">{t("community.data.title")}</div>
+              <div className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight bg-gradient-to-r from-fuchsia-500 to-violet-600 bg-clip-text text-transparent">
+                {t("community.data.count")}
+              </div>
+              <div className="text-sm text-black/70 mt-1">{t("community.data.label")}</div>
+            </div>
 
-            {/* 成员统计卡片 */}
-            <Card className="text-center p-8">
-              <CardContent className="p-0">
-                <div className="mb-4">
-                  <Users className="h-8 w-8 mx-auto" style={{ color: '#c9a4ff' }} />
-                </div>
-                <h3 className="text-xl font-bold text-black mb-2">
-                  {t("community.members.title")}
-                </h3>
-                <p className="text-3xl font-bold mb-2" style={{ color: '#c9a4ff' }}>
-                  {t("community.members.count")}
-                </p>
-                <p className="text-black">{t("community.members.label")}</p>
-              </CardContent>
-            </Card>
+            {/* 社区成员 */}
+            <div className="w-full text-center">
+              <div className="text-sm text-black/70 mb-1">{t("community.members.title")}</div>
+              <div className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight bg-gradient-to-r from-fuchsia-500 to-violet-600 bg-clip-text text-transparent">
+                {t("community.members.count")}
+              </div>
+              <div className="text-sm text-black/70 mt-1">{t("community.members.label")}</div>
+            </div>
 
-            {/* AI模型卡片 */}
-            <Card className="text-center p-8">
-              <CardContent className="p-0">
-                <div className="mb-4">
-                  <Brain className="h-8 w-8 mx-auto" style={{ color: '#c9a4ff' }} />
-                </div>
-                <h3 className="text-xl font-bold text-black mb-2">
-                  {t("community.ai.title")}
-                </h3>
-                <p className="text-3xl font-bold mb-2" style={{ color: '#c9a4ff' }}>
-                  {t("community.ai.count")}
-                </p>
-                <p className="text-black">{t("community.ai.label")}</p>
-              </CardContent>
-            </Card>
+            {/* AI 准确率 */}
+            <div className="w-full text-center">
+              <div className="text-sm text-black/70 mb-1">{t("community.ai.title")}</div>
+              <div className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight bg-gradient-to-r from-fuchsia-500 to-violet-600 bg-clip-text text-transparent">
+                {t("community.ai.count")}
+              </div>
+              <div className="text-sm text-black/70 mt-1">{t("community.ai.label")}</div>
+            </div>
           </div>
 
-          {/* 加入社区区块 */}
+          {/* 加入社区区块：英文大标题版式 + 统一按钮样式 */}
           <div
             id="join-community"
-            className="rounded-3xl p-8 text-center border border-white/60 bg-white/60 backdrop-blur"
+            className="rounded-3xl text-center border border-white/60 bg-white/70 backdrop-blur p-8 sm:p-10 lg:p-12 shadow-[0_8px_30px_rgba(0,0,0,0.1)] ring-1 ring-black/5 mt-12 sm:mt-16 lg:mt-20"
             style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}
           >
-            <h3 className="text-2xl font-bold mb-4 text-black">
-              {t("community.join.title")}
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-snug tracking-tight text-black max-w-5xl mx-auto mb-4">
+              Stop facing it alone, join CancerDAO community to fight cancer together and embrace health!
             </h3>
-            <p className="mb-6 max-w-2xl mx-auto text-black">
-              {t("community.join.subtitle")}
+            <p className="text-black/80 max-w-3xl mx-auto mb-8">
+              Whether you are a patient, family member, medical professional, or someone who cares about health, our community welcomes you. Here, you will find understanding, support, and hope.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
               <Button
-                className="font-semibold px-8 py-3 text-black rounded-full bg-[#fad000] hover:brightness-95 transition"
-                onClick={() => window.open("http://discord.gg/zKwyqxjeun", "_blank")}
+                className="btn-primary"
+                onClick={() => window.open('https://discord.com/', '_blank', 'noopener,noreferrer')}
               >
-                {t("community.join.discord")}
+                Join Discord
               </Button>
               <Button
-                className="font-semibold px-8 py-3 text-black rounded-full bg-[#fad000] hover:brightness-95 transition"
-                onClick={() => window.open("https://twitter.com/CancerDAOxyz", "_blank")}
+                className="btn-primary"
+                onClick={() => window.open('https://twitter.com/', '_blank', 'noopener,noreferrer')}
               >
-                {t("community.join.twitter")}
+                Follow Twitter
               </Button>
               <Button
-                className="font-semibold px-8 py-3 text-black rounded-full bg-[#fad000] hover:brightness-95 transition"
-                onClick={() => window.open("https://web.telegram.org/a/#-1002393239074_1", "_blank")}
+                className="btn-primary"
+                onClick={() => window.open('https://t.me/', '_blank', 'noopener,noreferrer')}
               >
-                {t("community.join.telegram")}
+                Join Telegram Group
               </Button>
             </div>
           </div>
@@ -682,7 +666,9 @@ export default function Homepage() {
           </div>
 
           {/* 合作行动号召 */}
+         
           <div className="text-center">
+            
             <div className="rounded-3xl p-8 max-w-2xl mx-auto border border-white/60 bg-white/60 backdrop-blur">
               <h3 className="text-xl font-bold text-black mb-4">
                 {t("partners.join_us")}

@@ -21,7 +21,8 @@ import {
   ExternalLink,
   Send,
   Phone,
-  ArrowRight
+  ArrowRight,
+  Target
 } from "lucide-react";
 
 // Custom Twitter X Icon Component
@@ -155,7 +156,7 @@ export default function About() {
       name: "Prof. Michael Yang, PhD",
       titleKey: "about.team.title.michael",
       roleKey: "about.team.role.michael",
-      image: "/api/placeholder/200/200",
+      image: "/homepage/people1.jpg",
       linkedin: "#",
       twitter: "#",
       email: "#"
@@ -164,7 +165,7 @@ export default function About() {
       name: "Prof. YoSean Wang, PhD", 
       titleKey: "about.team.title.yosean",
       roleKey: "about.team.role.yosean",
-      image: "/api/placeholder/200/200",
+      image: "/homepage/people2.jpg",
       linkedin: "#",
       twitter: "#",
       email: "#"
@@ -173,7 +174,7 @@ export default function About() {
       name: "Zhiwei Bao, PhD",
       titleKey: "about.team.title.zhiwei",
       roleKey: "about.team.role.zhiwei",
-      image: "/api/placeholder/200/200",
+      image: "/homepage/people3.jpg",
       linkedin: "#",
       twitter: "#",
       email: "#"
@@ -181,7 +182,7 @@ export default function About() {
     {
       name: "Aspire Cao",
       titleKey: "about.team.title.aspire",
-      image: "/api/placeholder/200/200",
+      image: "/homepage/people4.jpg",
       linkedin: "#",
       twitter: "#",
       email: "#"
@@ -189,7 +190,7 @@ export default function About() {
     {
       name: "Jennifer Cheng Lo",
       titleKey: "about.team.title.jennifer",
-      image: "/api/placeholder/200/200",
+      image: "/homepage/people5.jpg",
       linkedin: "#",
       twitter: "#",
       email: "#"
@@ -197,7 +198,7 @@ export default function About() {
     {
       name: "Jonathan Hakim",
       titleKey: "about.team.title.jonathan",
-      image: "/api/placeholder/200/200",
+      image: "/homepage/people6.png",
       linkedin: "#",
       twitter: "#",
       email: "#"
@@ -205,104 +206,224 @@ export default function About() {
     {
       name: "Daqi Lee",
       titleKey: "about.team.title.daqi",
-      image: "/api/placeholder/200/200",
+      image: "/homepage/people1.jpg",
       linkedin: "#",
       twitter: "#",
       email: "#"
     }
   ];
 
+  // Fallback real avatars from public assets
+  const fallbackAvatars = [
+    "/homepage/people1.jpg",
+    "/homepage/people2.jpg",
+    "/homepage/people3.jpg",
+    "/homepage/people4.jpg",
+    "/homepage/people5.jpg",
+    "/homepage/people6.png",
+  ];
+
   
 
   return (
-    <div id="top" className="min-h-screen py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="top" className="min-h-screen ">
+      {/* Hero（仅本区使用背景） */}
+      <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
+        {/* 背景层：图片 + 渐变遮罩 */}
+        <div
+          aria-hidden
+          className="absolute inset-0 z-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(/about_background.png)', backgroundPosition: 'center 40%' }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 z-0 bg-gradient-to-b from-[#f7c1cf]/70 via-[#e3dbfb]/65 to-[#ffd89a]/70"
+        />
+        <div className="relative z-10 max-w-5xl md:max-w-6xl lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Hero Section */}
-        <div className="text-center mb-20">
-          <h1 className="text-4xl lg:text-5xl font-bold text-black mb-8">
+        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+          <h1 className="text-4xl lg:text-5xl font-bold text-black mb-6 lg:mb-8 drop-shadow-[0_2px_2px_rgba(0,0,0,0.15)] font-serif tracking-tight">
             {t('about.title') || 'About CancerDAO'}
           </h1>
-          <p className="text-xl text-black max-w-4xl mx-auto leading-relaxed mb-8">
+          <p className="text-lg sm:text-xl text-black max-w-2xl sm:max-w-3xl mx-auto leading-relaxed md:leading-8 mb-2 sm:mb-4 lg:mb-6">
             {t('about.hero.description') || 'We are a global community of scientists, technologists, and visionaries united by one mission: to create a world where cancer is no longer a death sentence. Through the power of AI, blockchain technology, and collective intelligence, we are revolutionizing how we prevent, detect, and treat cancer.'}
           </p>
-          <div className="flex items-center justify-center gap-2 text-black">
-            <Heart className="h-5 w-5" style={{ color: '#fc593d' }} />
-            <span className="font-semibold">{t('about.hero.tagline') || 'Together, we are building hope through science.'}</span>
-          </div>
+          
         </div>
+        </div>
+        {/* Hero 底部白色渐隐，过渡到内容区 */}
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 z-0 bg-gradient-to-b from-transparent to-white" />
+      </section>
 
-        {/* Mission Section */}
+      {/* 主体内容容器 */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Mission + Vision Section */}
         <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-black mb-4">
-              {t('about.mission.title') || 'Our Mission'}
-            </h2>
-            <p className="text-xl text-black max-w-3xl mx-auto">
-              {t('about.mission.subtitle') || 'Transforming cancer care through innovation, collaboration, and unwavering determination.'}
-            </p>
-          </div>
+          
+          
 
-          <div className="rounded-3xl p-8 mb-12" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)' }}>
-            <div className="max-w-4xl mx-auto text-center">
-              <Zap className="h-12 w-12 mx-auto mb-6 text-black" />
-              <h3 className="text-2xl font-bold text-black mb-6">
-                {t('about.vision.title') || 'Our Vision'}
-              </h3>
-              <p className="text-lg text-black leading-relaxed">
-                {t('about.vision.description') || 'We envision a future where every individual has access to personalized, AI-powered cancer prevention and treatment. A world where medical data is secure, transparent, and serves the greater good. Where breakthrough discoveries are accelerated through global collaboration, and where no one faces cancer alone.'}
-              </p>
+          {/* 背景带 + 双列卡片 */}
+          <div className="rounded-[32px]  p-4 sm:p-6 lg:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {/* Mission Card - 浅色卡片 */}
+            <div className="rounded-[28px] bg-white/95 backdrop-blur p-6 sm:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)] ring-1 ring-black/5">
+              <div className="flex items-start gap-4">
+                <div className="shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center bg-black/5">
+                  <Zap className="w-8 h-8 text-black"/>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-black mb-3 font-serif tracking-tight">{t('about.mission.title') || 'Our Mission'}</h3>
+                  <p className="text-black/80 leading-relaxed">
+                    {t('about.mission.subtitle') || 'Transforming cancer care through innovation, collaboration, and unwavering determination.'}
+                  </p>
+                </div>
+              </div>
             </div>
+
+            {/* Vision Card - 渐变卡片 */}
+            <div className="rounded-[28px] p-6 sm:p-8 shadow-[0_12px_36px_rgba(121,90,255,0.18)] ring-1 ring-white/60"
+                 style={{ background: 'linear-gradient(180deg, #eef0ff 0%, #e7d1ff 55%, #d9c8ff 100%)' }}>
+              <div className="flex items-start gap-4">
+                <div className="shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center bg-white/80">
+                  <Target className="w-8 h-8 text-black" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-black mb-3 font-serif tracking-tight">{t('about.vision.title') || 'Our Vision'}</h3>
+                  <p className="text-black leading-relaxed">
+                    {t('about.vision.description') || 'We envision a future where every individual has access to personalized, AI-powered cancer prevention and treatment. A world where medical data is secure, transparent, and serves the greater good. Where breakthrough discoveries are accelerated through global collaboration, and where no one faces cancer alone.'}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
           </div>
         </section>
 
         
 
         {/* Team Section */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-black mb-4">
-              {t('about.team.title') || 'Our Team'}
-            </h2>
-            <p className="text-xl text-black max-w-3xl mx-auto">
-              {t('about.team.subtitle') || 'Meet the visionaries and experts driving our mission forward.'}
-            </p>
-          </div>
+        <section className="relative overflow-hidden mb-20 py-16 sm:py-20 lg:py-24 rounded-3xl bg-gradient-to-b from-white via-[#F3F0FE] to-[#EAE3FA]">
+          {/* 背景叠加图层 */}
+          <div
+            aria-hidden
+            className="absolute inset-0 z-0 opacity-40 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: 'url(/homepage/background.png)', filter: 'brightness(1.05) contrast(0.95)' }}
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-0">
-                  <div className="text-center mb-6">
-                    <div className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-black" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
-                      {member.name.split(' ')[0][0]}{member.name.split(' ')[1] ? member.name.split(' ')[1][0] : ''}
-                    </div>
-                    <h3 className="text-lg font-bold text-black mb-1">
-                      {member.name}
-                    </h3>
-                    <Badge className="mb-2 text-black" style={{ backgroundColor: '#e7d1ff' }}>
-                      {t(member.titleKey)}
-                    </Badge>
-                    {member.roleKey && (
-                      <div className="text-sm font-semibold text-black mb-3">
-                        {t(member.roleKey).split('\n').map((line, i) => (
-                          <p key={i} className="mb-1">{line}</p>
-                        ))}
+          {/* 内容容器 */}
+          <div className="relative z-10">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-black mb-4 font-serif tracking-tight">
+                {t('about.team.title') || 'Our Team'}
+              </h2>
+              <p className="text-xl text-black/90 max-w-3xl mx-auto">
+                {t('about.team.subtitle') || 'Meet the visionaries and experts driving our mission forward.'}
+              </p>
+            </div>
+
+            {/* Mobile: 简洁头像网格 */}
+            <div className="grid sm:hidden grid-cols-3 gap-6 place-items-center">
+              {teamMembers.slice(0,9).map((m, i) => (
+                <div key={i} className="w-20 h-20 rounded-full overflow-hidden border-2 border-white/70 shadow bg-white/60 flex items-center justify-center">
+                  {/* 如果是占位图则落到备用头像 */}
+                  {(() => {
+                    const hasRealImg = m.image && !m.image.includes('placeholder');
+                    const displayImg = hasRealImg ? m.image : fallbackAvatars[i % fallbackAvatars.length];
+                    if (displayImg) {
+                      return <img src={displayImg} alt={m.name} className="w-full h-full object-cover" loading="lazy" decoding="async" />;
+                    }
+                    return (
+                      <div className="w-full h-full flex items-center justify-center text-xl font-bold text-black" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>
+                        {m.name.split(' ')[0][0]}{m.name.split(' ')[1] ? m.name.split(' ')[1][0] : ''}
                       </div>
-                    )}
-                  </div>
+                    );
+                  })()}
+                </div>
+              ))}
+            </div>
 
-                  <div className="flex justify-center gap-2 pt-4 border-t" style={{ borderColor: '#e7d1ff' }}>
-                    <Button variant="outline" size="sm" className="p-2">
-                      <Linkedin className="h-4 w-4" />
-                    </Button>
-                    <Button variant="outline" size="sm" className="p-2">
-                      <TwitterXIcon className="h-4 w-4" />
-                    </Button>
+            {/* Desktop: 环形轨道展示 */}
+            <div className="hidden sm:block">
+              <div className="relative mx-auto w-full max-w-5xl h-[560px] sm:h-[620px] lg:h-[700px]">
+                {/* 四个同心圆：纯描边 */}
+                <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[620px] sm:size-[680px] lg:size-[760px] rounded-full border-[1.5px] border-amber-300" />
+                <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[520px] sm:size-[580px] lg:size-[640px] rounded-full border-[1.5px] border-pink-300" />
+                <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[400px] sm:size-[440px] lg:size-[480px] rounded-full border-[1.5px] border-rose-200" />
+                <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[260px] sm:size-[300px] lg:size-[320px] rounded-full border-[1.5px] border-orange-200" />
+
+                {/* 中心标志 */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center select-none">
+                  <div className="leading-tight">
+                    <img src="/homepage/people4.jpg" alt="center" className="w-16 h-16 rounded-full object-cover mx-auto mb-1 hidden" />
+                    <img src="/homepage/biglogo.png" alt="CancerDAO" className="w-20 h-20 object-contain" />
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+              </div>
+
+                {/* 头像与悬浮名片 */}
+                {teamMembers.slice(0,10).map((m, i) => {
+                  const layout = [
+                    { orbit: 3, angle: 330 }, { orbit: 3, angle: 110 },
+                    { orbit: 2, angle: 210 }, { orbit: 2, angle: 45 },
+                    { orbit: 1, angle: 160 }, { orbit: 1, angle: 350 },
+                    { orbit: 4, angle: 260 }, { orbit: 4, angle: 20 },
+                    { orbit: 2, angle: 300 }, { orbit: 3, angle: 200 },
+                  ];
+                  const { orbit, angle } = layout[i % layout.length];
+                  const translate = orbit === 4 ? 'translate-x-[282px] sm:translate-x-[312px] lg:translate-x-[348px]'
+                    : orbit === 3 ? 'translate-x-[253px] sm:translate-x-[283px] lg:translate-x-[312px]'
+                    : orbit === 2 ? 'translate-x-[193px] sm:translate-x-[213px] lg:translate-x-[232px]'
+                    : 'translate-x-[123px] sm:translate-x-[143px] lg:translate-x-[152px]';
+                  const initials = `${m.name.split(' ')[0][0]}${m.name.split(' ')[1] ? m.name.split(' ')[1][0] : ''}`;
+                  const hasRealImg = m.image && !m.image.includes('placeholder');
+                  const displayImg = hasRealImg ? m.image : fallbackAvatars[i % fallbackAvatars.length];
+                  return (
+                    <div key={`${m.name}-${i}`} className="group">
+                      <div className="absolute left-1/2 top-1/2" style={{ transform: `translate(-50%,-50%) rotate(${angle}deg)` }}>
+                        <div className={`relative transform ${translate}`}>
+                          <div style={{ transform: `rotate(${-angle}deg)` }} className="relative">
+                            {/* 头像/占位 */}
+                            {displayImg ? (
+                              <img src={displayImg} alt={m.name} className="w-14 h-14 lg:w-16 lg:h-16 rounded-full object-cover border-2 border-white/80 shadow-lg" loading="lazy" decoding="async" />
+                            ) : (
+                              <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full border-2 border-white/80 shadow-lg flex items-center justify-center text-base lg:text-lg font-bold text-black" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>{initials}</div>
+                            )}
+                            {/* 悬浮名片 */}
+                            <div className="absolute left-1/2 -translate-x-1/2 translate-y-3 hidden group-hover:block z-10">
+                              <div className="min-w-[180px] max-w-[220px] rounded-2xl bg-white/90 backdrop-blur border border-black/5 p-3 shadow-xl text-left">
+                                <div className="flex items-center gap-3 mb-2">
+                                  {displayImg ? (
+                                    <img src={displayImg} alt={m.name} className="w-10 h-10 rounded-full object-cover" />
+                                  ) : (
+                                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-black" style={{ background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' }}>{initials}</div>
+                                  )}
+                                  <div>
+                                    <div className="font-semibold text-black">{m.name}</div>
+                                    <div className="text-xs text-black/60">{t(m.titleKey)}</div>
+                                  </div>
+                                </div>
+                                <div className="flex items-center gap-2 pt-1">
+                                  <a href={m.linkedin || '#'} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-black/5 hover:bg-black/10 text-black">
+                                    <Linkedin className="w-4 h-4" />
+                                  </a>
+                                  <a href={m.twitter || '#'} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-black/5 hover:bg-black/10 text-black">
+                                    <TwitterXIcon className="w-4 h-4" />
+                                  </a>
+                                  <a href={m.email || '#'} className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-black/5 hover:bg-black/10 text-black">
+                                    <Mail className="w-4 h-4" />
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </section>
 

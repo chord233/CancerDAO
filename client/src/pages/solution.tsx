@@ -128,70 +128,85 @@ export default function Solution() {
   const [selectedPillar, setSelectedPillar] = useState<number>(0);
 
   return (
-    <div className="min-h-screen py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 页面标题部分 */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-bold text-black mb-8">
-            {t("solution.title")}
-          </h1>
-          <p className="text-xl text-black max-w-3xl mx-auto">
-            {t("solution.subtitle")}
-          </p>
-        </div>
+    <div className="min-h-screen ">
+      
+        
+        <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
+          {/* 背景层：图片 + 渐变遮罩 */}
+          <div
+            aria-hidden
+            className="absolute inset-0 z-0 bg-cover bg-center"
+            style={{ backgroundImage: "url(/solution_background.jpg)", backgroundPosition: 'center 40%' }}
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 z-0 bg-gradient-to-r from-[#f7c1cf]/70 via-[#e3dbfb]/65 to-[#ffd89a]/70"
+          />
+          <div className="relative z-10 max-w-5xl md:max-w-6xl lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-2">
+              <h1 className="text-4xl lg:text-5xl font-bold text-black mb-6 lg:mb-8 drop-shadow-[0_2px_2px_rgba(0,0,0,0.15)] font-serif tracking-tight">
+                {t("solution.title")}
+              </h1>
+              <p className="text-lg sm:text-xl text-black max-w-2xl sm:max-w-3xl mx-auto leading-relaxed md:leading-8">
+                {t("solution.subtitle")}
+              </p>
+            </div>
+          </div>
+          {/* 底部白色渐隐，过渡到内容区 */}
+          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 z-0 bg-gradient-to-b from-transparent to-white" />
+        </section>
 
         {/* 核心流程图部分 */}
-        <section className="mb-20 rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)', border: '1px solid #e7d1ff' }}>
-          <h2 className="text-3xl font-bold text-center text-black mb-12">
-            {t("solution.core.title")}
-          </h2>
+       
+          
           
           {/* CancerDAO生态系统描述 - 三个模块 */}
           <div className="max-w-6xl mx-auto mb-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* 模块1: 以患者为中心的生态系统 */}
-              <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
-                <div className="flex flex-col items-center text-center mb-4">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ backgroundColor: '#c9a4ff' }}>
-                    <Users className="h-6 w-6 text-white" />
+              <div className="bg-white rounded-2xl p-6 shadow border border-gray-200 hover:shadow-lg transition">
+                <div className="flex flex-col items-start text-left mb-4">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 border border-black/10 bg-white">
+                    <Users className="h-6 w-6 text-black" />
                   </div>
-                  <h3 className="text-lg font-bold text-black">
+                  <h3 className="text-xl font-bold text-black">
                     {t("solution.core.patient.title")}
                   </h3>
                 </div>
-                <p className="text-sm text-black leading-relaxed text-center">
+                <p className="text-sm text-black/80 leading-relaxed">
                   {t("solution.core.patient.content")}
                 </p>
               </div>
 
-              {/* 模块2: Web3 & AI技术 */}
-              <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
-                <div className="flex flex-col items-center text-center mb-4">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ backgroundColor: '#fad000' }}>
-                    <Shield className="h-6 w-6 text-white" />
+              {/* 模块2: Web3 & AI技术（渐变卡片） */}
+              <div className="rounded-2xl p-6 shadow border hover:shadow-lg transition" style={{ background: 'linear-gradient(135deg, #f5efff 0%, #efe6ff 100%)', borderColor: '#e7d1ff' }}>
+                <div className="flex flex-col items-start text-left mb-4">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 border" style={{ borderColor: '#e7d1ff', backgroundColor: '#f0e6ff' }}>
+                    <Shield className="h-6 w-6 text-black" />
                   </div>
-                  <h3 className="text-lg font-bold text-black">{t("solution.core.web3.title")}</h3>
+                  <h3 className="text-xl font-bold text-black">{t("solution.core.web3.title")}</h3>
                 </div>
-                <p className="text-sm text-black leading-relaxed text-center">
+                <p className="text-sm text-black/80 leading-relaxed">
                   {t("solution.core.web3.content")}
                 </p>
               </div>
 
               {/* 模块3: 可持续金融系统 */}
-              <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
-                <div className="flex flex-col items-center text-center mb-4">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ backgroundColor: '#fc593d' }}>
-                    <Coins className="h-6 w-6 text-white" />
+              <div className="bg-white rounded-2xl p-6 shadow border border-gray-200 hover:shadow-lg transition">
+                <div className="flex flex-col items-start text-left mb-4">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 border border-black/10 bg-white">
+                    <Coins className="h-6 w-6 text-black" />
                   </div>
-                  <h3 className="text-lg font-bold text-black">{t("solution.core.finance.title")}</h3>
+                  <h3 className="text-xl font-bold text-black">{t("solution.core.finance.title")}</h3>
                 </div>
-                <p className="text-sm text-black leading-relaxed text-center">
+                <p className="text-sm text-black/80 leading-relaxed">
                   {t("solution.core.finance.content")}
                 </p>
               </div>
             </div>
           </div>
           
+          <section className="mb-20 rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #e7d1ff 0%, #c9a4ff 100%)', border: '1px solid #e7d1ff' }}>
           {/* CancerDAO架构图 */}
           <div className="mb-16 flex justify-center">
             <div className="max-w-6xl w-full">
@@ -212,103 +227,36 @@ export default function Solution() {
             {t("solution.pillars.title")}
           </h2>
           
-          {/* 圆形选择器，带有旋转动画 */}
-          <div className="relative flex items-center justify-center mb-8">
-            {/* 三角形指示器，指向下方 */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-36 z-5 pointer-events-none">
-              <div className="w-0 h-0 border-l-[12px] border-r-[12px] border-t-[15px] border-transparent" style={{ borderTopColor: '#c9a4ff' }}></div>
-            </div>
-            
-            <div 
-              className="relative w-80 h-80 mx-auto transition-transform duration-700 ease-in-out"
-              style={{
-                transform: `rotate(${(-selectedPillar * 120) + 180}deg)`,
-              }}
-            >
-              {/* 支柱数据数组 */}
+          {/* 选项卡按钮组（替换圆形选择器） */}
+          <div className="flex justify-center mb-8">
+            <div className="flex flex-wrap items-center justify-center gap-4">
               {[
-                {
-                  id: 0,
-                  icon: Cpu,
-                  title: t("solution.ai.pillar.title"),
-                  description: t("solution.ai.pillar.description"),
-                  points: [
-                    t("solution.ai.pillar.point1"),
-                    t("solution.ai.pillar.point2"),
-                    t("solution.ai.pillar.point3")
-                  ]
-                },
-                {
-                  id: 1,
-                  icon: Users,
-                  title: t("solution.community.pillar.title"),
-                  description: t("solution.community.pillar.description"),
-                  points: [
-                    t("solution.community.pillar.point1"),
-                    t("solution.community.pillar.point2"),
-                    t("solution.community.pillar.point3")
-                  ]
-                },
-                {
-                  id: 2,
-                  icon: Shield,
-                  title: t("solution.blockchain.pillar.title"),
-                  description: t("solution.blockchain.pillar.description"),
-                  points: [
-                    t("solution.blockchain.pillar.point1"),
-                    t("solution.blockchain.pillar.point2"),
-                    t("solution.blockchain.pillar.point3")
-                  ]
-                }
-              ].map((pillar, index) => {
-                // 计算位置 - 选中的支柱应该在底部(90°)
-                const baseAngle = (index * 120) - 90; // 基础角度: -90, 30, 150度
-                const radius = 120;
-                const x = Math.cos(baseAngle * Math.PI / 180) * radius;
-                const y = Math.sin(baseAngle * Math.PI / 180) * radius;
-                
-                return (
-                  <div
-                    key={pillar.id}
-                    className={`absolute cursor-pointer transition-all duration-300 ${
-                      selectedPillar === pillar.id 
-                        ? 'z-20' 
-                        : 'z-10 hover:scale-110'
-                    }`}
-                    style={{
-                      left: `calc(50% + ${x}px)`,
-                      top: `calc(50% + ${y}px)`,
-                      transform: `translate(-50%, -50%) rotate(${(selectedPillar * 120) - 180}deg)`,
-                    }}
-                    onClick={() => setSelectedPillar(pillar.id)}
-                  >
-                    <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
-                      selectedPillar === pillar.id 
-                        ? 'shadow-2xl' 
-                        : 'shadow-md'
-                    }`} style={{ 
-                      background: selectedPillar === pillar.id 
-                        ? 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)' 
-                        : '#c9a4ff'
-                    }}>
-                      <pillar.icon className="h-8 w-8 text-black" />
-                    </div>
-                    <div className="text-center mt-3">
-                      <h3 className="text-sm font-bold text-black transition-all duration-300">
-                        {pillar.title}
-                      </h3>
-                    </div>
+                { id: 1, icon: Users, label: t('solution.community.pillar.title') },
+                { id: 0, icon: Cpu, label: t('solution.ai.pillar.title') },
+                { id: 2, icon: Shield, label: t('solution.blockchain.pillar.title') },
+              ].map(tab => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setSelectedPillar(tab.id)}
+                  className={`relative px-5 sm:px-6 py-3 rounded-3xl border transition shadow ${
+                    selectedPillar === tab.id
+                      ? 'text-black shadow-lg'
+                      : 'bg-white border-black/10 hover:shadow-md'
+                  }`}
+                  style={selectedPillar === tab.id ? { background: 'linear-gradient(135deg, #c9a4ff 0%, #e7d1ff 100%)', borderColor: '#e7d1ff' } : {}}
+                >
+                  <div className="flex items-center gap-2">
+                    <tab.icon className="h-5 w-5 text-black" />
+                    <span className="text-sm sm:text-base font-semibold">{tab.label}</span>
                   </div>
-                );
-              })}
+                </button>
+              ))}
             </div>
           </div>
 
-          {/* 选中的支柱详情 - 与上面的选择器关联 */}
+        
           <div className="max-w-4xl mx-auto relative">
-            {/* 连接到选中支柱的线条 */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 w-0.5 h-8 z-10" style={{ backgroundColor: '#c9a4ff' }}></div>
-            
             <Card className="p-8 bg-white shadow-lg transition-all duration-500 rounded-t-3xl" style={{ border: '1px solid #e7d1ff' }}>
               <CardContent className="p-0">
                 {(() => {
@@ -324,111 +272,82 @@ export default function Solution() {
                             {t("ai.powered.health.description")}
                           </p>
                         </div>
-                        
-                        {/* AI解析流程演示区 */}
-                        <div className="mb-8">
-                          <div className="flex items-center justify-center mb-6">
-                            <Cpu className="h-8 w-8 mr-4" style={{ color: '#c9a4ff' }} />
-                            <h4 className="text-xl font-bold text-black">
-                              {t("ai.analysis.process.title")}
-                            </h4>
-                          </div>
-                          
-                          {/* 流程步骤 */}
-                          <div className="flex items-center justify-center space-x-6 mb-8">
-                            <div className="flex flex-col items-center">
-                              <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: '#e7d1ff' }}>
-                                <Upload className="h-6 w-6" style={{ color: '#c9a4ff' }} />
-                              </div>
-                              <p className="mt-3 text-sm text-black font-semibold">{t("ai.analysis.step1")}</p>
-                            </div>
-                            
-                            <ArrowRight className="h-6 w-6" style={{ color: '#c9a4ff' }} />
-                            
-                            <div className="flex flex-col items-center">
-                              <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: '#e7d1ff' }}>
-                                <Brain className="h-6 w-6" style={{ color: '#c9a4ff' }} />
-                              </div>
-                              <p className="mt-3 text-sm text-black font-semibold">{t("ai.analysis.step2")}</p>
-                            </div>
-                            
-                            <ArrowRight className="h-6 w-6" style={{ color: '#c9a4ff' }} />
-                            
-                            <div className="flex flex-col items-center">
-                              <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: '#e7d1ff' }}>
-                                <BarChart3 className="h-6 w-6" style={{ color: '#c9a4ff' }} />
-                              </div>
-                              <p className="mt-3 text-sm text-black font-semibold">{t("ai.analysis.step3")}</p>
-                            </div>
-                            
-                            <ArrowRight className="h-6 w-6" style={{ color: '#c9a4ff' }} />
-                            
-                            <div className="flex flex-col items-center">
-                              <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: '#e7d1ff' }}>
-                                <UserCheck className="h-6 w-6" style={{ color: '#c9a4ff' }} />
-                              </div>
-                              <p className="mt-3 text-sm text-black font-semibold">{t("ai.analysis.step4")}</p>
-                            </div>
-                          </div>
-                        </div>
 
-                        {/* 视频演示 */}
-                        <div className="mb-8 flex justify-center">
-                          <div className="max-w-xs mx-auto">
-                            <video 
-                              src="/attached_assets/视频2.mp4"
-                              autoPlay 
-                              loop 
-                              muted 
-                              playsInline
-                              className="w-full h-auto rounded-lg shadow-md"
-                            />
-                          </div>
-                        </div>
+                        {/* 容器：浅紫背景的大卡片 */}
+                        <div className="rounded-3xl border" style={{ borderColor: '#e7d1ff', background: '#f6f1ff' }}>
+                          <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
+                            {/* 左列： */}
+                            <div>
+                              <div className="flex items-center mb-6">
+                                <Cpu className="h-7 w-7 mr-3" style={{ color: '#c9a4ff' }} />
+                                <h4 className="text-lg md:text-xl font-bold text-black">
+                                  {t("ai.analysis.process.title")}
+                                </h4>
+                              </div>
 
-                        {/* AI Agent产品矩阵 */}
-                        <div className="text-center mb-6">
-                          <h4 className="text-xl font-bold text-black mb-6">
-                            {t("ai.agent.matrix.title")}
-                          </h4>
-                        </div>
-                        
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                          {/* Report Bot */}
-                          <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
-                            <div className="flex items-start mb-3">
-                              <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
-                                <FileText className="h-5 w-5 text-white" />
-                              </div>
-                              <div className="flex-1">
-                                <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.report.name")}</h5>
-                                <p className="text-xs text-gray-600 mb-2">{t("ai.agent.report.description")}</p>
+                              
+
+                              {/* 视频 */}
+                              <div className="flex justify-center">
+                                <div className="w-full max-w-[260px]">
+                                  <video
+                                    src="/attached_assets/视频2.mp4"
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    className="w-full h-auto rounded-lg shadow-md"
+                                  />
+                                </div>
                               </div>
                             </div>
-                            <div className="flex items-center justify-between">
-                              <Badge className="text-black text-xs" style={{ backgroundColor: '#fad000' }}>
-                                {t("ai.agent.report.status")}
-                              </Badge>
-                              <span className="text-xs text-gray-500">Agent</span>
-                            </div>
-                          </div>
-                          
-                          {/* AMA Bot */}
-                          <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200">
-                            <div className="flex items-start mb-3">
-                              <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
-                                <HelpCircle className="h-5 w-5 text-white" />
+
+                            {/* 右列：AI Agent 产品卡片 */}
+                            <div>
+                              <div className="mb-6">
+                                <h4 className="text-lg md:text-xl font-bold text-black">
+                                  {t("ai.agent.matrix.title")}
+                                </h4>
                               </div>
-                              <div className="flex-1">
-                                <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.ama.name")}</h5>
-                                <p className="text-xs text-gray-600 mb-2">{t("ai.agent.ama.description")}</p>
+                              <div className="space-y-4">
+                                {/* Report Bot */}
+                                <div className="bg-white rounded-xl p-4 shadow-md border border-gray-200">
+                                  <div className="flex items-start mb-3">
+                                    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
+                                      <FileText className="h-5 w-5 text-white" />
+                                    </div>
+                                    <div className="flex-1">
+                                      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.report.name")}</h5>
+                                      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.report.description")}</p>
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center justify-between">
+                                    <Badge className="text-black text-xs" style={{ backgroundColor: '#fad000' }}>
+                                      {t("ai.agent.report.status")}
+                                    </Badge>
+                                    <span className="text-xs text-gray-500">Agent</span>
+                                  </div>
+                                </div>
+
+                                {/* AMA Bot */}
+                                <div className="bg-white rounded-xl p-4 shadow-md border border-gray-200">
+                                  <div className="flex items-start mb-3">
+                                    <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: '#c9a4ff' }}>
+                                      <HelpCircle className="h-5 w-5 text-white" />
+                                    </div>
+                                    <div className="flex-1">
+                                      <h5 className="text-base font-bold text-black mb-1">{t("ai.agent.ama.name")}</h5>
+                                      <p className="text-xs text-gray-600 mb-2">{t("ai.agent.ama.description")}</p>
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center justify-between">
+                                    <Badge className="text-black text-xs" style={{ backgroundColor: '#fad000' }}>
+                                      {t("ai.agent.ama.status")}
+                                    </Badge>
+                                    <span className="text-xs text-gray-500">Agent</span>
+                                  </div>
+                                </div>
                               </div>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <Badge className="text-black text-xs" style={{ backgroundColor: '#fad000' }}>
-                                {t("ai.agent.ama.status")}
-                              </Badge>
-                              <span className="text-xs text-gray-500">Agent</span>
                             </div>
                           </div>
                         </div>
@@ -737,6 +656,6 @@ export default function Solution() {
           </div>
         </div>
       </div>
-    </div>
+    
   );
 }
